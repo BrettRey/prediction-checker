@@ -36,6 +36,10 @@ Filled 2026-10-03 from forecast-side sources only. Paragraph numbers and printed
 | B4 | Morrison, reporting *Near Term Prospects for Local TV in Canada* (Nordicity–Miller, 5 November 2015; not retrieved) | "up to half of local stations in small and medium markets ... will fade to black by 2020 in the absence of CRTC action. This would lead to an estimated 910 layoffs ... When large market local stations are included, the study projects job losses of 3,490." | A separate forecast, conditional on no CRTC action | (0900)–(0905) [T17] |
 | B5 | Miller | "We predict that within four or five years, there won't be enough money." (local-TV revenue gap against the CRTC's proposed reallocation) | Not a quantity in A | (0925)–(0930) [T18] |
 
+## Outcomes (preliminary)
+
+Rules in `../../notes/analysis-plan.md`; generated results in `../../notes/results-lttv.md`; choices made after seeing the data are marked [post hoc] in `DECISIONS.md`. Specialty/pay revenue stayed at or above the report's technology-only baseline through 2019 (*k* = 0.12); BDU revenue fell below even the LTTV path (*k* = 1.30, within the cited band); BDU affiliation payments to programmers rose, so the modelled pass-through did not occur. Still to do: uptake, closures, the technology calibration (blocked on a primary Netflix source), CPE (descriptive), the released HELD rows T14–T15.
+
 ## Intervention as enacted
 
 | Field | Value | Locator |

@@ -92,3 +92,15 @@ Inward searches: qmd and full-text grep over `literature/` (queries in `notes/no
 2026-10-03 — CPE "18%" finding strengthened: none of eleven candidate denominators from Figs. 8–9 reproduces it (nearest 17.2% and 19.5%). Extractor also confirms Fig. 20 (baseline BDU revenue) matches Fig. 42 level plus impacts for 2016–2020, and records that Table 7's printed US OTT penetration for 2018–2019 (52%, 53%) doesn't match its own subscribers ÷ households (52.9%, 54.2%).
 
 2026-10-03 — `figures/design_lttv_paths.png` is an internal design figure; run `/check-chart-style` before it is used in the manuscript.
+
+## Case 2 outcomes (2026-10-03; outcome data opened after commit 66f9c25)
+
+2026-10-03 — CRTC series downloaded from open.canada.ca (Open Government Licence – Canada): Statistical and Financial Summaries, 2016 vintage (2012–2016) and 2020 vintage (2016–2020), discretionary and on-demand, distribution, individual services; CMR television data 2013–2024. Pre-stated splice rule applied: discretionary and on-demand total revenue reproduces the report's 2012–2013 values exactly and 2014 to +0.8%; BDU total revenue is 1.3–1.5% below the report in 2012–2014; both pass and are used as published. 2010–2011 aren't in these vintages. 2016–2020 values taken from the 2020 vintage.
+
+2026-10-03 — **[post hoc]** Exempt discretionary services began filing in 2016 (reporting units 228 → 307; $54.6M in 2016). They are removed from the specialty/pay series so its scope matches 2012–2015; the unadjusted total is reported beside it. Reason: a definitional break found only on opening the data.
+
+2026-10-03 — **[post hoc]** BDU affiliation payments (wholesale fees paid to programmers) added as the observable for the report's 75% pass-through assumption (¶207), which the plan had listed as probably untestable. Reason: the series turned out to exist in the distribution summaries.
+
+2026-10-03 — **[post hoc]** A sensitivity version of each revenue series rescaled to the report's 2014 level is shown beside the as-published series (the splice rule only required it on failure). Reason: BDU revenue's 1.4% level gap is a sizeable fraction of the forecast's 2–8% impact.
+
+2026-10-03 — Preliminary results (`notes/results-lttv.md`, generated): specialty/pay revenue *k* = 0.12, verdict "smaller than the forecasters' inputs imply (no detectable effect)" at baseline error ≤ 3% a year, inconclusive at ≥ 5%; BDU revenue *k* = 1.30, "consistent with the forecast range" at ≤ 3% (≤ 2% for the rescaled version), inconclusive at ≥ 5%. BDU affiliation payments rose from $3,425M (2015) to $3,579M (2019) while BDU revenue fell. Not yet read at σ_read: the technology calibration is blocked (SEC EDGAR requires a contact email in the User-Agent; netflixinvestor.com returned 403), so results stand at every SD, per reading rule 5.
