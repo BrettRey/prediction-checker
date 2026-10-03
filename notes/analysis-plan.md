@@ -41,6 +41,31 @@ Near mechanisms first, multiplier-derived totals last. Years 2016–2019 are the
 5. **Baseline error is reported as a range, not chosen.** Results for the revenue paths are given at every annual error from 1% to 8%, since how wrong the technology-only baseline was can't be known before outcomes, and the random walk is a simple stand-in that a structural break (faster cord cutting) could exceed.
 6. **Employment and GDP.** Spin-off impact has no observable and is reported as untestable; direct employment is tested only if a series with a pre-2015 level is found.
 
+**Quantity definitions, fixed before any CRTC file is opened.** Each forecast quantity has the report's own scope; the observable must match it or the gap is recorded (Kane 2026, p. 486, on forecasts stated "in units that correspond to no publicly reported statistic").
+
+| Quantity | Report's definition | Report's 2010–2014 values ($M) | Observable to use | If the observable doesn't match |
+|---|---|---|---|---|
+| Specialty and pay revenue | Advertising plus subscriber revenue of Canadian specialty services (including Category C news and sports, ¶232) and Canadian pay, PPV and VOD services; carriage fees for Canadian services only (Table 14); calendar year, else CRTC broadcast year (¶106) | 3,475; 3,748; 3,968; 4,091; 4,216 (Fig. 41) | Total revenue of Canadian discretionary and on-demand services (the CRTC's later name for specialty, pay, PPV and VOD) in CRTC aggregate financial summaries | Splice rule below |
+| BDU retail revenue | Subscription revenue from TV service of cable, DTH/MDS and IPTV distributors: subscribers × TV ARPU (¶¶138, 147, 155); excludes internet and phone | 8,129; 8,571; 8,673; 8,927; 9,054 (Figs. 20, 42) | BDU revenue from broadcasting (TV) services in CRTC BDU financial summaries | Splice rule below |
+| CPE | Programming services' CPE including CBC/SRC conventional (Fig. 9) plus BDU contributions to the CMF, independent funds and community channels (Fig. 8); LPIF excluded (¶187) | 3,183; 2,911; 3,165; 3,034; 3,324 (Fig. 43) | Sum of CRTC-reported CPE for the same service groups and BDU contributions | Splice rule below; CPE stays descriptive regardless |
+| Unbundled uptake | "BYOP subscribers as a share of total subscribers" (Table 18): subscribers on the $25 entry-level service plus discretionary picks | none (0% in 2015) | Share of BDU TV subscribers on the entry-level service, with or without add-ons, from CRTC data | If no CRTC series: company disclosures, reported as partial coverage. If none: untestable, said so |
+| Closures | Share of 2015 services shut by 2020: vertically integrated Category A/B, independent A/B, pay/PPV/VOD, Category C (¶¶232–233) | — | Services that stopped operating (no longer distributed or reporting revenue), 2016–2020, over the count operating in 2015, by ownership and category | Licence status alone isn't closure (small services were later exempted from licensing); count operation |
+
+**Splice rule.** If a CRTC series reproduces the report's 2010–2014 values to within 2% in every year, it is used as is. Otherwise it is rescaled by the 2014 ratio of the report's value to the CRTC value, both versions are reported, and the definitional gap is described. The data vintage (release date) of every series is recorded; later revisions to 2014 move the random walk's starting point and are reported.
+
+**What the outcome estimate is.** For each revenue quantity, the observed gap below the report's baseline is modelled as a multiple *k* of the report's own impact path, log B_t − log Y_t = k·δ_t + e_t, with e_t the baseline-error random walk of the design analysis, estimated over 2016–2019 by generalized least squares at each annual error SD. *k* = 0 is no effect; *k* = 1 is the report's forecast.
+
+**Verdict bands, fixed now.** The forecasters' cited input range gives a band of *k*: the low-cited and high-cited scenarios of the design analysis expressed as multiples of the report's impact path (computed by the outcome script with the same scaling). With a 95% interval for *k*:
+
+- interval includes both 0 and the low end of the band: **inconclusive**;
+- interval entirely below the band: **effect smaller than the forecasters' own inputs imply** (and "no detectable effect" if it includes 0);
+- interval overlaps the band: **consistent with the forecast range**, stating whether it includes *k* = 1;
+- interval entirely above the band: **forecast exceeded**, i.e. revenue fell further than forecast. An outcome below the LTTV path is never reported as confirming the forecast.
+
+Uptake and closures are read directly against the report's values and the cited ranges (uptake below 10%, 10–35%, above 35%; closures of vertically integrated A/B services below 10%, 10–26%, above 26%).
+
+**Technology-forecast calibration (policy-independent).** The baseline's own error is the main threat, and it may be directional: if streaming took hold faster than assumed, revenue falls below the baseline with no policy effect, and the path test leans towards "F". The report's US forecasts couldn't be affected by Canadian regulation. Its Table 7 forecasts US Netflix subscribers (Trefis) of 51.0M, 54.8M, 57.0M and 58.7M for 2016–2019 (`data/derived/nordicity_2015_us_ott_forecast.csv`). The observable is Netflix's reported US paid streaming memberships at year end, from its annual reports. Rule: σ_tech = |log(observed 2018 / forecast 2018)| / √4. The main table is *read* at σ_read = max(historical SD, σ_tech), and results at every SD are still shown. If observed exceeds forecast, the write-up says the baseline was likely too optimistic about TV revenue and that the direction favours finding an effect. Table 7's composite OTT penetration is not used as the observable, because penetration definitions differ across sources (and Table 7's printed 2018–2019 rates don't match its own subscribers ÷ households).
+
 ## Case 1 (second): GNDA and life-insurance premiums
 
 **Forecasts tested separately** (case file, sections A–B): the model (experience +36% / +58% at a $1M threshold, premium unquantified); B1 (+30% / +50%, "could", no timing); B2 ("likely", "soon after"); B3 (term life, "over time"); B4 (experience, more than a decade).

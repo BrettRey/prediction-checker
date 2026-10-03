@@ -42,7 +42,9 @@ FIGURES = {
     41: (90, ["lttv_level", "unbundling", "preponderance_access", "exemption_order", "closures"]),
     42: (91, ["lttv_level", "unbundling", "exemption_order", "closures"]),
     43: (92, ["lttv_level", "programming_services_cpe", "bdu_contributions"]),
+    20: (62, ["baseline_level"]),
 }
+FIGURE_YEARS = {20: list(range(2007, 2021))}
 
 # Labels the chart nudged sideways off their own bar, found by listing every label
 # more than half a column from the nearest tick. Keyed by (figure, value, rounded x).
@@ -85,13 +87,14 @@ def figure_band(words, fig):
 
 
 def extract(fig, page, series):
+    years = FIGURE_YEARS.get(fig, YEARS)
     words = words_on(page)
     top, bottom = figure_band(words, fig)
     ticks = [(x, 2000 + int(TICK.match(w).group(1)))
              for x, y, w in words if top < y < bottom + 40 and TICK.match(w)]
     ticks = sorted(set(ticks))
-    if [yr for _, yr in ticks] != YEARS:
-        sys.exit(f"Figure {fig}: expected ticks 2010-2020, got {[yr for _, yr in ticks]}")
+    if [yr for _, yr in ticks] != years:
+        sys.exit(f"Figure {fig}: expected ticks {years[0]}-{years[-1]}, got {[yr for _, yr in ticks]}")
     xs = [x for x, _ in ticks]
     half = (xs[1] - xs[0]) / 2
     cols = defaultdict(list)
@@ -107,9 +110,9 @@ def extract(fig, page, series):
             continue
         j = min(range(len(xs)), key=lambda k: abs(xs[k] - x))
         if abs(xs[j] - x) <= half:
-            cols[YEARS[j]].append((y, val, x))
+            cols[years[j]].append((y, val, x))
     rows = []
-    for yr in YEARS:
+    for yr in years:
         stack = sorted(cols[yr], key=lambda t: -t[0])  # lowest on page first
         if len(stack) > len(series):
             sys.exit(f"Figure {fig}, {yr}: {len(stack)} labels for {len(series)} series")
@@ -117,6 +120,27 @@ def extract(fig, page, series):
             rows.append(dict(figure=fig, pdf_page=page, printed_page=page - 4,
                              year=yr, series=name, value=v, x=round(x, 1), y=round(y, 1)))
     return rows
+
+
+def table7():
+    """Report's US forecasts (Table 7, PDF p. 55): Netflix subscribers (Trefis),
+    composite OTT subscribers, households, penetration. Policy-independent."""
+    txt = subprocess.run(["pdftotext", "-layout", "-f", "55", "-l", "55", str(PDF), "-"],
+                         check=True, capture_output=True, text=True).stdout
+    def nums(label_regex, pct=False):
+        line = next(l for l in txt.splitlines() if re.search(label_regex, l))
+        vals = re.findall(r"(\d+(?:\.\d+)?)%" if pct else r"(?<![\d.])(\d+\.\d)(?![\d%])", line)
+        return [float(v) for v in vals]
+    out = {
+        "us_netflix_subscribers_m": nums(r"^\s*\(M\)\s+45\.5"),
+        "us_ott_subscribers_composite_m": nums(r"subscribers \(M\)†"),
+        "us_households_m": nums(r"US households"),
+        "us_ott_penetration": [v / 100 for v in nums(r"Penetration rate", pct=True)],
+    }
+    for k, v in out.items():
+        if len(v) != 6:
+            sys.exit(f"Table 7 {k}: expected 6 values for 2015-2020, got {v}")
+    return out
 
 
 def main():
@@ -244,6 +268,26 @@ def main():
             checks.append((f"level fig {partial} - fig {full} = {'+'.join(omitted)} ({yr})",
                            "ok" if good else (lp, lf, om), "ok"))
 
+    # Fig. 20 is the baseline BDU revenue figure; it should match level + impacts.
+    for yr in range(2016, 2021):
+        f20 = get(20, yr, "baseline_level")
+        derived = row("bdu_revenue", yr)["baseline_level"]
+        checks.append((f"Fig. 20 baseline BDU revenue {yr} = Fig. 42 level + impacts",
+                       "ok" if f20 is not None and abs(f20 - derived) <= 1 else (f20, derived), "ok"))
+
+    t7 = table7()
+    with open(OUT / "nordicity_2015_us_ott_forecast.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["year"] + list(t7))
+        for i, yr in enumerate(range(2015, 2021)):
+            w.writerow([yr] + [t7[k][i] for k in t7])
+    t7_notes = []
+    for i, yr in enumerate(range(2015, 2021)):
+        pen = t7["us_ott_subscribers_composite_m"][i] / t7["us_households_m"][i]
+        if abs(pen - t7["us_ott_penetration"][i]) > 0.005 + 1e-9:
+            t7_notes.append(f"Table 7 {yr}: printed penetration {t7['us_ott_penetration'][i]:.2f}, "
+                            f"composite / households = {pen:.3f}")
+
     ok = True
     for name, got, want in checks:
         flag = "ok" if got == want else "MISMATCH"
@@ -254,6 +298,28 @@ def main():
         if f8 is not None and f9 is not None:
             print(f"{'note':8} baseline CPE {yr} from Figs. 8+9 (baseline scenario): {f8} + {f9} = {f8 + f9}; "
                   f"Fig. 43 baseline {row('cpe', yr)['baseline_level']}")
+    for n in t7_notes:
+        print(f"{'note':8} {n}")
+    yr = 2020
+    f9 = {k: get(9, yr, k) for k in ("specialty", "cbc_src_conventional", "private_conventional", "pay_ppv_vod", "stack_total")}
+    f8 = get(8, yr, "stack_total")
+    imp, ps_imp = row("cpe", yr)["impact_total"], row("cpe", yr)["programming_services_cpe"]
+    cands = {
+        "all CPE (Figs. 8+9)": (imp, f9["stack_total"] + f8),
+        "programming services only": (imp, f9["stack_total"]),
+        "programming services excl. CBC/SRC": (imp, f9["stack_total"] - f9["cbc_src_conventional"]),
+        "excl. CBC/SRC, with BDU contributions": (imp, f9["stack_total"] - f9["cbc_src_conventional"] + f8),
+        "private (specialty+private conv.+pay) + BDU": (imp, f9["specialty"] + f9["private_conventional"] + f9["pay_ppv_vod"] + f8),
+        "specialty + pay": (imp, f9["specialty"] + f9["pay_ppv_vod"]),
+        "specialty only": (imp, f9["specialty"]),
+        "$352M programming-services impact / programming services": (ps_imp, f9["stack_total"]),
+        "$352M / programming services excl. CBC/SRC": (ps_imp, f9["stack_total"] - f9["cbc_src_conventional"]),
+        "$352M / specialty + pay": (ps_imp, f9["specialty"] + f9["pay_ppv_vod"]),
+        "$399M / 2020 LTTV-scenario CPE (Fig. 43 level)": (imp, row("cpe", yr)["lttv_level"]),
+    }
+    print(f"{'note':8} Fig. 9 2020 components: {f9}; Fig. 8 2020 total: {f8}")
+    for name, (num, den) in cands.items():
+        print(f"{'cpe18':8} {name}: {num}/{den} = {num / den:.3f}")
     for q, stated, para in [("specialty_pay_revenue", 0.23, "¶235"), ("bdu_revenue", 0.09, "¶237"),
                             ("cpe", 0.18, "¶239")]:
         r = row(q, 2020)
