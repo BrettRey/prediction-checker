@@ -15,7 +15,7 @@ claim:
 ---
 
 # Prediction checker
-<!-- SUMMARY: audit of a forecast put to Parliament (CRTC Let's Talk TV); full EJW draft assembled (intro, method, results, links incl. employment, discussion; 21 pp. with 2 figures and appendix tables A1–A8), three Elicit review rounds implemented, results led by k and its SE, numbers and inference audits run (Codex xhigh) and applied, mechanism question answered by a post hoc split of distributors' revenue; second-model recheck of that split pending, venue record approved; GNDA split off as a later paper; nothing pushed · status: development (drafting for EJW) · updated: 2026-10-03 -->
+<!-- SUMMARY: audit of a forecast put to Parliament (CRTC Let's Talk TV); full EJW draft assembled (intro, method, results, links incl. employment, discussion; 21 pp. with 2 figures and appendix tables A1–A8), three Elicit review rounds implemented, results led by k and its SE, numbers and inference audits run (Codex xhigh) and applied, mechanism question addressed by a post hoc split of distributors' revenue (rechecked by Codex, fixes applied; numbers and inference passes current), venue record approved; GNDA split off as a later paper; nothing pushed · status: development (drafting for EJW) · updated: 2026-10-03 -->
 
 ## State
 
