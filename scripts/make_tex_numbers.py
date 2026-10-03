@@ -61,6 +61,16 @@ fte_bcast = tf[("sector_fte_total_broadcasting_sector", 2020)]
 M["lttvFTEConv"] = money(fte_conv)
 M["lttvFTEBroadcast"] = money(fte_bcast)
 M["lttvFTEBroadcastComponents"] = money(fte_bdu + fte_spec + fte_conv)
+# the report's two splits of the total (paras. 246, 248, 250): direct and spin-off within each sector of origin
+fte_bcast_d = tf[("sector_fte_total_broadcasting_sector_direct", 2020)]
+fte_prod_d = tf[("sector_fte_independent_production_direct", 2020)]
+assert fte_bcast_d + fte_prod_d == tf[("table1_employment_direct", 2020)]
+assert (fte_bcast - fte_bcast_d) + (fte_prod - fte_prod_d) == tf[("table1_employment_spin-off", 2020)]
+M["lttvFTEBroadcastDirect"] = money(fte_bcast_d)
+M["lttvFTEBroadcastSpin"] = money(fte_bcast - fte_bcast_d)
+M["lttvFTEProdDirect"] = money(fte_prod_d)
+M["lttvFTEProdSpin"] = money(fte_prod - fte_prod_d)
+M["lttvFTEBroadcastGap"] = money(fte_bdu + fte_spec + fte_conv - fte_bcast)
 M["lttvFTESpecProdShare"] = pct((fte_spec + fte_prod) / tf[("table1_employment_total", 2020)])
 for q, tag in (("specialty_pay_revenue", "Spec"), ("bdu_revenue", "BDU"), ("cpe", "CPE")):
     r = sc[(q, 2020)]

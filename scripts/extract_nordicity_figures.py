@@ -190,6 +190,10 @@ def text_facts():
     l23 = next(l for l in p96.splitlines() if l.strip().startswith("Total") and "(" in l and "Employment" not in l
                and p96.splitlines().index(l) > next(i for i, x in enumerate(p96.splitlines()) if "Employment (FTEs)" in x))
     sectors["Independent production"] = [float(v.replace(",", "")) for v in re.findall(r"\(?([\d,]+)\)?", l23.strip()[len("Total"):])]
+    lines96 = p96.splitlines()
+    i_emp96 = next(i for i, x in enumerate(lines96) if "Employment (FTEs)" in x)
+    d23 = next(l for l in lines96[i_emp96:] if l.strip().startswith("Direct"))
+    sectors["Independent production (direct)"] = [float(v.replace(",", "")) for v in re.findall(r"\(?([\d,]+)\)?", d23.strip()[len("Direct"):])]
     # Table 14 (PDF p. 71): baseline average monthly carriage fees per subscriber,
     # Canadian services only, 2015-2020.
     p71 = page(71)
@@ -379,6 +383,9 @@ def main():
     checks.append(("Table 23 production FTE 2020 = 7,180 (para. 248)", se.get("Independent production", [None])[-1], 7180))
     checks.append(("Table 22 BDU direct FTE 2020 = 3,110", se.get("BDUs (direct)", [None])[-1], 3110))
     checks.append(("Table 22 specialty/pay direct FTE 2020 = 870", se.get("Specialty and pay TV services (direct)", [None])[-1], 870))
+    checks.append(("Table 23 production direct FTE 2020 = 2,830 (para. 248)", se.get("Independent production (direct)", [None])[-1], 2830))
+    checks.append(("broadcasting direct + production direct = Table 1 direct (6,830)",
+                   se["Total broadcasting sector (direct)"][-1] + se["Independent production (direct)"][-1], tf["table1_employment"]["direct"][-1]))
     checks.append(("broadcasting + production = Table 1 total",
                    se["Total broadcasting sector"][-1] + se["Independent production"][-1], tf["table1_employment"]["total"][-1]))
 
@@ -414,11 +421,48 @@ def main():
     # 'what now exists' (Morrison): the report's own 2014 and 2015 CPE (Fig. 43)
     cands["$399M / 2015 CPE (Fig. 43, current at the time of testimony)"] = (imp, row("cpe", 2015)["lttv_level"])
     cands["$399M / 2014 CPE (Fig. 43, last actual year)"] = (imp, row("cpe", 2014)["lttv_level"])
+    # how each denominator is built from the components below (letters as in cpe_components_2020.csv)
+    built = {
+        "all CPE (Figs. 8+9)": "A + B",
+        "programming services only": "B",
+        "programming services excl. CBC/SRC": "B - C",
+        "excl. CBC/SRC, with BDU contributions": "B - C + A",
+        "private (specialty+private conv.+pay) + BDU": "D + E + F + A",
+        "specialty + pay": "D + F",
+        "specialty only": "D",
+        "$352M programming-services impact / programming services": "B",
+        "$352M / programming services excl. CBC/SRC": "B - C",
+        "$352M / specialty + pay": "D + F",
+        "$399M / 2020 LTTV-scenario CPE (Fig. 43 level)": "G",
+        "$399M / 2015 CPE (Fig. 43, current at the time of testimony)": "H",
+        "$399M / 2014 CPE (Fig. 43, last actual year)": "J",
+    }
+    assert set(built) == set(cands)
+    comps = [("A", "BDU contributions (CMF, independent funds, community channels), baseline 2020 (Fig. 8)", f8),
+             ("B", "Programming services, baseline 2020 (Fig. 9 stack total)", f9["stack_total"]),
+             ("C", "CBC/SRC conventional, baseline 2020 (Fig. 9)", f9["cbc_src_conventional"]),
+             ("D", "Specialty services, baseline 2020 (Fig. 9)", f9["specialty"]),
+             ("E", "Private conventional, baseline 2020 (Fig. 9)", f9["private_conventional"]),
+             ("F", "Pay, PPV and VOD, baseline 2020 (Fig. 9)", f9["pay_ppv_vod"]),
+             ("G", "Total CPE, LTTV scenario 2020 (Fig. 43)", row("cpe", yr)["lttv_level"]),
+             ("H", "Total CPE 2015 (Fig. 43)", row("cpe", 2015)["lttv_level"]),
+             ("J", "Total CPE 2014, last actual year (Fig. 43)", row("cpe", 2014)["lttv_level"]),
+             ("N1", "CPE impact 2020 (Fig. 43)", imp),
+             ("N2", "Programming-services part of the CPE impact 2020 (Fig. 43)", ps_imp)]
+    env = {k: v for k, _, v in comps}
+    for name, (num, den) in cands.items():
+        got = eval(built[name], {}, env)
+        print(f"{'ok' if got == den else 'MISMATCH':8} denominator '{name}' = {built[name]} = {got}")
+        ok &= got == den
+    with open(OUT / "cpe_components_2020.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["letter", "component", "musd"])
+        w.writerows(comps)
     with open(OUT / "cpe_share_candidates.csv", "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["denominator", "numerator_musd", "denominator_musd", "share"])
+        w.writerow(["denominator", "built_from", "numerator_musd", "denominator_musd", "share"])
         for name, (num, den) in cands.items():
-            w.writerow([name, num, den, round(num / den, 4)])
+            w.writerow([name, built[name], num, den, round(num / den, 4)])
     print(f"{'note':8} Fig. 9 2020 components: {f9}; Fig. 8 2020 total: {f8}")
     for name, (num, den) in cands.items():
         print(f"{'cpe18':8} {name}: {num}/{den} = {num / den:.3f}")

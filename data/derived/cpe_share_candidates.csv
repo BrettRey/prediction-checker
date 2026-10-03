@@ -1,14 +1,14 @@
-denominator,numerator_musd,denominator_musd,share
-all CPE (Figs. 8+9),399,3155,0.1265
-programming services only,399,2710,0.1472
-programming services excl. CBC/SRC,399,2042,0.1954
-"excl. CBC/SRC, with BDU contributions",399,2487,0.1604
-private (specialty+private conv.+pay) + BDU,399,2487,0.1604
-specialty + pay,399,1573,0.2537
-specialty only,399,1507,0.2648
-$352M programming-services impact / programming services,352,2710,0.1299
-$352M / programming services excl. CBC/SRC,352,2042,0.1724
-$352M / specialty + pay,352,1573,0.2238
-$399M / 2020 LTTV-scenario CPE (Fig. 43 level),399,2756,0.1448
-"$399M / 2015 CPE (Fig. 43, current at the time of testimony)",399,3258,0.1225
-"$399M / 2014 CPE (Fig. 43, last actual year)",399,3324,0.12
+denominator,built_from,numerator_musd,denominator_musd,share
+all CPE (Figs. 8+9),A + B,399,3155,0.1265
+programming services only,B,399,2710,0.1472
+programming services excl. CBC/SRC,B - C,399,2042,0.1954
+"excl. CBC/SRC, with BDU contributions",B - C + A,399,2487,0.1604
+private (specialty+private conv.+pay) + BDU,D + E + F + A,399,2487,0.1604
+specialty + pay,D + F,399,1573,0.2537
+specialty only,D,399,1507,0.2648
+$352M programming-services impact / programming services,B,352,2710,0.1299
+$352M / programming services excl. CBC/SRC,B - C,352,2042,0.1724
+$352M / specialty + pay,D + F,352,1573,0.2238
+$399M / 2020 LTTV-scenario CPE (Fig. 43 level),G,399,2756,0.1448
+"$399M / 2015 CPE (Fig. 43, current at the time of testimony)",H,399,3258,0.1225
+"$399M / 2014 CPE (Fig. 43, last actual year)",J,399,3324,0.12

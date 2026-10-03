@@ -3,25 +3,39 @@
 \begin{table}[htbp]
 \centering
 \small
-\caption{The report's \$399 million reduction in Canadian programming expenditure (CPE) in 2020, and its \$352 million programming-services part, as shares of every denominator built from the report's own figures (Figs.~8, 9, 43). The report states 18\% of baseline CPE (para.~239); the testimony said 18\% \enquote{of what now exists}.}
+\caption{The report's \$399 million reduction in Canadian programming expenditure (CPE) in 2020, and its \$352 million programming-services part, as shares of every denominator built from the report's own figures (Figs.~8, 9, 43). The report states 18\% of baseline CPE (para.~239); the testimony said 18\% \enquote{of what now exists}. Letters refer to the components in the lower panel.}
 \label{tab:cpe-denominators}
-\begin{tabular}{p{0.52\textwidth}rrr}
+\footnotesize
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.34\textwidth}lrrr}
 \toprule
-Denominator & Numerator (\$M) & Denominator (\$M) & Share \\
+Denominator & Built from & Numerator (\$M) & Denominator (\$M) & Share \\
 \midrule
-all CPE (Figs. 8+9) & 399 & 3,155 & 12.6\% \\
-programming services only & 399 & 2,710 & 14.7\% \\
-programming services excl. CBC/SRC & 399 & 2,042 & 19.5\% \\
-excl. CBC/SRC, with BDU contributions & 399 & 2,487 & 16.0\% \\
-private (specialty+private conv.+pay) + BDU & 399 & 2,487 & 16.0\% \\
-specialty + pay & 399 & 1,573 & 25.4\% \\
-specialty only & 399 & 1,507 & 26.5\% \\
-\$352M programming-services impact / programming services & 352 & 2,710 & 13.0\% \\
-\$352M / programming services excl. CBC/SRC & 352 & 2,042 & 17.2\% \\
-\$352M / specialty + pay & 352 & 1,573 & 22.4\% \\
-\$399M / 2020 LTTV-scenario CPE (Fig. 43 level) & 399 & 2,756 & 14.5\% \\
-\$399M / 2015 CPE (Fig. 43, current at the time of testimony) & 399 & 3,258 & 12.2\% \\
-\$399M / 2014 CPE (Fig. 43, last actual year) & 399 & 3,324 & 12.0\% \\
+All CPE, baseline 2020 & A + B & 399 & 3,155 & 12.6\% \\
+Programming services & B & 399 & 2,710 & 14.7\% \\
+Programming services excl. CBC/SRC & B \textminus{} C & 399 & 2,042 & 19.5\% \\
+Programming services excl. CBC/SRC, plus BDU contributions & B \textminus{} C + A & 399 & 2,487 & 16.0\% \\
+Private services plus BDU contributions & D + E + F + A & 399 & 2,487 & 16.0\% \\
+Specialty and pay & D + F & 399 & 1,573 & 25.4\% \\
+Specialty & D & 399 & 1,507 & 26.5\% \\
+Programming services & B & 352 & 2,710 & 13.0\% \\
+Programming services excl. CBC/SRC & B \textminus{} C & 352 & 2,042 & 17.2\% \\
+Specialty and pay & D + F & 352 & 1,573 & 22.4\% \\
+All CPE, LTTV scenario 2020 & G & 399 & 2,756 & 14.5\% \\
+All CPE 2015 (current at the testimony) & H & 399 & 3,258 & 12.2\% \\
+All CPE 2014 (last actual year) & J & 399 & 3,324 & 12.0\% \\
+\midrule
+\multicolumn{5}{l}{\textit{Components} (\$M)} \\
+\multicolumn{4}{l}{A\quad BDU contributions (CMF, independent funds, community channels), baseline 2020 (Fig. 8)} & 445 \\
+\multicolumn{4}{l}{B\quad Programming services, baseline 2020 (Fig. 9 stack total)} & 2,710 \\
+\multicolumn{4}{l}{C\quad CBC/SRC conventional, baseline 2020 (Fig. 9)} & 668 \\
+\multicolumn{4}{l}{D\quad Specialty services, baseline 2020 (Fig. 9)} & 1,507 \\
+\multicolumn{4}{l}{E\quad Private conventional, baseline 2020 (Fig. 9)} & 469 \\
+\multicolumn{4}{l}{F\quad Pay, PPV and VOD, baseline 2020 (Fig. 9)} & 66 \\
+\multicolumn{4}{l}{G\quad Total CPE, LTTV scenario 2020 (Fig. 43)} & 2,756 \\
+\multicolumn{4}{l}{H\quad Total CPE 2015 (Fig. 43)} & 3,258 \\
+\multicolumn{4}{l}{J\quad Total CPE 2014, last actual year (Fig. 43)} & 3,324 \\
+\multicolumn{4}{l}{N1\quad CPE impact 2020 (Fig. 43)} & 399 \\
+\multicolumn{4}{l}{N2\quad Programming-services part of the CPE impact 2020 (Fig. 43)} & 352 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -29,20 +43,143 @@ specialty only & 399 & 1,507 & 26.5\% \\
 \begin{table}[htbp]
 \centering
 \small
-\caption{Staff counts from the CRTC's financial summaries (channels: discretionary and on-demand services, exempt services excluded from 2016; distributors: cable, satellite and IPTV, reported as FTEs in the 2016 release and as a staff count in the 2020 release), the 2012--2015 linear trend, and the report's direct FTE impact for each sector (Table~22). Staff counts aren't the report's modelled FTEs.}
+\caption{Inputs to \(k\), in \$ millions: the report's baseline and forecast impact with its four components (Figs.~34--36, 39--42), and the CRTC outcome (2020 release; channels exclude exempt services). The historical volatility is the standard deviation of annual log changes in the report's 2010--2014 values. With \(\sigma\) the larger of that volatility and the calibration's value (table~\ref{tab:calibrations}), \(\hat k\) and its interval follow from the formulas in appendix~\ref{app:methods}. The cited-input band scales the unbundling and preponderance components by 0.10/0.15 (low) and 0.35/0.15 (high), and closures by 2.5 in the high case. Produced by \texttt{scripts/crtc\_outcomes\_lttv.py}; data in \texttt{data/derived/nordicity\_2015\_scenarios.csv} and \texttt{data/derived/crtc\_lttv\_outcomes.csv}.}
+\label{tab:inputs}
+\begin{tabular}{lrrrr}
+\toprule
+ & 2016 & 2017 & 2018 & 2019 \\
+\midrule
+\multicolumn{5}{l}{\textit{Specialty and pay revenue}} \\
+Report's baseline \(B_t\) & 4,172 & 4,166 & 4,173 & 4,164 \\
+Forecast impact \(I_t\) & 200 & 490 & 809 & 888 \\
+\quad unbundling & 138 & 282 & 436 & 451 \\
+\quad preponderance and access rules & 9 & 49 & 122 & 147 \\
+\quad exemption order & 53 & 102 & 145 & 186 \\
+\quad service closures & 0 & 57 & 106 & 104 \\
+Observed \(Y_t\) & 4,363.7 & 4,299.7 & 4,219.3 & 4,195.9 \\
+\(\delta_t=\log B_t-\log(B_t-I_t)\) & 0.0491 & 0.1251 & 0.2155 & 0.2399 \\
+\(y_t=\log B_t-\log Y_t\) & \textminus 0.0449 & \textminus 0.0316 & \textminus 0.0110 & \textminus 0.0076 \\
+Report's values 2010--2014 & \multicolumn{4}{l}{3,475, 3,748, 3,968, 4,091, 4,216} \\
+Historical volatility & \multicolumn{4}{l}{2.2\%} \\
+Cited-input band for \(k\) & \multicolumn{4}{l}{0.75 to 2.54} \\
+\addlinespace
+\multicolumn{5}{l}{\textit{Distributors' revenue}} \\
+Report's baseline \(B_t\) & 9,149 & 9,280 & 9,428 & 9,597 \\
+Forecast impact \(I_t\) & 201 & 479 & 748 & 803 \\
+\quad unbundling & 146 & 298 & 458 & 473 \\
+\quad preponderance and access rules & -- & -- & -- & -- \\
+\quad exemption order & 55 & 104 & 149 & 191 \\
+\quad service closures & 0 & 77 & 141 & 139 \\
+Observed \(Y_t\) & 8,779.1 & 8,581.1 & 8,424.4 & 8,364.2 \\
+\(\delta_t=\log B_t-\log(B_t-I_t)\) & 0.0222 & 0.0530 & 0.0827 & 0.0874 \\
+\(y_t=\log B_t-\log Y_t\) & 0.0413 & 0.0783 & 0.1126 & 0.1375 \\
+Report's values 2010--2014 & \multicolumn{4}{l}{8,129, 8,571, 8,673, 8,927, 9,054} \\
+Historical volatility & \multicolumn{4}{l}{1.9\%} \\
+Cited-input band for \(k\) & \multicolumn{4}{l}{0.80 to 2.24} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Model-implied scenarios. Each year's unbundling and preponderance components (table~\ref{tab:inputs}) are multiplied by the path's uptake over the report's share for that year (Table~18), the exemption-order and closure components are unchanged, and the resulting shortfall path \(\delta^{u}_t\) is projected like the band: \(k^{u}=\delta'\Sigma^{-1}\delta^{u}/\delta'\Sigma^{-1}\delta\). Rising paths are linear from the 2016 count. Observed \(k\) and intervals at the pre-stated calibration. Produced by \texttt{scripts/crtc\_outcomes\_lttv.py}; data in \texttt{data/derived/uptake\_conditional\_lttv.csv}.}
+\label{tab:scenarios}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.3\textwidth}rrrrll}
+\toprule
+ & \multicolumn{4}{c}{Uptake} & \multicolumn{2}{c}{Model-implied \(k\)} \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-7}
+Uptake path & 2016 & 2017 & 2018 & 2019 & Specialty and pay & Distributors \\
+\midrule
+CRTC count, 30 June 2016 & 1.6\% & 1.6\% & 1.6\% & 1.6\% & 0.33 (inside) & 0.43 (below) \\
+Morrison's estimate (April 2016) & 4.0\% & 4.0\% & 4.0\% & 4.0\% & 0.40 (inside) & 0.48 (below) \\
+Low end of cited range & 10.0\% & 10.0\% & 10.0\% & 10.0\% & 0.56 (above) & 0.60 (inside) \\
+Report's assumption (Table~18) & 5.0\% & 10.0\% & 15.0\% & 15.0\% & 1.00 (above) & 1.00 (inside) \\
+Rising from 2016 count to Morrison's estimate & 1.6\% & 2.4\% & 3.2\% & 4.0\% & 0.43 (inside) & 0.52 (inside) \\
+Rising from 2016 count to low end of cited range & 1.6\% & 4.4\% & 7.2\% & 10.0\% & 0.69 (above) & 0.73 (inside) \\
+\midrule
+\multicolumn{5}{l}{Observed \(k\) [95\% interval]} & 0.12 [\textminus 0.23, 0.46] & 1.30 [0.49, 2.11] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Calibrating the baseline's annual error \(\sigma\). Panel (a): the report's forecast of US Netflix subscribers (Table~7) against Netflix's US paid memberships at year end (Form 10-K), in millions, with \(e_t=\log(\text{observed}_t/\text{forecast}_t)\). Panel (b): the value each calibration takes from panel (a) (formulas in appendix~\ref{app:methods}), the \(\sigma\) used (the larger of that value and the series' historical volatility in table~\ref{tab:inputs}), and the resulting interval for \(k\), which is 0.12 for specialty and pay revenue and 1.30 for distributors' revenue under every calibration. Verdicts: \emph{smaller}, the interval lies below the cited-input band; \emph{consistent}, it overlaps the band; \emph{inconclusive}, it contains both zero and the band's lower end. Produced by \texttt{scripts/netflix\_calibration.py} and \texttt{scripts/crtc\_outcomes\_lttv.py}; data in \texttt{data/derived/netflix\_calibration.csv} and \texttt{data/derived/crtc\_lttv\_multiverse.csv}.}
+\label{tab:calibrations}
+\footnotesize
+(a) \textit{The report's forecast and Netflix's count}\par\smallskip
+\begin{tabular}{lrrrr}
+\toprule
+ & 2015 & 2016 & 2017 & 2018 \\
+\midrule
+Report's forecast & 45.5 & 51.0 & 54.8 & 57.0 \\
+Netflix, US paid memberships & 43.401 & 47.905 & 52.810 & 58.486 \\
+\(e_t\) & \textminus 0.0472 & \textminus 0.0626 & \textminus 0.0370 & 0.0257 \\
+\bottomrule
+\end{tabular}
+\par\bigskip
+(b) \textit{Results by calibration}\par\smallskip
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrllrll}
+\toprule
+ & & \multicolumn{3}{c}{Specialty and pay revenue} & \multicolumn{3}{c}{Distributors' revenue} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}
+Calibration & Value & \(\sigma\) & Interval & Verdict & \(\sigma\) & Interval & Verdict \\
+\midrule
+None (historical s.d. only) & -- & 2.2\% & [\textminus 0.23, 0.46] & smaller & 1.9\% & [0.49, 2.11] & consistent \\
+2016 & 4.4\% & 4.4\% & [\textminus 0.57, 0.81] & inconclusive & 4.4\% & [\textminus 0.59, 3.20] & inconclusive \\
+2017 & 2.1\% & 2.2\% & [\textminus 0.23, 0.46] & smaller & 2.1\% & [0.39, 2.22] & consistent \\
+2018 (pre-stated) & 1.3\% & 2.2\% & [\textminus 0.23, 0.46] & smaller & 1.9\% & [0.49, 2.11] & consistent \\
+pooled 2016--2018 & 4.7\% & 4.7\% & [\textminus 0.61, 0.85] & inconclusive & 4.7\% & [\textminus 0.70, 3.30] & inconclusive \\
+growth 2015--2016 & 1.5\% & 2.2\% & [\textminus 0.23, 0.46] & smaller & 1.9\% & [0.49, 2.11] & consistent \\
+growth 2015--2017 & 0.7\% & 2.2\% & [\textminus 0.23, 0.46] & smaller & 1.9\% & [0.49, 2.11] & consistent \\
+growth 2015--2018 & 4.2\% & 4.2\% & [\textminus 0.54, 0.78] & inconclusive & 4.2\% & [\textminus 0.50, 3.11] & inconclusive \\
+growth pooled 2015--2018 & 4.0\% & 4.0\% & [\textminus 0.51, 0.74] & smaller & 4.0\% & [\textminus 0.41, 3.02] & inconclusive \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Staff counts from the CRTC's financial summaries (channels: discretionary and on-demand services, exempt services excluded from 2016; distributors: cable, satellite and IPTV, reported as FTEs in the 2016 release and as a staff count in the 2020 release), the 2012--2015 linear trend, and the report's direct FTE impact for each sector (Table~22). Staff counts aren't the report's modelled FTEs. Produced by \texttt{scripts/employment\_lttv.py}.}
 \label{tab:staff}
 \footnotesize
-\setlength{\tabcolsep}{3.5pt}
+\setlength{\tabcolsep}{2.5pt}
 \begin{tabular}{lrrrrrrrrr}
 \toprule
  & 2012 & 2013 & 2014 & 2015 & 2016 & 2017 & 2018 & 2019 & 2020 \\
 \midrule
 Channels: staff & 6,176 & 6,116 & 6,198 & 5,899 & 5,255 & 4,769 & 4,705 & 4,403 & 3,940 \\
 \quad 2012--2015 trend & 6,210 & 6,135 & 6,060 & 5,985 & 5,910 & 5,835 & 5,760 & 5,685 & 5,610 \\
-\quad Report's direct impact &  &  &  & 0 & -180 & -440 & -730 & -800 & -870 \\
+\quad Report's direct impact &  &  &  & 0 & \textminus 180 & \textminus 440 & \textminus 730 & \textminus 800 & \textminus 870 \\
 Distributors: staff & 28,793 & 28,894 & 29,086 & 27,244 & 26,815 & 27,056 & 26,103 & 27,887 & 25,768 \\
 \quad 2012--2015 trend & 29,173 & 28,727 & 28,281 & 27,836 & 27,390 & 26,944 & 26,499 & 26,053 & 25,607 \\
-\quad Report's direct impact &  &  &  & 0 & -730 & -1,730 & -2,710 & -2,910 & -3,110 \\
+\quad Report's direct impact &  &  &  & 0 & \textminus 730 & \textminus 1,730 & \textminus 2,710 & \textminus 2,910 & \textminus 3,110 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{The report's FTE losses in 2020, by the sector whose lost revenue or spending gives rise to them and by kind of effect (Tables~1, 22, 23; paras.~246, 248, 250). Direct FTEs are jobs within that sector; spin-off FTEs are jobs in other sectors of the economy. The headline split (direct and spin-off) and the sector split (broadcasting and production) cross-classify the same total. Broadcasting's printed components sum to 10 more spin-off FTEs than its printed total, a rounding difference in the report.}
+\label{tab:jobs-reconciliation}
+\begin{tabular}{lrrr}
+\toprule
+Sector & Direct & Spin-off & Total \\
+\midrule
+\quad Distributors & 3,110 & 1,900 & 5,010 \\
+\quad Specialty and pay services & 870 & 2,010 & 2,880 \\
+\quad Private conventional stations & 20 & 50 & 70 \\
+Broadcasting (printed total) & 4,000 & 3,950 & 7,950 \\
+Independent production & 2,830 & 4,350 & 7,180 \\
+\midrule
+Total & 6,830 & 8,300 & 15,130 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -52,7 +189,7 @@ Distributors: staff & 28,793 & 28,894 & 29,086 & 27,244 & 26,815 & 27,056 & 26,1
 \small
 \caption{Order of the analyses. Commit identifiers refer to the replication repository, listed in the order the commits were made.}
 \label{tab:chronology}
-\begin{tabular}{p{0.62\textwidth}ll}
+\begin{tabular}{p{0.55\textwidth}ll}
 \toprule
 Step & Status & Commit \\
 \midrule

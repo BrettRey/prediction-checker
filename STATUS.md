@@ -25,7 +25,7 @@ Forecast-side sources for cases 1 and 2 read and filed in `literature/` (JUST 36
 
 ## Next action
 
-1. Elicit review triaged and implemented (2026-10-03). Still open from it: an inventory of concurrent changes and whether the report's baseline includes each (Super Bowl simultaneous substitution, T10 still unverified; any 2016 CRTC local-TV measures); a full reader pass; a review board with an outsider persona.
+1. Elicit review triaged and implemented (2026-10-03); second-round points (jobs-split reconciliation, reproducible tables A1–A4, interval interpretation in the method section) done the same day. Still open from it: an inventory of concurrent changes and whether the report's baseline includes each (Super Bowl simultaneous substitution, T10 still unverified; any 2016 CRTC local-TV measures); a full reader pass; a review board with an outsider persona.
 2. Read the library-access sources before submission: Crawford and Yurukoglu 2012 (bundling), Crompton 2006 and Siegfried and Zimbalist 2000 (impact-study critiques), Hodges 1997, full Harrington et al. 2000. Then `/hyperresearch` (light tier) as the deeper novelty sweep.
 3. Before any push: payload check (`git status`, history), then push so the data-and-code statement's repository link is live; run `scripts/fetch_raw.sh` in a clean clone to test replication.
 4. Submission formatting: EJW LaTeX template, Chicago author-date, `/submission-gate`.
