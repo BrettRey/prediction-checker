@@ -34,3 +34,23 @@ Inward searches: qmd and full-text grep over `literature/` (queries in `notes/no
 2026-10-03 — `papers/retarget/kinds-as-projectibility-profiles/` and Goodman, *Fact, Fiction, and Forecast* (in `literature/`): **deferred**. Possible bearing on the gap between a model's conditional result and the unconditional inference offered to legislators. A prompt to look, not yet a connection.
 
 2026-10-03 — `papers/queue/effective-without-warrant/`: **deferred**. A forecast can shape a legislative outcome whether or not it was warranted; whether that is the same effective/warranted split is unexamined.
+
+## Forecast verification and prediction records (cases 1–2)
+
+2026-10-03 — Post-intervention material is HELD until each case's prediction record is committed: retrospectives (G08, X01–X04), outcome claims and data sources (G10–G14, T14–T15), and implementation evidence (G09). Legal-history rows (G07, T10) are left UNVERIFIED rather than held, since they describe changed conditions, not outcomes. Reason: the record has to be fixed before anyone sees what happened.
+
+2026-10-03 — Locator convention: committee evidence by committee, meeting, speaker, and bracketing five-minute time marks, e.g. JUST 36, Howard, (1220)–(1225); Nordicity report by paragraph and printed page (PDF page − 4); CIA brief by PDF page and point; CIA model paper by section and PDF page. Reason: time marks and paragraph numbers survive format changes; the two-column committee PDFs garble under text extraction.
+
+2026-10-03 — Committee transcripts stored in `literature/` as the official PDF plus a `.md` built from the HTML DocumentViewer page (pandoc plain, trimmed to the evidence, time marks kept). Each `.md` starts with retrieval URL, date, and SHA-256. Reason: `lit convert` on the two-column PDF loses speaker order and time marks.
+
+2026-10-03 — G05 marked PARTLY: the CIA brief has the "All else being equal" qualification and the large-policy exemption (proposed s. 4(3), 200 × AWE), but never names adverse selection; it describes the incentive (point 2). Reason: the brief's claim overstated the source's wording.
+
+2026-10-03 — Case 1 prediction record kept as one row per statement (CIA brief; Howard; Frank attributing to the CIA; Boudreau; Frank's own coverage forecast; Howard on the U.K.), with the 2014 CIA model paper recorded separately as the technical claim. Reason: the statements disagree on quantity (premiums vs mortality experience), timing ("soon after" vs "over time" vs "more than a decade"), and modality ("could" vs "likely"); merging them would hide the split the project exists to test.
+
+2026-10-03 — Rows not in the brief (G15–G19, T16–T20) added under separate headings marked "read from source, not from the brief", so their provenance stays distinct from the LLM lead list.
+
+2026-10-03 — The 2014 CIA model paper (Doc. 214082) was retrieved from the Wayback Machine (snapshot 2021-11-29); its cia-ica.ca URL returned HTTP 410. Finding: the paper reports mortality-experience increases of 36% / 58% under a $1 million disclosure threshold and does not quantify the premium increase; the 30% / 50% premium figures used in testimony are unlocated (row G18). Not resolved; the 2016 CIA critical-illness paper and any Senate submission are the next places to look.
+
+2026-10-03 — The CLHIA's voluntary $250,000 commitment (announced at JUST 36; press release 2017-01-11, effective 2018-01-01) recorded as a competing intervention in case 1. Proposed consequence, pending Brett: the counterfactual is "industry code only", not "no restriction". Raised by Brett's question on 2026-10-03 whether the pledge took effect; answer so far: scheduled, overtaken on paper by the Act's assent on 2017-05-04, implementation not established.
+
+2026-10-03 — Morrison's skinny-basic uptake estimate (T16, about 4%) recorded beside the report's BYOP assumption (T20, 5% in 2016 rising to 15%), since the project brief says to test near mechanisms before multiplier-derived totals.
