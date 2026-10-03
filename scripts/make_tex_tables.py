@@ -141,7 +141,7 @@ den_label = {  # display names; the numerator column carries the $399M/$352M dis
     "$352M / programming services excl. CBC/SRC": "Programming services excl. CBC/SRC",
     "$352M / specialty + pay": "Specialty and pay",
     "$399M / 2020 LTTV-scenario CPE (Fig. 43 level)": "All CPE, LTTV scenario 2020",
-    "$399M / 2015 CPE (Fig. 43, current at the time of testimony)": "All CPE 2015 (current at the testimony)",
+    "$399M / 2015 CPE (Fig. 43, current at the time of testimony)": "All CPE 2015 (report's forecast)",
     "$399M / 2014 CPE (Fig. 43, last actual year)": "All CPE 2014 (last actual year)"}
 cands = rows("cpe_share_candidates.csv")
 order = list(dict.fromkeys(r["denominator_musd"] for r in cands))  # each $352M share listed under its $399M counterpart
@@ -157,7 +157,7 @@ L += ["\\bottomrule", "\\end{tabular}", "\\end{table}", ""]
 # A2: inputs to k
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       "\\caption{Inputs to \\(k\\), in \\$ millions: the report's forecast impact with its four components and its baseline "
-      "(the decisions-scenario level plus the impact), from Figs.~41 and 42 (2016 components from Figs.~34--36, 39 and 40), and the CRTC outcome (2020 release; channels exclude exempt services). The historical "
+      "(the decisions-scenario level plus the impact), from Figs.~41 and 42 (2016 components from Figs.~34--36, 39 and 40), and the CRTC outcome (2020 edition; channels exclude exempt services). The historical "
       "volatility is the standard deviation of annual log changes in the report's 2010--2014 values. With \\(\\sigma\\) "
       "the larger of that volatility and the calibration's value (table~\\ref{tab:calibrations}), \\(\\hat k\\) and its "
       "interval follow from the formulas in appendix~\\ref{app:methods}. The cited-input band scales the unbundling and "
@@ -299,8 +299,8 @@ emp = rows("employment_lttv.csv")
 years = sorted({int(r["year"]) for r in emp})
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       "\\caption{Staff counts from the CRTC's financial summaries (channels: discretionary and on-demand services, exempt "
-      "services excluded from 2016; distributors: cable, satellite and IPTV, reported as FTEs in the 2016 release and as a "
-      "staff count in the 2020 release), the 2012--2015 linear trend, and the report's direct FTE impact for each sector "
+      "services excluded from 2016; distributors: cable, satellite and IPTV, reported as FTEs in the 2016 edition and as a "
+      "staff count in the 2020 edition), the 2012--2015 linear trend, and the report's direct FTE impact for each sector "
       "(Table~22). Staff counts aren't the report's modelled FTEs. Produced by \\texttt{scripts/employment\\_lttv.py}.}",
       "\\label{tab:staff}",
       "\\footnotesize", "\\setlength{\\tabcolsep}{2.5pt}",

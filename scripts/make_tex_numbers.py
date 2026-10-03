@@ -126,7 +126,7 @@ for q, tag in (("specialty_pay_revenue", "Spec"), ("bdu_revenue", "BDU")):
     r = next(r for r in mv if r["quantity"] == q)
     M[f"lttvK{tag}"] = num(float(r["k"]), 2)
     M[f"lttvK{tag}SE"] = f"{float(r['se']):.2f}"
-    kse[q] = (float(r["k"]), float(r["se"]))
+    kse[q] = (float(r["k_full"]), float(r["se"]), float(r["sigma"]))  # unrounded, for derived numbers
     M[f"lttvK{tag}Lo"] = num(float(r["ci_lo"]))
     M[f"lttvK{tag}Hi"] = num(float(r["ci_hi"]))
     M[f"lttvSigmaRead{tag}"] = pct(float(r["sigma"]), 1)
@@ -136,14 +136,20 @@ for q, tag in (("specialty_pay_revenue", "Spec"), ("bdu_revenue", "BDU")):
     M[f"lttvBand{tag}Lo"] = num(float(b["band_lo"]), 2)
     M[f"lttvBand{tag}Hi"] = num(float(b["band_hi"]), 2)
     # distances in standard errors at the pre-stated calibration
-    k_, se_ = kse[q]
+    k_, se_, _ = kse[q]
     M[f"lttvK{tag}SEsFromZero"] = f"{abs(k_) / se_:.1f}"
     M[f"lttvK{tag}SEsFromOne"] = f"{abs(1 - k_) / se_:.1f}"
     M[f"lttvK{tag}SEsFromBandLo"] = f"{abs(float(b['band_lo']) - k_) / se_:.1f}"
 cut = {r["quantity"]: float(r["sigma_inconclusive_from"]) for r in rows("crtc_lttv_cutoffs.csv")
        if r["version"].startswith("as published")}
-M["lttvCutoffSpec"] = pct(cut["specialty_pay_revenue"], 1)
-M["lttvCutoffBDU"] = pct(cut["bdu_revenue"], 1)
+# Exact sigma at which each pre-stated verdict turns inconclusive (interval contains both 0 and the
+# band's lower end); the grid search in crtc_outcomes_lttv.py gives the first grid point past it.
+for q, tag in (("specialty_pay_revenue", "Spec"), ("bdu_revenue", "BDU")):
+    k_, se_, s_ = kse[q]
+    b_lo = float(next(r for r in ke if r["quantity"] == q and r["version"].startswith("as published"))["band_lo"])
+    need = max(s_ * abs(k_) / (1.96 * se_), s_ * abs(b_lo - k_) / (1.96 * se_))
+    assert need <= cut[q] < need + 0.0011, (q, need, cut[q])
+    M[f"lttvCutoff{tag}"] = pct(need, 1)
 
 # Multiverse counts by calibration choice (series as published)
 pub = [r for r in rows("crtc_lttv_multiverse.csv") if r["version"] == "as published"]
@@ -192,14 +198,23 @@ cl = rows("closures_summary.csv")
 vi = next(r for r in cl if r["corus_counted_vi"] == "False" and r["group"] == "VI A/B")
 vic = next(r for r in cl if r["corus_counted_vi"] == "True" and r["group"] == "VI A/B")
 ind = next(r for r in cl if r["corus_counted_vi"] == "False" and r["group"] == "independent A/B")
-M["lttvClosVILo"] = pct(float(vi["share_closed_lower"]))
-M["lttvClosVIHi"] = pct(float(vi["share_closed_upper"]))
-M["lttvClosVICorusLo"] = pct(float(vic["share_closed_lower"]))
-M["lttvClosVICorusHi"] = pct(float(vic["share_closed_upper"]))
-M["lttvClosIndLo"] = pct(float(ind["share_closed_lower"]))
-M["lttvClosIndHi"] = pct(float(ind["share_closed_upper"]))
+indc = next(r for r in cl if r["corus_counted_vi"] == "True" and r["group"] == "independent A/B")
+
+
+def clos_bounds(r):  # from the counts, not the rounded shares: closed / n and (closed + not listed) / n
+    n, c, a = int(r["n_2015"]), int(r["closed"]), int(r["absent"])
+    return pct(c / n), pct((c + a) / n)
+
+
+M["lttvClosVILo"], M["lttvClosVIHi"] = clos_bounds(vi)
+M["lttvClosVICorusLo"], M["lttvClosVICorusHi"] = clos_bounds(vic)
+M["lttvClosIndLo"], M["lttvClosIndHi"] = clos_bounds(ind)
+M["lttvClosIndCorusLo"], M["lttvClosIndCorusHi"] = clos_bounds(indc)
 cpe = {int(r["year"]): r for r in rows("cpe_lttv.csv")}
 obs_cpe = [float(cpe[y]["total"]) for y in range(2016, 2020)]
+# the testimony's "of what now exists": the CRTC's count of 2015 spending (the report's 2015 figure is a forecast)
+M["lttvCPECRTCFifteen"] = money(float(cpe[2015]["total"]))
+M["lttvCPEShareCRTCFifteen"] = pct(float(sc[("cpe", 2020)]["impact_total"]) / float(cpe[2015]["total"]), 1)
 base_cpe = [float(cpe[y]["report_baseline"]) for y in range(2016, 2020)]
 M["lttvCPEObsMin"] = money(min(obs_cpe))
 M["lttvCPEObsMax"] = money(max(obs_cpe))
@@ -255,8 +270,8 @@ for lab, ltag in (("rising from 2016 count to Morrison", "RiseMorrison"), ("risi
 for q, tag in (("specialty_pay_revenue", "Spec"), ("bdu_revenue", "BDU")):
     for lab, ltag in (("CRTC count", "ObsUptake"), ("Morrison", "Morrison"), ("low end", "CitedLow"),
                       ("rising from 2016 count to Morrison", "RiseMorrison"), ("rising from 2016 count to low end", "RiseCitedLow")):
-        k_, se_ = kse[q]
-        M[f"lttvKPred{tag}{ltag}SEs"] = f"{abs(float(cget(q, lab)['k_predicted']) - k_) / se_:.1f}"
+        k_, se_, _ = kse[q]
+        M[f"lttvKPred{tag}{ltag}SEs"] = f"{abs(float(cget(q, lab)['k_predicted_full']) - k_) / se_:.1f}"
     for lab, ltag in (("CRTC count", "ObsUptake"), ("Morrison", "Morrison"), ("low end", "CitedLow")):
         r = cget(q, lab)
         M[f"lttvKPred{tag}{ltag}Where"] = "inside" if r["inside_interval"] == "True" else (
@@ -286,7 +301,8 @@ for q, tag in (("specialty_pay_revenue", "Spec"), ("bdu_revenue", "BDU")):
     M[f"lttvGapFifteen{tag}Dir"] = "above" if mc[(q, "gap15")] > 0 else "below"
     M[f"lttvReportFifteen{tag}"] = money(mc[(q, "report15")])
     M[f"lttvCRTCFifteen{tag}"] = money(mc[(q, "crtc15")])
-M["lttvReleaseGapMax"] = pct(max(abs(mc[(q, "release_gap16")]) for q in ("specialty_pay_revenue", "bdu_revenue")), 1)
+M["lttvReleaseGapSpec"] = pct(abs(mc[("specialty_pay_revenue", "release_gap16")]), 1)
+M["lttvReleaseGapBDU"] = pct(abs(mc[("bdu_revenue", "release_gap16")]), 1)
 # widest calibration for the specialty interval (figure 2)
 wide = max((r for r in pub if r["quantity"] == "specialty_pay_revenue"), key=lambda r: float(r["sigma"]))
 M["lttvSigmaWidest"] = pct(float(wide["sigma"]), 1)

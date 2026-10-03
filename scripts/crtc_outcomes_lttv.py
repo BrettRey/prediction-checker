@@ -231,7 +231,7 @@ def main():
                 k, se, P, info = gls_k(y, delta, s_read)
                 bl, bh = (delta @ P @ d_lo) / info, (delta @ P @ d_hi) / info
                 multiverse.append(dict(quantity=q, version=vname, calibration=cname, sigma=round(s_read, 4),
-                                       k=round(k, 2), se=round(se, 4), ci_lo=round(k - 1.96 * se, 2), ci_hi=round(k + 1.96 * se, 2),
+                                       k=round(k, 2), k_full=round(k, 6), se=round(se, 6), ci_lo=round(k - 1.96 * se, 2), ci_hi=round(k + 1.96 * se, 2),
                                        verdict=verdict(k - 1.96 * se, k + 1.96 * se, bl, bh),
                                        prestated=(vname == "as published" and cname == "2018 (pre-stated)")))
     # [post hoc] Uptake-conditional forecast: the report's chain with the
@@ -273,6 +273,7 @@ def main():
                                        baseline=fc[(q, t)]["B"], impact=round(float(iu), 2)))
             k_pred = (delta @ P @ du) / info
             conditional.append(dict(quantity=q, uptake_label=lab, uptake=round(uptake_at(2019), 4), k_predicted=round(k_pred, 2),
+                                    k_predicted_full=round(k_pred, 6),
                                     k_observed=round(k_obs["k"], 2), ci_lo=round(k_obs["lo"], 2), ci_hi=round(k_obs["hi"], 2),
                                     inside_interval=bool(k_obs["lo"] <= k_pred <= k_obs["hi"])))
     with open(DER / "uptake_conditional_paths_lttv.csv", "w", newline="") as f:
