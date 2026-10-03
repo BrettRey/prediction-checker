@@ -1,0 +1,32 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.log
+*.out
+*.run.xml
+*.toc
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.xdv
+
+# Build products (placeholder manuscript; commit PDFs deliberately when there is text)
+/main.pdf
+/prediction-checker.pdf
+
+# Raw agent output and intake material (not for publication)
+notes/intake/
+
+# Downloaded source data (licences vary; see data/README.md)
+data/raw/*
+!data/raw/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# macOS
+.DS_Store
