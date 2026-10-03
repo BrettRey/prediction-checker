@@ -15,13 +15,13 @@ claim:
 ---
 
 # Prediction checker
-<!-- SUMMARY: audit consequential Canadian policy forecasts against outcomes; case 2 (Let's Talk TV) preliminary results in: specialty/pay revenue showed no detectable effect (k = 0.12), BDU revenue fell within the forecast range (k = 1.30), the modelled pass-through didn't occur; uptake, closures, technology calibration pending; case 1 gated on premium data · status: development · updated: 2026-10-03 -->
+<!-- SUMMARY: audit consequential Canadian policy forecasts against outcomes; case 2 (Let's Talk TV) preliminary results in: specialty/pay revenue showed no detectable effect (k = 0.1), BDU revenue fell within the forecast range (k = 1.3), both inconclusive above ~3–4%/yr baseline error; BDU payments to programmers didn't fall; uptake, closures, technology calibration pending; case 1 gated on premium data · status: development · updated: 2026-10-03 -->
 
 ## State
 
 Scaffolded 2026-10-03 from an LLM-written lead list Brett pasted (verbatim copy gitignored in `notes/intake/`). Three candidate cases under `cases/`: GNDA life-insurance premiums, CRTC *Let's Talk TV*, Bill C-75 preliminary inquiries. Settled 2026-10-03: scope stays legislative, regulatory, and judicial; exemplar Kane (2026, *Econ Journal Watch*); lead case *Let's Talk TV*, second case GNDA; LaTeX; case 1 reports both counterfactuals. Analysis plan adopted (`notes/analysis-plan.md`).
 
-Forecast-side sources for cases 1 and 2 read and filed in `literature/` (JUST 36 and CHPC 8 evidence, CIA brief, CIA 2014 model paper, Nordicity/Miller report, the Act, CLHIA release). Both prediction records filled and committed before any outcome data were opened. Main finding so far: the CIA model reports mortality-experience increases of 36% / 58% under a $1 million disclosure threshold the Act doesn't have; the 30% / 50% *premium* figures given to the Committee are not in that paper and their source is unlocated (G18). Case 2's near-mechanism assumptions (BYOP uptake, pass-through, closures) are recorded for testing ahead of the job and GDP totals. Case 2 design analysis done (`notes/design-analysis-lttv.md`): the report's scenario paths were extracted from its figures and checked against its text; its "18% of baseline CPE" doesn't reproduce (12.6%); quantity definitions, splice rule, verdict bands and a technology-forecast calibration are fixed in the plan. Case 2 outcomes opened after those commitments: preliminary results in `notes/results-lttv.md` (specialty/pay revenue *k* = 0.12, no detectable effect at baseline error ≤ 3% a year; BDU revenue *k* = 1.30, within the forecasters' range; BDU affiliation payments rose, so the pass-through mechanism failed). Inward novelty check done; no outward search, no manuscript text.
+Forecast-side sources for cases 1 and 2 read and filed in `literature/` (JUST 36 and CHPC 8 evidence, CIA brief, CIA 2014 model paper, Nordicity/Miller report, the Act, CLHIA release). Both prediction records filled and committed before any outcome data were opened. Main finding so far: the CIA model reports mortality-experience increases of 36% / 58% under a $1 million disclosure threshold the Act doesn't have; the 30% / 50% *premium* figures given to the Committee are not in that paper and their source is unlocated (G18). Case 2's near-mechanism assumptions (BYOP uptake, pass-through, closures) are recorded for testing ahead of the job and GDP totals. Case 2 design analysis done (`notes/design-analysis-lttv.md`): the report's scenario paths were extracted from its figures and checked against its text; its "18% of baseline CPE" doesn't reproduce (12.6%); quantity definitions, splice rule, verdict bands and a technology-forecast calibration are fixed in the plan. Case 2 outcomes opened after those commitments: preliminary results in `notes/results-lttv.md` (specialty/pay revenue *k* = 0.1, no detectable effect up to a baseline error of about 4% a year; BDU revenue *k* = 1.3, within the forecasters' range up to about 3%; BDU affiliation payments did not fall, so the modelled pass-through isn't visible in the aggregate, for reasons not yet established). Inward novelty check done; no outward search, no manuscript text.
 
 ## Next action
 
@@ -31,7 +31,7 @@ Forecast-side sources for cases 1 and 2 read and filed in `literature/` (JUST 36
 
 ## Open decisions (Brett)
 
-- SEC EDGAR access for the Netflix 10-K: use Brett's email as the contact in the User-Agent (SEC's stated requirement), or Brett downloads the FY2018 10-K by hand.
+- Permission to put Brett's email in the User-Agent for SEC EDGAR requests (SEC requires a contact address), for the Netflix FY2018 10-K.
 
 ## Blockers
 

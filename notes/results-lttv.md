@@ -33,30 +33,39 @@ GLS over 2016–2019 with random-walk baseline error at each annual SD. Band: th
 
 | Quantity | Series | Baseline error SD | *k* | 95% interval | Cited band | Verdict |
 |---|---|---|---|---|---|---|
-| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | as published (splice rule) | 0.01 | 0.12 | [-0.04, 0.27] | [0.75, 2.54] | smaller than the forecasters' inputs imply (no detectable effect) |
-| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | as published (splice rule) | 0.02 | 0.12 | [-0.19, 0.43] | [0.75, 2.54] | smaller than the forecasters' inputs imply (no detectable effect) |
-| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | as published (splice rule) | 0.03 | 0.12 | [-0.35, 0.59] | [0.75, 2.54] | smaller than the forecasters' inputs imply (no detectable effect) |
-| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | as published (splice rule) | 0.05 | 0.12 | [-0.66, 0.90] | [0.75, 2.54] | inconclusive |
-| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | as published (splice rule) | 0.08 | 0.12 | [-1.13, 1.37] | [0.75, 2.54] | inconclusive |
-| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | rescaled to report's 2014 [sensitivity] | 0.01 | 0.13 | [-0.03, 0.29] | [0.75, 2.54] | smaller than the forecasters' inputs imply (no detectable effect) |
-| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | rescaled to report's 2014 [sensitivity] | 0.02 | 0.13 | [-0.18, 0.44] | [0.75, 2.54] | smaller than the forecasters' inputs imply (no detectable effect) |
-| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | rescaled to report's 2014 [sensitivity] | 0.03 | 0.13 | [-0.34, 0.60] | [0.75, 2.54] | smaller than the forecasters' inputs imply (no detectable effect) |
-| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | rescaled to report's 2014 [sensitivity] | 0.05 | 0.13 | [-0.65, 0.91] | [0.75, 2.54] | inconclusive |
-| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | rescaled to report's 2014 [sensitivity] | 0.08 | 0.13 | [-1.12, 1.38] | [0.75, 2.54] | inconclusive |
-| BDU total revenue (basic and non-basic) | as published (splice rule) | 0.01 | 1.30 | [0.88, 1.73] | [0.80, 2.24] | consistent with the forecast range (includes k = 1) |
-| BDU total revenue (basic and non-basic) | as published (splice rule) | 0.02 | 1.30 | [0.45, 2.16] | [0.80, 2.24] | consistent with the forecast range (includes k = 1) |
-| BDU total revenue (basic and non-basic) | as published (splice rule) | 0.03 | 1.30 | [0.02, 2.59] | [0.80, 2.24] | consistent with the forecast range (includes k = 1) |
-| BDU total revenue (basic and non-basic) | as published (splice rule) | 0.05 | 1.30 | [-0.84, 3.44] | [0.80, 2.24] | inconclusive |
-| BDU total revenue (basic and non-basic) | as published (splice rule) | 0.08 | 1.30 | [-2.12, 4.73] | [0.80, 2.24] | inconclusive |
-| BDU total revenue (basic and non-basic) | rescaled to report's 2014 [sensitivity] | 0.01 | 1.23 | [0.80, 1.66] | [0.80, 2.24] | consistent with the forecast range (includes k = 1) |
-| BDU total revenue (basic and non-basic) | rescaled to report's 2014 [sensitivity] | 0.02 | 1.23 | [0.37, 2.09] | [0.80, 2.24] | consistent with the forecast range (includes k = 1) |
-| BDU total revenue (basic and non-basic) | rescaled to report's 2014 [sensitivity] | 0.03 | 1.23 | [-0.05, 2.51] | [0.80, 2.24] | inconclusive |
-| BDU total revenue (basic and non-basic) | rescaled to report's 2014 [sensitivity] | 0.05 | 1.23 | [-0.91, 3.37] | [0.80, 2.24] | inconclusive |
-| BDU total revenue (basic and non-basic) | rescaled to report's 2014 [sensitivity] | 0.08 | 1.23 | [-2.19, 4.65] | [0.80, 2.24] | inconclusive |
+| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | as published (splice rule) | 0.01 | 0.1 | [-0.0, 0.3] | [0.8, 2.5] | smaller than the forecasters' inputs imply (no detectable effect) |
+| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | as published (splice rule) | 0.02 | 0.1 | [-0.2, 0.4] | [0.8, 2.5] | smaller than the forecasters' inputs imply (no detectable effect) |
+| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | as published (splice rule) | 0.03 | 0.1 | [-0.3, 0.6] | [0.8, 2.5] | smaller than the forecasters' inputs imply (no detectable effect) |
+| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | as published (splice rule) | 0.05 | 0.1 | [-0.7, 0.9] | [0.8, 2.5] | inconclusive |
+| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | as published (splice rule) | 0.08 | 0.1 | [-1.1, 1.4] | [0.8, 2.5] | inconclusive |
+| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | rescaled to report's 2014 [sensitivity] | 0.01 | 0.1 | [-0.0, 0.3] | [0.8, 2.5] | smaller than the forecasters' inputs imply (no detectable effect) |
+| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | rescaled to report's 2014 [sensitivity] | 0.02 | 0.1 | [-0.2, 0.4] | [0.8, 2.5] | smaller than the forecasters' inputs imply (no detectable effect) |
+| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | rescaled to report's 2014 [sensitivity] | 0.03 | 0.1 | [-0.3, 0.6] | [0.8, 2.5] | smaller than the forecasters' inputs imply (no detectable effect) |
+| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | rescaled to report's 2014 [sensitivity] | 0.05 | 0.1 | [-0.7, 0.9] | [0.8, 2.5] | inconclusive |
+| Specialty and pay revenue (discretionary and on-demand, excl. exempt) | rescaled to report's 2014 [sensitivity] | 0.08 | 0.1 | [-1.1, 1.4] | [0.8, 2.5] | inconclusive |
+| BDU total revenue (basic and non-basic) | as published (splice rule) | 0.01 | 1.3 | [0.9, 1.7] | [0.8, 2.2] | consistent with the forecast range (includes k = 1) |
+| BDU total revenue (basic and non-basic) | as published (splice rule) | 0.02 | 1.3 | [0.5, 2.2] | [0.8, 2.2] | consistent with the forecast range (includes k = 1) |
+| BDU total revenue (basic and non-basic) | as published (splice rule) | 0.03 | 1.3 | [0.0, 2.6] | [0.8, 2.2] | consistent with the forecast range (includes k = 1) |
+| BDU total revenue (basic and non-basic) | as published (splice rule) | 0.05 | 1.3 | [-0.8, 3.4] | [0.8, 2.2] | inconclusive |
+| BDU total revenue (basic and non-basic) | as published (splice rule) | 0.08 | 1.3 | [-2.1, 4.7] | [0.8, 2.2] | inconclusive |
+| BDU total revenue (basic and non-basic) | rescaled to report's 2014 [sensitivity] | 0.01 | 1.2 | [0.8, 1.7] | [0.8, 2.2] | consistent with the forecast range (includes k = 1) |
+| BDU total revenue (basic and non-basic) | rescaled to report's 2014 [sensitivity] | 0.02 | 1.2 | [0.4, 2.1] | [0.8, 2.2] | consistent with the forecast range (includes k = 1) |
+| BDU total revenue (basic and non-basic) | rescaled to report's 2014 [sensitivity] | 0.03 | 1.2 | [-0.1, 2.5] | [0.8, 2.2] | inconclusive |
+| BDU total revenue (basic and non-basic) | rescaled to report's 2014 [sensitivity] | 0.05 | 1.2 | [-0.9, 3.4] | [0.8, 2.2] | inconclusive |
+| BDU total revenue (basic and non-basic) | rescaled to report's 2014 [sensitivity] | 0.08 | 1.2 | [-2.2, 4.7] | [0.8, 2.2] | inconclusive |
+
+**Reading until the technology calibration is available.** Each verdict holds up to the annual baseline-error SD below and becomes inconclusive at it:
+
+- Specialty and pay revenue (discretionary and on-demand, excl. exempt), as published (splice rule): inconclusive from 4.1% a year
+- Specialty and pay revenue (discretionary and on-demand, excl. exempt), rescaled to report's 2014 [sensitivity]: inconclusive from 4.0% a year
+- BDU total revenue (basic and non-basic), as published (splice rule): inconclusive from 3.1% a year
+- BDU total revenue (basic and non-basic), rescaled to report's 2014 [sensitivity]: inconclusive from 2.9% a year
+
+These are tests of the report's scenario paths. That the policy had no effect on specialty and pay revenue is a counterfactual claim, and holds only if the report's technology-only baseline was right; the technology calibration in the plan is the check on that.
 
 ## Pass-through [post hoc observable]
 
-The report assumes BDUs pass 75% of their retail revenue loss to Canadian services as lower wholesale fees (¶207). BDU affiliation payments ($M), the wholesale fees BDUs pay programmers:
+The report assumes BDUs pass 75% of their retail revenue loss to Canadian services as lower wholesale fees (¶207). BDU affiliation payments ($M), the wholesale fees BDUs pay programmers, did not fall: the modelled pass-through is not visible in the aggregate. That doesn't show why. Rising fees on a shrinking subscriber base, payments to services outside the report's scope, and the CRTC Wholesale Code (in force January 2016; ¶197 item 3) are all consistent with it.
 
 | Year | 2012 | 2013 | 2014 | 2015 | 2016 | 2017 | 2018 | 2019 | 2020 |
 |---|---|---|---|---|---|---|---|---|---|

@@ -38,7 +38,7 @@ Filled 2026-10-03 from forecast-side sources only. Paragraph numbers and printed
 
 ## Outcomes (preliminary)
 
-Rules in `../../notes/analysis-plan.md`; generated results in `../../notes/results-lttv.md`; choices made after seeing the data are marked [post hoc] in `DECISIONS.md`. Specialty/pay revenue stayed at or above the report's technology-only baseline through 2019 (*k* = 0.12); BDU revenue fell below even the LTTV path (*k* = 1.30, within the cited band); BDU affiliation payments to programmers rose, so the modelled pass-through did not occur. Still to do: uptake, closures, the technology calibration (blocked on a primary Netflix source), CPE (descriptive), the released HELD rows T14–T15.
+Rules in `../../notes/analysis-plan.md`; generated results in `../../notes/results-lttv.md`; choices made after seeing the data are marked [post hoc] in `DECISIONS.md`. Specialty/pay revenue stayed at or above the report's technology-only baseline through 2019 (*k* = 0.1); BDU revenue fell below even the LTTV path (*k* = 1.3, within the cited band). Both verdicts hold up to a baseline error of about 3–4% a year and are inconclusive beyond it. BDU affiliation payments to programmers did not fall, so the pass-through modelled in ¶207 isn't visible in the aggregate; why is open (fee increases on a shrinking base, the 2016 Wholesale Code, scope). Still to do: uptake, closures, the technology calibration (blocked on a primary Netflix source), CPE (descriptive), the released HELD rows T14–T15.
 
 ## Intervention as enacted
 
