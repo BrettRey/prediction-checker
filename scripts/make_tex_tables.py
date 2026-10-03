@@ -2,14 +2,15 @@
 """Write sections/tables-lttv.tex: appendix tables generated from data/derived/.
 Do not edit the output by hand.
 
-Tables, in the order written (A1-A7 in the paper):
+Tables, in the order written (A1-A8 in the paper):
   A1 candidate denominators for the report's "18%", with the components they're built from
   A2 inputs to k: the report's paths, its impact components and the CRTC outcomes, 2016-2019
   A3 model-implied uptake scenarios, with the uptake path in each year
   A4 calibrations of the baseline's error, with the Netflix figures behind them
-  A5 annual staff series
-  A6 the report's two splits of its jobs total
-  A7 chronology of pre-stated and post hoc analyses
+  A5 distributors' revenue split into subscribers and revenue per subscriber (post hoc)
+  A6 annual staff series
+  A7 the report's two splits of its jobs total
+  A8 chronology of pre-stated and post hoc analyses
 
 A2-A4 are recomputed here from the displayed inputs (k, intervals, scenario k,
 calibration values) and checked against the analysis outputs, so a mismatch
