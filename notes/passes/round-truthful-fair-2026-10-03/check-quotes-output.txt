@@ -1,0 +1,66 @@
+== main.tex
+
+Quotation check: main.tex
+  
+
+exit 0
+== sections/intro.tex
+
+Quotation check: sections/intro.tex
+  PASS=6
+
+  PASS         l.8     commons2016chpc8 p.time marks 0900--0905 by 2020
+  PASS         l.8     commons2016chpc8 p.time marks 0900--0905 some 15,130 media jobs
+  PASS         l.8     commons2016chpc8 p.time marks 0900--0905 all of this as the direct result of Let's Talk TV regulatory changes
+  PASS         l.12    harrington1999accuracy p.ii driven by both baseline and compliance issues
+  PASS         l.12    morgenstern2018retrospective p.285 a slight tendency to overestimate both costs and benefits
+  PASS         l.14    manski2011certitude p.4    Point predictions are common and expressions of uncertainty are rare
+exit 0
+== sections/case-lttv.tex
+
+Quotation check: sections/case-lttv.tex
+  MISSING=1  NOSOURCE=2  PASS=12
+
+  MISSING      l.12    nordicity2015television p.para.~ii, p.~1 likely to result in a loss of {} FTEs of employment in the Canadian economy
+                       -> not found in nordicity_miller_2015_canadian_television_2020.pdf (checked: nordicity2015television p.para.~ii, p.~1, nordicity2015television p.para.~ii, p.~1)
+  NOSOURCE     l.8     crtc2015worldofchoice p.para.~26 priced at no more than $25 (not including equipment) per month
+                       -> no local copy
+  NOSOURCE     l.87    crtc2016hearing0907 p.para.~5 the practices certain providers have adopted in offering
+                       -> no local copy
+  PASS         l.8     nordicity2015television p.para.~xxii, p.~5 virtually all parties expressed concerns about potential impacts of unbundling
+  PASS         l.10    nordicity2015television p.para.~ii, p.~1 technological and consumer behaviour changes, assuming that the pre-existing broadcas...
+  PASS         l.14    nordicity2015television p.paras.~206--207, p.~77 75% of their retail revenue loss to Canadian programming services
+  PASS         l.20    commons2016chpc8 p.time marks 0900--0905 by 2020, some 15,130 media jobs will be lost
+  PASS         l.20    commons2016chpc8 p.time marks 0900--0905 a $400-million drop in Canadian program expenditures
+  PASS         l.20    commons2016chpc8 p.time marks 0900--0905 18% of what now exists
+  PASS         l.20    commons2016chpc8 p.time marks 0900--0905 all of this as the direct result of Let's Talk TV regulatory changes
+  PASS         l.24    commons2016chpc8 p.time marks 0920--0925 the best estimates I've seen, Mr. Waugh, are that about 4% of Canadians will go for it
+  PASS         l.31    morgenstern2018retrospective p.286 developing a credible counterfactual is the most demanding aspect
+  PASS         l.31    morgenstern2018retrospective p.286 must be revisited
+  PASS         l.59    nordicity2015television p.para.~xxiii materially increase cord cutting and cord shaving
+  PASS         l.87    nordicity2015television p.para.~201, p.~75 as many as 35% of subscribers would be willing to switch
+
+  MISSING means the string is absent from a source that extracted cleanly.
+  Read the page before concluding anything: check the edition, and check
+  whether the source quotes it from somewhere else.
+
+  UNCHECKABLE/NOSOURCE are not clean bills of health. "Not held locally"
+  is not "unverifiable": try a content index (mdfind), the quotation as
+  reproduced inside a source you do hold, and open repositories (Oxford
+  Text Archive, Internet Archive, institutional repositories) before
+  filing a negative.
+exit 0
+== sections/discussion.tex
+
+Quotation check: sections/discussion.tex
+  
+
+exit 0
+== sections/appendix.tex
+
+Quotation check: sections/appendix.tex
+  SCAREQUOTE=1
+
+
+  (1 quoted spans carry no page cite; treated as scare quotes or mentions, not source claims)
+exit 0

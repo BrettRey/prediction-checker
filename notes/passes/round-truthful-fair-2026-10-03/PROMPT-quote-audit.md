@@ -1,0 +1,17 @@
+# Quote audit: prediction-checker (EJW draft)
+
+You are an independent checker. Another model wrote this paper. Read-only; full report in your final message; state which model you are. The governing standard for this paper is: truthful, fair, clear.
+
+Manuscript: rendered text `notes/passes/round-truthful-fair-2026-10-03/main.txt` (working tree after commit 717866c, with one quotation just made literal); LaTeX in `main.tex`, `sections/*.tex` (quotations are `\enquote{...}` with `\citep[locator]{key}` or `\textcite[locator]{key}`). Bibliography keys: `references-local.bib` and `references.bib`.
+
+A mechanical string check has already run: `notes/passes/round-truthful-fair-2026-10-03/check-quotes-output.txt`. PASS there means only that the string occurs somewhere in the source; it does not check the locator, the context, or omissions.
+
+Sources (all local): /Users/brettreynolds/projects/LLM-CLI-projects/literature/canada_commons_chpc_2016-04-12_meeting8_evidence.md (and .pdf; testimony, time marks), /Users/brettreynolds/projects/LLM-CLI-projects/literature/nordicity_miller_2015_canadian_television_2020.md (and .pdf; printed page = PDF page minus 4), /Users/brettreynolds/projects/LLM-CLI-projects/literature/crtc_2015-96_lets_talk_tv_world_of_choice.md, /Users/brettreynolds/projects/LLM-CLI-projects/literature/crtc_2016-09-07_hearing_transcript_bdu_renewals.md, /Users/brettreynolds/projects/LLM-CLI-projects/literature/crtc_2016-04-15_66000_basic_tv_package_release.md, /Users/brettreynolds/projects/LLM-CLI-projects/literature/harrington_morgenstern_nelson_1999_rff_dp9918_partial.md, /Users/brettreynolds/projects/LLM-CLI-projects/literature/morgenstern_2018_jbca_retrospective_analysis_environmental_regulation.md, /Users/brettreynolds/projects/LLM-CLI-projects/literature/manski_2011_policy_analysis_incredible_certitude_pep10.md, /Users/brettreynolds/projects/LLM-CLI-projects/literature/simpson_2014_jbca_regulators_overestimate_costs.md, /Users/brettreynolds/projects/LLM-CLI-projects/literature/kane_2026_after_sffa_predictions_ejw.md, /Users/brettreynolds/projects/LLM-CLI-projects/literature/miller_2022_crtc_canadian_program_rights_market.md. PDFs sit beside the .md files.
+
+For EVERY quotation in the manuscript (including the abstract, captions and appendix):
+1. Match character by character against the source: wording, punctuation inside the quotation, capitalization, and any omission, which must be marked.
+2. Check the locator (paragraph, page, table, time mark) by reading the source at that place, not by recall. Report the correct locator where it differs.
+3. Check context: does the surrounding text in the source support the use the paper makes of it? Flag any quotation whose meaning in context differs from how the paper uses it (truncation that changes meaning, a conditional dropped, a speaker misidentified, a hedge removed).
+4. Paraphrases attributed to a named person or document with a locator (e.g., "Morrison also offered a forecast of his own", "the report checked its forecast ... para. 137", "by its authors' later account in January 2016"): check that the source says it.
+
+Report (Markdown): a verdict paragraph; then one row per quotation: location, quoted text (short), source and locator as printed, verdict (exact / locator wrong / wording differs / context concern / unverifiable), correction. Then the paraphrase checks. Show the search for anything you couldn't find.

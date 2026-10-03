@@ -1,0 +1,11 @@
+# Negative-claims audit: prediction-checker (EJW draft)
+
+You are an independent checker. Read-only; full report in your final message; state which model you are. Standard: truthful, fair, clear.
+
+Manuscript: `notes/passes/round-truthful-fair-2026-10-03/main.txt`; LaTeX in `main.tex`, `sections/*.tex`. Search records: `notes/novelty-search.md`, `notes/lit-search-2026-10-03.md`. Decision log: `DECISIONS.md`. Portfolio literature: /Users/brettreynolds/projects/LLM-CLI-projects/literature/ (the report and its sequels, e.g. miller_2022_crtc_canadian_program_rights_market.md and nordicity_2022_crtc_harnessing_change_financial_model.md).
+
+1. FIND every negative claim, explicit and implicit: "no", "none", "never", "not found", "I found no", "no published check", "untested", "can't be told apart", "no later count", "nothing here shows", "the first", novelty framing, "unlike X", "the report doesn't publish", "no observable counterpart", "doesn't test", claims that a source omits something, and claims that something wasn't said (e.g., what the testimony didn't say).
+2. For EACH, decide: (a) EVIDENCED: the exact search that supports it is recorded (quote the record and say whether the search actually covers the claim as worded); (b) NARROWABLE: the claim is broader than the search; give a narrower wording that the record supports; (c) UNSUPPORTED: no record; propose cutting or rewording; (d) TRUE BY INSPECTION of a named local source (e.g., "the report doesn't publish its baseline employment path": check the report and say where you looked).
+3. Pay special attention to: the novelty claim in the introduction and the data-and-code note; "I found no later count" of uptake; "Spin-off employment has no observable counterpart"; anything said about what Morrison did or didn't say to the committee (check the full transcript, /Users/brettreynolds/projects/LLM-CLI-projects/literature/canada_commons_chpc_2016-04-12_meeting8_evidence.md); statements that the report did not state its assumptions or did not include something.
+
+Report (Markdown): verdict; one row per negative claim: location and quoted phrase, category (a-d), the evidence or the search you ran (exact strings and files), and proposed wording if needed.
