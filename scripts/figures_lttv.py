@@ -88,7 +88,7 @@ plt.close(fig)
 
 # Figure 2
 fig, axes = plt.subplots(1, 2, figsize=(6.5, 3.0), sharey=True, sharex=True)
-grid = np.linspace(0.01, 0.05, 81)
+grid = np.linspace(0.01, 0.08, 141)  # the plan's sensitivity range, 1-8% a year (reading rule 5)
 for ax, (q, title) in zip(axes, SERIES):
     k, se_pre, s_pre = float(pre[q]["k"]), float(pre[q]["se"]), float(pre[q]["sigma"])
     for r in (r for r in mv if r["quantity"] == q):  # SE proportional to sigma: check against every calibration
@@ -104,11 +104,11 @@ for ax, (q, title) in zip(axes, SERIES):
     for u in used:
         ax.axvline(u, color=COLORS["dark"], lw=0.4, ls=":")
     ax.axvline(100 * s_pre, color=COLORS["dark"], lw=1.0)
-    ax.text(100 * s_pre + 0.05, 3.25, "pre-stated", fontsize=7.5, color=COLORS["dark"])
+    ax.text(100 * s_pre + 0.08, 4.6, "pre-stated", fontsize=7.5, color=COLORS["dark"])
     ax.set_title(title, fontsize=10)
-    ax.set_xlim(1, 5)
+    ax.set_xlim(1, 8)
     ax.set_xlabel("Assumed annual baseline error, σ (%)")
-axes[0].set_ylim(-1, 3.5)
+axes[0].set_ylim(-2.5, 5)
 axes[0].set_ylabel("$k$ (0 = no effect, 1 = forecast)")
 handles, labels = axes[0].get_legend_handles_labels()
 fig.legend(handles, labels, loc="lower center", ncol=4, fontsize=8, frameon=False, bbox_to_anchor=(0.5, -0.02))

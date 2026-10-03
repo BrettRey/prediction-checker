@@ -46,8 +46,14 @@ FIGURES = {
     42: (91, ["lttv_level", "unbundling", "exemption_order", "closures"]),
     43: (92, ["lttv_level", "programming_services_cpe", "bdu_contributions"]),
     20: (62, ["baseline_level"]),
+    # [post hoc] baseline BDU subscribers (000s) and monthly ARPU, for the decomposition
+    # of distributors' revenue (notes/analysis-plan.md, post hoc addition)
+    17: (58, ["cable", "iptv", "dth", "stack_total"]),
+    19: (61, ["arpu"]),
 }
-FIGURE_YEARS = {20: list(range(2007, 2021))}
+FIGURE_YEARS = {20: list(range(2007, 2021)), 17: list(range(2012, 2021)), 19: list(range(2007, 2021))}
+DECIMAL_FIGURES = {19}  # labels with two decimals (dollars and cents)
+DEC = re.compile(r"^\d+\.\d\d$")
 
 # Labels the chart nudged sideways off their own bar, found by listing every label
 # more than half a column from the nearest tick. Keyed by (figure, value, rounded x).
@@ -101,12 +107,13 @@ def extract(fig, page, series):
     xs = [x for x, _ in ticks]
     half = (xs[1] - xs[0]) / 2
     cols = defaultdict(list)
+    pattern = DEC if fig in DECIMAL_FIGURES else NUM
     for x, y, w in words:
-        if not (top < y < bottom) or not NUM.match(w):
+        if not (top < y < bottom) or not pattern.match(w):
             continue
         if x < xs[0] - half:  # y-axis tick labels
             continue
-        val = int(w.replace(",", ""))
+        val = float(w) if fig in DECIMAL_FIGURES else int(w.replace(",", ""))
         forced = OVERRIDES.get((fig, val, round(x)))
         if forced is not None:
             cols[forced].append((y, val, x))
@@ -339,6 +346,20 @@ def main():
                        "ok" if f20 is not None and abs(f20 - derived) <= 1 else (f20, derived), "ok"))
 
     t7 = table7()
+    # [post hoc] Baseline BDU subscribers (Fig. 17) and ARPU (Fig. 19)
+    for yr in range(2012, 2021):
+        parts = sum(get(17, yr, s) for s in ("cable", "iptv", "dth"))
+        # components are rounded to thousands, so their sum can differ from the printed total by 1
+        checks.append((f"Fig. 17 {yr}: cable + IPTV + DTH = total within rounding ({parts} vs {get(17, yr, 'stack_total')})",
+                       abs(parts - get(17, yr, "stack_total")) <= 1, True))
+    checks.append(("Fig. 17 2014 total = 11.6 million (para. 144)", round(get(17, 2014, "stack_total") / 1000, 1), 11.6))
+    checks.append(("Fig. 17 2020 total = 11.1 million (para. 144)", round(get(17, 2020, "stack_total") / 1000, 1), 11.1))
+    checks.append(("Fig. 19 2020 ARPU = Fig. 33 baseline 72.90 (para. 204)", get(19, 2020, "arpu"), 72.90))
+    with open(OUT / "nordicity_2015_bdu_subscribers_arpu.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["year", "baseline_subscribers_thousands", "baseline_monthly_arpu", "source"])
+        for yr in range(2012, 2021):
+            w.writerow([yr, get(17, yr, "stack_total"), get(19, yr, "arpu"), "Figs. 17 and 19, pp. 54 and 57"])
     with open(OUT / "nordicity_2015_us_ott_forecast.csv", "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["year"] + list(t7))

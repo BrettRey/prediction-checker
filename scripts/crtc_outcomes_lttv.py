@@ -269,7 +269,8 @@ def main():
             imp_u = np.array([scen_impact(fc, q, t, mult(t)) for t in YEARS])
             du = np.log(B) - np.log(B - imp_u)
             for t, iu in zip(YEARS, imp_u):
-                cond_paths.append(dict(quantity=q, uptake_label=lab, year=t, uptake=round(uptake_at(t), 4),
+                cond_paths.append(dict(quantity=q, uptake_label=lab, year=t,
+                                       uptake=round(report_share[t] if lab == "report's assumption" else uptake_at(t), 4),
                                        baseline=fc[(q, t)]["B"], impact=round(float(iu), 2)))
             k_pred = (delta @ P @ du) / info
             conditional.append(dict(quantity=q, uptake_label=lab, uptake=round(uptake_at(2019), 4), k_predicted=round(k_pred, 2),

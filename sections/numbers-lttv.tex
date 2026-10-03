@@ -3,6 +3,11 @@
 \newcommand{\lttvBDUAboveBaseline}{below}
 \newcommand{\lttvBDUAboveLTTV}{below}
 \newcommand{\lttvBDUBaselineTwenty}{9,766}
+\newcommand{\lttvBDUGapSEsOffset}{1.8}
+\newcommand{\lttvBDUGapSEsPooled}{0.9}
+\newcommand{\lttvBDUGapSEsRescaled}{1.9}
+\newcommand{\lttvBDUGapSEsSeventeen}{1.9}
+\newcommand{\lttvBDUGapSigmaEnter}{2.0\%}
 \newcommand{\lttvBDUImpactTwenty}{858}
 \newcommand{\lttvBDURevDrop}{554}
 \newcommand{\lttvBDURevFifteen}{8,919}
@@ -57,8 +62,16 @@
 \newcommand{\lttvClosVICorusLo}{6\%}
 \newcommand{\lttvClosVIHi}{11\%}
 \newcommand{\lttvClosVILo}{8\%}
+\newcommand{\lttvCoverDollarsBDU}{93\%}
+\newcommand{\lttvCoverDollarsSpec}{87\%}
 \newcommand{\lttvCutoffBDU}{3.0\%}
 \newcommand{\lttvCutoffSpec}{4.0\%}
+\newcommand{\lttvDecCheckMaxDev}{1\%}
+\newcommand{\lttvDecPerCounted}{2.5\%}
+\newcommand{\lttvDecPerFc}{7.0\%}
+\newcommand{\lttvDecPerObs}{8.1\%}
+\newcommand{\lttvDecSubFc}{1.5\%}
+\newcommand{\lttvDecSubObs}{3.9\%}
 \newcommand{\lttvDesignCorrectBDU}{86\%}
 \newcommand{\lttvDesignCorrectCPE}{63\%}
 \newcommand{\lttvDesignCorrectSpec}{99\%}
@@ -94,15 +107,17 @@
 \newcommand{\lttvHistSDSpec}{2.2\%}
 \newcommand{\lttvInnovBDUFirst}{0.5}
 \newcommand{\lttvInnovBDULaterMax}{1.0}
-\newcommand{\lttvInnovSpecFirst}{\textminus 1.6}
-\newcommand{\lttvInnovSpecLaterMax}{0.5}
+\newcommand{\lttvInnovSpecFirst}{\textminus 1.7}
+\newcommand{\lttvInnovSpecLaterMax}{0.7}
 \newcommand{\lttvJobsDirect}{6,830}
 \newcommand{\lttvJobsSpinoff}{8,300}
 \newcommand{\lttvJobsTotal}{15,130}
 \newcommand{\lttvKBDU}{1.30}
 \newcommand{\lttvKBDUHi}{2.1}
+\newcommand{\lttvKBDUHiEight}{4.73}
 \newcommand{\lttvKBDUHiTwo}{2.11}
 \newcommand{\lttvKBDULo}{0.5}
+\newcommand{\lttvKBDULoEight}{\textminus 2.12}
 \newcommand{\lttvKBDULoTwo}{0.49}
 \newcommand{\lttvKBDUOffset}{1.23}
 \newcommand{\lttvKBDUOffsetSE}{0.44}
@@ -110,6 +125,8 @@
 \newcommand{\lttvKBDUSEsFromBandLo}{1.2}
 \newcommand{\lttvKBDUSEsFromOne}{0.7}
 \newcommand{\lttvKBDUSEsFromZero}{3.2}
+\newcommand{\lttvKBDUTThreeHi}{2.62}
+\newcommand{\lttvKBDUTThreeLo}{\textminus 0.01}
 \newcommand{\lttvKPredBDUCitedLowSEs}{1.7}
 \newcommand{\lttvKPredBDUCitedLowWhere}{inside}
 \newcommand{\lttvKPredBDUMorrison}{0.48}
@@ -137,16 +154,21 @@
 \newcommand{\lttvKPredSpecRiseMorrisonWhere}{inside}
 \newcommand{\lttvKSpec}{0.12}
 \newcommand{\lttvKSpecHi}{0.5}
+\newcommand{\lttvKSpecHiEight}{1.37}
 \newcommand{\lttvKSpecHiTwo}{0.46}
 \newcommand{\lttvKSpecHiWidest}{0.85}
 \newcommand{\lttvKSpecLo}{\textminus 0.2}
+\newcommand{\lttvKSpecLoEight}{\textminus 1.13}
 \newcommand{\lttvKSpecLoTwo}{\textminus 0.23}
 \newcommand{\lttvKSpecOffset}{0.20}
 \newcommand{\lttvKSpecOffsetSE}{0.18}
 \newcommand{\lttvKSpecSE}{0.18}
 \newcommand{\lttvKSpecSEsFromBandLo}{3.6}
 \newcommand{\lttvKSpecSEsFromOne}{5.0}
+\newcommand{\lttvKSpecSEsFromOneDollars}{3.8}
 \newcommand{\lttvKSpecSEsFromZero}{0.7}
+\newcommand{\lttvKSpecTThreeHi}{0.68}
+\newcommand{\lttvKSpecTThreeLo}{\textminus 0.44}
 \newcommand{\lttvMorrisonUptake}{4\%}
 \newcommand{\lttvNCalibrations}{9}
 \newcommand{\lttvNInconclusiveBDU}{4}
@@ -183,6 +205,13 @@
 \newcommand{\lttvReportFifteenBDU}{9,053}
 \newcommand{\lttvReportFifteenSpec}{4,186}
 \newcommand{\lttvReportPassThrough}{75\%}
+\newcommand{\lttvRevPerSubBaseGrowth}{10.1\%}
+\newcommand{\lttvRevPerSubFourteen}{65.25}
+\newcommand{\lttvRevPerSubNineteen}{66.05}
+\newcommand{\lttvRevPerSubObsGrowth}{1.2\%}
+\newcommand{\lttvRevPerSubRealFall}{6.8\%}
+\newcommand{\lttvSEInflateBDU}{10\%}
+\newcommand{\lttvSEInflateSpec}{30\%}
 \newcommand{\lttvSigmaGrowthEighteen}{4.2\%}
 \newcommand{\lttvSigmaGrowthPooled}{4.0\%}
 \newcommand{\lttvSigmaReadBDU}{1.9\%}
@@ -226,6 +255,9 @@
 \newcommand{\lttvStaffDistVsTrendDir}{above}
 \newcommand{\lttvStaffDistVsTrendEighteen}{396}
 \newcommand{\lttvStaffDistVsTrendEighteenDir}{below}
+\newcommand{\lttvSubsFourteen}{11.40}
+\newcommand{\lttvSubsNineteen}{10.55}
+\newcommand{\lttvTThreeWiden}{62\%}
 \newcommand{\lttvUptakeAprilN}{66,000}
 \newcommand{\lttvUptakeAprilShare}{0.6\%}
 \newcommand{\lttvUptakeJuneN}{177,000}
