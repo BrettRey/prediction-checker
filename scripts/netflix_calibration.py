@@ -33,6 +33,12 @@ observed = {2018: vals[0] / 1000, 2017: vals[1] / 1000, 2016: vals[2] / 1000}  #
 
 forecast = {int(r["year"]): float(r["us_netflix_subscribers_m"]) for r in csv.DictReader(open(FC))}
 sigma_tech = abs(math.log(observed[2018] / forecast[2018])) / math.sqrt(2018 - 2014)
+# [post hoc, multiverse] the same formula for each year, and a pooled estimate:
+# the maximum-likelihood SD of a random walk from 2014 observed at h = 2, 3, 4
+# (increments e2 ~ N(0, 2 s^2), e3 - e2 and e4 - e3 ~ N(0, s^2)).
+per_year = {y: abs(math.log(observed[y] / forecast[y])) / math.sqrt(y - 2014) for y in (2016, 2017, 2018)}
+e = {y: math.log(observed[y] / forecast[y]) for y in (2016, 2017, 2018)}
+pooled = math.sqrt((e[2016] ** 2 / 2 + (e[2017] - e[2016]) ** 2 + (e[2018] - e[2017]) ** 2) / 3)
 
 with open(OUT, "w", newline="") as f:
     w = csv.writer(f)
@@ -40,6 +46,9 @@ with open(OUT, "w", newline="") as f:
     for y in (2016, 2017, 2018):
         w.writerow([y, forecast[y], round(observed[y], 3), round(math.log(observed[y] / forecast[y]), 4)])
     w.writerow(["sigma_tech", "", "", round(sigma_tech, 4)])
+    for y, v in per_year.items():
+        w.writerow([f"sigma_tech_{y}", "", "", round(v, 4)])
+    w.writerow(["sigma_tech_pooled_2016_2018", "", "", round(pooled, 4)])
 print("observed (M):", observed)
 print("forecast (M):", {y: forecast[y] for y in (2016, 2017, 2018)})
-print(f"sigma_tech = {sigma_tech:.4f}")
+print(f"sigma_tech = {sigma_tech:.4f}; per year {per_year}; pooled {pooled:.4f}")

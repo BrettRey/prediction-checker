@@ -15,7 +15,7 @@ claim:
 ---
 
 # Prediction checker
-<!-- SUMMARY: audit consequential Canadian policy forecasts against outcomes; case 2 (Let's Talk TV) preliminary results in: specialty/pay revenue showed no detectable effect (k = 0.1), BDU revenue fell within the forecast range (k = 1.3), read at the pre-stated error level after the Netflix calibration (σ_tech 1.3%/yr); BDU payments to programmers didn't fall; uptake, closures, technology calibration pending; case 1 gated on premium data · status: development · updated: 2026-10-03 -->
+<!-- SUMMARY: audit consequential Canadian policy forecasts against outcomes; case 2 (Let's Talk TV) results in: specialty/pay revenue k = 0.1 (smaller than forecast in 9 of 15 multiverse cells, inconclusive in 6, never consistent), BDU revenue within the forecast range, payments to Canadian services didn't fall, uptake far below assumed in 2016; case 1 gated on premium data · status: development · updated: 2026-10-03 -->
 
 ## State
 
@@ -25,7 +25,7 @@ Forecast-side sources for cases 1 and 2 read and filed in `literature/` (JUST 36
 
 ## Next action
 
-1. Case 2: finish the outcome checks in `notes/analysis-plan.md`: unbundled-package uptake (CRTC data or company disclosures), service closures 2016–2020 from the individual-service summaries, CPE (descriptive), and the released HELD rows T14–T15. 
+1. Case 2: entry-level uptake for 2017–2019 from company disclosures (plan's second tier); CPE (descriptive); read the released HELD rows T14–T15; then draft the case 2 section in LaTeX.
 2. Case 1: locate the source of the 30% / 50% premium figures (G18): the 2016 CIA critical-illness paper, any Senate submission on S-201. Settle premium-data feasibility (COMPULIFE terms, archived rate tables). Check whether submissions in the Supreme Court decision on the Act (G07) repeated the forecast.
 3. Outward novelty search with `/hyperresearch` (light tier, capped budget), logged in `notes/novelty-search.md`.
 

@@ -1,0 +1,5 @@
+corus_counted_vi,group,n_2015,operating,closed,absent,share_closed_lower,share_closed_upper
+False,independent A/B,127,85,8,34,0.063,0.331
+False,VI A/B,38,34,3,1,0.079,0.105
+True,independent A/B,85,48,6,31,0.071,0.435
+True,VI A/B,80,71,5,4,0.062,0.113

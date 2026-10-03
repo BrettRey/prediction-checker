@@ -68,6 +68,41 @@ Technology calibration (`scripts/netflix_calibration.py`): the report forecast U
 Netflix's 2018 US memberships exceeded the report's forecast, so on the pre-stated reading the report's technology-only baseline was, if anything, too optimistic about TV revenue: the direction favours finding a policy effect, which strengthens the specialty and pay result and weakens the BDU one.
 Not part of the rule, recorded for the write-up: the forecast's 2016 and 2017 errors had the opposite sign (observed below forecast), and the report's Trefis series may count all memberships rather than paid ones.
 
+## Multiverse [post hoc]
+
+The pre-stated rule calibrates on 2018 alone. The same formula on 2016 or 2017, or a pooled random-walk estimate over 2016–2018, gives other error levels; so do the other series versions. Every combination, read at the larger of the historical SD and the calibration SD (the pre-stated cell is in bold):
+
+| Quantity | Series | Calibration | SD read at | *k* | 95% interval | Verdict |
+|---|---|---|---|---|---|---|
+| Specialty and pay revenue | as published | none (historical SD only) | 2.2% | 0.1 | [-0.2, 0.5] | smaller than the forecasters' inputs imply (no detectable effect) |
+| Specialty and pay revenue | as published | 2016 | 4.4% | 0.1 | [-0.6, 0.8] | inconclusive |
+| Specialty and pay revenue | as published | 2017 | 2.2% | 0.1 | [-0.2, 0.5] | smaller than the forecasters' inputs imply (no detectable effect) |
+| **Specialty and pay revenue** | as published | 2018 (pre-stated) | 2.2% | 0.1 | [-0.2, 0.5] | **smaller than the forecasters' inputs imply (no detectable effect)** |
+| Specialty and pay revenue | as published | pooled 2016-2018 | 4.7% | 0.1 | [-0.6, 0.8] | inconclusive |
+| Specialty and pay revenue | rescaled to report's 2014 | none (historical SD only) | 2.2% | 0.1 | [-0.2, 0.5] | smaller than the forecasters' inputs imply (no detectable effect) |
+| Specialty and pay revenue | rescaled to report's 2014 | 2016 | 4.4% | 0.1 | [-0.6, 0.8] | inconclusive |
+| Specialty and pay revenue | rescaled to report's 2014 | 2017 | 2.2% | 0.1 | [-0.2, 0.5] | smaller than the forecasters' inputs imply (no detectable effect) |
+| Specialty and pay revenue | rescaled to report's 2014 | 2018 (pre-stated) | 2.2% | 0.1 | [-0.2, 0.5] | smaller than the forecasters' inputs imply (no detectable effect) |
+| Specialty and pay revenue | rescaled to report's 2014 | pooled 2016-2018 | 4.7% | 0.1 | [-0.6, 0.9] | inconclusive |
+| Specialty and pay revenue | incl. exempt services | none (historical SD only) | 2.2% | 0.1 | [-0.2, 0.5] | smaller than the forecasters' inputs imply (no detectable effect) |
+| Specialty and pay revenue | incl. exempt services | 2016 | 4.4% | 0.1 | [-0.6, 0.8] | inconclusive |
+| Specialty and pay revenue | incl. exempt services | 2017 | 2.2% | 0.1 | [-0.2, 0.5] | smaller than the forecasters' inputs imply (no detectable effect) |
+| Specialty and pay revenue | incl. exempt services | 2018 (pre-stated) | 2.2% | 0.1 | [-0.2, 0.5] | smaller than the forecasters' inputs imply (no detectable effect) |
+| Specialty and pay revenue | incl. exempt services | pooled 2016-2018 | 4.7% | 0.1 | [-0.6, 0.9] | inconclusive |
+| BDU total revenue | as published | none (historical SD only) | 1.9% | 1.3 | [0.5, 2.1] | consistent with the forecast range (includes k = 1) |
+| BDU total revenue | as published | 2016 | 4.4% | 1.3 | [-0.6, 3.2] | inconclusive |
+| BDU total revenue | as published | 2017 | 2.1% | 1.3 | [0.4, 2.2] | consistent with the forecast range (includes k = 1) |
+| **BDU total revenue** | as published | 2018 (pre-stated) | 1.9% | 1.3 | [0.5, 2.1] | **consistent with the forecast range (includes k = 1)** |
+| BDU total revenue | as published | pooled 2016-2018 | 4.7% | 1.3 | [-0.7, 3.3] | inconclusive |
+| BDU total revenue | rescaled to report's 2014 | none (historical SD only) | 1.9% | 1.2 | [0.4, 2.0] | consistent with the forecast range (includes k = 1) |
+| BDU total revenue | rescaled to report's 2014 | 2016 | 4.4% | 1.2 | [-0.7, 3.1] | inconclusive |
+| BDU total revenue | rescaled to report's 2014 | 2017 | 2.1% | 1.2 | [0.3, 2.1] | consistent with the forecast range (includes k = 1) |
+| BDU total revenue | rescaled to report's 2014 | 2018 (pre-stated) | 1.9% | 1.2 | [0.4, 2.0] | consistent with the forecast range (includes k = 1) |
+| BDU total revenue | rescaled to report's 2014 | pooled 2016-2018 | 4.7% | 1.2 | [-0.8, 3.2] | inconclusive |
+
+- Specialty and pay revenue: smaller than the forecasters' inputs imply in 9 of 15; inconclusive in 6 of 15.
+- BDU total revenue: consistent with the forecast range in 6 of 10; inconclusive in 4 of 10.
+
 **Sensitivity.** Each verdict holds up to the annual baseline-error SD below and becomes inconclusive at it:
 
 - Specialty and pay revenue (discretionary and on-demand, excl. exempt), as published (splice rule): inconclusive from 4.1% a year

@@ -38,7 +38,13 @@ Filled 2026-10-03 from forecast-side sources only. Paragraph numbers and printed
 
 ## Outcomes (preliminary)
 
-Rules in `../../notes/analysis-plan.md`; generated results in `../../notes/results-lttv.md`; choices made after seeing the data are marked [post hoc] in `DECISIONS.md`. Specialty/pay revenue stayed at or above the report's technology-only baseline through 2019 (*k* = 0.1); BDU revenue fell below even the LTTV path (*k* = 1.3, within the cited band). Both verdicts hold up to a baseline error of about 3–4% a year and are inconclusive beyond it. BDU affiliation payments to programmers did not fall, so the pass-through modelled in ¶207 isn't visible in the aggregate; why is open (fee increases on a shrinking base, the 2016 Wholesale Code, scope). Still to do: uptake, closures, the technology calibration (blocked on a primary Netflix source), CPE (descriptive), the released HELD rows T14–T15.
+Rules in `../../notes/analysis-plan.md`; generated results in `../../notes/results-lttv.md` and `../../notes/results-lttv-inputs.md`; choices made after seeing the data are marked [post hoc] in `DECISIONS.md`.
+
+- **Specialty/pay revenue** stayed at or above the report's technology-only baseline through 2019: *k* = 0.1 in every specification. At the pre-stated reading (2018 Netflix calibration) the effect is smaller than the forecasters' own inputs imply; across the multiverse that holds in 9 of 15 specifications and is inconclusive in 6 (calibrating on 2016, or pooling 2016–2018). It is never consistent with the forecast.
+- **BDU revenue** fell below even the LTTV path: *k* = 1.3, consistent with the forecast range at the pre-stated reading and in 6 of 10 specifications, inconclusive in 4.
+- **Mechanisms.** Payments to Canadian services rose (2015–2019) and their share held at 87–88%: neither the modelled pass-through nor the preponderance erosion is visible in the aggregate, for reasons not established.
+- **Inputs.** Entry-level uptake was 0.6% (April 2016) and 1.6% (June 2016) of subscribers against the report's 5% for 2016; no CRTC count for later years. Closures of vertically integrated A/B services 8–10%, around the report's 10%; independents indeterminate (6–33%).
+- Still to do: company disclosures for 2017–2019 uptake; CPE (descriptive); HELD rows T14–T15.
 
 ## Intervention as enacted
 
