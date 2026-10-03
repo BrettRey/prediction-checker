@@ -4,8 +4,8 @@ outcome data was opened. Nothing here replaces the pre-stated reading.
 
 1. Standardized one-step innovations of the baseline's error under the fitted
    k-only model at the pre-stated sigma: e_t = y_t - k delta_t, steps
-   2014->2016 (variance 2 sigma^2), then yearly (sigma^2). Under the model
-   these are independent N(0, 1).
+   2014->2016 (variance 2 sigma^2), then yearly (sigma^2). After fitting k
+   they're correlated, with covariance I - H (see 5 below), not independent N(0, 1).
 2. An offset model, y_t = a + k delta_t + e_t, fitted by GLS under the same
    covariance, as a sensitivity: a one-time level gap between the report's
    baseline and the CRTC series would show up in a, not in k.
@@ -135,7 +135,7 @@ for q, label in SERIES:
         out.append(dict(quantity=q, key=f"residual_{t}", value=round(float(et), 4)))
         out.append(dict(quantity=q, key=f"std_innovation_{t}", value=round(float(zt), 2)))
         out.append(dict(quantity=q, key=f"std_innovation_var_{t}", value=round(float(vz), 4)))
-        out.append(dict(quantity=q, key=f"std_innovation_adj_{t}", value=round(float(za), 2)))
+        out.append(dict(quantity=q, key=f"std_innovation_adj_{t}", value=round(float(za), 4)))
     for key in ("sigma", "k", "a_off", "se_a", "k_off", "se_k", "gap12", "gap13", "gap14", "gap15", "gap15_minus_14",
                 "report15", "crtc15", "release_gap16", "se", "cover_dollars", "sd_ratio_dollars", "cover_proportional",
                 "t3_lo", "t3_hi", "ku", "sigma_enter", "gap_ses_2017", "gap_ses_pooled", "gap_ses_rescaled",

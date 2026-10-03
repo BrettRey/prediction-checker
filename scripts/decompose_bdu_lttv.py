@@ -70,7 +70,7 @@ for t in YEARS:
         cum_cut += CUT_BASE * (CUT_FACTOR - 1) * Sb[t]
         cum_shave += SHAVE_BASE[t] * (CUT_FACTOR - 1) * Sb[t]
     cut[t], shave[t] = cum_cut, cum_shave
-    blended = ARPU19[t] - 1000 * f(fc[t], "unbundling") / (12 * Sb[t])
+    blended = Ab[t] - 1000 * f(fc[t], "unbundling") / (12 * Sb[t])  # the rule's A_b; Fig. 19's ARPU gives much the same
     check[t] = 12 * (cum_cut * blended + cum_shave * SHAVE_DISCOUNT) / 1000   # $M
 SL = {t: Sb[t] - cut[t] for t in YEARS}
 AL = {t: 1000 * (B[t] - I[t]) / (12 * SL[t]) for t in YEARS}

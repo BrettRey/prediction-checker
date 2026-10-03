@@ -90,9 +90,12 @@ plt.close(fig)
 fig, axes = plt.subplots(1, 2, figsize=(6.5, 3.0), sharey=True, sharex=True)
 grid = np.linspace(0.01, 0.08, 141)  # the plan's sensitivity range, 1-8% a year (reading rule 5)
 for ax, (q, title) in zip(axes, SERIES):
-    k, se_pre, s_pre = float(pre[q]["k"]), float(pre[q]["se"]), float(pre[q]["sigma"])
+    hist = [float(fc[(q, t)]["baseline_level"]) for t in range(2010, 2015)]
+    s_pre = float(np.std(np.diff(np.log(hist)), ddof=1))  # exact historical volatility, the pre-stated sigma
+    k = float(pre[q]["k_full"])
+    se_pre = float(pre[q]["se"]) * s_pre / float(pre[q]["sigma"])  # the stored SE uses sigma rounded to 4 places
     for r in (r for r in mv if r["quantity"] == q):  # SE proportional to sigma: check against every calibration
-        assert math.isclose(se_pre * float(r["sigma"]) / s_pre, float(r["se"]), abs_tol=0.002), r
+        assert math.isclose(se_pre * float(r["sigma"]) / s_pre, float(r["se"]), rel_tol=0.002), r
     lo, hi = band[q]
     ax.axhspan(lo, hi, color=COLORS["light"], lw=0, label="Band from the forecasters' inputs")
     ax.fill_between(100 * grid, k - 1.96 * se_pre * grid / s_pre, k + 1.96 * se_pre * grid / s_pre,
