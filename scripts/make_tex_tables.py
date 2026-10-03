@@ -359,6 +359,9 @@ chron = [
     ("Direct employment (reading rule 6)", "pre-stated rule", "f952668"),
     ("Model-implied uptake scenarios; fees per subscriber against Table~14", "post hoc", "ecde24b"),
     ("Uptake scenarios held flat per year", "post hoc, correction", "cc360dd"),
+    ("Rising uptake paths", "post hoc", "ff1154c"),
+    ("Changes stated after inflation (descriptive)", "post hoc", "764a690"),
+    ("Model check and offset model", "post hoc", "3867d78"),
 ]
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       "\\caption{Order of the analyses. Commit identifiers refer to the replication repository, listed in the order the commits were made.}",
