@@ -278,6 +278,11 @@ for q, tag in (("specialty_pay_revenue", "Spec"), ("bdu_revenue", "BDU")):
     M[f"lttvK{tag}Offset"] = f"{mc[(q, 'k_off')]:.2f}"
     M[f"lttvK{tag}OffsetSE"] = f"{mc[(q, 'se_k')]:.2f}"
     M[f"lttvGapFifteen{tag}"] = pct(abs(mc[(q, 'gap15')]), 1)
+    M[f"lttvGapFourteen{tag}"] = pct(abs(mc[(q, 'gap14')]), 1)
+    M[f"lttvGapFifteenLessFourteen{tag}"] = f"{100 * abs(mc[(q, 'gap15_minus_14')]):.1f}"
+    actual = [mc[(q, f"gap{y}")] for y in (12, 13, 14, 15)]
+    M[f"lttvGapRangeLo{tag}"] = pct(min(abs(v) for v in actual), 1)
+    M[f"lttvGapRangeHi{tag}"] = pct(max(abs(v) for v in actual), 1)
     M[f"lttvGapFifteen{tag}Dir"] = "above" if mc[(q, "gap15")] > 0 else "below"
     M[f"lttvReportFifteen{tag}"] = money(mc[(q, "report15")])
     M[f"lttvCRTCFifteen{tag}"] = money(mc[(q, "crtc15")])

@@ -13,7 +13,11 @@ specialty_pay_revenue,a_off,-0.0549
 specialty_pay_revenue,se_a,0.0325
 specialty_pay_revenue,k_off,0.2032
 specialty_pay_revenue,se_k,0.1833
+specialty_pay_revenue,gap12,-0.0001
+specialty_pay_revenue,gap13,0.0
+specialty_pay_revenue,gap14,0.0078
 specialty_pay_revenue,gap15,0.0248
+specialty_pay_revenue,gap15_minus_14,0.017
 specialty_pay_revenue,report15,4186.0
 specialty_pay_revenue,crtc15,4289.7
 specialty_pay_revenue,release_gap16,0.0006
@@ -31,7 +35,11 @@ bdu_revenue,a_off,0.014
 bdu_revenue,se_a,0.0285
 bdu_revenue,k_off,1.2291
 bdu_revenue,se_k,0.4394
+bdu_revenue,gap12,-0.0129
+bdu_revenue,gap13,-0.0149
+bdu_revenue,gap14,-0.0137
 bdu_revenue,gap15,-0.0148
+bdu_revenue,gap15_minus_14,-0.0011
 bdu_revenue,report15,9053.0
 bdu_revenue,crtc15,8918.7
 bdu_revenue,release_gap16,0.0051
