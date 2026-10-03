@@ -63,13 +63,13 @@ for ax, (q, title) in zip(axes, SERIES):
     s = float(pre[q]["sigma"])
     h = np.array([t - 2014 for t in YEARS_FC], dtype=float)
     ax.fill_between(YEARS_FC, 100 * (np.exp(-1.96 * s * np.sqrt(h)) - 1), 100 * (np.exp(1.96 * s * np.sqrt(h)) - 1),
-                    color=COLORS["light"], lw=0, label="95% range, no-reform outcome")
-    ax.axhline(0, color=COLORS["dark"], lw=0.8, label="Report's no-reform baseline")
+                    color=COLORS["light"], lw=0, label="Pointwise 95% range around the baseline")
+    ax.axhline(0, color=COLORS["dark"], lw=0.8, label="Report's baseline")
     ax.plot(YEARS_FC, [-100 * float(fc[(q, t)]["impact_total"]) / B[t] for t in YEARS_FC],
-            color=TEXT["secondary"], lw=1.4, label="Report's forecast")
+            color=TEXT["secondary"], lw=1.4, label="Report's reform path (the forecast)")
     sc = {int(r["year"]): -100 * float(r["impact"]) / float(r["baseline"]) for r in paths if r["quantity"] == q}
     ax.plot([2015] + sorted(sc), [0.0] + [sc[t] for t in sorted(sc)], color=TEXT["tertiary"], lw=1.4, ls="--",
-            label="Partial recalculation at counted uptake")
+            label="Partial recalculation, uptake held at 1.6%")
     ax.plot(YEARS_OBS, [100 * (obs[(q, t)] / B[t] - 1) for t in YEARS_OBS], color=COLORS["primary"], lw=1.6,
             marker="o", ms=3.5, label="CRTC outcome")
     ax.axvline(2015.5, color=COLORS["dark"], lw=0.5, ls=":")
@@ -78,7 +78,7 @@ for ax, (q, title) in zip(axes, SERIES):
     ax.set_xticklabels([f"{t}" if t % 2 == 0 else "" for t in YEARS_OBS])
     ax.set_xlim(2011.7, 2019.3)
     add_grid(ax, axis="y")
-axes[0].set_ylabel("Difference from the report's\nno-reform baseline (%)")
+axes[0].set_ylabel("Difference from the\nreport's baseline (%)")
 axes[0].text(2015.6, axes[0].get_ylim()[1] * 0.92, "rules in force", fontsize=8, color=COLORS["dark"])
 handles, labels = axes[0].get_legend_handles_labels()
 fig.legend(handles, labels, loc="lower center", ncol=3, fontsize=8, frameon=False, bbox_to_anchor=(0.5, -0.02))
@@ -97,12 +97,12 @@ for ax, (q, title) in zip(axes, SERIES):
     for r in (r for r in mv if r["quantity"] == q):  # SE proportional to sigma: check against every calibration
         assert math.isclose(se_pre * float(r["sigma"]) / s_pre, float(r["se"]), rel_tol=0.002), r
     lo, hi = band[q]
-    ax.axhspan(lo, hi, color=COLORS["light"], lw=0, label="Band from the forecasters' inputs")
+    ax.axhspan(lo, hi, color=COLORS["light"], lw=0, label="Cited-input band")
     ax.fill_between(100 * grid, k - 1.96 * se_pre * grid / s_pre, k + 1.96 * se_pre * grid / s_pre,
                     color=COLORS["accent"], alpha=0.35, lw=0, label="95% interval for $k$")
-    ax.axhline(k, color=COLORS["primary"], lw=1.4, label="Estimate of $k$")
+    ax.axhline(k, color=COLORS["primary"], lw=1.4, label="Estimate $\\hat{k}$")
     ax.axhline(0, color=COLORS["dark"], lw=0.8)
-    ax.axhline(1, color=TEXT["secondary"], lw=0.8, ls="--", label="Forecast ($k=1$)")
+    ax.axhline(1, color=TEXT["secondary"], lw=0.8, ls="--", label="Reform path ($k=1$)")
     used = sorted({round(100 * float(r["sigma"]), 1) for r in mv if r["quantity"] == q})
     for u in used:
         ax.axvline(u, color=COLORS["dark"], lw=0.4, ls=":")
@@ -110,9 +110,9 @@ for ax, (q, title) in zip(axes, SERIES):
     ax.text(100 * s_pre + 0.08, 4.6, "pre-stated", fontsize=7.5, color=COLORS["dark"])
     ax.set_title(title, fontsize=10)
     ax.set_xlim(1, 8)
-    ax.set_xlabel("Assumed annual baseline error, σ (%)")
+    ax.set_xlabel("Annual error scale of the baseline, σ (%)")
 axes[0].set_ylim(-2.5, 5)
-axes[0].set_ylabel("$k$ (0 = no-reform path, 1 = forecast)")
+axes[0].set_ylabel("$k$ (0 = baseline, 1 = reform path)")
 handles, labels = axes[0].get_legend_handles_labels()
 fig.legend(handles, labels, loc="lower center", ncol=4, fontsize=8, frameon=False, bbox_to_anchor=(0.5, -0.02))
 fig.tight_layout(rect=(0, 0.1, 1, 1))

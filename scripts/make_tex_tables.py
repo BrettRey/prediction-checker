@@ -158,7 +158,7 @@ L += ["\\bottomrule", "\\end{tabular}", "\\end{table}", ""]
 # A2: inputs to k
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       "\\caption{Inputs to \\(k\\), in \\$ millions: the report's forecast impact with its four components and its baseline "
-      "(the decisions-scenario level plus the impact), from Figs.~41 and 42 (2016 components from Figs.~34--36, 39 and 40), and the CRTC outcome (2020 edition; channels exclude exempt services). The historical "
+      "(the reform-path level plus the impact), from Figs.~41 and 42 (2016 components from Figs.~34--36, 39 and 40), and the CRTC outcome (2020 edition; channels exclude exempt services). The historical "
       "volatility is the standard deviation of annual log changes in the report's 2010--2014 values. With \\(\\sigma\\) "
       "the larger of that volatility and the calibration's value (table~\\ref{tab:calibrations}), \\(\\hat k\\) and its "
       "interval follow from the formulas in appendix~\\ref{app:methods}. The cited-input band scales the unbundling and "
@@ -169,7 +169,7 @@ L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       "\\label{tab:inputs}",
       "\\begin{tabular}{lrrrr}", "\\toprule",
       " & " + " & ".join(str(t) for t in YEARS) + " \\\\", "\\midrule"]
-comp_label = dict(unbundling="unbundling", preponderance_access="preponderance and access rules",
+comp_label = dict(unbundling="unbundling", preponderance_access="changes to preponderance and access rules",
                   exemption_order="exemption order", closures="service closures")
 for q, label in SERIES:
     d = inp[q]
@@ -199,24 +199,27 @@ paths = {"CRTC count, 30 June 2016": (up_obs, up_obs), "Morrison's estimate (Apr
          "survey path: 2016 count, then 10% from 2017": {2016: up_obs, 2017: 0.10, 2018: 0.10, 2019: 0.10}}
 cond = {(r["quantity"], r["uptake_label"]): r for r in rows("uptake_conditional_lttv.csv")}
 check("scenario labels", sorted({lb for _, lb in cond}), sorted(paths))
-display = {"report's assumption": "Report's assumption (Table~18)",
-           "Morrison's estimate (April 2016)": "Estimate Morrison cited (April 2016)",
-           "rising from 2016 count to Morrison's estimate": "Rising from 2016 count to the estimate Morrison cited",
-           "survey path: 2016 count, then 10% from 2017": "Survey path: 2016 count, then 10\\% from 2017 (outside the plan's rule)"}
+display = {"CRTC count, 30 June 2016": "Held at the CRTC's June 2016 entry-level share",
+           "Morrison's estimate (April 2016)": "Held at 4\\%, the figure Morrison cited, as a share of subscribers",
+           "low end of cited range": "Held at 10\\%, the low end of the cited estimates",
+           "report's assumption": "The report's BYOP assumption (Table~18)",
+           "rising from 2016 count to Morrison's estimate": "Linear rise from 1.6\\% to 4\\% by 2019",
+           "rising from 2016 count to low end of cited range": "Linear rise from 1.6\\% to 10\\% by 2019",
+           "survey path: 2016 count, then 10% from 2017": "Survey path: 1.6\\%, then 10\\% from 2017 (outside the plan's sources)"}
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",
-      "\\caption{Model-implied scenarios, an exploratory comparison added after the outcome data was opened; uptake after June 2016 "
-      "is assumed, and a scenario inside the interval isn't thereby confirmed. Each year's unbundling and preponderance components (table~\\ref{tab:inputs}) "
+      "\\caption{Partial recalculations under assumed uptake paths, an exploratory comparison added after the outcome data was "
+      "opened; uptake after June 2016 is assumed, and a scenario coefficient inside the interval isn't thereby confirmed. Each year's unbundling and preponderance components (table~\\ref{tab:inputs}) "
       "are multiplied by the path's uptake over the report's share for that year (Table~18), the exemption-order and "
-      "closure components are unchanged, and the resulting shortfall path \\(\\delta^{u}_t\\) is projected like "
+      "closure dollar components are held fixed (an approximation: the report values them partly from the others), and the resulting shortfall path \\(\\delta^{u}_t\\) is projected like "
       "the band: \\(k^{u}=\\delta'\\Sigma^{-1}\\delta^{u}/\\delta'\\Sigma^{-1}\\delta\\). Rising paths are linear from the "
-      "2016 count. Observed \\(k\\) and intervals at the pre-stated calibration. Produced by "
+      "2016 count. Estimates \\(\\hat k\\) and intervals at the designated error scale. Produced by "
       "\\texttt{scripts/crtc\\_outcomes\\_lttv.py}; data in \\texttt{data/derived/uptake\\_conditional\\_lttv.csv}.}",
       "\\label{tab:scenarios}",
       "\\footnotesize", "\\setlength{\\tabcolsep}{4pt}",
       "\\begin{tabular}{>{\\raggedright\\arraybackslash}p{0.3\\textwidth}rrrrll}", "\\toprule",
-      " & \\multicolumn{4}{c}{Uptake} & \\multicolumn{2}{c}{Model-implied \\(k\\)} \\\\",
+      " & \\multicolumn{4}{c}{Assumed BYOP share} & \\multicolumn{2}{c}{Scenario coefficient \\(k^{u}\\)} \\\\",
       "\\cmidrule(lr){2-5}\\cmidrule(lr){6-7}",
-      "Uptake path & " + " & ".join(str(t) for t in YEARS) + " & Specialty and pay & Distributors \\\\", "\\midrule"]
+      "Assumed uptake path & " + " & ".join(str(t) for t in YEARS) + " & Specialty and pay & Distributors \\\\", "\\midrule"]
 for lb, p in paths.items():
     u = ({t: share[t] for t in YEARS} if p is None else dict(p) if isinstance(p, dict)
          else {t: p[0] + (p[1] - p[0]) * (t - 2016) / 3 for t in YEARS})
@@ -233,7 +236,7 @@ for lb, p in paths.items():
         cells.append(f"{num(kp)} ({where})")
     L.append(f"{display.get(lb, lab(lb[0].upper() + lb[1:]))} & " + " & ".join(pct(u[t]) for t in YEARS) + " & " + " & ".join(cells) + " \\\\")
 L.append("\\midrule")
-L.append("\\multicolumn{5}{l}{Observed \\(k\\) [95\\% interval]} & "
+L.append("\\multicolumn{5}{l}{Estimate \\(\\hat k\\) [95\\% interval]} & "
          + " & ".join(f"{num(inp[q]['k'])} [{num(inp[q]['lo'])}, {num(inp[q]['hi'])}]" for q, _ in SERIES) + " \\\\")
 L += ["\\bottomrule", "\\end{tabular}", "\\end{table}", ""]
 
@@ -260,15 +263,16 @@ check("calibration labels", sorted(cals), sorted(netflix_value))
 short = {"smaller than the forecasters' inputs imply": "smaller", "consistent with the forecast range": "consistent",
          "inconclusive": "inconclusive", "forecast exceeded": "exceeded"}
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",
-      "\\caption{Calibrating the baseline's annual error \\(\\sigma\\). Intervals are conditional on \\(\\sigma\\) and don't "
+      "\\caption{Calibrating the annual error scale \\(\\sigma\\). Intervals are conditional on \\(\\sigma\\) and don't "
       "carry the uncertainty in \\(\\sigma\\) itself. Panel (a): the report's forecast of US Netflix "
       "subscribers (Table~7) against Netflix's US paid memberships at year end (Form 10-K), in millions, with "
-      "\\(e_t=\\log(\\text{observed}_t/\\text{forecast}_t)\\). Panel (b): the value each calibration takes from panel (a) "
+      "\\(n_t=\\log(\\text{observed}_t/\\text{forecast}_t)\\). Panel (b): the value each calibration takes from panel (a) "
       "(formulas in appendix~\\ref{app:methods}), the \\(\\sigma\\) used (the larger of that value and "
-      "the series' historical volatility in table~\\ref{tab:inputs}), and the resulting interval for \\(k\\), which is "
+      "the series' historical volatility in table~\\ref{tab:inputs}), and the resulting interval for \\(k\\); the estimate \\(\\hat k\\) is "
       f"{num(inp['specialty_pay_revenue']['k'])} for specialty and pay revenue and {num(inp['bdu_revenue']['k'])} for "
-      "distributors' revenue under every calibration. Verdicts: \\emph{smaller}, the interval lies below the cited-input band; "
-      "\\emph{consistent}, it overlaps the band; \\emph{inconclusive}, it contains both zero and the band's lower end. "
+      "distributors' revenue under every calibration. Verdicts are the plan's pre-stated labels, applied in this order: \\emph{inconclusive}, the interval "
+      "contains both zero and the cited-input band's lower end; \\emph{smaller}, it lies wholly below the band; \\emph{exceeded}, it lies "
+      "wholly above the band; otherwise \\emph{consistent}, it overlaps the band. "
       "Produced by \\texttt{scripts/netflix\\_calibration.py} and \\texttt{scripts/crtc\\_outcomes\\_lttv.py}; data in "
       "\\texttt{data/derived/netflix\\_calibration.csv} and \\texttt{data/derived/crtc\\_lttv\\_multiverse.csv}.}",
       "\\label{tab:calibrations}",
@@ -278,7 +282,7 @@ L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       " & " + " & ".join(str(y) for y in nf) + " \\\\", "\\midrule",
       "Report's forecast & " + " & ".join(f"{f:.1f}" for f, _ in nf.values()) + " \\\\",
       "Netflix, US paid memberships & " + " & ".join(f"{o:.3f}" for _, o in nf.values()) + " \\\\",
-      "\\(e_t\\) & " + " & ".join(num(e[y], 4) for y in nf) + " \\\\",
+      "\\(n_t\\) & " + " & ".join(num(e[y], 4) for y in nf) + " \\\\",
       "\\bottomrule", "\\end{tabular}", "\\par\\bigskip",
       "(b) \\textit{Results by calibration}\\par\\smallskip",
       "\\setlength{\\tabcolsep}{4pt}",
@@ -310,7 +314,7 @@ L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       "\\caption{Distributors' revenue split into subscribers and revenue per subscriber (post hoc; rule fixed before computing). "
       "Panel (a): CRTC subscriber counts (2016 edition to 2015, 2020 edition after) and revenue per subscriber per month, against "
       "the report's baseline subscribers (Fig.~17) and its revenue per subscriber, baseline revenue over 12 times subscribers "
-      "(Fig.~19's ARPU shown for comparison). Panel (b): the change in each gap from 2014, when the report's figures were "
+      "(Fig.~19's average revenue per unit, ARPU, shown for comparison). Panel (b): the change in each gap from 2014, when the report's figures were "
       "actuals, against the report's scenario, whose subscriber part is its added cord cutting (Tables~5, 20, 21) and whose "
       "per-subscriber part is everything else; the last two columns are the report's chain recalculated with uptake held at "
       "the CRTC's June 2016 count, and on the survey path (outside the plan's rule), other dollar components fixed. "
@@ -327,9 +331,9 @@ for r in dec:
 L += ["\\bottomrule", "\\end{tabular}", "\\par\\bigskip",
       "(b) \\textit{Change in the gap from 2014, against the report's paths}\\par\\smallskip",
       "\\begin{tabular}{lrrrrrr}", "\\toprule",
-      " & \\multicolumn{2}{c}{Observed} & \\multicolumn{2}{c}{Report's scenario} & \\multicolumn{2}{c}{Chain, per subscriber} \\\\",
+      " & \\multicolumn{2}{c}{Observed} & \\multicolumn{2}{c}{Report's reform scenario} & \\multicolumn{2}{c}{Partial recalculation, per subscriber} \\\\",
       "\\cmidrule(lr){2-3}\\cmidrule(lr){4-5}\\cmidrule(lr){6-7}",
-      "Year & Subscribers & Per subscriber & Subscribers & Per subscriber & Counted & Survey \\\\", "\\midrule"]
+      "Year & Subscribers & Per subscriber & Subscribers & Per subscriber & Held at 1.6\\% & Survey path \\\\", "\\midrule"]
 for r in dec:
     if int(r["year"]) < 2015:
         continue
@@ -345,9 +349,9 @@ emp = rows("employment_lttv.csv")
 years = sorted({int(r["year"]) for r in emp})
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       "\\caption{Staff counts from the CRTC's financial summaries (channels: discretionary and on-demand services, exempt "
-      "services excluded from 2016; distributors: cable, satellite and IPTV, reported as FTEs in the 2016 edition and as a "
-      "staff count in the 2020 edition), the 2012--2015 linear trend, and the report's direct FTE impact for each sector "
-      "(Table~22). Staff counts aren't the report's modelled FTEs. Produced by \\texttt{scripts/employment\\_lttv.py}.}",
+      "services excluded from 2016; distributors: cable, satellite and IPTV, labelled \\enquote{Total Staff Count (FTE)} in the 2016 "
+      "edition and \\enquote{Total Staff Count} in the 2020 edition), the 2012--2015 linear trend, and the report's forecast change in "
+      "direct employment for each sector, in full-time equivalents below its baseline (Table~22). Staff counts aren't the report's modelled FTEs. Produced by \\texttt{scripts/employment\\_lttv.py}.}",
       "\\label{tab:staff}",
       "\\footnotesize", "\\setlength{\\tabcolsep}{2.5pt}",
       "\\begin{tabular}{l" + "r" * len(years) + "}", "\\toprule",
@@ -356,7 +360,7 @@ for sector, label in (("channels", "Channels"), ("distributors", "Distributors")
     rs = {int(r["year"]): r for r in emp if r["sector"] == sector}
     L.append(f"{label}: staff & " + " & ".join(f"{float(rs[y]['staff']):,.0f}" for y in years) + " \\\\")
     L.append("\\quad 2012--2015 trend & " + " & ".join(f"{float(rs[y]['pre2015_trend']):,.0f}" for y in years) + " \\\\")
-    L.append("\\quad Report's direct impact & " + " & ".join(
+    L.append("\\quad Forecast direct-employment change (FTEs) & " + " & ".join(
         intm(float(rs[y]["forecast_direct_impact"])) if rs[y]["forecast_direct_impact"] not in ("", None) else ""
         for y in years) + " \\\\")
 L += ["\\bottomrule", "\\end{tabular}", "\\end{table}", ""]
@@ -375,9 +379,9 @@ check("spin-off FTEs sum to Table 1", (bt - bd) + (prt - prd), fte("table1_emplo
 comp = [("Distributors", "bdus"), ("Specialty and pay services", "specialty_and_pay_tv_services"),
         ("Private conventional stations", "private_conventional_tv")]
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",
-      "\\caption{The report's FTE losses in 2020, by the sector whose lost revenue or spending gives rise to them and by kind "
-      "of effect (Tables~1, 22, 23; paras.~246, 248, 250). Direct FTEs are jobs within that sector; spin-off FTEs are "
-      "jobs in other sectors of the economy. The headline split (direct and spin-off) and the sector split (broadcasting "
+      "\\caption{The report's forecast employment shortfalls in 2020, in FTEs, by the sector whose lost revenue or spending gives rise to them and by kind "
+      "of effect (Tables~1, 22, 23; paras.~246, 248, 250). Direct employment is within that sector; spin-off employment is "
+      "the indirect and induced employment in other sectors (Table~1, note, p.~12). The headline split (direct and spin-off) and the sector split (broadcasting "
       "and production) cross-classify the same total. Broadcasting's printed components sum to 10 more spin-off FTEs "
       "than its printed total, a difference consistent with rounding.}",
       "\\label{tab:jobs-reconciliation}",
@@ -399,17 +403,19 @@ chron = [
     ("Design analysis and reading rules", "pre-stated", "08a6180"),
     ("Quantity definitions, splice rule, verdict bands, Netflix calibration rule", "pre-stated", "66f9c25"),
     ("Outcome data first opened; exempt services removed; series rescaled to the report's 2014 (sensitivity); affiliation payments as a pass-through observable", "post hoc", "c2e6fa4"),
-    ("Closure and uptake definitions (before those sources were opened)", "pre-stated for those sources", "1e61069"),
+    ("Closure and uptake definitions", "after revenue outcomes; before these sources", "1e61069"),
     ("Closures reported as bounds; multiverse over calibrations", "post hoc", "40c7076"),
     ("Growth-based calibrations", "post hoc", "187b4c5"),
-    ("Direct employment (reading rule 6; the 2012--2015 trend comparator chosen then)", "rule pre-stated, comparator post hoc", "f952668"),
-    ("Model-implied uptake scenarios; fees per subscriber against Table~14", "post hoc", "ecde24b"),
+    ("Direct employment (reading rule 6; the 2012--2015 trend comparator chosen then)", "comparison rule pre-stated; trend comparator post hoc", "f952668"),
+    ("Partial recalculations under assumed uptake; fees per subscriber against Table~14", "post hoc", "ecde24b"),
     ("Uptake scenarios held flat per year", "post hoc, correction", "cc360dd"),
     ("Rising uptake paths", "post hoc", "ff1154c"),
     ("Changes stated after inflation (descriptive)", "post hoc", "764a690"),
     ("Model check and offset model", "post hoc", "3867d78"),
     ("Rule for splitting distributors' revenue into subscribers and revenue per subscriber", "post hoc, fixed before computing", "4a722a0"),
-    ("That split; corrected residual check; coverage check; sensitivity range to 8\\%", "post hoc", "2bbb326"),
+    ("That split; corrected residual check; coverage check; sensitivity display extended to the planned 8\\%", "post hoc", "2bbb326"),
+    ("Survey uptake path (MTM 2017, outside the plan's sources)", "post hoc, fixed before computing", "026f602"),
+    ("Survey path computed and reported beside the planned reading", "post hoc", "ed8961d"),
 ]
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       "\\caption{Order of the analyses. Commit identifiers refer to the replication repository, listed in the order the commits were made.}",
@@ -419,6 +425,45 @@ L += ["\\begin{table}[htbp]", "\\centering", "\\small",
 for step, status, h in chron:
     L.append(f"{step} & {status} & \\texttt{{{h}}} \\\\")
 L += ["\\bottomrule", "\\end{tabular}", "\\end{table}", ""]
+
+# Main-text table: four uptake paths, both series (same recomputation check as table A3)
+MAIN = ["% Generated by scripts/make_tex_tables.py. Do not edit by hand.",
+        "\\begin{table}[tbp]", "\\centering", "\\small",
+        "\\caption{Partial recalculations of the report's revenue chain under four assumed uptake paths (post hoc; the survey path "
+        "uses a source outside the plan's). Each scenario coefficient \\(k^{u}\\) is compared with the estimate \\(\\hat k\\) and its "
+        "95\\% interval at the designated error scale; the exemption-order and closure dollar components are held fixed. "
+        "All paths are in table~\\ref{tab:scenarios}.}",
+        "\\label{tab:scenarios-main}",
+        "\\footnotesize", "\\setlength{\\tabcolsep}{4pt}",
+        "\\begin{tabular}{>{\\raggedright\\arraybackslash}p{0.27\\textwidth}rrrrll}", "\\toprule",
+        " & \\multicolumn{4}{c}{Assumed BYOP share} & \\multicolumn{2}{c}{\\(k^{u}\\)} \\\\",
+        "\\cmidrule(lr){2-5}\\cmidrule(lr){6-7}",
+        "Uptake path & " + " & ".join(str(t) for t in YEARS) + " & Specialty and pay & Distributors \\\\", "\\midrule"]
+main_paths = [("CRTC count, 30 June 2016", "Held at the June 2016 count"),
+              ("rising from 2016 count to Morrison's estimate", "Rising to 4\\% by 2019"),
+              ("survey path: 2016 count, then 10% from 2017", "Survey path"),
+              ("report's assumption", "Report's assumption (reference)")]
+for lb, show in main_paths:
+    p = paths[lb]
+    u = ({t: share[t] for t in YEARS} if p is None else dict(p) if isinstance(p, dict)
+         else {t: p[0] + (p[1] - p[0]) * (t - 2016) / 3 for t in YEARS})
+    cells = []
+    for q, _ in SERIES:
+        d = inp[q]
+        f = {t: 1.0 if p is None else u[t] / share[t] for t in YEARS}
+        imp = np.array([sum(fv(q, t, c) * (f[t] if c in ("unbundling", "preponderance_access") else 1) for c in COMP)
+                        for t in YEARS])
+        du = np.log(d["B"]) - np.log(d["B"] - imp)
+        kp = (d["delta"] @ d["P"] @ du) / d["info"]
+        check(f"main-table scenario k, {q}, {lb}", round(kp, 2), float(cond[(q, lb)]["k_predicted"]))
+        where = "inside" if d["lo"] <= kp <= d["hi"] else ("below" if kp < d["lo"] else "above")
+        cells.append(f"{num(kp)} ({where})")
+    MAIN.append(f"{show} & " + " & ".join(pct(u[t]) for t in YEARS) + " & " + " & ".join(cells) + " \\\\")
+MAIN += ["\\midrule",
+         "\\multicolumn{5}{l}{Estimate \\(\\hat k\\) [95\\% interval]} & "
+         + " & ".join(f"{num(inp[q]['k'])} [{num(inp[q]['lo'])}, {num(inp[q]['hi'])}]" for q, _ in SERIES) + " \\\\",
+         "\\bottomrule", "\\end{tabular}", "\\end{table}", ""]
+(ROOT / "sections" / "table-scenarios-main.tex").write_text("\n".join(MAIN) + "\n")
 
 OUT.write_text("\n".join(L) + "\n")
 print(f"wrote {OUT.relative_to(ROOT)}")
