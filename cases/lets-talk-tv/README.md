@@ -40,10 +40,13 @@ Filled 2026-10-03 from forecast-side sources only. Paragraph numbers and printed
 
 | Field | Value | Locator |
 |---|---|---|
-| CRTC decisions and implementation dates | Not yet read from the CRTC's own decisions. The report's account of what it modelled is in ¶197 and is the forecaster's reading [T13] | to do |
+| CRTC decisions and implementation dates | Broadcasting Regulatory Policy CRTC 2015-96 (19 March 2015): entry-level service at no more than $25 a month by March 2016 (¶26); all discretionary services pick-and-pay *or* in small packages by March 2016, *and* both by December 2016 (¶47); distributors to offer more Canadian than non-Canadian services from March 2016 (¶60). Matches the report's ¶197 items 1–2. Other modelled elements (access rules, hybrid OTT exemption order, Super Bowl simultaneous substitution) are in other decisions not yet read | [T13] |
 | Changed conditions within the horizon | Super Bowl simultaneous-substitution prohibition: reported overturned by the Supreme Court in December 2019 [T10, UNVERIFIED]. CRTC local-TV decisions after April 2016: not yet read | to do |
 
 ## Complications to record, not resolve here
+
+- **The CPE share doesn't reproduce.** ¶239 says $399M is "18% of baseline CPE" in 2020; the report's own Fig. 43 and baseline Figs. 8–9 put 2020 baseline CPE at $3,155M, making it 12.6% [T05]. The specialty/pay (23%) and BDU (9%) shares do reproduce. Morrison's "18% of what now exists" repeats the unreproduced figure [T12].
+- **Another unfinished note in the published report**: footnote 54 ends "[Cite]" (besides the "??? [find, cite]" note below).
 
 - **Footnote 80 (p. 72) against §2.2.3.** The footnote says decisions on OTT services, "including the new hybrid exemption order, are however assumed to be not maintained in the economic model", yet §2.2.3 (pp. 80–84) models the exemption order and Figures 2–3 carry an "Impact of exemption order" band ($229M of specialty/pay revenue in 2020, ¶226).
 - **Economy-wide figures include indirect and induced effects** [T08]: test the near mechanisms (BYOP uptake, ARPU, cord cutting, closures, CPE) before the multiplier-derived job and GDP totals.

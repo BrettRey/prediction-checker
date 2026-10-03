@@ -74,3 +74,15 @@ Inward searches: qmd and full-text grep over `literature/` (queries in `notes/no
 2026-10-03 — Analysis plan proposed in `notes/analysis-plan.md`: forecasts tested as distributions built from the forecasters' own cited inputs as well as the testimony's point figures; every cell of a fixed comparison grid reported; differences between comparisons given their own uncertainty. A design analysis by fake-data simulation for each case gates the release of HELD rows and the opening of any outcome series. Sources for the method: Gelman and Carlin 2014; Gelman and Loken 2014; Gelman and Stern 2006; Gelman et al. 2020 (all in `literature/`).
 
 2026-10-03 — Corpus-awareness adjudication: `papers/queue/difference-in-differences-for-corpus-linguistics/` stays **deferred**, now with a concrete use (case 1's above/below-$250,000 contrast is a difference-in-differences design). Read it before writing the case 1 design analysis, then adopt or distinguish.
+
+2026-10-03 — Analysis plan (`notes/analysis-plan.md`) adopted as proposed. Population-of-forecasts option declined: the cases are anecdotes, but, like Kane's *SFFA* paper, worth publishing as case studies. Decision owner: Brett ("proceed").
+
+## Case 2 design analysis (2026-10-03, before any outcome data)
+
+2026-10-03 — The Nordicity report's scenario values were read from its bar-chart data labels by word coordinates (`scripts/extract_nordicity_figures.py`), not by eye. Two labels the chart displaced sideways (Fig. 39: 53 in 2016, 102 in 2017) are assigned by explicit, commented overrides. Every extracted 2020 total matches the report's text, and every cross-figure identity holds (each component equal wherever it appears; partial-figure levels differ from full-figure levels by the omitted components). 2016 closures, unlabelled, are set to zero because Fig. 39's level equals Fig. 41's.
+
+2026-10-03 — Finding: the report's "18% of baseline CPE" (¶239) does not reproduce from its own figures, which put 2020 baseline CPE at $3,155M (Fig. 43; Figs. 8 + 9), making $399M 12.6%. Recorded in T05, T12, and the case file; not resolved (the intended denominator is unknown).
+
+2026-10-03 — Design analysis run (`scripts/design_analysis_lttv.py`; output `notes/design-analysis-lttv.md`, `data/derived/design_analysis_lttv.csv`, `figures/design_lttv_paths.png`). Model: baseline error as a random walk in logs from 2014, annual SD on a grid from 1% to 8% plus the historical estimate from the report's own 2010–2014 data; classification by full-path likelihood ratio between the report's two paths. Reading rules fixed from it, in `notes/analysis-plan.md`: direct input checks and specialty/pay revenue primary; BDU revenue secondary; CPE descriptive only (historical volatility 9% a year); baseline error reported as a range. Input-scaling choices not cited by the report (half the closures, no OTT acceleration) are labelled as the project's.
+
+2026-10-03 — Gate met for case 2 once this is committed: HELD rows T14 and T15 may be read and CRTC outcome series downloaded. Case 1's gate (its own design analysis) is not met.

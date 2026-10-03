@@ -1,0 +1,269 @@
+#!/usr/bin/env python3
+"""Extract bar-chart values from the Nordicity/Miller (2015) report.
+
+Reads the data labels printed on the report's stacked bar charts, using word
+coordinates from poppler's `pdftotext -bbox`. Each label is assigned to the
+year column whose x-axis tick it sits above, and to a series by its height in
+the stack (lowest label = lowest segment), following the legend order given
+below. Nothing is read off by eye.
+
+Outputs
+  data/derived/nordicity_2015_figure_labels.csv   every label, with position
+  data/derived/nordicity_2015_scenarios.csv       per quantity and year: LTTV
+                                                  level, impacts, baseline level
+and prints consistency checks against totals stated in the report's text.
+
+Source PDF: literature/nordicity_miller_2015_canadian_television_2020.pdf
+(sha256 recorded in its .md companion). Printed page = PDF page - 4.
+"""
+import csv
+import html as htmllib
+import re
+import subprocess
+import sys
+from collections import defaultdict
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+PDF = ROOT.parents[2] / "literature" / "nordicity_miller_2015_canadian_television_2020.pdf"
+OUT = ROOT / "data" / "derived"
+
+YEARS = list(range(2010, 2021))
+
+# figure number -> (PDF page, series from the bottom of each stack upwards)
+FIGURES = {
+    8: (28, ["cmf", "independent_funds", "community_channels", "stack_total"]),
+    9: (28, ["specialty", "cbc_src_conventional", "private_conventional", "pay_ppv_vod", "stack_total"]),
+    34: (81, ["lttv_level", "unbundling"]),
+    35: (82, ["lttv_level", "unbundling"]),
+    36: (84, ["lttv_level", "unbundling", "preponderance_access"]),
+    39: (87, ["lttv_level", "unbundling", "preponderance_access", "exemption_order"]),
+    40: (88, ["lttv_level", "unbundling", "exemption_order"]),
+    41: (90, ["lttv_level", "unbundling", "preponderance_access", "exemption_order", "closures"]),
+    42: (91, ["lttv_level", "unbundling", "exemption_order", "closures"]),
+    43: (92, ["lttv_level", "programming_services_cpe", "bdu_contributions"]),
+}
+
+# Labels the chart nudged sideways off their own bar, found by listing every label
+# more than half a column from the nearest tick. Keyed by (figure, value, rounded x).
+# Each is confirmed by the cross-figure identities checked in main(): the same
+# component carries the same value in every figure that shows it.
+OVERRIDES = {
+    (39, 53, 379): 2016,   # exemption order 2016; sits in the 2016 stack above 138 and 9
+    (39, 102, 411): 2017,  # exemption order 2017; Fig. 41 shows 102 in the 2017 column
+}
+
+WORD = re.compile(
+    r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">([^<]*)</word>'
+)
+NUM = re.compile(r"^\d{1,3}(,\d{3})*$")
+TICK = re.compile(r"^'(\d\d)F?$")
+
+
+def words_on(page):
+    html = subprocess.run(
+        ["pdftotext", "-bbox", "-f", str(page), "-l", str(page), str(PDF), "-"],
+        check=True, capture_output=True, text=True,
+    ).stdout
+    return [
+        ((float(a) + float(c)) / 2, float(b), htmllib.unescape(w))
+        for a, b, c, d, w in WORD.findall(html)
+    ]
+
+
+def figure_band(words, fig):
+    """y-range from the figure's caption to the next 'Source:' line."""
+    cap = None
+    for i, (x, y, w) in enumerate(words):
+        if w == "Figure" and i + 1 < len(words) and words[i + 1][2] == str(fig):
+            cap = y
+            break
+    if cap is None:
+        sys.exit(f"Figure {fig}: caption not found")
+    src = min(y for x, y, w in words if w == "Source:" and y > cap)
+    return cap, src
+
+
+def extract(fig, page, series):
+    words = words_on(page)
+    top, bottom = figure_band(words, fig)
+    ticks = [(x, 2000 + int(TICK.match(w).group(1)))
+             for x, y, w in words if top < y < bottom + 40 and TICK.match(w)]
+    ticks = sorted(set(ticks))
+    if [yr for _, yr in ticks] != YEARS:
+        sys.exit(f"Figure {fig}: expected ticks 2010-2020, got {[yr for _, yr in ticks]}")
+    xs = [x for x, _ in ticks]
+    half = (xs[1] - xs[0]) / 2
+    cols = defaultdict(list)
+    for x, y, w in words:
+        if not (top < y < bottom) or not NUM.match(w):
+            continue
+        if x < xs[0] - half:  # y-axis tick labels
+            continue
+        val = int(w.replace(",", ""))
+        forced = OVERRIDES.get((fig, val, round(x)))
+        if forced is not None:
+            cols[forced].append((y, val, x))
+            continue
+        j = min(range(len(xs)), key=lambda k: abs(xs[k] - x))
+        if abs(xs[j] - x) <= half:
+            cols[YEARS[j]].append((y, val, x))
+    rows = []
+    for yr in YEARS:
+        stack = sorted(cols[yr], key=lambda t: -t[0])  # lowest on page first
+        if len(stack) > len(series):
+            sys.exit(f"Figure {fig}, {yr}: {len(stack)} labels for {len(series)} series")
+        for name, (y, v, x) in zip(series, stack):
+            rows.append(dict(figure=fig, pdf_page=page, printed_page=page - 4,
+                             year=yr, series=name, value=v, x=round(x, 1), y=round(y, 1)))
+    return rows
+
+
+def main():
+    OUT.mkdir(parents=True, exist_ok=True)
+    labels = []
+    for fig, (page, series) in FIGURES.items():
+        labels += extract(fig, page, series)
+    with open(OUT / "nordicity_2015_figure_labels.csv", "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=list(labels[0]))
+        w.writeheader()
+        w.writerows(labels)
+
+    v = {(r["figure"], r["year"], r["series"]): r["value"] for r in labels}
+
+    def get(fig, yr, s, default=None):
+        return v.get((fig, yr, s), default)
+
+    # Specialty and pay revenue (Fig. 41); 2016 impacts are unlabelled there, so
+    # take each component from the figure that introduces it (35, 36, 39).
+    # Closures carry no 2016 label in Fig. 41; recorded as missing, not zero.
+    scen = []
+    for yr in YEARS:
+        comp = {}
+        for s, alt in [("unbundling", 35), ("preponderance_access", 36),
+                       ("exemption_order", 39), ("closures", None)]:
+            val = get(41, yr, s)
+            src = "41"
+            if val is None and alt is not None:
+                val, src = get(alt, yr, s), str(alt)
+            comp[s] = (val, src)
+        level = get(41, yr, "lttv_level")
+        known = [c for c, _ in comp.values() if c is not None]
+        scen.append(dict(quantity="specialty_pay_revenue", year=yr, lttv_level=level,
+                         **{k: c for k, (c, _) in comp.items()},
+                         impact_total=sum(known) if known else 0,
+                         components_missing=";".join(k for k, (c, _) in comp.items()
+                                                     if c is None and yr >= 2016),
+                         component_sources=";".join(f"{k}:{s}" for k, (c, s) in comp.items()
+                                                    if c is not None)))
+    # BDU revenue (Fig. 42), 2016 from Figs. 34 and 40.
+    for yr in YEARS:
+        comp = {}
+        for s, alt in [("unbundling", 34), ("exemption_order", 40), ("closures", None)]:
+            val, src = get(42, yr, s), "42"
+            if val is None and alt is not None:
+                val, src = get(alt, yr, s), str(alt)
+            comp[s] = (val, src)
+        known = [c for c, _ in comp.values() if c is not None]
+        scen.append(dict(quantity="bdu_revenue", year=yr, lttv_level=get(42, yr, "lttv_level"),
+                         **{k: c for k, (c, _) in comp.items()},
+                         impact_total=sum(known) if known else 0,
+                         components_missing=";".join(k for k, (c, _) in comp.items()
+                                                     if c is None and yr >= 2016),
+                         component_sources=";".join(f"{k}:{s}" for k, (c, s) in comp.items()
+                                                    if c is not None)))
+    # CPE (Fig. 43).
+    for yr in YEARS:
+        a = get(43, yr, "programming_services_cpe")
+        b = get(43, yr, "bdu_contributions")
+        known = [c for c in (a, b) if c is not None]
+        scen.append(dict(quantity="cpe", year=yr, lttv_level=get(43, yr, "lttv_level"),
+                         programming_services_cpe=a, bdu_contributions=b,
+                         impact_total=sum(known) if known else 0,
+                         components_missing="", component_sources="43"))
+    # Closures carry no 2016 label. Where the figure without closures (39, 40)
+    # shows the same level as the full figure (41, 42), closures that year are zero.
+    for r in scen:
+        if r["year"] == 2016 and "closures" in r["components_missing"]:
+            partial = 39 if r["quantity"] == "specialty_pay_revenue" else 40
+            full = 41 if r["quantity"] == "specialty_pay_revenue" else 42
+            if abs(get(partial, 2016, "lttv_level") - get(full, 2016, "lttv_level")) <= 1:
+                r["closures"] = 0
+                r["components_missing"] = ""
+                r["component_sources"] += f";closures:0 from fig {partial} level = fig {full} level"
+    for r in scen:
+        r["baseline_level"] = (r["lttv_level"] + r["impact_total"]) if r["lttv_level"] is not None else None
+        r["impact_share_of_baseline"] = (round(r["impact_total"] / r["baseline_level"], 4)
+                                         if r["baseline_level"] else None)
+    fields = ["quantity", "year", "lttv_level", "baseline_level", "impact_total",
+              "impact_share_of_baseline", "unbundling", "preponderance_access",
+              "exemption_order", "closures", "programming_services_cpe",
+              "bdu_contributions", "components_missing", "component_sources"]
+    with open(OUT / "nordicity_2015_scenarios.csv", "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
+        w.writeheader()
+        w.writerows(scen)
+
+    # Checks against totals stated in the report's text.
+    def row(q, yr):
+        return next(r for r in scen if r["quantity"] == q and r["year"] == yr)
+    checks = [
+        ("specialty/pay impact 2020 = $970M (¶235)", row("specialty_pay_revenue", 2020)["impact_total"], 970),
+        ("BDU retail impact 2020 = $858M (¶237)", row("bdu_revenue", 2020)["impact_total"], 858),
+        ("CPE impact 2020 = $399M (¶239)", row("cpe", 2020)["impact_total"], 399),
+        ("CPE programming services 2020 = $352M (¶239)", row("cpe", 2020)["programming_services_cpe"], 352),
+        ("unbundling on specialty/pay 2020 = $466M (¶209)", row("specialty_pay_revenue", 2020)["unbundling"], 466),
+        ("preponderance 2020 = $173M (¶214)", row("specialty_pay_revenue", 2020)["preponderance_access"], 173),
+        ("exemption order on specialty/pay 2020 = $229M (¶226)", row("specialty_pay_revenue", 2020)["exemption_order"], 229),
+        ("closures on specialty/pay 2020 = $102M (¶235)", row("specialty_pay_revenue", 2020)["closures"], 102),
+        ("unbundling on BDU 2020 = $488M (¶205)", row("bdu_revenue", 2020)["unbundling"], 488),
+        ("exemption order on BDU 2020 = $234M (¶228)", row("bdu_revenue", 2020)["exemption_order"], 234),
+        ("closures on BDU 2020 = $136M (¶237)", row("bdu_revenue", 2020)["closures"], 136),
+    ]
+    # Cross-figure identities: a component has one value wherever it appears, and
+    # the level in a figure showing fewer components exceeds the full figure's
+    # level by the omitted components (allowing 1 for rounding).
+    def same(series, figs):
+        for yr in range(2016, 2021):
+            vals = {f: get(f, yr, series) for f in figs if get(f, yr, series) is not None}
+            if len(set(vals.values())) > 1:
+                checks.append((f"{series} {yr} equal across figs {sorted(vals)}", vals, "equal"))
+            elif vals:
+                checks.append((f"{series} {yr} equal across figs {sorted(vals)}", "equal", "equal"))
+    same("unbundling", [35, 36, 39, 41])
+    same("preponderance_access", [36, 39, 41])
+    same("exemption_order", [39, 41])
+    same("unbundling", [34, 40, 42])
+    same("exemption_order", [40, 42])
+    for yr in range(2016, 2021):
+        for partial, full, omitted in [(39, 41, ["closures"]), (40, 42, ["closures"]),
+                                       (36, 39, ["exemption_order"]), (35, 36, ["preponderance_access"])]:
+            lp, lf = get(partial, yr, "lttv_level"), get(full, yr, "lttv_level")
+            om = sum(get(full, yr, s, 0) or 0 for s in omitted)
+            good = lp is not None and lf is not None and abs(lp - lf - om) <= 1
+            checks.append((f"level fig {partial} - fig {full} = {'+'.join(omitted)} ({yr})",
+                           "ok" if good else (lp, lf, om), "ok"))
+
+    ok = True
+    for name, got, want in checks:
+        flag = "ok" if got == want else "MISMATCH"
+        ok &= got == want
+        print(f"{flag:8} {name}: extracted {got}")
+    for yr in (2018, 2020):
+        f8, f9 = get(8, yr, "stack_total"), get(9, yr, "stack_total")
+        if f8 is not None and f9 is not None:
+            print(f"{'note':8} baseline CPE {yr} from Figs. 8+9 (baseline scenario): {f8} + {f9} = {f8 + f9}; "
+                  f"Fig. 43 baseline {row('cpe', yr)['baseline_level']}")
+    for q, stated, para in [("specialty_pay_revenue", 0.23, "¶235"), ("bdu_revenue", 0.09, "¶237"),
+                            ("cpe", 0.18, "¶239")]:
+        r = row(q, 2020)
+        print(f"{'note':8} {q} 2020: impact {r['impact_total']} / baseline {r['baseline_level']} "
+              f"= {r['impact_share_of_baseline']:.3f} (text {para} says {stated:.2f})")
+    for r in scen:
+        if r["components_missing"]:
+            print(f"{'gap':8} {r['quantity']} {r['year']}: no label for {r['components_missing']}")
+    return 0 if ok else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

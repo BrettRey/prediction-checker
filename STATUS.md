@@ -15,7 +15,7 @@ claim:
 ---
 
 # Prediction checker
-<!-- SUMMARY: audit consequential Canadian policy forecasts against outcomes; prediction records for cases 1–2 filled from primary sources and frozen 2026-10-03 (16 VERIFIED, 1 PARTLY of 39 brief rows; post-intervention rows held); lead case Let's Talk TV, exemplar Kane 2026; analysis plan proposed, design analysis gates outcome data · status: development · updated: 2026-10-03 -->
+<!-- SUMMARY: audit consequential Canadian policy forecasts against outcomes; records for cases 1–2 frozen 2026-10-03 (17 VERIFIED, 1 PARTLY of 39 brief rows); lead case Let's Talk TV; case 2 design analysis done and reading rules fixed, so CRTC outcome data may now be opened; case 1 gated on premium-data feasibility · status: development · updated: 2026-10-03 -->
 
 ## State
 
@@ -25,14 +25,13 @@ Forecast-side sources for cases 1 and 2 read and filed in `literature/` (JUST 36
 
 ## Next action
 
-1. Case 2: read the CRTC's own *Let's Talk TV* decisions (T13); re-implement the Nordicity chain in `scripts/` from the record; run and commit the design analysis (do the baseline and LTTV paths separate, for 2017–2019, beyond the spread of the report's own cited inputs?). Only then release case 2's HELD rows and download CRTC series.
+1. Case 2: identify and download the CRTC series for the reading rules in `notes/analysis-plan.md` (unbundled-package uptake, service closures, specialty/pay and BDU revenue, CPE), recording each licence in `data/README.md`; read the released HELD rows T14–T15. The design analysis (`notes/design-analysis-lttv.md`) is committed, so the gate is met.
 2. Case 1: locate the source of the 30% / 50% premium figures (G18): the 2016 CIA critical-illness paper, any Senate submission on S-201. Settle premium-data feasibility (COMPULIFE terms, archived rate tables). Check whether submissions in the Supreme Court decision on the Act (G07) repeated the forecast.
 3. Outward novelty search with `/hyperresearch` (light tier, capped budget), logged in `notes/novelty-search.md`.
 
 ## Open decisions (Brett)
 
-- Analysis plan (`notes/analysis-plan.md`): adopt as proposed, or amend, before the design analyses are run.
-- Scope option, not adopted: a population of forecasts from one Parliament's committee evidence, scored for calibration.
+- None open. Analysis plan adopted 2026-10-03; population-of-forecasts option declined.
 
 ## Blockers
 
