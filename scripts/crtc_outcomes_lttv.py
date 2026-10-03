@@ -231,7 +231,7 @@ def main():
                 k, se, P, info = gls_k(y, delta, s_read)
                 bl, bh = (delta @ P @ d_lo) / info, (delta @ P @ d_hi) / info
                 multiverse.append(dict(quantity=q, version=vname, calibration=cname, sigma=round(s_read, 4),
-                                       k=round(k, 2), ci_lo=round(k - 1.96 * se, 2), ci_hi=round(k + 1.96 * se, 2),
+                                       k=round(k, 2), se=round(se, 4), ci_lo=round(k - 1.96 * se, 2), ci_hi=round(k + 1.96 * se, 2),
                                        verdict=verdict(k - 1.96 * se, k + 1.96 * se, bl, bh),
                                        prestated=(vname == "as published" and cname == "2018 (pre-stated)")))
     # [post hoc] Uptake-conditional forecast: the report's chain with the
@@ -246,7 +246,7 @@ def main():
                      "rising from 2016 count to low end of cited range": ("rise", up_obs, CITED_UPTAKE_LOW)}
     tf = {(r["fact"], int(r["year"])): float(r["value"]) for r in csv.DictReader(open(DER / "nordicity_2015_text_facts.csv"))}
     report_share = {t: tf[("table18_byop_share_pct", t)] / 100 for t in YEARS}
-    conditional = []
+    conditional, cond_paths = [], []
     for q in ("specialty_pay_revenue", "bdu_revenue"):
         B = np.array([fc[(q, t)]["B"] for t in YEARS])
         I = np.array([fc[(q, t)]["I"] for t in YEARS])
@@ -266,11 +266,19 @@ def main():
             def mult(t):
                 f = 1.0 if lab == "report's assumption" else uptake_at(t) / report_share[t]
                 return dict(unbundling=f, preponderance_access=f, exemption_order=1, closures=1)
-            du = np.log(B) - np.log(B - np.array([scen_impact(fc, q, t, mult(t)) for t in YEARS]))
+            imp_u = np.array([scen_impact(fc, q, t, mult(t)) for t in YEARS])
+            du = np.log(B) - np.log(B - imp_u)
+            for t, iu in zip(YEARS, imp_u):
+                cond_paths.append(dict(quantity=q, uptake_label=lab, year=t, uptake=round(uptake_at(t), 4),
+                                       baseline=fc[(q, t)]["B"], impact=round(float(iu), 2)))
             k_pred = (delta @ P @ du) / info
             conditional.append(dict(quantity=q, uptake_label=lab, uptake=round(uptake_at(2019), 4), k_predicted=round(k_pred, 2),
                                     k_observed=round(k_obs["k"], 2), ci_lo=round(k_obs["lo"], 2), ci_hi=round(k_obs["hi"], 2),
                                     inside_interval=bool(k_obs["lo"] <= k_pred <= k_obs["hi"])))
+    with open(DER / "uptake_conditional_paths_lttv.csv", "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=list(cond_paths[0]))
+        w.writeheader()
+        w.writerows(cond_paths)
     with open(DER / "uptake_conditional_lttv.csv", "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(conditional[0]))
         w.writeheader()

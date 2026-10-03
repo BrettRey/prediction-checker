@@ -1,0 +1,49 @@
+quantity,uptake_label,year,uptake,baseline,impact
+specialty_pay_revenue,"CRTC count, 30 June 2016",2016,0.016,4172.0,100.04
+specialty_pay_revenue,"CRTC count, 30 June 2016",2017,0.016,4166.0,211.96
+specialty_pay_revenue,"CRTC count, 30 June 2016",2018,0.016,4173.0,310.52
+specialty_pay_revenue,"CRTC count, 30 June 2016",2019,0.016,4164.0,353.79
+specialty_pay_revenue,Morrison's estimate (April 2016),2016,0.04,4172.0,170.6
+specialty_pay_revenue,Morrison's estimate (April 2016),2017,0.04,4166.0,291.4
+specialty_pay_revenue,Morrison's estimate (April 2016),2018,0.04,4173.0,399.8
+specialty_pay_revenue,Morrison's estimate (April 2016),2019,0.04,4164.0,449.47
+specialty_pay_revenue,low end of cited range,2016,0.1,4172.0,347.0
+specialty_pay_revenue,low end of cited range,2017,0.1,4166.0,490.0
+specialty_pay_revenue,low end of cited range,2018,0.1,4173.0,623.0
+specialty_pay_revenue,low end of cited range,2019,0.1,4164.0,688.67
+specialty_pay_revenue,report's assumption,2016,0.15,4172.0,200.0
+specialty_pay_revenue,report's assumption,2017,0.15,4166.0,490.0
+specialty_pay_revenue,report's assumption,2018,0.15,4173.0,809.0
+specialty_pay_revenue,report's assumption,2019,0.15,4164.0,888.0
+specialty_pay_revenue,rising from 2016 count to Morrison's estimate,2016,0.016,4172.0,100.04
+specialty_pay_revenue,rising from 2016 count to Morrison's estimate,2017,0.024,4166.0,238.44
+specialty_pay_revenue,rising from 2016 count to Morrison's estimate,2018,0.032,4173.0,370.04
+specialty_pay_revenue,rising from 2016 count to Morrison's estimate,2019,0.04,4164.0,449.47
+specialty_pay_revenue,rising from 2016 count to low end of cited range,2016,0.016,4172.0,100.04
+specialty_pay_revenue,rising from 2016 count to low end of cited range,2017,0.044,4166.0,304.64
+specialty_pay_revenue,rising from 2016 count to low end of cited range,2018,0.072,4173.0,518.84
+specialty_pay_revenue,rising from 2016 count to low end of cited range,2019,0.1,4164.0,688.67
+bdu_revenue,"CRTC count, 30 June 2016",2016,0.016,9149.0,101.72
+bdu_revenue,"CRTC count, 30 June 2016",2017,0.016,9280.0,228.68
+bdu_revenue,"CRTC count, 30 June 2016",2018,0.016,9428.0,338.85
+bdu_revenue,"CRTC count, 30 June 2016",2019,0.016,9597.0,380.45
+bdu_revenue,Morrison's estimate (April 2016),2016,0.04,9149.0,171.8
+bdu_revenue,Morrison's estimate (April 2016),2017,0.04,9280.0,300.2
+bdu_revenue,Morrison's estimate (April 2016),2018,0.04,9428.0,412.13
+bdu_revenue,Morrison's estimate (April 2016),2019,0.04,9597.0,456.13
+bdu_revenue,low end of cited range,2016,0.1,9149.0,347.0
+bdu_revenue,low end of cited range,2017,0.1,9280.0,479.0
+bdu_revenue,low end of cited range,2018,0.1,9428.0,595.33
+bdu_revenue,low end of cited range,2019,0.1,9597.0,645.33
+bdu_revenue,report's assumption,2016,0.15,9149.0,201.0
+bdu_revenue,report's assumption,2017,0.15,9280.0,479.0
+bdu_revenue,report's assumption,2018,0.15,9428.0,748.0
+bdu_revenue,report's assumption,2019,0.15,9597.0,803.0
+bdu_revenue,rising from 2016 count to Morrison's estimate,2016,0.016,9149.0,101.72
+bdu_revenue,rising from 2016 count to Morrison's estimate,2017,0.024,9280.0,252.52
+bdu_revenue,rising from 2016 count to Morrison's estimate,2018,0.032,9428.0,387.71
+bdu_revenue,rising from 2016 count to Morrison's estimate,2019,0.04,9597.0,456.13
+bdu_revenue,rising from 2016 count to low end of cited range,2016,0.016,9149.0,101.72
+bdu_revenue,rising from 2016 count to low end of cited range,2017,0.044,9280.0,312.12
+bdu_revenue,rising from 2016 count to low end of cited range,2018,0.072,9428.0,509.84
+bdu_revenue,rising from 2016 count to low end of cited range,2019,0.1,9597.0,645.33
