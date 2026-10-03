@@ -5,7 +5,7 @@ Rows G01–X04 restate claims made in an LLM-written lead list (see `notes/intak
 
 To verify a row: open the primary source, copy the exact wording or figure into the row, add the locator, save the source in `literature/` at the portfolio root with an `.md` companion, and change the status. If the source says something different, mark the row CONTRADICTED and quote what it does say. The Pointer column is the brief's pointer with tracking parameters removed; it is a lead, not a citation.
 
-Status values: UNVERIFIED · VERIFIED · CONTRADICTED · PARTLY (say which part) · HELD (bears on what happened after the intervention; not to be read until the case's prediction record is committed).
+Status values: UNVERIFIED · VERIFIED · CONTRADICTED · PARTLY (say which part) · HELD (bears on what happened after the intervention; not to be read until the case's prediction record is committed) · OPEN (a question raised by the sources, not a claim to check).
 
 **Locators.** Committee evidence: committee and meeting, speaker, and the two official five-minute time marks bracketing the passage, e.g. JUST 36, Howard, (1220)–(1225). Nordicity report: paragraph number and printed page (printed page = PDF page − 4). CIA brief: PDF page (5-page PDF) and numbered point. CIA model paper: section and PDF page.
 

@@ -38,7 +38,7 @@ One row per statement. They don't agree with each other or with A.
 ### C. Gaps between A and B (to analyse, not resolved here)
 
 - **Quantity.** A reports a mortality-experience increase; B1–B3 report a premium increase. The step from 36% / 58% experience to 30% / 50% premiums isn't in the 2014 paper [G18].
-- **Threshold.** A's headline assumes disclosure above $1 million. The CIA brief proposes *adding* an exception at 200 × AWE, about $190,000 [G05], which implies the bill as debated had none (bill text not yet read); the Act as enacted has none [G06]. A's $100,000 scenario gives +3% / +8%. None of B1–B3 mentions that the headline figures depend on a threshold.
+- **Threshold.** In A the threshold is the amount above which insurers may still require disclosure; the lower it is, the smaller the effect. Ordered from mildest to most severe: A's second scenario at $100,000 (+3% / +8%); the CIA's proposed amendment at 200 × AWE, about $190,000 [G05]; the CLHIA code on its own, equivalent to $250,000 [G16]; A's headline at $1 million (+36% / +58%); the Act as enacted, with no threshold at all [G06]. On the model's own logic the enacted regime is at least as severe as the headline (the $900,000 average purchase in §4.3.8 is capped only because of the $1 million threshold). The CIA brief's proposal to *add* an exception implies the bill as debated also had none (bill text not yet read). None of B1–B3 mentions that the figures depend on a threshold.
 - **Timing.** B2 says "soon after the passing"; A says cash flows won't move noticeably for a couple of years and experience shows gradually, though pricing may anticipate it; B3 says "over time"; B4 says more than a decade for experience.
 - **Modality.** A: "likely to increase" (experience), premiums "may" rise "very significant[ly]"; B1: "could"; B2: "likely".
 
@@ -50,12 +50,12 @@ One row per statement. They don't agree with each other or with A.
 | Operative rule | No one may require a genetic test or disclosure of results as a condition of providing goods or services or entering into or continuing a contract (ss. 3–4); collection, use, or disclosure of results needs written consent (s. 5). No amount threshold | [G06] |
 | Differences from the bill debated on 2016-11-22 | Not yet compared. The as-introduced and as-enacted texts both need reading | to do |
 | Competing intervention | CLHIA industry code: insurers "will not request or use genetic testing information for new life insurance applications up to $250,000 effective January 1, 2018" (announced at the hearing, press release 2017-01-11). Takes effect eight months after assent | [G16] |
-| Legal status after assent | Quebec reference and Supreme Court decision (G07) not yet read; whether insurers complied with the Act, the code, or neither in 2017–2020 is not established | [G07], [G09] HELD |
+| Legal status after assent | Supreme Court decision (G07) not yet read; whether insurers complied with the Act, the code, or neither after assent is not established | [G07], [G09] HELD |
 
 ## Design consequences, proposed before outcomes (Brett to confirm)
 
 - **Counterfactual.** The comparison can't be "no restriction": from 2018 the industry's own code removed disclosure below $250,000 whether or not the Act applied. The Act's marginal effect, on the model's own mechanism, falls on applications above $250,000.
-- **Which forecast is tested.** Test B1–B3 (30% / 50% on term premiums) as the public argument, and A as a technical claim conditional on a $1 million threshold that was never enacted. An outcome in which premiums barely move is consistent with A's $100,000 scenario and inconsistent with B2.
+- **Which forecast is tested.** Test B1–B3 (30% / 50% on term premiums) as the public argument, and A as a technical claim stated for a $1 million threshold. Since the enacted regime is more restrictive than that, the threshold doesn't excuse A: flat premiums would count against A's headline as well as against B2. They would fit A only if the operative regime turned out to be the CLHIA code alone (the Act unapplied), which is why compliance [G09] matters.
 - **Timing windows.** Proposal: test B2 on 2017–2019 quotes and B3 and A on the longest series available. Whatever windows are chosen must be fixed here before any quote data are opened.
 
 ## Feasibility questions (unchanged)
