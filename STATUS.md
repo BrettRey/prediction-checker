@@ -15,7 +15,7 @@ claim:
 ---
 
 # Prediction checker
-<!-- SUMMARY: audit consequential Canadian policy forecasts against outcomes; case 2 (Let's Talk TV) results in: specialty/pay revenue k = 0.1 (smaller than forecast in 9 of 15 multiverse cells, inconclusive in 6, never consistent), BDU revenue within the forecast range, payments to Canadian services didn't fall, uptake far below assumed in 2016; case 1 gated on premium data · status: development · updated: 2026-10-03 -->
+<!-- SUMMARY: audit consequential Canadian policy forecasts against outcomes; case 2 (Let's Talk TV) results in: specialty/pay revenue k = 0.1 everywhere, no interval excludes zero; smaller than the forecasters' inputs imply unless baseline error ≥ ~4.1%/yr (3 of 9 calibrations), BDU revenue within the forecast range, payments to Canadian services didn't fall, uptake far below assumed in 2016; case 1 gated on premium data · status: development · updated: 2026-10-03 -->
 
 ## State
 

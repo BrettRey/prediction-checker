@@ -4,23 +4,43 @@ specialty_pay_revenue,as published,2016,0.0443,0.12,-0.57,0.81,inconclusive,Fals
 specialty_pay_revenue,as published,2017,0.0221,0.12,-0.23,0.46,smaller than the forecasters' inputs imply (no detectable effect),False
 specialty_pay_revenue,as published,2018 (pre-stated),0.0221,0.12,-0.23,0.46,smaller than the forecasters' inputs imply (no detectable effect),True
 specialty_pay_revenue,as published,pooled 2016-2018,0.0467,0.12,-0.61,0.85,inconclusive,False
+specialty_pay_revenue,as published,growth 2015-2016,0.0221,0.12,-0.23,0.46,smaller than the forecasters' inputs imply (no detectable effect),False
+specialty_pay_revenue,as published,growth 2015-2017,0.0221,0.12,-0.23,0.46,smaller than the forecasters' inputs imply (no detectable effect),False
+specialty_pay_revenue,as published,growth 2015-2018,0.0421,0.12,-0.54,0.78,inconclusive,False
+specialty_pay_revenue,as published,growth pooled 2015-2018,0.0401,0.12,-0.51,0.74,smaller than the forecasters' inputs imply (no detectable effect),False
 specialty_pay_revenue,rescaled to report's 2014,none (historical SD only),0.0221,0.13,-0.22,0.48,smaller than the forecasters' inputs imply (no detectable effect),False
 specialty_pay_revenue,rescaled to report's 2014,2016,0.0443,0.13,-0.56,0.82,inconclusive,False
 specialty_pay_revenue,rescaled to report's 2014,2017,0.0221,0.13,-0.22,0.48,smaller than the forecasters' inputs imply (no detectable effect),False
 specialty_pay_revenue,rescaled to report's 2014,2018 (pre-stated),0.0221,0.13,-0.22,0.48,smaller than the forecasters' inputs imply (no detectable effect),False
 specialty_pay_revenue,rescaled to report's 2014,pooled 2016-2018,0.0467,0.13,-0.6,0.86,inconclusive,False
+specialty_pay_revenue,rescaled to report's 2014,growth 2015-2016,0.0221,0.13,-0.22,0.48,smaller than the forecasters' inputs imply (no detectable effect),False
+specialty_pay_revenue,rescaled to report's 2014,growth 2015-2017,0.0221,0.13,-0.22,0.48,smaller than the forecasters' inputs imply (no detectable effect),False
+specialty_pay_revenue,rescaled to report's 2014,growth 2015-2018,0.0421,0.13,-0.53,0.79,inconclusive,False
+specialty_pay_revenue,rescaled to report's 2014,growth pooled 2015-2018,0.0401,0.13,-0.5,0.76,inconclusive,False
 specialty_pay_revenue,incl. exempt services,none (historical SD only),0.0221,0.13,-0.22,0.48,smaller than the forecasters' inputs imply (no detectable effect),False
 specialty_pay_revenue,incl. exempt services,2016,0.0443,0.13,-0.56,0.82,inconclusive,False
 specialty_pay_revenue,incl. exempt services,2017,0.0221,0.13,-0.22,0.48,smaller than the forecasters' inputs imply (no detectable effect),False
 specialty_pay_revenue,incl. exempt services,2018 (pre-stated),0.0221,0.13,-0.22,0.48,smaller than the forecasters' inputs imply (no detectable effect),False
 specialty_pay_revenue,incl. exempt services,pooled 2016-2018,0.0467,0.13,-0.6,0.86,inconclusive,False
+specialty_pay_revenue,incl. exempt services,growth 2015-2016,0.0221,0.13,-0.22,0.48,smaller than the forecasters' inputs imply (no detectable effect),False
+specialty_pay_revenue,incl. exempt services,growth 2015-2017,0.0221,0.13,-0.22,0.48,smaller than the forecasters' inputs imply (no detectable effect),False
+specialty_pay_revenue,incl. exempt services,growth 2015-2018,0.0421,0.13,-0.53,0.79,inconclusive,False
+specialty_pay_revenue,incl. exempt services,growth pooled 2015-2018,0.0401,0.13,-0.5,0.76,inconclusive,False
 bdu_revenue,as published,none (historical SD only),0.0189,1.3,0.49,2.11,consistent with the forecast range (includes k = 1),False
 bdu_revenue,as published,2016,0.0443,1.3,-0.59,3.2,inconclusive,False
 bdu_revenue,as published,2017,0.0214,1.3,0.39,2.22,consistent with the forecast range (includes k = 1),False
 bdu_revenue,as published,2018 (pre-stated),0.0189,1.3,0.49,2.11,consistent with the forecast range (includes k = 1),True
 bdu_revenue,as published,pooled 2016-2018,0.0467,1.3,-0.7,3.3,inconclusive,False
+bdu_revenue,as published,growth 2015-2016,0.0189,1.3,0.49,2.11,consistent with the forecast range (includes k = 1),False
+bdu_revenue,as published,growth 2015-2017,0.0189,1.3,0.49,2.11,consistent with the forecast range (includes k = 1),False
+bdu_revenue,as published,growth 2015-2018,0.0421,1.3,-0.5,3.11,inconclusive,False
+bdu_revenue,as published,growth pooled 2015-2018,0.0401,1.3,-0.41,3.02,inconclusive,False
 bdu_revenue,rescaled to report's 2014,none (historical SD only),0.0189,1.23,0.42,2.04,consistent with the forecast range (includes k = 1),False
 bdu_revenue,rescaled to report's 2014,2016,0.0443,1.23,-0.67,3.13,inconclusive,False
 bdu_revenue,rescaled to report's 2014,2017,0.0214,1.23,0.31,2.15,consistent with the forecast range (includes k = 1),False
 bdu_revenue,rescaled to report's 2014,2018 (pre-stated),0.0189,1.23,0.42,2.04,consistent with the forecast range (includes k = 1),False
 bdu_revenue,rescaled to report's 2014,pooled 2016-2018,0.0467,1.23,-0.77,3.23,inconclusive,False
+bdu_revenue,rescaled to report's 2014,growth 2015-2016,0.0189,1.23,0.42,2.04,consistent with the forecast range (includes k = 1),False
+bdu_revenue,rescaled to report's 2014,growth 2015-2017,0.0189,1.23,0.42,2.04,consistent with the forecast range (includes k = 1),False
+bdu_revenue,rescaled to report's 2014,growth 2015-2018,0.0421,1.23,-0.57,3.03,inconclusive,False
+bdu_revenue,rescaled to report's 2014,growth pooled 2015-2018,0.0401,1.23,-0.49,2.95,inconclusive,False
