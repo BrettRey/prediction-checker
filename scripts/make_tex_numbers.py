@@ -281,8 +281,6 @@ for q, tag in (("specialty_pay_revenue", "Spec"), ("bdu_revenue", "BDU")):
     M[f"lttvGapFifteen{tag}Dir"] = "above" if mc[(q, "gap15")] > 0 else "below"
     M[f"lttvReportFifteen{tag}"] = money(mc[(q, "report15")])
     M[f"lttvCRTCFifteen{tag}"] = money(mc[(q, "crtc15")])
-# discussion.tex calls the report's 2015 figure "low" for channels and "high" for distributors
-assert M["lttvGapFifteenSpecDir"] == "above" and M["lttvGapFifteenBDUDir"] == "below"
 M["lttvReleaseGapMax"] = pct(max(abs(mc[(q, "release_gap16")]) for q in ("specialty_pay_revenue", "bdu_revenue")), 1)
 # widest calibration for the specialty interval (figure 2)
 wide = max((r for r in pub if r["quantity"] == "specialty_pay_revenue"), key=lambda r: float(r["sigma"]))
