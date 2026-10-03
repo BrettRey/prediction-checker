@@ -143,6 +143,53 @@ def table7():
     return out
 
 
+def text_facts():
+    """Forecast facts printed as text or tables: Table 1 (PDF p. 16), Table 18
+    (PDF p. 80) and the stated CPE share (para. 239, PDF p. 91)."""
+    def page(n):
+        return subprocess.run(["pdftotext", "-layout", "-f", str(n), "-l", str(n), str(PDF), "-"],
+                              check=True, capture_output=True, text=True).stdout
+    p16, p80, p91 = page(16), page(80), page(91)
+    def row(txt, label):
+        line = next(l for l in txt.splitlines() if re.match(r"\s*" + label, l))
+        return [float(v.replace(",", "")) for v in re.findall(r"\(?([\d,]+(?:\.\d)?)\)?", line.split(label, 1)[1])]
+    # Table 1 rows appear in order Direct, Spin-off, Total for FTEs, then for GDP.
+    lines16 = p16.splitlines()
+    i_emp = next(i for i, l in enumerate(lines16) if "Employment (FTEs)" in l)
+    i_gdp = next(i for i, l in enumerate(lines16) if "GDP ($M)" in l)
+    def block(i0):
+        vals = {}
+        for l in lines16[i0 + 1:i0 + 4]:
+            key = l.split()[0].rstrip("*").lower()
+            vals[key] = [float(v.replace(",", "")) for v in re.findall(r"\(?([\d,]+(?:\.\d)?)\)?", l[l.index(l.split()[0]) + len(l.split()[0]):])]
+        return vals
+    emp, gdp = block(i_emp), block(i_gdp)
+    nxt = p80.splitlines()
+    k = next(i for i, l in enumerate(nxt) if "BYOP subscribers as a share" in l)
+    byop = [float(v) for v in re.findall(r"(\d+)%", " ".join(nxt[k:k + 2]))]
+    # Tables 22-23 (PDF pp. 95-96): 2020 employment totals by sector.
+    p95, p96 = page(95), page(96)
+    sectors = {}
+    current = None
+    for l in p95.splitlines():
+        t = l.strip()
+        for name in ("BDUs", "Specialty and pay TV services", "Private conventional TV", "Total broadcasting sector"):
+            if t == name:
+                current, in_emp = name, False
+        if t.startswith("Employment (FTEs)"):
+            in_emp = True
+        elif t.startswith("GDP ($M)"):
+            in_emp = False
+        if current and in_emp and t.startswith("Total") and current not in sectors:
+            sectors[current] = [float(v.replace(",", "")) for v in re.findall(r"\(?([\d,]+)\)?", t[len("Total"):])]
+    l23 = next(l for l in p96.splitlines() if l.strip().startswith("Total") and "(" in l and "Employment" not in l
+               and p96.splitlines().index(l) > next(i for i, x in enumerate(p96.splitlines()) if "Employment (FTEs)" in x))
+    sectors["Independent production"] = [float(v.replace(",", "")) for v in re.findall(r"\(?([\d,]+)\)?", l23.strip()[len("Total"):])]
+    stated = re.search(r"\$399 million reduction in CPE by 2020, or (\d+)% of baseline CPE", " ".join(p91.split()))
+    return dict(table1_employment=emp, table1_gdp=gdp, table18_byop_share=byop, sector_employment=sectors,
+                cpe_share_stated=float(stated.group(1)) if stated else None)
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     labels = []
@@ -287,6 +334,34 @@ def main():
         if abs(pen - t7["us_ott_penetration"][i]) > 0.005 + 1e-9:
             t7_notes.append(f"Table 7 {yr}: printed penetration {t7['us_ott_penetration'][i]:.2f}, "
                             f"composite / households = {pen:.3f}")
+
+    tf = text_facts()
+    with open(OUT / "nordicity_2015_text_facts.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["fact", "year", "value", "source"])
+        for key, src in (("table1_employment", "Table 1, p. 12"), ("table1_gdp", "Table 1, p. 12")):
+            for kind, vals in tf[key].items():
+                for yr, val in zip(range(2015, 2021), vals):
+                    w.writerow([f"{key}_{kind}", yr, val, src])
+        for yr, val in zip(range(2015, 2021), tf["table18_byop_share"]):
+            w.writerow(["table18_byop_share_pct", yr, val, "Table 18, p. 76"])
+        w.writerow(["cpe_share_stated_pct", 2020, tf["cpe_share_stated"], "para. 239, p. 87"])
+        for name, vals in tf["sector_employment"].items():
+            key = "sector_fte_" + re.sub(r"[^a-z]+", "_", name.lower()).strip("_")
+            for yr, val in zip(range(2015, 2021), vals):
+                w.writerow([key, yr, val, "Tables 22-23, pp. 91-92"])
+    checks.append(("Table 1 total FTE 2020 = 15,130 (para. 250)", tf["table1_employment"]["total"][-1], 15130))
+    checks.append(("Table 1 direct FTE 2020 = 6,830", tf["table1_employment"]["direct"][-1], 6830))
+    checks.append(("Table 1 total GDP 2020 = 1,411.1", tf["table1_gdp"]["total"][-1], 1411.1))
+    checks.append(("Table 18 BYOP 2018 = 15%", tf["table18_byop_share"][3] if len(tf["table18_byop_share"]) > 3 else None, 15))
+    checks.append(("stated CPE share = 18% (para. 239)", tf["cpe_share_stated"], 18))
+    se = tf["sector_employment"]
+    checks.append(("Table 22 BDU FTE 2020 = 5,010", se.get("BDUs", [None])[-1], 5010))
+    checks.append(("Table 22 specialty/pay FTE 2020 = 2,880", se.get("Specialty and pay TV services", [None])[-1], 2880))
+    checks.append(("Table 22 broadcasting total FTE 2020 = 7,950 (para. 246)", se.get("Total broadcasting sector", [None])[-1], 7950))
+    checks.append(("Table 23 production FTE 2020 = 7,180 (para. 248)", se.get("Independent production", [None])[-1], 7180))
+    checks.append(("broadcasting + production = Table 1 total",
+                   se["Total broadcasting sector"][-1] + se["Independent production"][-1], tf["table1_employment"]["total"][-1]))
 
     ok = True
     for name, got, want in checks:

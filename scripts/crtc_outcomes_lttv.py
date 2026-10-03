@@ -229,6 +229,11 @@ def main():
                                        k=round(k, 2), ci_lo=round(k - 1.96 * se, 2), ci_hi=round(k + 1.96 * se, 2),
                                        verdict=verdict(k - 1.96 * se, k + 1.96 * se, bl, bh),
                                        prestated=(vname == "as published" and cname == "2018 (pre-stated)")))
+    with open(DER / "crtc_lttv_cutoffs.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["quantity", "version", "sigma_inconclusive_from"])
+        for (q, vname), c in cutoffs.items():
+            w.writerow([q, vname, c])
     with open(DER / "crtc_lttv_multiverse.csv", "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(multiverse[0]))
         w.writeheader()
