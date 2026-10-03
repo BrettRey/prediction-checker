@@ -15,7 +15,7 @@ claim:
 ---
 
 # Prediction checker
-<!-- SUMMARY: audit consequential Canadian policy forecasts against outcomes; case 2 (Let's Talk TV) results in: specialty/pay revenue k = 0.1 everywhere, no interval excludes zero; smaller than the forecasters' inputs imply unless baseline error ≥ ~4.1%/yr (3 of 9 calibrations), BDU revenue within the forecast range, payments to Canadian services didn't fall, uptake far below assumed in 2016; case 1 gated on premium data · status: development · updated: 2026-10-03 -->
+<!-- SUMMARY: audit of a forecast put to Parliament (CRTC Let's Talk TV); full EJW draft assembled (intro, method, results, links incl. employment, discussion; 9 pp.), venue record approved; GNDA split off as a later paper; nothing pushed · status: development (drafting for EJW) · updated: 2026-10-03 -->
 
 ## State
 
@@ -25,13 +25,17 @@ Forecast-side sources for cases 1 and 2 read and filed in `literature/` (JUST 36
 
 ## Next action
 
-1. Case 2: drafted in `sections/case-lttv.tex` (numbers generated from `data/derived/`). Next: a reader pass on it, `/check-chart-style` before adding the design figure, then the method section (what counts as checking a forecast) that both cases share.
-2. Case 1: locate the source of the 30% / 50% premium figures (G18): the 2016 CIA critical-illness paper, any Senate submission on S-201. Settle premium-data feasibility (COMPULIFE terms, archived rate tables). Check whether submissions in the Supreme Court decision on the Act (G07) repeated the forecast.
-3. Outward novelty search with `/hyperresearch` (light tier, capped budget), logged in `notes/novelty-search.md`.
+1. Act on the page-one cold read; then a full reader pass and a review board with an outsider persona.
+2. Read the library-access sources before submission: Crawford and Yurukoglu 2012 (bundling), Crompton 2006 and Siegfried and Zimbalist 2000 (impact-study critiques), Hodges 1997, full Harrington et al. 2000. Then `/hyperresearch` (light tier) as the deeper novelty sweep.
+3. Before any push: payload check (`git status`, history), then push so the data-and-code statement's repository link is live; run `scripts/fetch_raw.sh` in a clean clone to test replication.
+4. Submission formatting: EJW LaTeX template, Chicago author-date, `/submission-gate`.
+5. Case 1 (GNDA), now a separate paper: G18 source, premium-data feasibility.
 
 ## Open decisions (Brett)
 
-- None open.
+- Title: working title "Fifteen thousand jobs: checking a forecast put to Parliament on unbundling Canadian television".
+- AI disclosure wording: `\aidisclosure{Claude Opus 5.5}` renders "The large language models Claude Opus 5.5 served..."; the ChatGPT lead list is noted in the data-and-code section. Confirm the model list and how to handle the singular.
+- Forecasts for the prediction ledger (no base rate for economics venues).
 
 ## Blockers
 
