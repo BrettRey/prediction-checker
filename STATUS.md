@@ -15,7 +15,7 @@ claim:
 ---
 
 # Prediction checker
-<!-- SUMMARY: audit of a forecast put to Parliament (CRTC Let's Talk TV); full EJW draft assembled (intro, method, results, links incl. employment, discussion; 21 pp. with 2 figures and appendix tables A1–A8), three Elicit review rounds implemented, results led by k and its SE, numbers and inference audits run (Codex xhigh) and applied, mechanism question addressed by a post hoc split of distributors' revenue (rechecked by Codex, fixes applied; numbers and inference passes current), venue record approved; GNDA split off as a later paper; nothing pushed · status: development (drafting for EJW) · updated: 2026-10-03 -->
+<!-- SUMMARY: audit of a forecast put to Parliament (CRTC Let's Talk TV); full EJW draft (24 pp., 2 figures, tables A1–A8); truth/fairness round done: MTM 2017 survey reported beside the planned uptake reading (outcomes fit the report's chain only on low uptake paths), testimony criticism narrowed to three specific departures; numbers, inference, quote, negative-claims and fairness passes current after two Codex rechecks; nothing pushed · status: development (drafting for EJW) · updated: 2026-10-03 -->
 
 ## State
 
@@ -25,15 +25,17 @@ Forecast-side sources for cases 1 and 2 read and filed in `literature/` (JUST 36
 
 ## Next action
 
-1. Elicit review triaged and implemented (2026-10-03); second-round points (jobs-split reconciliation, reproducible tables A1–A4, interval interpretation in the method section) done the same day. Still open from it: an inventory of concurrent changes and whether the report's baseline includes each (Super Bowl simultaneous substitution, T10 still unverified; any 2016 CRTC local-TV measures); a full reader pass; a review board with an outsider persona.
-2. Read the library-access sources before submission: Crawford and Yurukoglu 2012 (bundling), Crompton 2006 and Siegfried and Zimbalist 2000 (impact-study critiques), Hodges 1997, full Harrington et al. 2000. Then `/hyperresearch` (light tier) as the deeper novelty sweep.
-3. Before any push: payload check (`git status`, history), then push so the data-and-code statement's repository link is live; run `scripts/fetch_raw.sh` in a clean clone to test replication.
-4. Submission formatting: EJW LaTeX template, Chicago author-date, `/submission-gate`.
-5. Case 1 (GNDA), now a separate paper: G18 source, premium-data feasibility.
+1. Clarity passes on the settled text: `contribution-alignment`, `terminological-hygiene`, then `reader-pass` and `coherence-cohesion` (expensive), `figures`. Then `source-reread` (expensive) as the last truthfulness pass.
+2. Still open from Elicit round 1: whether the report's baseline includes the Super Bowl simultaneous-substitution change (T10 unverified) and any 2016 CRTC local-TV measures.
+3. Library-access readings before submission: Crawford and Yurukoglu 2012, Crompton 2006, Siegfried and Zimbalist 2000, Hodges 1997, full Harrington et al. 2000.
+4. Before any push: payload check (`git status`, history; decide whether `notes/passes/` audit reports go public), push so the data-and-code link is live, clean-clone test of `scripts/fetch_raw.sh` (needs `SEC_UA`), Zenodo archive.
+5. Submission formatting: EJW LaTeX template, Chicago author-date, mechanics passes, `/submission-gate`.
+6. Case 1 (GNDA), now a separate paper: G18 source, premium-data feasibility.
 
 ## Open decisions (Brett)
 
-- Title: working title "Fifteen thousand jobs: checking a forecast put to Parliament on unbundling Canadian television".
+- Title: the manuscript uses "A forecast put to Parliament: unbundling Canadian television, 2016–2019"; confirm or replace.
+- Whether to send Nordicity/Miller and Friends of Canadian Broadcasting the factual passages for correction before submission.
 - Forecasts for the prediction ledger (no base rate for economics venues).
 - Data-and-code section now adds: "The analysis scripts were written with Claude Opus 5.5 and checked against the sources and against the report's printed totals." Confirm or strike.
 
