@@ -8,12 +8,12 @@
 
 % Update PDF metadata
 \hypersetup{
-  pdftitle={What were they told would happen? Checking consequential policy forecasts in Canada},
-  pdfkeywords={forecast evaluation, policy prediction, legislative testimony, Canada}
+  pdftitle={Fifteen thousand jobs: checking a forecast put to Parliament on unbundling Canadian television},
+  pdfkeywords={forecast evaluation, ex post analysis, economic impact studies, broadcasting regulation, Canada}
 }
 
-% Working title (2026-10-03); see DECISIONS.md.
-\title{What were they told would happen? Checking consequential policy forecasts in Canada}
+% Working title for Econ Journal Watch (2026-10-03); see DECISIONS.md and submission/venue-decision-2026-10-03.md.
+\title{Fifteen thousand jobs: checking a forecast put to Parliament on unbundling Canadian television}
 \author{Brett Reynolds \orcidlink{0000-0003-0073-7195}%
 \thanks{Contact: \href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}}\\
 Humber Polytechnic \& University of Toronto}
@@ -23,29 +23,19 @@ Humber Polytechnic \& University of Toronto}
 \maketitle
 
 \begin{abstract}
-TODO: abstract. Nothing in this file may state a fact from the intake brief until its row in notes/source-verification.md is VERIFIED.
+In April 2016 a House of Commons committee heard that new television rules from the Canadian Radio-television and Telecommunications Commission (CRTC) would cost \lttvJobsTotal{} media jobs by 2020. The figure came from a commissioned economic-impact study that set out its assumptions and annual paths in enough detail to be checked. I fixed the forecast record before collecting any outcomes, ran a design analysis, and compared the study's two scenarios with CRTC data for 2016--2019. Specialty and pay channels' revenue, on which most of the job figure depends, stayed at or above the study's no-reform baseline (\(k=\lttvKSpec\), where 1 is the forecast effect), though the verdict turns inconclusive if the baseline is taken to be badly wrong. Distributors' revenue fell further than forecast. The modelled transfer of distributors' losses to Canadian channels didn't appear: payments to those channels rose by \$\lttvPayCanIncrease{} million where the study's own rule implies a cut of about \$\lttvPassImplied{} million. The testimony stated the forecast more strongly than the study did, and cited a share of programming spending that the study's own figures don't reproduce.
 \end{abstract}
 
-\noindent\textbf{Keywords:} forecast evaluation; policy prediction; legislative testimony; Canada
+\noindent\textbf{Keywords:} forecast evaluation; ex post analysis; economic impact studies; broadcasting regulation; Canada
 
-% AI-use disclosure, on page 1 (house style). Replace [MODEL LIST] with the
-% actual models used and their CURRENT names; frontier names change fast.
-% Example shape: Claude 4.5 \& Opus 4.8; ChatGPT 5.2 pro; Gemini 3; DeepSeek V3.
-\aidisclosure{[MODEL LIST]}
+% AI-use disclosure, on page 1 (house style). Models actually used: Claude Opus 5.5
+% (drafting, analysis code); a ChatGPT research session produced the initial
+% candidate list (noted in the Data and code section). Brett to confirm.
+\aidisclosure{Claude Opus 5.5}
 
-\section{Introduction}
-
-TODO.
-
-\section{What counts as checking a forecast}
-
-TODO: the technical claim versus the public predictive argument; freezing the prediction record before outcomes; counterfactuals.
-
+\input{sections/intro}
 \input{sections/case-lttv}
-
-\section{Discussion}
-
-TODO.
+\input{sections/discussion}
 
 % The AI-use disclosure is now on page 1 (see \aidisclosure above).
 % Uncomment this section only for human/funder acknowledgements:
