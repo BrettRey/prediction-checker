@@ -17,7 +17,7 @@ Format: `YYYY-MM-DD — Decision. Reason.` Choices made after seeing outcome dat
 
 2026-10-03 — Method commitments carried from the brief into `CLAUDE.md`: technical claim and public predictive argument assessed separately; each case's prediction record committed before outcome data are pulled.
 
-2026-10-03 — Public GitHub repo under `BrettRey/`, CC BY 4.0 (portfolio default for open papers). `data/raw/` gitignored; COMPULIFE data never committed; CIA terms checked before publishing derived files.
+2026-10-03 — Public GitHub repo under `BrettRey/`, CC BY 4.0 (portfolio default for open papers). `data/raw/` gitignored; COMPULIFE data never committed; CIA terms checked before publishing derived files. Decision owner: Brett (standing default for new projects, `~/.claude/CLAUDE.md`); assisting: Claude Opus 5.5; status: executed 2026-10-03, payload enumerated before push (27 files, verbatim brief excluded); record: this file.
 
 2026-10-03 — `.house-style` and `references.bib` are symlinks into the portfolio (template snapshot replaced), so the repo builds only inside the portfolio.
 
