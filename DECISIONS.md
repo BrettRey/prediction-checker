@@ -56,3 +56,21 @@ Inward searches: qmd and full-text grep over `literature/` (queries in `notes/no
 2026-10-03 — Morrison's skinny-basic uptake estimate (T16, about 4%) recorded beside the report's BYOP assumption (T20, 5% in 2016 rising to 15%), since the project brief says to test near mechanisms before multiplier-derived totals.
 
 2026-10-03 — Correction to the case 1 record, made before any outcome data were opened (so not [post hoc]): the model's threshold is the amount above which insurers may still require disclosure, so the enacted Act (no threshold) is at least as severe as the model's $1 million headline, not close to its $100,000 scenario. The record now orders the regimes ($100k scenario < CIA amendment ~$190k < CLHIA code $250k < $1M headline < Act) and states that flat premiums would count against the model's headline unless only the CLHIA code was operative. Also removed a memory-sourced reference to the Quebec reference from the legal-status row; only G07 (unverified) remains.
+
+## Scope, exemplar, lead case, and analysis design (2026-10-03, after the freeze)
+
+2026-10-03 — Scope kept: forecasts made to legislative committees, regulators, and courts, not Supreme Court litigation only. Decision owner: Brett.
+
+2026-10-03 — Exemplar: Kane, "After SFFA v. Harvard: Predictions that Didn't Come True", *Econ Journal Watch* 23(2): 485–508 (September 2026), proposed by Brett and filed in `literature/`. The identification with the brief's "your example" is an inference: the brief says its leads "weren't predictions made exclusively in Supreme Court litigation", and its three set-aside cases are all Supreme Court of Canada rulings. Design features adopted from it are listed in `notes/project-brief.md`.
+
+2026-10-03 — Manuscript stays in LaTeX. Decision owner: Brett.
+
+2026-10-03 — Lead case *Let's Talk TV*, second case GNDA. Decision owner: Brett (delegated 2026-10-03); chosen by Claude Opus 5.5. Reason: *Let's Talk TV* can be tested before any identification question arises (the model's own inputs, such as unbundled uptake and closures, are directly observable; both scenario paths are published by year; four pre-pandemic years; administrative data). GNDA's forecast quantity has no confirmed data source, its counterfactual splits between the Act and the CLHIA code with compliance unknown, and the 30% / 50% derivation is unlocated. GNDA stays in the paper because its main finding so far (the technical claim against the public argument, row G18) needs no outcome data; its premium test waits on a feasibility check.
+
+2026-10-03 — Case 1 uses both counterfactuals, reported side by side: (i) no restriction, the 2016 status quo, which tests the forecast as made; (ii) CLHIA code only, which isolates the Act's contribution. Decision owner: Brett ("why not both?"). The above/below-$250,000 contrast follows from (ii).
+
+2026-10-03 — Test windows replaced by full-path estimates compared with each forecaster's implied timing. Made before any outcome data were opened, so not [post hoc]. Supersedes the window proposal in the case 1 file.
+
+2026-10-03 — Analysis plan proposed in `notes/analysis-plan.md`: forecasts tested as distributions built from the forecasters' own cited inputs as well as the testimony's point figures; every cell of a fixed comparison grid reported; differences between comparisons given their own uncertainty. A design analysis by fake-data simulation for each case gates the release of HELD rows and the opening of any outcome series. Sources for the method: Gelman and Carlin 2014; Gelman and Loken 2014; Gelman and Stern 2006; Gelman et al. 2020 (all in `literature/`).
+
+2026-10-03 — Corpus-awareness adjudication: `papers/queue/difference-in-differences-for-corpus-linguistics/` stays **deferred**, now with a concrete use (case 1's above/below-$250,000 contrast is a difference-in-differences design). Read it before writing the case 1 design analysis, then adopt or distinguish.

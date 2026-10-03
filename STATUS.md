@@ -15,29 +15,25 @@ claim:
 ---
 
 # Prediction checker
-<!-- SUMMARY: audit consequential Canadian policy forecasts against outcomes; prediction records for cases 1–2 filled from primary sources and frozen 2026-10-03 (16 VERIFIED, 1 PARTLY of 39 brief rows; post-intervention rows held), novelty search inward-only · status: development · updated: 2026-10-03 -->
+<!-- SUMMARY: audit consequential Canadian policy forecasts against outcomes; prediction records for cases 1–2 filled from primary sources and frozen 2026-10-03 (16 VERIFIED, 1 PARTLY of 39 brief rows; post-intervention rows held); lead case Let's Talk TV, exemplar Kane 2026; analysis plan proposed, design analysis gates outcome data · status: development · updated: 2026-10-03 -->
 
 ## State
 
-Scaffolded 2026-10-03 from an LLM-written lead list Brett pasted (verbatim copy gitignored in `notes/intake/`). Three candidate cases under `cases/`: GNDA life-insurance premiums, CRTC *Let's Talk TV*, Bill C-75 preliminary inquiries.
+Scaffolded 2026-10-03 from an LLM-written lead list Brett pasted (verbatim copy gitignored in `notes/intake/`). Three candidate cases under `cases/`: GNDA life-insurance premiums, CRTC *Let's Talk TV*, Bill C-75 preliminary inquiries. Settled 2026-10-03: scope stays legislative, regulatory, and judicial; exemplar Kane (2026, *Econ Journal Watch*); lead case *Let's Talk TV*, second case GNDA; LaTeX; case 1 reports both counterfactuals. Analysis plan proposed in `notes/analysis-plan.md`.
 
 Forecast-side sources for cases 1 and 2 read and filed in `literature/` (JUST 36 and CHPC 8 evidence, CIA brief, CIA 2014 model paper, Nordicity/Miller report, the Act, CLHIA release). Both prediction records filled and committed before any outcome data were opened. Main finding so far: the CIA model reports mortality-experience increases of 36% / 58% under a $1 million disclosure threshold the Act doesn't have; the 30% / 50% *premium* figures given to the Committee are not in that paper and their source is unlocated (G18). Case 2's near-mechanism assumptions (BYOP uptake, pass-through, closures) are recorded for testing ahead of the job and GDP totals. Inward novelty check done; no outward search, no outcome data, no manuscript text.
 
 ## Next action
 
-1. Locate the source of the 30% / 50% premium figures (G18): the 2016 CIA critical-illness model paper, any CIA submission to the Senate on S-201.
-2. Read the CRTC's own *Let's Talk TV* decisions (T13) and the S-201 bill text as debated, for the "intervention as enacted" rows.
-3. Release the HELD rows and start on outcomes, case by case, now that the records are committed.
-4. Outward novelty search with `/hyperresearch` (light tier, capped budget), logged in `notes/novelty-search.md`.
+1. Case 2: read the CRTC's own *Let's Talk TV* decisions (T13); re-implement the Nordicity chain in `scripts/` from the record; run and commit the design analysis (do the baseline and LTTV paths separate, for 2017–2019, beyond the spread of the report's own cited inputs?). Only then release case 2's HELD rows and download CRTC series.
+2. Case 1: locate the source of the 30% / 50% premium figures (G18): the 2016 CIA critical-illness paper, any Senate submission on S-201. Settle premium-data feasibility (COMPULIFE terms, archived rate tables). Check whether submissions in the Supreme Court decision on the Act (G07) repeated the forecast.
+3. Outward novelty search with `/hyperresearch` (light tier, capped budget), logged in `notes/novelty-search.md`.
 
 ## Open decisions (Brett)
 
-- Scope: the brief widened *cases* from Supreme Court litigation to legislative and regulatory forecasts. Keep that, or return to courts only?
-- Exemplar: the brief measures its leads against "your example", which isn't on file. Add it to `notes/project-brief.md`.
-- First case for the paper: GNDA (stronger paper, data access uncertain) or *Let's Talk TV* (public data, more reconstruction).
-- Manuscript format: LaTeX scaffold for now; Quarto is the portfolio default for a numbers-heavy paper.
-- Case 1 design, proposed in the case file: counterfactual "industry code only" (CLHIA's $250,000 commitment from 2018) rather than "no restriction"; test windows fixed before quote data are opened.
+- Analysis plan (`notes/analysis-plan.md`): adopt as proposed, or amend, before the design analyses are run.
+- Scope option, not adopted: a population of forecasts from one Parliament's committee evidence, scored for calibration.
 
 ## Blockers
 
-None external. Case 1 has a feasibility question (historical premium quotes) to settle before it can be the lead case.
+None external. Case 1's premium test depends on finding a fixed-profile quote series under usable terms.

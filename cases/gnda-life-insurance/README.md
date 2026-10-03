@@ -1,5 +1,5 @@
 # Case 1: GNDA and life-insurance premiums
-<!-- SUMMARY: Prediction record filled from the 2014 CIA model paper, the CIA brief, and JUST meeting-36 evidence, before any outcome data; source of the 30%/50% premium figure still unlocated · status: record frozen pending commit · updated: 2026-10-03 -->
+<!-- SUMMARY: Prediction record filled from the 2014 CIA model paper, the CIA brief, and JUST meeting-36 evidence, before any outcome data; source of the 30%/50% premium figure still unlocated · status: record frozen 2026-10-03; design fixed · updated: 2026-10-03 -->
 
 Every quotation below is in `../../notes/source-verification.md` with its locator (row IDs in brackets). Nothing here was written after looking at premiums, experience data, or any retrospective study.
 
@@ -52,11 +52,13 @@ One row per statement. They don't agree with each other or with A.
 | Competing intervention | CLHIA industry code: insurers "will not request or use genetic testing information for new life insurance applications up to $250,000 effective January 1, 2018" (announced at the hearing, press release 2017-01-11). Takes effect eight months after assent | [G16] |
 | Legal status after assent | Supreme Court decision (G07) not yet read; whether insurers complied with the Act, the code, or neither after assent is not established | [G07], [G09] HELD |
 
-## Design consequences, proposed before outcomes (Brett to confirm)
+## Design, fixed before outcomes
 
-- **Counterfactual.** The comparison can't be "no restriction": from 2018 the industry's own code removed disclosure below $250,000 whether or not the Act applied. The Act's marginal effect, on the model's own mechanism, falls on applications above $250,000.
-- **Which forecast is tested.** Test B1–B3 (30% / 50% on term premiums) as the public argument, and A as a technical claim stated for a $1 million threshold. Since the enacted regime is more restrictive than that, the threshold doesn't excuse A: flat premiums would count against A's headline as well as against B2. They would fit A only if the operative regime turned out to be the CLHIA code alone (the Act unapplied), which is why compliance [G09] matters.
-- **Timing windows.** Proposal: test B2 on 2017–2019 quotes and B3 and A on the longest series available. Whatever windows are chosen must be fixed here before any quote data are opened.
+Settled 2026-10-03 (Brett chose both counterfactuals); full grid in `../../notes/analysis-plan.md`.
+
+- **Two counterfactuals, both reported.** (i) No restriction, the 2016 status quo: B1–B3 were forecasts against this world, so it tests the forecast as made. (ii) CLHIA code only (no disclosure below $250,000 from 2018): it isolates the Act's contribution. On the model's own mechanism the Act's marginal effect over the code falls on applications above $250,000, which gives a within-Canada contrast between amounts above and below that line.
+- **Which forecast is tested.** B1–B3 (30% / 50% on term premiums) as the public argument, and A as a technical claim stated for a $1 million threshold. Since the enacted regime is more restrictive than that, the threshold doesn't excuse A: flat premiums would count against A's headline as well as against B2. They would fit A only if the operative regime turned out to be the CLHIA code alone (the Act unapplied), which is why compliance [G09] matters.
+- **Timing.** No test windows. The premium path is estimated over the whole series and compared with each statement's implied timing: B2 a step soon after enactment, B3 a gradual rise, B4 experience effects after more than a decade.
 
 ## Feasibility questions (unchanged)
 

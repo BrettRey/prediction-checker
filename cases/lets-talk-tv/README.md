@@ -1,5 +1,5 @@
 # Case 2: CRTC Let's Talk TV and the Nordicity/Miller model
-<!-- SUMMARY: Prediction record filled from the December 2015 Nordicity/Miller report and CHPC meeting-8 evidence, before any outcome data; near-mechanism assumptions recorded · status: record frozen pending commit · updated: 2026-10-03 -->
+<!-- SUMMARY: Prediction record filled from the December 2015 Nordicity/Miller report and CHPC meeting-8 evidence, before any outcome data; near-mechanism assumptions recorded · status: lead case; record frozen 2026-10-03 · updated: 2026-10-03 -->
 
 Every quotation below is in `../../notes/source-verification.md` with its locator (row IDs in brackets). Nothing here was written after looking at CRTC financial data, subscriber counts, employment series, or any retrospective study.
 

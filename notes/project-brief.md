@@ -1,5 +1,5 @@
 # Project brief: prediction-checker
-<!-- SUMMARY: Plan for auditing consequential Canadian policy forecasts against outcomes; three candidate cases, all claims unverified · status: development · updated: 2026-10-03 -->
+<!-- SUMMARY: Plan for auditing consequential Canadian policy forecasts against outcomes; exemplar Kane (2026); lead case Let's Talk TV, second GNDA · status: development · updated: 2026-10-03 -->
 
 ## The question
 
@@ -7,16 +7,24 @@ When experts tell legislators, regulators, or courts what a decision will cause,
 
 The intake brief (2026-10-03, LLM-written, verbatim copy in `notes/intake/`, gitignored) proposed three candidate cases and four already-examined counterexamples. Every factual claim it makes is queued in `source-verification.md` as UNVERIFIED. This file describes the plan; it doesn't restate those claims as fact.
 
-## What this scaffold assumes
-
-The brief answers a question asked in a conversation that isn't on file. It refers to "your example" and "your novelty condition" and says it widened *cases* from Supreme Court litigation to parliamentary and regulatory controversies. The scaffold therefore assumes:
+## Scope
 
 - **Jurisdiction:** Canada.
-- **Venue of the prediction:** legislative committees, regulatory proceedings, and courts, not only courts.
+- **Venue of the prediction:** legislative committees, regulatory proceedings, and courts. The brief widened this from Supreme Court litigation; Brett kept the wider scope on 2026-10-03.
 - **Novelty condition:** a case qualifies only if no public retrospective already tests that specific forecast. An unsatisfactory existing check may still justify a better study, but the paper can't present the forecast as unrevisited.
-- **Shape:** case studies, with one working paper as the first deliverable.
+- **Shape:** case studies, one working paper first, in LaTeX. Lead case *Let's Talk TV*, second case GNDA (`DECISIONS.md`, 2026-10-03).
 
-Not on file: Brett's exemplar case, and whether he wants the courts-only scope back. Record both in `DECISIONS.md` when settled.
+## Exemplar
+
+The brief measures its leads against "your example" from a conversation that isn't on file. Brett proposed Kane (2026) on 2026-10-03, and the brief's own wording fits it: it says its best leads "weren't predictions made exclusively in Supreme Court litigation", and every case it set aside as already checked (*Chaoulli*, *Carter*, *Jordan*) is a Supreme Court of Canada ruling. Treated as the exemplar; the identification is an inference, not a record.
+
+Kane, "After SFFA v. Harvard: Predictions that Didn't Come True", *Econ Journal Watch* 23(2): 485–508, September 2026 (`literature/kane_2026_after_sffa_predictions_ejw`; code at github.com/davidkane9/after-sffa). What it does that this project should also do:
+
+- **Forecasts by interested parties, fixed in the record before the outcome.** "During the litigation, the affected institutions committed themselves to forecasts as to what such a prohibition would do" (p. 485): an amicus brief of thirty-three colleges, a brief of fifteen universities, and Harvard's expert report.
+- **The technical claim kept apart from the public forecast, with a unit conversion between them.** Card's simulation was computed on admitted rather than enrolled students under Harvard's internal racial coding; "The two conventions, applied to the same cohort, produce Black shares that differ by roughly a factor of two" (p. 485). Card's report "stated its predictions in units that correspond to no publicly reported statistic" (p. 486). This is the same problem as case 1's mortality-to-premium gap (row G18).
+- **Both baselines reported.** "Comparisons against both baselines—the litigation window, and the elevated classes of 2020 through 2023—appear throughout this paper" (p. 486).
+- **Effect versus compliance left as an open question.** "Does abiding by the decision not have the predicted effect, or are the schools not abiding by the decision?" (p. 486). Case 1 has the same question about the Act and the CLHIA code.
+- **Public administrative data and a reproducible pipeline** (Common Data Set and IPEDS).
 
 ## Candidate cases
 
