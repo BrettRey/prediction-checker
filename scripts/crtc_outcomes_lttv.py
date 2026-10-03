@@ -24,6 +24,9 @@ from pathlib import Path
 import numpy as np
 import openpyxl
 
+from plan_constants import (CITED_CLOSURES_HIGH_MULT, CITED_UPTAKE_HIGH, CITED_UPTAKE_LOW,
+                            REPORT_UPTAKE_2018, SPLICE_TOLERANCE)
+
 warnings.filterwarnings("ignore")
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw" / "crtc"
@@ -99,8 +102,10 @@ def scen_impact(fc, q, yr, mult):
 
 
 # Same input scenarios as scripts/design_analysis_lttv.py (cited ranges).
-LOW = dict(unbundling=10 / 15, preponderance_access=10 / 15, exemption_order=1, closures=1)
-HIGH = dict(unbundling=35 / 15, preponderance_access=35 / 15, exemption_order=1, closures=2.5)
+LOW = dict(unbundling=CITED_UPTAKE_LOW / REPORT_UPTAKE_2018, preponderance_access=CITED_UPTAKE_LOW / REPORT_UPTAKE_2018,
+           exemption_order=1, closures=1)
+HIGH = dict(unbundling=CITED_UPTAKE_HIGH / REPORT_UPTAKE_2018, preponderance_access=CITED_UPTAKE_HIGH / REPORT_UPTAKE_2018,
+            exemption_order=1, closures=CITED_CLOSURES_HIGH_MULT)
 
 
 def gls_k(y, delta, sigma):
@@ -130,7 +135,7 @@ def main():
     splice = {}
     for q in ("specialty_pay_revenue", "bdu_revenue"):
         devs = {y: obs[q][y] / report_hist[q][y] - 1 for y in report_hist[q]}
-        splice[q] = dict(devs=devs, pass_=all(abs(v) <= 0.02 for v in devs.values()),
+        splice[q] = dict(devs=devs, pass_=all(abs(v) <= SPLICE_TOLERANCE for v in devs.values()),
                          ratio2014=report_hist[q][2014] / obs[q][2014])
 
     est = []

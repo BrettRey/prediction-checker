@@ -46,6 +46,9 @@ from pathlib import Path
 
 import numpy as np
 
+from plan_constants import (CITED_CLOSURES_HIGH_MULT, CITED_UPTAKE_HIGH, CITED_UPTAKE_LOW,
+                            REPORT_UPTAKE_2018)
+
 ROOT = Path(__file__).resolve().parents[1]
 SCEN = ROOT / "data" / "derived" / "nordicity_2015_scenarios.csv"
 OUT_CSV = ROOT / "data" / "derived" / "design_analysis_lttv.csv"
@@ -67,11 +70,11 @@ RNG = np.random.default_rng(20261003)
 SCENARIOS = {
     "report": dict(unbundling=1, preponderance_access=1, exemption_order=1, closures=1,
                    basis="report's own inputs"),
-    "low_cited": dict(unbundling=10 / 15, preponderance_access=10 / 15, exemption_order=1, closures=1,
+    "low_cited": dict(unbundling=CITED_UPTAKE_LOW / REPORT_UPTAKE_2018, preponderance_access=CITED_UPTAKE_LOW / REPORT_UPTAKE_2018, exemption_order=1, closures=1,
                       basis="uptake 10% (Corus low end); other inputs as report"),
-    "high_cited": dict(unbundling=35 / 15, preponderance_access=35 / 15, exemption_order=1, closures=2.5,
+    "high_cited": dict(unbundling=CITED_UPTAKE_HIGH / REPORT_UPTAKE_2018, preponderance_access=CITED_UPTAKE_HIGH / REPORT_UPTAKE_2018, exemption_order=1, closures=CITED_CLOSURES_HIGH_MULT,
                        basis="uptake 35% (Oliver Wyman); closures 2.5x (Bell, Oliver Wyman)"),
-    "low_project": dict(unbundling=10 / 15, preponderance_access=10 / 15, exemption_order=0, closures=0.5,
+    "low_project": dict(unbundling=CITED_UPTAKE_LOW / REPORT_UPTAKE_2018, preponderance_access=CITED_UPTAKE_LOW / REPORT_UPTAKE_2018, exemption_order=0, closures=0.5,
                         basis="project choice: uptake 10%, no OTT acceleration, half the closures"),
 }
 
