@@ -28,16 +28,15 @@ Forecast-side sources for cases 1 and 2 read and filed in `literature/` (JUST 36
 1. Clarity passes on the settled text: `contribution-alignment`, `terminological-hygiene`, then `reader-pass` and `coherence-cohesion` (expensive), `figures`. Then `source-reread` (expensive) as the last truthfulness pass.
 2. Still open from Elicit round 1: whether the report's baseline includes the Super Bowl simultaneous-substitution change (T10 unverified) and any 2016 CRTC local-TV measures.
 3. Library-access readings before submission: Crawford and Yurukoglu 2012, Crompton 2006, Siegfried and Zimbalist 2000, Hodges 1997, full Harrington et al. 2000.
-4. Before any push: payload check (`git status`, history; decide whether `notes/passes/` audit reports go public), push so the data-and-code link is live, clean-clone test of `scripts/fetch_raw.sh` (needs `SEC_UA`), Zenodo archive.
-5. Submission formatting: EJW LaTeX template, Chicago author-date, mechanics passes, `/submission-gate`.
-6. Case 1 (GNDA), now a separate paper: G18 source, premium-data feasibility.
+4. After the clarity passes: draft the factual-check email to Peter Miller/Nordicity and Friends of Canadian Broadcasting (passages on the report, its mechanics as read here, and the testimony; corrections of fact invited, not approval), saved as a file for Brett to edit and send.
+5. Before any push: remove the four private audit reports and two run folders from local history (decision 2026-10-03, option b; the history rewrite needs Brett's authorization), then payload check, push so the data-and-code link is live, clean-clone test of `scripts/fetch_raw.sh` (needs `SEC_UA`), Zenodo archive.
+6. Submission formatting: EJW LaTeX template, Chicago author-date, mechanics passes, `/submission-gate`. At submission, log Brett's forecast in `Project-Management/prediction-ledger/ledger.jsonl` (`p_desk_survive`, `p_accept`, `expected_decision_by`; new `economics` venue class) and Claude's under its own name.
+7. Case 1 (GNDA), now a separate paper: G18 source, premium-data feasibility.
 
 ## Open decisions (Brett)
 
-- Title: the manuscript uses "A forecast put to Parliament: unbundling Canadian television, 2016–2019"; confirm or replace.
-- Whether to send Nordicity/Miller and Friends of Canadian Broadcasting the factual passages for correction before submission.
-- Forecasts for the prediction ledger (no base rate for economics venues).
-- Data-and-code section now adds: "The analysis scripts were written with Claude Opus 5.5 and checked against the sources and against the report's printed totals." Confirm or strike.
+- Authorize the local history rewrite that keeps the quote, negative-claims, fairness and recheck-2 reports private (nothing after the two scaffold commits has been pushed).
+- Prediction-ledger numbers, at submission.
 
 ## Blockers
 
