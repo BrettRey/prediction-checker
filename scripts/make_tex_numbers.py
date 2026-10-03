@@ -260,6 +260,8 @@ M["lttvKPredSpecObsUptake"] = f"{float(cget('specialty_pay_revenue', 'CRTC count
 M["lttvKPredSpecMorrison"] = f"{float(cget('specialty_pay_revenue', 'Morrison')['k_predicted']):.2f}"
 M["lttvKPredSpecCitedLow"] = f"{float(cget('specialty_pay_revenue', 'low end')['k_predicted']):.2f}"
 M["lttvKPredBDUObsUptake"] = f"{float(cget('bdu_revenue', 'CRTC count')['k_predicted']):.2f}"
+M["lttvKPredSpecSurvey"] = f"{float(cget('specialty_pay_revenue', 'survey path')['k_predicted']):.2f}"
+M["lttvKPredBDUSurvey"] = f"{float(cget('bdu_revenue', 'survey path')['k_predicted']):.2f}"
 M["lttvKPredBDUMorrison"] = f"{float(cget('bdu_revenue', 'Morrison')['k_predicted']):.2f}"
 M["lttvMorrisonUptake"] = pct(PC.MORRISON_UPTAKE_ESTIMATE)
 M["lttvKPredSpecRiseMorrison"] = f"{float(cget('specialty_pay_revenue', 'rising from 2016 count to Morrison')['k_predicted']):.2f}"
@@ -270,7 +272,8 @@ for lab, ltag in (("rising from 2016 count to Morrison", "RiseMorrison"), ("risi
         "below" if float(r["k_predicted"]) < float(r["ci_lo"]) else "above")
 for q, tag in (("specialty_pay_revenue", "Spec"), ("bdu_revenue", "BDU")):
     for lab, ltag in (("CRTC count", "ObsUptake"), ("Morrison", "Morrison"), ("low end", "CitedLow"),
-                      ("rising from 2016 count to Morrison", "RiseMorrison"), ("rising from 2016 count to low end", "RiseCitedLow")):
+                      ("rising from 2016 count to Morrison", "RiseMorrison"), ("rising from 2016 count to low end", "RiseCitedLow"),
+                      ("survey path", "Survey")):
         k_, se_, _ = kse[q]
         M[f"lttvKPred{tag}{ltag}SEs"] = f"{abs(float(cget(q, lab)['k_predicted_full']) - k_) / se_:.1f}"
     for lab, ltag in (("CRTC count", "ObsUptake"), ("Morrison", "Morrison"), ("low end", "CitedLow")):
@@ -333,6 +336,11 @@ M["lttvDecSubFc"] = pchg(dec[2019]["fc_sub_part"])
 M["lttvDecPerObs"] = pchg(dec[2019]["obs_per_change_from_2014"])
 M["lttvDecPerFc"] = pchg(dec[2019]["fc_per_part"])
 M["lttvDecPerCounted"] = pchg(dec[2019]["fc_counted_uptake_per_part"])
+M["lttvDecPerSurvey"] = pchg(dec[2019]["fc_survey_path_per_part"])
+_obs_tot = float(dec[2019]["obs_sub_change_from_2014"]) + float(dec[2019]["obs_per_change_from_2014"])
+for key, tag in (("fc_counted_uptake_per_part", "Counted"), ("fc_survey_path_per_part", "Survey")):
+    _chain = float(dec[2019]["fc_sub_part"]) + float(dec[2019][key])
+    M[f"lttvDecBeyond{tag}"] = pct(1 - _chain / _obs_tot)  # share of the aligned log shortfall beyond the chain
 assert all(float(dec[2019][k]) < 0 for k in ("obs_sub_change_from_2014", "fc_sub_part", "obs_per_change_from_2014",
                                               "fc_per_part", "fc_counted_uptake_per_part"))  # the text says "below"
 al_sub = [math.exp(float(dec[t]["obs_sub_gap"])) - 1 for t in (2012, 2013, 2014)]

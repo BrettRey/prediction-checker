@@ -80,6 +80,10 @@ AL = {t: 1000 * (B[t] - I[t]) / (12 * SL[t]) for t in YEARS}
 Iu = {int(r["year"]): float(r["impact"]) for r in rows("uptake_conditional_paths_lttv.csv")
       if r["quantity"] == "bdu_revenue" and r["uptake_label"] == "CRTC count, 30 June 2016"}
 AU = {t: 1000 * (B[t] - Iu[t]) / (12 * SL[t]) for t in TEST}
+# [post hoc] the same at the survey path (DECISIONS.md, commit 026f602)
+Is_ = {int(r["year"]): float(r["impact"]) for r in rows("uptake_conditional_paths_lttv.csv")
+       if r["quantity"] == "bdu_revenue" and r["uptake_label"].startswith("survey path")}
+AS = {t: 1000 * (B[t] - Is_[t]) / (12 * SL[t]) for t in TEST}
 
 out = []
 for t in YEARS:
@@ -93,6 +97,7 @@ for t in YEARS:
         fc_sub_part=round(math.log(SL[t] / Sb[t]), 4), fc_per_part=round(math.log(AL[t] / Ab[t]), 4),
         fc_total=round(math.log((B[t] - I[t]) / B[t]), 4),
         fc_counted_uptake_per_part=round(math.log(AU[t] / Ab[t]), 4) if t in AU else "",
+        fc_survey_path_per_part=round(math.log(AS[t] / Ab[t]), 4) if t in AS else "",
         report_exemption_component=f(fc[t], "exemption_order"), reconstructed_exemption_component=round(check[t], 1)))
     r = out[-1]
     assert abs(r["fc_sub_part"] + r["fc_per_part"] - r["fc_total"]) < 2e-4
@@ -124,12 +129,13 @@ for r in out:
     L.append(f"| {r['year']} | {r['crtc_subscribers_k']:,.0f} | {r['report_subscribers_k']:,.0f} | {pc(r['obs_sub_gap'])} | "
              f"{r['crtc_rev_per_sub']:.2f} | {r['report_rev_per_sub']:.2f} | {r['report_fig19_arpu']:.2f} | {pc(r['obs_per_gap'])} |")
 L += ["", "## Decomposition, change from 2014 (observed) against the report's scenario", "",
-      "| Year | Observed: subscribers | Observed: revenue per subscriber | Forecast: subscribers | Forecast: revenue per subscriber | Report's chain at counted uptake: revenue per subscriber |",
-      "|---|---|---|---|---|---|"]
+      "| Year | Observed: subscribers | Observed: revenue per subscriber | Forecast: subscribers | Forecast: revenue per subscriber | Chain at counted uptake: per subscriber | Chain at survey path: per subscriber |",
+      "|---|---|---|---|---|---|---|"]
 for r in out:
     if r["year"] >= 2015:
         L.append(f"| {r['year']} | {pc(r['obs_sub_change_from_2014'])} | {pc(r['obs_per_change_from_2014'])} | "
                  f"{pc(r['fc_sub_part']) if r['year'] >= 2016 else '--'} | {pc(r['fc_per_part']) if r['year'] >= 2016 else '--'} | "
-                 f"{pc(r['fc_counted_uptake_per_part']) if r['year'] >= 2016 else '--'} |")
+                 f"{pc(r['fc_counted_uptake_per_part']) if r['year'] >= 2016 else '--'} | "
+                 f"{pc(r['fc_survey_path_per_part']) if r['year'] >= 2016 else '--'} |")
 (ROOT / "notes" / "results-lttv-bdu-decomposition.md").write_text("\n".join(L) + "\n")
 print("\n".join(L[5:]))

@@ -112,7 +112,7 @@ for ax, (q, title) in zip(axes, SERIES):
     ax.set_xlim(1, 8)
     ax.set_xlabel("Assumed annual baseline error, σ (%)")
 axes[0].set_ylim(-2.5, 5)
-axes[0].set_ylabel("$k$ (0 = no effect, 1 = forecast)")
+axes[0].set_ylabel("$k$ (0 = no-reform path, 1 = forecast)")
 handles, labels = axes[0].get_legend_handles_labels()
 fig.legend(handles, labels, loc="lower center", ncol=4, fontsize=8, frameon=False, bbox_to_anchor=(0.5, -0.02))
 fig.tight_layout(rect=(0, 0.1, 1, 1))

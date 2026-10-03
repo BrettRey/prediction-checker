@@ -243,7 +243,10 @@ def main():
                      "low end of cited range": CITED_UPTAKE_LOW, "report's assumption": REPORT_UPTAKE_2018,
                      # rising paths: from the 2016 count in 2016, linearly to the end value by 2019
                      "rising from 2016 count to Morrison's estimate": ("rise", up_obs, MORRISON_UPTAKE_ESTIMATE),
-                     "rising from 2016 count to low end of cited range": ("rise", up_obs, CITED_UPTAKE_LOW)}
+                     "rising from 2016 count to low end of cited range": ("rise", up_obs, CITED_UPTAKE_LOW),
+                     # [post hoc] survey path, outside the plan's rule (DECISIONS.md, commit 026f602): the CRTC
+                     # count in 2016, then the MTM survey's "just over 1 in 10" (Aug. 2017) at its floor, held
+                     "survey path: 2016 count, then 10% from 2017": ("path", {2016: up_obs, 2017: 0.10, 2018: 0.10, 2019: 0.10})}
     tf = {(r["fact"], int(r["year"])): float(r["value"]) for r in csv.DictReader(open(DER / "nordicity_2015_text_facts.csv"))}
     report_share = {t: tf[("table18_byop_share_pct", t)] / 100 for t in YEARS}
     conditional, cond_paths = [], []
@@ -259,6 +262,8 @@ def main():
             # by u over the report's own share for that year (Table 18). The report's
             # own scenario keeps its ramp.
             def uptake_at(t):
+                if isinstance(u, tuple) and u[0] == "path":
+                    return u[1][t]
                 if isinstance(u, tuple):
                     _, u0, u1 = u
                     return u0 + (u1 - u0) * (t - 2016) / (2019 - 2016)

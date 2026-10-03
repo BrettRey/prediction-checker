@@ -80,12 +80,14 @@ The report's chain with its unbundling and preponderance components scaled to ot
 | Specialty and pay revenue | report's assumption | 15.0% | 1.00 | 0.1 [-0.2, 0.5] | no |
 | Specialty and pay revenue | rising from 2016 count to Morrison's estimate | 4.0% | 0.43 | 0.1 [-0.2, 0.5] | yes |
 | Specialty and pay revenue | rising from 2016 count to low end of cited range | 10.0% | 0.69 | 0.1 [-0.2, 0.5] | no |
+| Specialty and pay revenue | survey path: 2016 count, then 10% from 2017 | 10.0% | 0.76 | 0.1 [-0.2, 0.5] | no |
 | BDU total revenue | CRTC count, 30 June 2016 | 1.6% | 0.43 | 1.3 [0.5, 2.1] | no |
 | BDU total revenue | Morrison's estimate (April 2016) | 4.0% | 0.48 | 1.3 [0.5, 2.1] | no |
 | BDU total revenue | low end of cited range | 10.0% | 0.60 | 1.3 [0.5, 2.1] | yes |
 | BDU total revenue | report's assumption | 15.0% | 1.00 | 1.3 [0.5, 2.1] | yes |
 | BDU total revenue | rising from 2016 count to Morrison's estimate | 4.0% | 0.52 | 1.3 [0.5, 2.1] | yes |
 | BDU total revenue | rising from 2016 count to low end of cited range | 10.0% | 0.73 | 1.3 [0.5, 2.1] | yes |
+| BDU total revenue | survey path: 2016 count, then 10% from 2017 | 10.0% | 0.86 | 1.3 [0.5, 2.1] | yes |
 
 ## Multiverse [post hoc]
 
