@@ -335,6 +335,11 @@ M["lttvDecPerFc"] = pchg(dec[2019]["fc_per_part"])
 M["lttvDecPerCounted"] = pchg(dec[2019]["fc_counted_uptake_per_part"])
 assert all(float(dec[2019][k]) < 0 for k in ("obs_sub_change_from_2014", "fc_sub_part", "obs_per_change_from_2014",
                                               "fc_per_part", "fc_counted_uptake_per_part"))  # the text says "below"
+al_sub = [math.exp(float(dec[t]["obs_sub_gap"])) - 1 for t in (2012, 2013, 2014)]
+al_per = [math.exp(float(dec[t]["obs_per_gap"])) - 1 for t in (2012, 2013, 2014)]
+assert all(v < 0 for v in al_sub) and all(v > 0 for v in al_per)  # the text says "lower" and "higher"
+M["lttvDecSubAlignLo"], M["lttvDecSubAlignHi"] = pct(min(abs(v) for v in al_sub), 1), pct(max(abs(v) for v in al_sub), 1)
+M["lttvDecPerAlignLo"], M["lttvDecPerAlignHi"] = pct(min(al_per), 1), pct(max(al_per), 1)
 M["lttvRevPerSubFourteen"] = f"{float(dec[2014]['crtc_rev_per_sub']):.2f}"
 M["lttvRevPerSubNineteen"] = f"{float(dec[2019]['crtc_rev_per_sub']):.2f}"
 M["lttvRevPerSubObsGrowth"] = pct(float(dec[2019]["crtc_rev_per_sub"]) / float(dec[2014]["crtc_rev_per_sub"]) - 1, 1)

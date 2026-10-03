@@ -82,7 +82,7 @@ Cited-input band for \(k\) & \multicolumn{4}{l}{0.80 to 2.24} \\
 \begin{table}[htbp]
 \centering
 \small
-\caption{Model-implied scenarios. Each year's unbundling and preponderance components (table~\ref{tab:inputs}) are multiplied by the path's uptake over the report's share for that year (Table~18), the exemption-order and closure components are unchanged, and the resulting shortfall path \(\delta^{u}_t\) is projected like the band: \(k^{u}=\delta'\Sigma^{-1}\delta^{u}/\delta'\Sigma^{-1}\delta\). Rising paths are linear from the 2016 count. Observed \(k\) and intervals at the pre-stated calibration. Produced by \texttt{scripts/crtc\_outcomes\_lttv.py}; data in \texttt{data/derived/uptake\_conditional\_lttv.csv}.}
+\caption{Model-implied scenarios, an exploratory comparison added after the outcome data was opened; uptake after June 2016 is assumed, and a scenario inside the interval isn't thereby confirmed. Each year's unbundling and preponderance components (table~\ref{tab:inputs}) are multiplied by the path's uptake over the report's share for that year (Table~18), the exemption-order and closure components are unchanged, and the resulting shortfall path \(\delta^{u}_t\) is projected like the band: \(k^{u}=\delta'\Sigma^{-1}\delta^{u}/\delta'\Sigma^{-1}\delta\). Rising paths are linear from the 2016 count. Observed \(k\) and intervals at the pre-stated calibration. Produced by \texttt{scripts/crtc\_outcomes\_lttv.py}; data in \texttt{data/derived/uptake\_conditional\_lttv.csv}.}
 \label{tab:scenarios}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
@@ -107,7 +107,7 @@ Rising from 2016 count to low end of cited range & 1.6\% & 4.4\% & 7.2\% & 10.0\
 \begin{table}[htbp]
 \centering
 \small
-\caption{Calibrating the baseline's annual error \(\sigma\). Panel (a): the report's forecast of US Netflix subscribers (Table~7) against Netflix's US paid memberships at year end (Form 10-K), in millions, with \(e_t=\log(\text{observed}_t/\text{forecast}_t)\). Panel (b): the value each calibration takes from panel (a) (formulas in appendix~\ref{app:methods}), the \(\sigma\) used (the larger of that value and the series' historical volatility in table~\ref{tab:inputs}), and the resulting interval for \(k\), which is 0.12 for specialty and pay revenue and 1.30 for distributors' revenue under every calibration. Verdicts: \emph{smaller}, the interval lies below the cited-input band; \emph{consistent}, it overlaps the band; \emph{inconclusive}, it contains both zero and the band's lower end. Produced by \texttt{scripts/netflix\_calibration.py} and \texttt{scripts/crtc\_outcomes\_lttv.py}; data in \texttt{data/derived/netflix\_calibration.csv} and \texttt{data/derived/crtc\_lttv\_multiverse.csv}.}
+\caption{Calibrating the baseline's annual error \(\sigma\). Intervals are conditional on \(\sigma\) and don't carry the uncertainty in \(\sigma\) itself. Panel (a): the report's forecast of US Netflix subscribers (Table~7) against Netflix's US paid memberships at year end (Form 10-K), in millions, with \(e_t=\log(\text{observed}_t/\text{forecast}_t)\). Panel (b): the value each calibration takes from panel (a) (formulas in appendix~\ref{app:methods}), the \(\sigma\) used (the larger of that value and the series' historical volatility in table~\ref{tab:inputs}), and the resulting interval for \(k\), which is 0.12 for specialty and pay revenue and 1.30 for distributors' revenue under every calibration. Verdicts: \emph{smaller}, the interval lies below the cited-input band; \emph{consistent}, it overlaps the band; \emph{inconclusive}, it contains both zero and the band's lower end. Produced by \texttt{scripts/netflix\_calibration.py} and \texttt{scripts/crtc\_outcomes\_lttv.py}; data in \texttt{data/derived/netflix\_calibration.csv} and \texttt{data/derived/crtc\_lttv\_multiverse.csv}.}
 \label{tab:calibrations}
 \footnotesize
 (a) \textit{The report's forecast and Netflix's count}\par\smallskip
@@ -138,6 +138,47 @@ growth 2015--2016 & 1.5\% & 2.2\% & [\textminus 0.23, 0.46] & smaller & 1.9\% & 
 growth 2015--2017 & 0.7\% & 2.2\% & [\textminus 0.23, 0.46] & smaller & 1.9\% & [0.49, 2.11] & consistent \\
 growth 2015--2018 & 4.2\% & 4.2\% & [\textminus 0.54, 0.78] & inconclusive & 4.2\% & [\textminus 0.50, 3.11] & inconclusive \\
 growth pooled 2015--2018 & 4.0\% & 4.0\% & [\textminus 0.51, 0.74] & smaller & 4.0\% & [\textminus 0.41, 3.02] & inconclusive \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Distributors' revenue split into subscribers and revenue per subscriber (post hoc; rule fixed before computing). Panel (a): CRTC subscriber counts (2016 edition to 2015, 2020 edition after) and revenue per subscriber per month, against the report's baseline subscribers (Fig.~17) and its revenue per subscriber, baseline revenue over 12 times subscribers (Fig.~19's ARPU shown for comparison). Panel (b): the change in each gap from 2014, when the report's figures were actuals, against the report's scenario, whose subscriber part is its added cord cutting (Tables~5, 20, 21) and whose per-subscriber part is everything else; the last column is the report's chain at the uptake the CRTC counted. Produced by \texttt{scripts/decompose\_bdu\_lttv.py}; data in \texttt{data/derived/bdu\_decomposition\_lttv.csv}.}
+\label{tab:decomposition}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+(a) \textit{Levels}\par\smallskip
+\begin{tabular}{lrrrrr}
+\toprule
+ & \multicolumn{2}{c}{Subscribers (thousands)} & \multicolumn{3}{c}{Revenue per subscriber (\$ a month)} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-6}
+Year & CRTC & Report & CRTC & Report & Fig.~19 \\
+\midrule
+2012 & 11,529 & 11,734 & 61.88 & 61.59 & 61.56 \\
+2013 & 11,517 & 11,761 & 63.63 & 63.25 & 63.33 \\
+2014 & 11,405 & 11,646 & 65.25 & 64.79 & 64.41 \\
+2015 & 11,247 & 11,569 & 66.08 & 65.21 & 64.94 \\
+2016 & 11,090 & 11,487 & 65.97 & 66.37 & 66.13 \\
+2017 & 10,899 & 11,400 & 65.61 & 67.84 & 67.58 \\
+2018 & 10,820 & 11,308 & 64.88 & 69.48 & 69.19 \\
+2019 & 10,552 & 11,211 & 66.05 & 71.34 & 71.02 \\
+\bottomrule
+\end{tabular}
+\par\bigskip
+(b) \textit{Change in the gap from 2014, against the report's paths}\par\smallskip
+\begin{tabular}{lrrrrr}
+\toprule
+ & \multicolumn{2}{c}{Observed} & \multicolumn{2}{c}{Report's scenario} & At counted uptake \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-6}
+Year & Subscribers & Per subscriber & Subscribers & Per subscriber & Per subscriber \\
+\midrule
+2015 & \textminus 0.7\% & 0.6\% & -- & -- & -- \\
+2016 & \textminus 1.4\% & \textminus 1.3\% & \textminus 0.4\% & \textminus 1.8\% & \textminus 0.7\% \\
+2017 & \textminus 2.4\% & \textminus 4.0\% & \textminus 0.8\% & \textminus 4.4\% & \textminus 1.7\% \\
+2018 & \textminus 2.3\% & \textminus 7.3\% & \textminus 1.1\% & \textminus 6.9\% & \textminus 2.5\% \\
+2019 & \textminus 3.9\% & \textminus 8.1\% & \textminus 1.5\% & \textminus 7.0\% & \textminus 2.5\% \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -188,7 +229,7 @@ Total & 6,830 & 8,300 & 15,130 \\
 \small
 \caption{Order of the analyses. Commit identifiers refer to the replication repository, listed in the order the commits were made.}
 \label{tab:chronology}
-\begin{tabular}{p{0.55\textwidth}ll}
+\begin{tabular}{p{0.47\textwidth}p{0.25\textwidth}l}
 \toprule
 Step & Status & Commit \\
 \midrule
@@ -196,16 +237,18 @@ Prediction record frozen & pre-stated & \texttt{5277480} \\
 Analysis plan; lead case & pre-stated & \texttt{ea0564b} \\
 Design analysis and reading rules & pre-stated & \texttt{08a6180} \\
 Quantity definitions, splice rule, verdict bands, Netflix calibration rule & pre-stated & \texttt{66f9c25} \\
-Outcome data first opened; exempt services removed; affiliation payments as a pass-through observable & post hoc & \texttt{c2e6fa4} \\
+Outcome data first opened; exempt services removed; series rescaled to the report's 2014 (sensitivity); affiliation payments as a pass-through observable & post hoc & \texttt{c2e6fa4} \\
 Closure and uptake definitions (before those sources were opened) & pre-stated for those sources & \texttt{1e61069} \\
 Closures reported as bounds; multiverse over calibrations & post hoc & \texttt{40c7076} \\
 Growth-based calibrations & post hoc & \texttt{187b4c5} \\
-Direct employment (reading rule 6) & pre-stated rule & \texttt{f952668} \\
+Direct employment (reading rule 6; the 2012--2015 trend comparator chosen then) & rule pre-stated, comparator post hoc & \texttt{f952668} \\
 Model-implied uptake scenarios; fees per subscriber against Table~14 & post hoc & \texttt{ecde24b} \\
 Uptake scenarios held flat per year & post hoc, correction & \texttt{cc360dd} \\
 Rising uptake paths & post hoc & \texttt{ff1154c} \\
 Changes stated after inflation (descriptive) & post hoc & \texttt{764a690} \\
 Model check and offset model & post hoc & \texttt{3867d78} \\
+Rule for splitting distributors' revenue into subscribers and revenue per subscriber & post hoc, fixed before computing & \texttt{4a722a0} \\
+That split; corrected residual check; coverage check; sensitivity range to 8\% & post hoc & \texttt{2bbb326} \\
 \bottomrule
 \end{tabular}
 \end{table}

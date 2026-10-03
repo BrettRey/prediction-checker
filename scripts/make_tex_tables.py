@@ -199,7 +199,8 @@ cond = {(r["quantity"], r["uptake_label"]): r for r in rows("uptake_conditional_
 check("scenario labels", sorted({lb for _, lb in cond}), sorted(paths))
 display = {"report's assumption": "Report's assumption (Table~18)"}
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",
-      "\\caption{Model-implied scenarios. Each year's unbundling and preponderance components (table~\\ref{tab:inputs}) "
+      "\\caption{Model-implied scenarios, an exploratory comparison added after the outcome data was opened; uptake after June 2016 "
+      "is assumed, and a scenario inside the interval isn't thereby confirmed. Each year's unbundling and preponderance components (table~\\ref{tab:inputs}) "
       "are multiplied by the path's uptake over the report's share for that year (Table~18), the exemption-order and "
       "closure components are unchanged, and the resulting shortfall path \\(\\delta^{u}_t\\) is projected like "
       "the band: \\(k^{u}=\\delta'\\Sigma^{-1}\\delta^{u}/\\delta'\\Sigma^{-1}\\delta\\). Rising paths are linear from the "
@@ -253,7 +254,8 @@ check("calibration labels", sorted(cals), sorted(netflix_value))
 short = {"smaller than the forecasters' inputs imply": "smaller", "consistent with the forecast range": "consistent",
          "inconclusive": "inconclusive", "forecast exceeded": "exceeded"}
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",
-      "\\caption{Calibrating the baseline's annual error \\(\\sigma\\). Panel (a): the report's forecast of US Netflix "
+      "\\caption{Calibrating the baseline's annual error \\(\\sigma\\). Intervals are conditional on \\(\\sigma\\) and don't "
+      "carry the uncertainty in \\(\\sigma\\) itself. Panel (a): the report's forecast of US Netflix "
       "subscribers (Table~7) against Netflix's US paid memberships at year end (Form 10-K), in millions, with "
       "\\(e_t=\\log(\\text{observed}_t/\\text{forecast}_t)\\). Panel (b): the value each calibration takes from panel (a) "
       "(formulas in appendix~\\ref{app:methods}), the \\(\\sigma\\) used (the larger of that value and "
@@ -292,6 +294,42 @@ for c in cals:
         cells.append(f"{pct(s)} & [{num(float(r['ci_lo']))}, {num(float(r['ci_hi']))}] & {short.get(verdict, verdict)}")
     name = "None (historical s.d. only)" if v is None else lab(c)
     L.append(f"{name} & {'--' if v is None else pct(v)} & " + " & ".join(cells) + " \\\\")
+L += ["\\bottomrule", "\\end{tabular}", "\\end{table}", ""]
+
+# Decomposition of distributors' revenue (post hoc)
+dec = rows("bdu_decomposition_lttv.csv")
+def pcl(x):
+    return num(100 * (math.exp(float(x)) - 1), 1) + "\\%"
+L += ["\\begin{table}[htbp]", "\\centering", "\\small",
+      "\\caption{Distributors' revenue split into subscribers and revenue per subscriber (post hoc; rule fixed before computing). "
+      "Panel (a): CRTC subscriber counts (2016 edition to 2015, 2020 edition after) and revenue per subscriber per month, against "
+      "the report's baseline subscribers (Fig.~17) and its revenue per subscriber, baseline revenue over 12 times subscribers "
+      "(Fig.~19's ARPU shown for comparison). Panel (b): the change in each gap from 2014, when the report's figures were "
+      "actuals, against the report's scenario, whose subscriber part is its added cord cutting (Tables~5, 20, 21) and whose "
+      "per-subscriber part is everything else; the last column is the report's chain at the uptake the CRTC counted. "
+      "Produced by \\texttt{scripts/decompose\\_bdu\\_lttv.py}; data in \\texttt{data/derived/bdu\\_decomposition\\_lttv.csv}.}",
+      "\\label{tab:decomposition}", "\\footnotesize", "\\setlength{\\tabcolsep}{4pt}",
+      "(a) \\textit{Levels}\\par\\smallskip",
+      "\\begin{tabular}{lrrrrr}", "\\toprule",
+      " & \\multicolumn{2}{c}{Subscribers (thousands)} & \\multicolumn{3}{c}{Revenue per subscriber (\\$ a month)} \\\\",
+      "\\cmidrule(lr){2-3}\\cmidrule(lr){4-6}",
+      "Year & CRTC & Report & CRTC & Report & Fig.~19 \\\\", "\\midrule"]
+for r in dec:
+    L.append(f"{r['year']} & {float(r['crtc_subscribers_k']):,.0f} & {float(r['report_subscribers_k']):,.0f} & "
+             f"{float(r['crtc_rev_per_sub']):.2f} & {float(r['report_rev_per_sub']):.2f} & {float(r['report_fig19_arpu']):.2f} \\\\")
+L += ["\\bottomrule", "\\end{tabular}", "\\par\\bigskip",
+      "(b) \\textit{Change in the gap from 2014, against the report's paths}\\par\\smallskip",
+      "\\begin{tabular}{lrrrrr}", "\\toprule",
+      " & \\multicolumn{2}{c}{Observed} & \\multicolumn{2}{c}{Report's scenario} & At counted uptake \\\\",
+      "\\cmidrule(lr){2-3}\\cmidrule(lr){4-5}\\cmidrule(lr){6-6}",
+      "Year & Subscribers & Per subscriber & Subscribers & Per subscriber & Per subscriber \\\\", "\\midrule"]
+for r in dec:
+    if int(r["year"]) < 2015:
+        continue
+    fcs = pcl(r["fc_sub_part"]) if int(r["year"]) >= 2016 else "--"
+    fcp = pcl(r["fc_per_part"]) if int(r["year"]) >= 2016 else "--"
+    fcu = pcl(r["fc_counted_uptake_per_part"]) if int(r["year"]) >= 2016 else "--"
+    L.append(f"{r['year']} & {pcl(r['obs_sub_change_from_2014'])} & {pcl(r['obs_per_change_from_2014'])} & {fcs} & {fcp} & {fcu} \\\\")
 L += ["\\bottomrule", "\\end{tabular}", "\\end{table}", ""]
 
 # A5: annual staff series
@@ -352,21 +390,23 @@ chron = [
     ("Analysis plan; lead case", "pre-stated", "ea0564b"),
     ("Design analysis and reading rules", "pre-stated", "08a6180"),
     ("Quantity definitions, splice rule, verdict bands, Netflix calibration rule", "pre-stated", "66f9c25"),
-    ("Outcome data first opened; exempt services removed; affiliation payments as a pass-through observable", "post hoc", "c2e6fa4"),
+    ("Outcome data first opened; exempt services removed; series rescaled to the report's 2014 (sensitivity); affiliation payments as a pass-through observable", "post hoc", "c2e6fa4"),
     ("Closure and uptake definitions (before those sources were opened)", "pre-stated for those sources", "1e61069"),
     ("Closures reported as bounds; multiverse over calibrations", "post hoc", "40c7076"),
     ("Growth-based calibrations", "post hoc", "187b4c5"),
-    ("Direct employment (reading rule 6)", "pre-stated rule", "f952668"),
+    ("Direct employment (reading rule 6; the 2012--2015 trend comparator chosen then)", "rule pre-stated, comparator post hoc", "f952668"),
     ("Model-implied uptake scenarios; fees per subscriber against Table~14", "post hoc", "ecde24b"),
     ("Uptake scenarios held flat per year", "post hoc, correction", "cc360dd"),
     ("Rising uptake paths", "post hoc", "ff1154c"),
     ("Changes stated after inflation (descriptive)", "post hoc", "764a690"),
     ("Model check and offset model", "post hoc", "3867d78"),
+    ("Rule for splitting distributors' revenue into subscribers and revenue per subscriber", "post hoc, fixed before computing", "4a722a0"),
+    ("That split; corrected residual check; coverage check; sensitivity range to 8\\%", "post hoc", "2bbb326"),
 ]
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       "\\caption{Order of the analyses. Commit identifiers refer to the replication repository, listed in the order the commits were made.}",
       "\\label{tab:chronology}",
-      "\\begin{tabular}{p{0.55\\textwidth}ll}", "\\toprule",
+      "\\begin{tabular}{p{0.47\\textwidth}p{0.25\\textwidth}l}", "\\toprule",
       "Step & Status & Commit \\\\", "\\midrule"]
 for step, status, h in chron:
     L.append(f"{step} & {status} & \\texttt{{{h}}} \\\\")
