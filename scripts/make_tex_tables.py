@@ -360,7 +360,7 @@ for sector, label in (("channels", "Channels"), ("distributors", "Distributors")
     rs = {int(r["year"]): r for r in emp if r["sector"] == sector}
     L.append(f"{label}: staff & " + " & ".join(f"{float(rs[y]['staff']):,.0f}" for y in years) + " \\\\")
     L.append("\\quad 2012--2015 trend & " + " & ".join(f"{float(rs[y]['pre2015_trend']):,.0f}" for y in years) + " \\\\")
-    L.append("\\quad Forecast direct-employment change (FTEs) & " + " & ".join(
+    L.append("\\quad Forecast direct change (FTEs) & " + " & ".join(
         intm(float(rs[y]["forecast_direct_impact"])) if rs[y]["forecast_direct_impact"] not in ("", None) else ""
         for y in years) + " \\\\")
 L += ["\\bottomrule", "\\end{tabular}", "\\end{table}", ""]

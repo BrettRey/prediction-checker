@@ -260,6 +260,7 @@ M["lttvKPredSpecObsUptake"] = f"{float(cget('specialty_pay_revenue', 'CRTC count
 M["lttvKPredSpecMorrison"] = f"{float(cget('specialty_pay_revenue', 'Morrison')['k_predicted']):.2f}"
 M["lttvKPredSpecCitedLow"] = f"{float(cget('specialty_pay_revenue', 'low end')['k_predicted']):.2f}"
 M["lttvKPredBDUObsUptake"] = f"{float(cget('bdu_revenue', 'CRTC count')['k_predicted']):.2f}"
+M["lttvKPredBDURiseMorrison"] = f"{float(cget('bdu_revenue', 'rising from 2016 count to Morrison')['k_predicted']):.2f}"
 M["lttvKPredSpecSurvey"] = f"{float(cget('specialty_pay_revenue', 'survey path')['k_predicted']):.2f}"
 M["lttvKPredBDUSurvey"] = f"{float(cget('bdu_revenue', 'survey path')['k_predicted']):.2f}"
 M["lttvKPredBDUMorrison"] = f"{float(cget('bdu_revenue', 'Morrison')['k_predicted']):.2f}"
