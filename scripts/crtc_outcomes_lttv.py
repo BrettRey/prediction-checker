@@ -240,7 +240,10 @@ def main():
     # only CRTC count is mid-2016, so later uptake is assumed equal to it.
     up_obs = float(next(r for r in csv.DictReader(open(DER / "uptake_crtc.csv")) if r["as_of"] == "30 June 2016")["share"])
     uptake_levels = {"CRTC count, 30 June 2016": up_obs, "Morrison's estimate (April 2016)": MORRISON_UPTAKE_ESTIMATE,
-                     "low end of cited range": CITED_UPTAKE_LOW, "report's assumption": REPORT_UPTAKE_2018}
+                     "low end of cited range": CITED_UPTAKE_LOW, "report's assumption": REPORT_UPTAKE_2018,
+                     # rising paths: from the 2016 count in 2016, linearly to the end value by 2019
+                     "rising from 2016 count to Morrison's estimate": ("rise", up_obs, MORRISON_UPTAKE_ESTIMATE),
+                     "rising from 2016 count to low end of cited range": ("rise", up_obs, CITED_UPTAKE_LOW)}
     tf = {(r["fact"], int(r["year"])): float(r["value"]) for r in csv.DictReader(open(DER / "nordicity_2015_text_facts.csv"))}
     report_share = {t: tf[("table18_byop_share_pct", t)] / 100 for t in YEARS}
     conditional = []
@@ -255,12 +258,17 @@ def main():
             # Flat uptake u in every year: scale each year's uptake-driven components
             # by u over the report's own share for that year (Table 18). The report's
             # own scenario keeps its ramp.
+            def uptake_at(t):
+                if isinstance(u, tuple):
+                    _, u0, u1 = u
+                    return u0 + (u1 - u0) * (t - 2016) / (2019 - 2016)
+                return u
             def mult(t):
-                f = 1.0 if lab == "report's assumption" else u / report_share[t]
+                f = 1.0 if lab == "report's assumption" else uptake_at(t) / report_share[t]
                 return dict(unbundling=f, preponderance_access=f, exemption_order=1, closures=1)
             du = np.log(B) - np.log(B - np.array([scen_impact(fc, q, t, mult(t)) for t in YEARS]))
             k_pred = (delta @ P @ du) / info
-            conditional.append(dict(quantity=q, uptake_label=lab, uptake=round(u, 4), k_predicted=round(k_pred, 2),
+            conditional.append(dict(quantity=q, uptake_label=lab, uptake=round(uptake_at(2019), 4), k_predicted=round(k_pred, 2),
                                     k_observed=round(k_obs["k"], 2), ci_lo=round(k_obs["lo"], 2), ci_hi=round(k_obs["hi"], 2),
                                     inside_interval=bool(k_obs["lo"] <= k_pred <= k_obs["hi"])))
     with open(DER / "uptake_conditional_lttv.csv", "w", newline="") as f:
@@ -368,7 +376,7 @@ def write_md(obs, fc, splice, est, cutoffs, reading, cal, sigma_tech, multiverse
              "observed *k* and its 95% interval at the pre-stated error level. The only CRTC count is for 30 June 2016; "
              "uptake is held flat at each level in every year (the report's own row keeps its 5/10/15% ramp).")
     L.append("")
-    L.append("| Quantity | Uptake | Share of subscribers | Forecast *k* at that uptake | Observed *k* [95% interval] | Inside interval |")
+    L.append("| Quantity | Uptake path | Share of subscribers by 2019 | Model-implied *k* | Observed *k* [95% interval] | Inside interval |")
     L.append("|---|---|---|---|---|---|")
     for r in conditional:
         short = {"specialty_pay_revenue": "Specialty and pay revenue", "bdu_revenue": "BDU total revenue"}[r["quantity"]]

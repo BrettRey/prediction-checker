@@ -411,6 +411,14 @@ def main():
         "$352M / specialty + pay": (ps_imp, f9["specialty"] + f9["pay_ppv_vod"]),
         "$399M / 2020 LTTV-scenario CPE (Fig. 43 level)": (imp, row("cpe", yr)["lttv_level"]),
     }
+    # 'what now exists' (Morrison): the report's own 2014 and 2015 CPE (Fig. 43)
+    cands["$399M / 2015 CPE (Fig. 43, current at the time of testimony)"] = (imp, row("cpe", 2015)["lttv_level"])
+    cands["$399M / 2014 CPE (Fig. 43, last actual year)"] = (imp, row("cpe", 2014)["lttv_level"])
+    with open(OUT / "cpe_share_candidates.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["denominator", "numerator_musd", "denominator_musd", "share"])
+        for name, (num, den) in cands.items():
+            w.writerow([name, num, den, round(num / den, 4)])
     print(f"{'note':8} Fig. 9 2020 components: {f9}; Fig. 8 2020 total: {f8}")
     for name, (num, den) in cands.items():
         print(f"{'cpe18':8} {name}: {num}/{den} = {num / den:.3f}")

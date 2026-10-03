@@ -45,6 +45,10 @@ M["lttvByopSixteen"] = pct(tf[("table18_byop_share_pct", 2016)] / 100)
 M["lttvByopSeventeen"] = pct(tf[("table18_byop_share_pct", 2017)] / 100)
 M["lttvByopEighteen"] = pct(tf[("table18_byop_share_pct", 2018)] / 100)
 M["lttvCPEShareStated"] = pct(tf[("cpe_share_stated_pct", 2020)] / 100)
+cands = {r["denominator"]: float(r["share"]) for r in rows("cpe_share_candidates.csv")}
+M["lttvCPEShareFifteen"] = pct(next(v for k, v in cands.items() if k.startswith("$399M / 2015 CPE")), 1)
+M["lttvCPEShareFourteen"] = pct(next(v for k, v in cands.items() if k.startswith("$399M / 2014 CPE")), 1)
+M["lttvCPENCandidates"] = str(len(cands))
 fte_bdu = tf[("sector_fte_bdus", 2020)]
 fte_spec = tf[("sector_fte_specialty_and_pay_tv_services", 2020)]
 fte_prod = tf[("sector_fte_independent_production", 2020)]
@@ -52,6 +56,11 @@ M["lttvFTEBDU"] = money(fte_bdu)
 M["lttvFTESpec"] = money(fte_spec)
 M["lttvFTEProd"] = money(fte_prod)
 M["lttvFTESpecProd"] = money(fte_spec + fte_prod)
+fte_conv = tf[("sector_fte_private_conventional_tv", 2020)]
+fte_bcast = tf[("sector_fte_total_broadcasting_sector", 2020)]
+M["lttvFTEConv"] = money(fte_conv)
+M["lttvFTEBroadcast"] = money(fte_bcast)
+M["lttvFTEBroadcastComponents"] = money(fte_bdu + fte_spec + fte_conv)
 M["lttvFTESpecProdShare"] = pct((fte_spec + fte_prod) / tf[("table1_employment_total", 2020)])
 for q, tag in (("specialty_pay_revenue", "Spec"), ("bdu_revenue", "BDU"), ("cpe", "CPE")):
     r = sc[(q, 2020)]
@@ -199,6 +208,12 @@ M["lttvKPredSpecCitedLow"] = f"{float(cget('specialty_pay_revenue', 'low end')['
 M["lttvKPredBDUObsUptake"] = f"{float(cget('bdu_revenue', 'CRTC count')['k_predicted']):.2f}"
 M["lttvKPredBDUMorrison"] = f"{float(cget('bdu_revenue', 'Morrison')['k_predicted']):.2f}"
 M["lttvMorrisonUptake"] = pct(PC.MORRISON_UPTAKE_ESTIMATE)
+M["lttvKPredSpecRiseMorrison"] = f"{float(cget('specialty_pay_revenue', 'rising from 2016 count to Morrison')['k_predicted']):.2f}"
+M["lttvKPredSpecRiseCitedLow"] = f"{float(cget('specialty_pay_revenue', 'rising from 2016 count to low end')['k_predicted']):.2f}"
+for lab, ltag in (("rising from 2016 count to Morrison", "RiseMorrison"), ("rising from 2016 count to low end", "RiseCitedLow")):
+    r = cget("specialty_pay_revenue", lab)
+    M[f"lttvKPredSpec{ltag}Where"] = "inside" if r["inside_interval"] == "True" else (
+        "below" if float(r["k_predicted"]) < float(r["ci_lo"]) else "above")
 for q, tag in (("specialty_pay_revenue", "Spec"), ("bdu_revenue", "BDU")):
     for lab, ltag in (("CRTC count", "ObsUptake"), ("Morrison", "Morrison"), ("low end", "CitedLow")):
         r = cget(q, lab)

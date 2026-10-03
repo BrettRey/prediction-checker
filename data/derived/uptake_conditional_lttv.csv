@@ -3,7 +3,11 @@ specialty_pay_revenue,"CRTC count, 30 June 2016",0.016,0.33,0.12,-0.23,0.46,True
 specialty_pay_revenue,Morrison's estimate (April 2016),0.04,0.4,0.12,-0.23,0.46,True
 specialty_pay_revenue,low end of cited range,0.1,0.56,0.12,-0.23,0.46,False
 specialty_pay_revenue,report's assumption,0.15,1.0,0.12,-0.23,0.46,False
+specialty_pay_revenue,rising from 2016 count to Morrison's estimate,0.04,0.43,0.12,-0.23,0.46,True
+specialty_pay_revenue,rising from 2016 count to low end of cited range,0.1,0.69,0.12,-0.23,0.46,False
 bdu_revenue,"CRTC count, 30 June 2016",0.016,0.43,1.3,0.49,2.11,False
 bdu_revenue,Morrison's estimate (April 2016),0.04,0.48,1.3,0.49,2.11,False
 bdu_revenue,low end of cited range,0.1,0.6,1.3,0.49,2.11,True
 bdu_revenue,report's assumption,0.15,1.0,1.3,0.49,2.11,True
+bdu_revenue,rising from 2016 count to Morrison's estimate,0.04,0.52,1.3,0.49,2.11,True
+bdu_revenue,rising from 2016 count to low end of cited range,0.1,0.73,1.3,0.49,2.11,True

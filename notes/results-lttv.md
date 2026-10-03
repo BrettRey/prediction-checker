@@ -72,16 +72,20 @@ Not part of the rule, recorded for the write-up: the forecast's 2016 and 2017 er
 
 The report's chain with its unbundling and preponderance components scaled to other uptake levels (the exemption-order and closure components don't depend on uptake), expressed as *k* and set against the observed *k* and its 95% interval at the pre-stated error level. The only CRTC count is for 30 June 2016; uptake is held flat at each level in every year (the report's own row keeps its 5/10/15% ramp).
 
-| Quantity | Uptake | Share of subscribers | Forecast *k* at that uptake | Observed *k* [95% interval] | Inside interval |
+| Quantity | Uptake path | Share of subscribers by 2019 | Model-implied *k* | Observed *k* [95% interval] | Inside interval |
 |---|---|---|---|---|---|
 | Specialty and pay revenue | CRTC count, 30 June 2016 | 1.6% | 0.33 | 0.1 [-0.2, 0.5] | yes |
 | Specialty and pay revenue | Morrison's estimate (April 2016) | 4.0% | 0.40 | 0.1 [-0.2, 0.5] | yes |
 | Specialty and pay revenue | low end of cited range | 10.0% | 0.56 | 0.1 [-0.2, 0.5] | no |
 | Specialty and pay revenue | report's assumption | 15.0% | 1.00 | 0.1 [-0.2, 0.5] | no |
+| Specialty and pay revenue | rising from 2016 count to Morrison's estimate | 4.0% | 0.43 | 0.1 [-0.2, 0.5] | yes |
+| Specialty and pay revenue | rising from 2016 count to low end of cited range | 10.0% | 0.69 | 0.1 [-0.2, 0.5] | no |
 | BDU total revenue | CRTC count, 30 June 2016 | 1.6% | 0.43 | 1.3 [0.5, 2.1] | no |
 | BDU total revenue | Morrison's estimate (April 2016) | 4.0% | 0.48 | 1.3 [0.5, 2.1] | no |
 | BDU total revenue | low end of cited range | 10.0% | 0.60 | 1.3 [0.5, 2.1] | yes |
 | BDU total revenue | report's assumption | 15.0% | 1.00 | 1.3 [0.5, 2.1] | yes |
+| BDU total revenue | rising from 2016 count to Morrison's estimate | 4.0% | 0.52 | 1.3 [0.5, 2.1] | yes |
+| BDU total revenue | rising from 2016 count to low end of cited range | 10.0% | 0.73 | 1.3 [0.5, 2.1] | yes |
 
 ## Multiverse [post hoc]
 

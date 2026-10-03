@@ -33,3 +33,4 @@ __pycache__/
 
 # Simulated reader reviews (internal deliberation; publish only with Brett's approval)
 reviews/cold-read-*/
+reviews/elicit-review-*/
