@@ -15,7 +15,7 @@ claim:
 ---
 
 # Prediction checker
-<!-- SUMMARY: audit consequential Canadian policy forecasts against outcomes; case 2 (Let's Talk TV) preliminary results in: specialty/pay revenue showed no detectable effect (k = 0.1), BDU revenue fell within the forecast range (k = 1.3), both inconclusive above ~3–4%/yr baseline error; BDU payments to programmers didn't fall; uptake, closures, technology calibration pending; case 1 gated on premium data · status: development · updated: 2026-10-03 -->
+<!-- SUMMARY: audit consequential Canadian policy forecasts against outcomes; case 2 (Let's Talk TV) preliminary results in: specialty/pay revenue showed no detectable effect (k = 0.1), BDU revenue fell within the forecast range (k = 1.3), read at the pre-stated error level after the Netflix calibration (σ_tech 1.3%/yr); BDU payments to programmers didn't fall; uptake, closures, technology calibration pending; case 1 gated on premium data · status: development · updated: 2026-10-03 -->
 
 ## State
 
@@ -25,13 +25,13 @@ Forecast-side sources for cases 1 and 2 read and filed in `literature/` (JUST 36
 
 ## Next action
 
-1. Case 2: finish the outcome checks in `notes/analysis-plan.md`: unbundled-package uptake (CRTC data or company disclosures), service closures 2016–2020 from the individual-service summaries, the technology calibration (Netflix US paid memberships at end 2018 from its 10-K; SEC EDGAR needs a contact email in the User-Agent, so Brett's call), CPE (descriptive), and the released HELD rows T14–T15. Then read `notes/results-lttv.md` at σ_read.
+1. Case 2: finish the outcome checks in `notes/analysis-plan.md`: unbundled-package uptake (CRTC data or company disclosures), service closures 2016–2020 from the individual-service summaries, CPE (descriptive), and the released HELD rows T14–T15. 
 2. Case 1: locate the source of the 30% / 50% premium figures (G18): the 2016 CIA critical-illness paper, any Senate submission on S-201. Settle premium-data feasibility (COMPULIFE terms, archived rate tables). Check whether submissions in the Supreme Court decision on the Act (G07) repeated the forecast.
 3. Outward novelty search with `/hyperresearch` (light tier, capped budget), logged in `notes/novelty-search.md`.
 
 ## Open decisions (Brett)
 
-- Permission to put Brett's email in the User-Agent for SEC EDGAR requests (SEC requires a contact address), for the Netflix FY2018 10-K.
+- None open.
 
 ## Blockers
 

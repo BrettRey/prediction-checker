@@ -1,0 +1,5 @@
+year,forecast_us_netflix_m,observed_us_paid_memberships_m,log_ratio
+2016,51.0,47.905,-0.0626
+2017,54.8,52.81,-0.037
+2018,57.0,58.486,0.0257
+sigma_tech,,,0.0129
