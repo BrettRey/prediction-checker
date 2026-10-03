@@ -64,7 +64,7 @@ chron = [
     ("Design analysis and reading rules", "pre-stated", "08a6180"),
     ("Quantity definitions, splice rule, verdict bands, Netflix calibration rule", "pre-stated", "66f9c25"),
     ("Outcome data first opened; exempt services removed; affiliation payments as a pass-through observable", "post hoc", "c2e6fa4"),
-    ("Closure and uptake definitions (before those sources were opened)", "pre-stated", "1e61069"),
+    ("Closure and uptake definitions (before those sources were opened)", "pre-stated for those sources", "1e61069"),
     ("Closures reported as bounds; multiverse over calibrations", "post hoc", "40c7076"),
     ("Growth-based calibrations", "post hoc", "187b4c5"),
     ("Direct employment (reading rule 6)", "pre-stated rule", "f952668"),
