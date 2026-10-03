@@ -183,6 +183,9 @@ for sec, tag in (("channels", "Chan"), ("distributors", "Dist")):
     M[f"lttvStaff{tag}VsTrend"] = money(abs(emp[(sec, "vs_trend")]))
     M[f"lttvStaff{tag}VsTrendDir"] = "below" if emp[(sec, "vs_trend")] < 0 else "above"
     M[f"lttvStaff{tag}Forecast"] = money(abs(emp[(sec, "forecast2019")]))
+    M[f"lttvStaff{tag}Eighteen"] = money(emp[(sec, "staff2018")])
+    M[f"lttvStaff{tag}VsTrendEighteen"] = money(abs(emp[(sec, "vs_trend2018")]))
+    M[f"lttvStaff{tag}VsTrendEighteenDir"] = "below" if emp[(sec, "vs_trend2018")] < 0 else "above"
 M["lttvStaffDistVintageGap"] = money(abs(emp[("vintage", "distributors_2016")]))
 M["lttvPayCanIncrease"] = money(float(pay[2019]["to_canadian_services"]) - float(pay[2015]["to_canadian_services"]))
 
@@ -194,7 +197,13 @@ M["lttvKPredSpecObsUptake"] = f"{float(cget('specialty_pay_revenue', 'CRTC count
 M["lttvKPredSpecMorrison"] = f"{float(cget('specialty_pay_revenue', 'Morrison')['k_predicted']):.2f}"
 M["lttvKPredSpecCitedLow"] = f"{float(cget('specialty_pay_revenue', 'low end')['k_predicted']):.2f}"
 M["lttvKPredBDUObsUptake"] = f"{float(cget('bdu_revenue', 'CRTC count')['k_predicted']):.2f}"
+M["lttvKPredBDUMorrison"] = f"{float(cget('bdu_revenue', 'Morrison')['k_predicted']):.2f}"
 M["lttvMorrisonUptake"] = pct(PC.MORRISON_UPTAKE_ESTIMATE)
+for q, tag in (("specialty_pay_revenue", "Spec"), ("bdu_revenue", "BDU")):
+    for lab, ltag in (("CRTC count", "ObsUptake"), ("Morrison", "Morrison"), ("low end", "CitedLow")):
+        r = cget(q, lab)
+        M[f"lttvKPred{tag}{ltag}Where"] = "inside" if r["inside_interval"] == "True" else (
+            "below" if float(r["k_predicted"]) < float(r["ci_lo"]) else "above")
 # [post hoc] Payments per subscriber against the report's baseline fee path
 pps = {int(r["year"]): r for r in rows("payments_per_subscriber_lttv.csv")}
 M["lttvPerSubFifteen"] = f"{float(pps[2015]['observed_monthly_payment_per_subscriber']):.2f}"

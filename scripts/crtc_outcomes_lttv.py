@@ -241,6 +241,8 @@ def main():
     up_obs = float(next(r for r in csv.DictReader(open(DER / "uptake_crtc.csv")) if r["as_of"] == "30 June 2016")["share"])
     uptake_levels = {"CRTC count, 30 June 2016": up_obs, "Morrison's estimate (April 2016)": MORRISON_UPTAKE_ESTIMATE,
                      "low end of cited range": CITED_UPTAKE_LOW, "report's assumption": REPORT_UPTAKE_2018}
+    tf = {(r["fact"], int(r["year"])): float(r["value"]) for r in csv.DictReader(open(DER / "nordicity_2015_text_facts.csv"))}
+    report_share = {t: tf[("table18_byop_share_pct", t)] / 100 for t in YEARS}
     conditional = []
     for q in ("specialty_pay_revenue", "bdu_revenue"):
         B = np.array([fc[(q, t)]["B"] for t in YEARS])
@@ -250,9 +252,13 @@ def main():
         k_obs = reading[(q, "as published (splice rule)")]
         _, _, P, info = gls_k(np.zeros(len(YEARS)), delta, s_read)
         for lab, u in uptake_levels.items():
-            m = dict(unbundling=u / REPORT_UPTAKE_2018, preponderance_access=u / REPORT_UPTAKE_2018,
-                     exemption_order=1, closures=1)
-            du = np.log(B) - np.log(B - np.array([scen_impact(fc, q, t, m) for t in YEARS]))
+            # Flat uptake u in every year: scale each year's uptake-driven components
+            # by u over the report's own share for that year (Table 18). The report's
+            # own scenario keeps its ramp.
+            def mult(t):
+                f = 1.0 if lab == "report's assumption" else u / report_share[t]
+                return dict(unbundling=f, preponderance_access=f, exemption_order=1, closures=1)
+            du = np.log(B) - np.log(B - np.array([scen_impact(fc, q, t, mult(t)) for t in YEARS]))
             k_pred = (delta @ P @ du) / info
             conditional.append(dict(quantity=q, uptake_label=lab, uptake=round(u, 4), k_predicted=round(k_pred, 2),
                                     k_observed=round(k_obs["k"], 2), ci_lo=round(k_obs["lo"], 2), ci_hi=round(k_obs["hi"], 2),
@@ -360,7 +366,7 @@ def write_md(obs, fc, splice, est, cutoffs, reading, cal, sigma_tech, multiverse
     L.append("The report's chain with its unbundling and preponderance components scaled to other uptake levels "
              "(the exemption-order and closure components don't depend on uptake), expressed as *k* and set against the "
              "observed *k* and its 95% interval at the pre-stated error level. The only CRTC count is for 30 June 2016; "
-             "later uptake is assumed to stay at each level.")
+             "uptake is held flat at each level in every year (the report's own row keeps its 5/10/15% ramp).")
     L.append("")
     L.append("| Quantity | Uptake | Share of subscribers | Forecast *k* at that uptake | Observed *k* [95% interval] | Inside interval |")
     L.append("|---|---|---|---|---|---|")
