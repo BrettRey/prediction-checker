@@ -20,9 +20,12 @@ from pathlib import Path
 
 import openpyxl
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from paths import source  # noqa: E402
+
 warnings.filterwarnings("ignore")
 ROOT = Path(__file__).resolve().parents[1]
-LIT = ROOT.parents[2] / "literature"
 DER = ROOT / "data" / "derived"
 RAW = ROOT / "data" / "raw" / "crtc"
 
@@ -34,9 +37,9 @@ def find(path, pattern):
     return int(m.group(1).replace(",", ""))
 
 
-apr = find(LIT / "crtc_2016-04-15_66000_basic_tv_package_release.md",
+apr = find(source("crtc_2016-04-15_66000_basic_tv_package_release.md"),
            r"In just five weeks, more than ([\d,]+) Canadians have already signed up")
-jun = find(LIT / "crtc_2016-09-07_hearing_transcript_bdu_renewals.md",
+jun = find(source("crtc_2016-09-07_hearing_transcript_bdu_renewals.md"),
            r"As of June 30\S*, 2016, ([\d,]+) Canadians had signed up for the affordable basic service")
 subs = {int(r["year"]): float(r["value"]) for r in csv.DictReader(open(DER / "crtc_lttv_outcomes.csv"))
         if r["series"] == "bdu_subscribers_thousands"}

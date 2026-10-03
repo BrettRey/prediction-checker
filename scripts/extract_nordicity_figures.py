@@ -25,7 +25,10 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PDF = ROOT.parents[2] / "literature" / "nordicity_miller_2015_canadian_television_2020.pdf"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from paths import source  # noqa: E402
+
+PDF = source("nordicity_miller_2015_canadian_television_2020.pdf")
 OUT = ROOT / "data" / "derived"
 
 YEARS = list(range(2010, 2021))
@@ -182,6 +185,8 @@ def text_facts():
             in_emp = False
         if current and in_emp and t.startswith("Total") and current not in sectors:
             sectors[current] = [float(v.replace(",", "")) for v in re.findall(r"\(?([\d,]+)\)?", t[len("Total"):])]
+        if current and in_emp and t.startswith("Direct") and current + " (direct)" not in sectors:
+            sectors[current + " (direct)"] = [float(v.replace(",", "")) for v in re.findall(r"\(?([\d,]+)\)?", t[len("Direct"):])]
     l23 = next(l for l in p96.splitlines() if l.strip().startswith("Total") and "(" in l and "Employment" not in l
                and p96.splitlines().index(l) > next(i for i, x in enumerate(p96.splitlines()) if "Employment (FTEs)" in x))
     sectors["Independent production"] = [float(v.replace(",", "")) for v in re.findall(r"\(?([\d,]+)\)?", l23.strip()[len("Total"):])]
@@ -360,6 +365,8 @@ def main():
     checks.append(("Table 22 specialty/pay FTE 2020 = 2,880", se.get("Specialty and pay TV services", [None])[-1], 2880))
     checks.append(("Table 22 broadcasting total FTE 2020 = 7,950 (para. 246)", se.get("Total broadcasting sector", [None])[-1], 7950))
     checks.append(("Table 23 production FTE 2020 = 7,180 (para. 248)", se.get("Independent production", [None])[-1], 7180))
+    checks.append(("Table 22 BDU direct FTE 2020 = 3,110", se.get("BDUs (direct)", [None])[-1], 3110))
+    checks.append(("Table 22 specialty/pay direct FTE 2020 = 870", se.get("Specialty and pay TV services (direct)", [None])[-1], 870))
     checks.append(("broadcasting + production = Table 1 total",
                    se["Total broadcasting sector"][-1] + se["Independent production"][-1], tf["table1_employment"]["total"][-1]))
 
