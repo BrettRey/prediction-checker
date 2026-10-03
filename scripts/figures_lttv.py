@@ -4,8 +4,8 @@ beyond rescaling: the standard error of k is proportional to sigma, because
 the covariance is sigma^2 times a fixed matrix).
 
 Figure 1 (figures/lttv_paths): each revenue series relative to the report's
-  no-reform baseline, 2012-2019, with the report's forecast path, the report's
-  chain at the uptake the CRTC counted (model-implied, post hoc), and the 95%
+  no-reform baseline, 2012-2019, with the report's forecast path, a partial
+  recalculation of its chain at the uptake the CRTC counted (post hoc), and the 95%
   range of the no-reform outcome at the pre-stated sigma. Both panels share
   one percentage scale.
 Figure 2 (figures/lttv_k_sigma): k and its 95% interval as a function of the
@@ -69,7 +69,7 @@ for ax, (q, title) in zip(axes, SERIES):
             color=TEXT["secondary"], lw=1.4, label="Report's forecast")
     sc = {int(r["year"]): -100 * float(r["impact"]) / float(r["baseline"]) for r in paths if r["quantity"] == q}
     ax.plot([2015] + sorted(sc), [0.0] + [sc[t] for t in sorted(sc)], color=TEXT["tertiary"], lw=1.4, ls="--",
-            label="Report's model at counted uptake")
+            label="Partial recalculation at counted uptake")
     ax.plot(YEARS_OBS, [100 * (obs[(q, t)] / B[t] - 1) for t in YEARS_OBS], color=COLORS["primary"], lw=1.6,
             marker="o", ms=3.5, label="CRTC outcome")
     ax.axvline(2015.5, color=COLORS["dark"], lw=0.5, ls=":")

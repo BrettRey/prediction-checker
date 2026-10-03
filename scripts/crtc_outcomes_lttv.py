@@ -236,8 +236,9 @@ def main():
                                        prestated=(vname == "as published" and cname == "2018 (pre-stated)")))
     # [post hoc] Uptake-conditional forecast: the report's chain with the
     # unbundling and preponderance components scaled to other uptake levels
-    # (exemption-order and closure components don't depend on uptake). The
-    # only CRTC count is mid-2016, so later uptake is assumed equal to it.
+    # (exemption-order and closure dollar components held fixed, an approximation: the
+    # report values them partly from the others, paras. 220 and 234). The CRTC counts
+    # end in mid-2016; later paths are assumptions, one of them from the MTM survey.
     up_obs = float(next(r for r in csv.DictReader(open(DER / "uptake_crtc.csv")) if r["as_of"] == "30 June 2016")["share"])
     uptake_levels = {"CRTC count, 30 June 2016": up_obs, "Morrison's estimate (April 2016)": MORRISON_UPTAKE_ESTIMATE,
                      "low end of cited range": CITED_UPTAKE_LOW, "report's assumption": REPORT_UPTAKE_2018,
@@ -387,7 +388,7 @@ def write_md(obs, fc, splice, est, cutoffs, reading, cal, sigma_tech, multiverse
     L.append("## The forecast at other uptake levels [post hoc]")
     L.append("")
     L.append("The report's chain with its unbundling and preponderance components scaled to other uptake levels "
-             "(the exemption-order and closure components don't depend on uptake), expressed as *k* and set against the "
+             "(the exemption-order and closure dollar components held fixed, an approximation), expressed as *k* and set against the "
              "observed *k* and its 95% interval at the pre-stated error level. The only CRTC count is for 30 June 2016; "
              "uptake is held flat at each level in every year (the report's own row keeps its 5/10/15% ramp).")
     L.append("")

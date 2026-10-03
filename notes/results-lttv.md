@@ -70,7 +70,7 @@ Not part of the rule, recorded for the write-up: the forecast's 2016 and 2017 er
 
 ## The forecast at other uptake levels [post hoc]
 
-The report's chain with its unbundling and preponderance components scaled to other uptake levels (the exemption-order and closure components don't depend on uptake), expressed as *k* and set against the observed *k* and its 95% interval at the pre-stated error level. The only CRTC count is for 30 June 2016; uptake is held flat at each level in every year (the report's own row keeps its 5/10/15% ramp).
+The report's chain with its unbundling and preponderance components scaled to other uptake levels (the exemption-order and closure dollar components held fixed, an approximation), expressed as *k* and set against the observed *k* and its 95% interval at the pre-stated error level. The only CRTC count is for 30 June 2016; uptake is held flat at each level in every year (the report's own row keeps its 5/10/15% ramp).
 
 | Quantity | Uptake path | Share of subscribers by 2019 | Model-implied *k* | Observed *k* [95% interval] | Inside interval |
 |---|---|---|---|---|---|
