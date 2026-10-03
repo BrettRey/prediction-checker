@@ -34,3 +34,6 @@ __pycache__/
 # Simulated reader reviews (internal deliberation; publish only with Brett's approval)
 reviews/cold-read-*/
 reviews/elicit-review-*/
+
+# Raw agent session logs (copy the text of every file the agent opens, including copyrighted papers)
+notes/passes/**/codex-std*.txt
