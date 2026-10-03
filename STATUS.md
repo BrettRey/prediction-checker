@@ -34,7 +34,6 @@ Forecast-side sources for cases 1 and 2 read and filed in `literature/` (JUST 36
 ## Open decisions (Brett)
 
 - Title: working title "Fifteen thousand jobs: checking a forecast put to Parliament on unbundling Canadian television".
-- AI disclosure wording: `\aidisclosure{Claude Opus 5.5}` renders "The large language models Claude Opus 5.5 served..."; the ChatGPT lead list is noted in the data-and-code section. Confirm the model list and how to handle the singular.
 - Forecasts for the prediction ledger (no base rate for economics venues).
 
 ## Blockers
