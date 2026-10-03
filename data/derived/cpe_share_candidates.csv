@@ -3,7 +3,6 @@ all CPE (Figs. 8+9),A + B,399,3155,0.1265
 programming services only,B,399,2710,0.1472
 programming services excl. CBC/SRC,B - C,399,2042,0.1954
 "excl. CBC/SRC, with BDU contributions",B - C + A,399,2487,0.1604
-private (specialty+private conv.+pay) + BDU,D + E + F + A,399,2487,0.1604
 specialty + pay,D + F,399,1573,0.2537
 specialty only,D,399,1507,0.2648
 $352M programming-services impact / programming services,B,352,2710,0.1299

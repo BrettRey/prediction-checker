@@ -12,14 +12,13 @@ Denominator & Built from & Numerator (\$M) & Denominator (\$M) & Share \\
 \midrule
 All CPE, baseline 2020 & A + B & 399 & 3,155 & 12.6\% \\
 Programming services & B & 399 & 2,710 & 14.7\% \\
-Programming services excl. CBC/SRC & B \textminus{} C & 399 & 2,042 & 19.5\% \\
-Programming services excl. CBC/SRC, plus BDU contributions & B \textminus{} C + A & 399 & 2,487 & 16.0\% \\
-Private services plus BDU contributions & D + E + F + A & 399 & 2,487 & 16.0\% \\
-Specialty and pay & D + F & 399 & 1,573 & 25.4\% \\
-Specialty & D & 399 & 1,507 & 26.5\% \\
 Programming services & B & 352 & 2,710 & 13.0\% \\
+Programming services excl. CBC/SRC & B \textminus{} C & 399 & 2,042 & 19.5\% \\
 Programming services excl. CBC/SRC & B \textminus{} C & 352 & 2,042 & 17.2\% \\
+Programming services excl. CBC/SRC, plus BDU contributions & B \textminus{} C + A & 399 & 2,487 & 16.0\% \\
+Specialty and pay & D + F & 399 & 1,573 & 25.4\% \\
 Specialty and pay & D + F & 352 & 1,573 & 22.4\% \\
+Specialty & D & 399 & 1,507 & 26.5\% \\
 All CPE, LTTV scenario 2020 & G & 399 & 2,756 & 14.5\% \\
 All CPE 2015 (current at the testimony) & H & 399 & 3,258 & 12.2\% \\
 All CPE 2014 (last actual year) & J & 399 & 3,324 & 12.0\% \\
@@ -43,7 +42,7 @@ All CPE 2014 (last actual year) & J & 399 & 3,324 & 12.0\% \\
 \begin{table}[htbp]
 \centering
 \small
-\caption{Inputs to \(k\), in \$ millions: the report's baseline and forecast impact with its four components (Figs.~34--36, 39--42), and the CRTC outcome (2020 release; channels exclude exempt services). The historical volatility is the standard deviation of annual log changes in the report's 2010--2014 values. With \(\sigma\) the larger of that volatility and the calibration's value (table~\ref{tab:calibrations}), \(\hat k\) and its interval follow from the formulas in appendix~\ref{app:methods}. The cited-input band scales the unbundling and preponderance components by 0.10/0.15 (low) and 0.35/0.15 (high), and closures by 2.5 in the high case. Produced by \texttt{scripts/crtc\_outcomes\_lttv.py}; data in \texttt{data/derived/nordicity\_2015\_scenarios.csv} and \texttt{data/derived/crtc\_lttv\_outcomes.csv}.}
+\caption{Inputs to \(k\), in \$ millions: the report's forecast impact with its four components and its baseline (the decisions-scenario level plus the impact), from Figs.~41 and 42 (2016 components from Figs.~34--36, 39 and 40), and the CRTC outcome (2020 release; channels exclude exempt services). The historical volatility is the standard deviation of annual log changes in the report's 2010--2014 values. With \(\sigma\) the larger of that volatility and the calibration's value (table~\ref{tab:calibrations}), \(\hat k\) and its interval follow from the formulas in appendix~\ref{app:methods}. The cited-input band scales the unbundling and preponderance components by 0.10/0.15 (low) and 0.35/0.15 (high), and closures by 2.5 in the high case. Produced by \texttt{scripts/crtc\_outcomes\_lttv.py}; data in \texttt{data/derived/nordicity\_2015\_scenarios.csv} and \texttt{data/derived/crtc\_lttv\_outcomes.csv}.}
 \label{tab:inputs}
 \begin{tabular}{lrrrr}
 \toprule
@@ -173,10 +172,10 @@ Distributors: staff & 28,793 & 28,894 & 29,086 & 27,244 & 26,815 & 27,056 & 26,1
 \toprule
 Sector & Direct & Spin-off & Total \\
 \midrule
+Broadcasting (printed total) & 4,000 & 3,950 & 7,950 \\
 \quad Distributors & 3,110 & 1,900 & 5,010 \\
 \quad Specialty and pay services & 870 & 2,010 & 2,880 \\
 \quad Private conventional stations & 20 & 50 & 70 \\
-Broadcasting (printed total) & 4,000 & 3,950 & 7,950 \\
 Independent production & 2,830 & 4,350 & 7,180 \\
 \midrule
 Total & 6,830 & 8,300 & 15,130 \\

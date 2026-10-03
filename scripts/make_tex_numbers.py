@@ -49,6 +49,7 @@ cands = {r["denominator"]: float(r["share"]) for r in rows("cpe_share_candidates
 M["lttvCPEShareFifteen"] = pct(next(v for k, v in cands.items() if k.startswith("$399M / 2015 CPE")), 1)
 M["lttvCPEShareFourteen"] = pct(next(v for k, v in cands.items() if k.startswith("$399M / 2014 CPE")), 1)
 M["lttvCPENCandidates"] = str(len(cands))
+M["lttvCPENDenominators"] = str(len({r["denominator_musd"] for r in rows("cpe_share_candidates.csv")}))
 fte_bdu = tf[("sector_fte_bdus", 2020)]
 fte_spec = tf[("sector_fte_specialty_and_pay_tv_services", 2020)]
 fte_prod = tf[("sector_fte_independent_production", 2020)]

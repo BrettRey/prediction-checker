@@ -410,7 +410,6 @@ def main():
         "programming services only": (imp, f9["stack_total"]),
         "programming services excl. CBC/SRC": (imp, f9["stack_total"] - f9["cbc_src_conventional"]),
         "excl. CBC/SRC, with BDU contributions": (imp, f9["stack_total"] - f9["cbc_src_conventional"] + f8),
-        "private (specialty+private conv.+pay) + BDU": (imp, f9["specialty"] + f9["private_conventional"] + f9["pay_ppv_vod"] + f8),
         "specialty + pay": (imp, f9["specialty"] + f9["pay_ppv_vod"]),
         "specialty only": (imp, f9["specialty"]),
         "$352M programming-services impact / programming services": (ps_imp, f9["stack_total"]),
@@ -427,7 +426,6 @@ def main():
         "programming services only": "B",
         "programming services excl. CBC/SRC": "B - C",
         "excl. CBC/SRC, with BDU contributions": "B - C + A",
-        "private (specialty+private conv.+pay) + BDU": "D + E + F + A",
         "specialty + pay": "D + F",
         "specialty only": "D",
         "$352M programming-services impact / programming services": "B",
@@ -454,6 +452,11 @@ def main():
         got = eval(built[name], {}, env)
         print(f"{'ok' if got == den else 'MISMATCH':8} denominator '{name}' = {built[name]} = {got}")
         ok &= got == den
+    # "private services plus BDU contributions" (D + E + F + A) is the same denominator as B - C + A,
+    # since the Fig. 9 stack is C + D + E + F, so it isn't listed separately
+    check_stack = f9["specialty"] + f9["cbc_src_conventional"] + f9["private_conventional"] + f9["pay_ppv_vod"]
+    print(f"{'ok' if check_stack == f9['stack_total'] else 'MISMATCH':8} Fig. 9 stack = C + D + E + F = {check_stack}")
+    ok &= check_stack == f9["stack_total"]
     with open(OUT / "cpe_components_2020.csv", "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["letter", "component", "musd"])

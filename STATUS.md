@@ -15,7 +15,7 @@ claim:
 ---
 
 # Prediction checker
-<!-- SUMMARY: audit of a forecast put to Parliament (CRTC Let's Talk TV); full EJW draft assembled (intro, method, results, links incl. employment, discussion; 9 pp.), venue record approved; GNDA split off as a later paper; nothing pushed · status: development (drafting for EJW) · updated: 2026-10-03 -->
+<!-- SUMMARY: audit of a forecast put to Parliament (CRTC Let's Talk TV); full EJW draft assembled (intro, method, results, links incl. employment, discussion; 16 pp. with appendix tables A1–A7), two Elicit review rounds implemented, venue record approved; GNDA split off as a later paper; nothing pushed · status: development (drafting for EJW) · updated: 2026-10-03 -->
 
 ## State
 

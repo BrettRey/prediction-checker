@@ -135,7 +135,6 @@ den_label = {  # display names; the numerator column carries the $399M/$352M dis
     "programming services only": "Programming services",
     "programming services excl. CBC/SRC": "Programming services excl. CBC/SRC",
     "excl. CBC/SRC, with BDU contributions": "Programming services excl. CBC/SRC, plus BDU contributions",
-    "private (specialty+private conv.+pay) + BDU": "Private services plus BDU contributions",
     "specialty + pay": "Specialty and pay",
     "specialty only": "Specialty",
     "$352M programming-services impact / programming services": "Programming services",
@@ -144,7 +143,9 @@ den_label = {  # display names; the numerator column carries the $399M/$352M dis
     "$399M / 2020 LTTV-scenario CPE (Fig. 43 level)": "All CPE, LTTV scenario 2020",
     "$399M / 2015 CPE (Fig. 43, current at the time of testimony)": "All CPE 2015 (current at the testimony)",
     "$399M / 2014 CPE (Fig. 43, last actual year)": "All CPE 2014 (last actual year)"}
-for r in rows("cpe_share_candidates.csv"):
+cands = rows("cpe_share_candidates.csv")
+order = list(dict.fromkeys(r["denominator_musd"] for r in cands))  # each $352M share listed under its $399M counterpart
+for r in sorted(cands, key=lambda r: (order.index(r["denominator_musd"]), -float(r["numerator_musd"]))):
     n, d = float(r["numerator_musd"]), float(r["denominator_musd"])
     built = r["built_from"].replace(" - ", " \\textminus{} ")
     L.append(f"{esc(den_label[r['denominator']])} & {built} & {n:,.0f} & {d:,.0f} & {100 * n / d:.1f}\\% \\\\")
@@ -155,8 +156,8 @@ L += ["\\bottomrule", "\\end{tabular}", "\\end{table}", ""]
 
 # A2: inputs to k
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",
-      "\\caption{Inputs to \\(k\\), in \\$ millions: the report's baseline and forecast impact with its four components "
-      "(Figs.~34--36, 39--42), and the CRTC outcome (2020 release; channels exclude exempt services). The historical "
+      "\\caption{Inputs to \\(k\\), in \\$ millions: the report's forecast impact with its four components and its baseline "
+      "(the decisions-scenario level plus the impact), from Figs.~41 and 42 (2016 components from Figs.~34--36, 39 and 40), and the CRTC outcome (2020 release; channels exclude exempt services). The historical "
       "volatility is the standard deviation of annual log changes in the report's 2010--2014 values. With \\(\\sigma\\) "
       "the larger of that volatility and the calibration's value (table~\\ref{tab:calibrations}), \\(\\hat k\\) and its "
       "interval follow from the formulas in appendix~\\ref{app:methods}. The cited-input band scales the unbundling and "
@@ -336,10 +337,10 @@ L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       "\\label{tab:jobs-reconciliation}",
       "\\begin{tabular}{lrrr}", "\\toprule",
       "Sector & Direct & Spin-off & Total \\\\", "\\midrule"]
+L.append(f"Broadcasting (printed total) & {bd:,.0f} & {bt - bd:,.0f} & {bt:,.0f} \\\\")
 for label, key in comp:
     d, t = fte(f"sector_fte_{key}_direct"), fte(f"sector_fte_{key}")
     L.append(f"\\quad {label} & {d:,.0f} & {t - d:,.0f} & {t:,.0f} \\\\")
-L.append(f"Broadcasting (printed total) & {bd:,.0f} & {bt - bd:,.0f} & {bt:,.0f} \\\\")
 L.append(f"Independent production & {prd:,.0f} & {prt - prd:,.0f} & {prt:,.0f} \\\\")
 L.append("\\midrule")
 L.append(f"Total & {bd + prd:,.0f} & {(bt - bd) + (prt - prd):,.0f} & {bt + prt:,.0f} \\\\")
