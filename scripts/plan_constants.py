@@ -13,3 +13,6 @@ CITED_UPTAKE_HIGH = 0.35         # Oliver Wyman, "as many as"
 CITED_CLOSURES_HIGH_MULT = 2.5   # Bell ~25%, Oliver Wyman 26%, against the report's 10%
 # Plan rules (notes/analysis-plan.md)
 SPLICE_TOLERANCE = 0.02          # CRTC series used as published if within 2% of the report, 2012-2014
+# Morrison's own estimate of entry-level uptake, Heritage Committee, 12 April 2016
+# ("about 4% of Canadians will go for it", time marks 0920-0925)
+MORRISON_UPTAKE_ESTIMATE = 0.04

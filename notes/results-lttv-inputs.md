@@ -37,3 +37,12 @@ CRTC CMR Table U-T11, affiliation payments by BDUs ($M). The report's pass-throu
 | To all services | 3,104 | 3,311 | 3,432 | 3,499 | 3,524 | 3,569 | 3,579 | 3,570 |
 | Canadian share | 87.8% | 88.2% | 87.8% | 87.2% | 88.0% | 87.9% | 87.3% | 86.3% |
 
+Per subscriber [post hoc]: payments to Canadian services divided by BDU subscribers, per month, against the report's no-reform baseline carriage fee for Canadian services (Table 14, specialty plus pay/PPV/VOD). Levels differ by definition (the report's fee per subscriber and the CRTC payment total aren't the same measure), so compare growth.
+
+| Year | 2015 | 2016 | 2017 | 2018 | 2019 | 2020 |
+|---|---|---|---|---|---|---|
+| Observed payment per subscriber ($/month) | 22.33 | 22.93 | 23.71 | 24.15 | 24.68 | 25.14 |
+| Report baseline fee ($/month) | 20.51 | 20.59 | 20.68 | 20.75 | 20.83 | 20.87 |
+
+Growth 2015-2019: observed +10.5%; report's no-reform baseline +1.6%. Under the report's decisions scenario, fees fall below the baseline (pass-through, para. 207). Some payments are internal to vertically integrated groups, whose revenue impact the report expects to be partly offset (para. 227).
+

@@ -30,3 +30,6 @@ __pycache__/
 
 # macOS
 .DS_Store
+
+# Simulated reader reviews (internal deliberation; publish only with Brett's approval)
+reviews/cold-read-*/

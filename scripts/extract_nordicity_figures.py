@@ -190,8 +190,15 @@ def text_facts():
     l23 = next(l for l in p96.splitlines() if l.strip().startswith("Total") and "(" in l and "Employment" not in l
                and p96.splitlines().index(l) > next(i for i, x in enumerate(p96.splitlines()) if "Employment (FTEs)" in x))
     sectors["Independent production"] = [float(v.replace(",", "")) for v in re.findall(r"\(?([\d,]+)\)?", l23.strip()[len("Total"):])]
+    # Table 14 (PDF p. 71): baseline average monthly carriage fees per subscriber,
+    # Canadian services only, 2015-2020.
+    p71 = page(71)
+    t14 = {}
+    for label, key in (("Specialty services", "specialty"), ("Pay/PPV/VOD services", "pay_ppv_vod")):
+        line = next(l for l in p71.splitlines() if l.strip().startswith(label))
+        t14[key] = [float(v) for v in re.findall(r"\d+\.\d\d", line)]
     stated = re.search(r"\$399 million reduction in CPE by 2020, or (\d+)% of baseline CPE", " ".join(p91.split()))
-    return dict(table1_employment=emp, table1_gdp=gdp, table18_byop_share=byop, sector_employment=sectors,
+    return dict(table1_employment=emp, table1_gdp=gdp, table18_byop_share=byop, sector_employment=sectors, table14=t14,
                 cpe_share_stated=float(stated.group(1)) if stated else None)
 
 
@@ -351,6 +358,9 @@ def main():
         for yr, val in zip(range(2015, 2021), tf["table18_byop_share"]):
             w.writerow(["table18_byop_share_pct", yr, val, "Table 18, p. 76"])
         w.writerow(["cpe_share_stated_pct", 2020, tf["cpe_share_stated"], "para. 239, p. 87"])
+        for key, vals in tf["table14"].items():
+            for yr, val in zip(range(2015, 2021), vals):
+                w.writerow([f"table14_fee_{key}", yr, val, "Table 14, p. 67"])
         for name, vals in tf["sector_employment"].items():
             key = "sector_fte_" + re.sub(r"[^a-z]+", "_", name.lower()).strip("_")
             for yr, val in zip(range(2015, 2021), vals):
@@ -360,6 +370,8 @@ def main():
     checks.append(("Table 1 total GDP 2020 = 1,411.1", tf["table1_gdp"]["total"][-1], 1411.1))
     checks.append(("Table 18 BYOP 2018 = 15%", tf["table18_byop_share"][3] if len(tf["table18_byop_share"]) > 3 else None, 15))
     checks.append(("stated CPE share = 18% (para. 239)", tf["cpe_share_stated"], 18))
+    checks.append(("Table 14 pay/PPV/VOD fee 2020 = $3.84 (para. 182)", tf["table14"]["pay_ppv_vod"][-1], 3.84))
+    checks.append(("Table 14 specialty fee 2015 = $15.17", tf["table14"]["specialty"][0], 15.17))
     se = tf["sector_employment"]
     checks.append(("Table 22 BDU FTE 2020 = 5,010", se.get("BDUs", [None])[-1], 5010))
     checks.append(("Table 22 specialty/pay FTE 2020 = 2,880", se.get("Specialty and pay TV services", [None])[-1], 2880))

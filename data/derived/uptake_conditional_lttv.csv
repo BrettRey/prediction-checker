@@ -1,0 +1,9 @@
+quantity,uptake_label,uptake,k_predicted,k_observed,ci_lo,ci_hi,inside_interval
+specialty_pay_revenue,"CRTC count, 30 June 2016",0.016,0.36,0.12,-0.23,0.46,True
+specialty_pay_revenue,Morrison's estimate (April 2016),0.04,0.47,0.12,-0.23,0.46,False
+specialty_pay_revenue,low end of cited range,0.1,0.75,0.12,-0.23,0.46,False
+specialty_pay_revenue,report's assumption,0.15,1.0,0.12,-0.23,0.46,False
+bdu_revenue,"CRTC count, 30 June 2016",0.016,0.47,1.3,0.49,2.11,False
+bdu_revenue,Morrison's estimate (April 2016),0.04,0.56,1.3,0.49,2.11,True
+bdu_revenue,low end of cited range,0.1,0.8,1.3,0.49,2.11,True
+bdu_revenue,report's assumption,0.15,1.0,1.3,0.49,2.11,True

@@ -68,6 +68,21 @@ Technology calibration (`scripts/netflix_calibration.py`): the report forecast U
 Netflix's 2018 US memberships exceeded the report's forecast, so on the pre-stated reading the report's technology-only baseline was, if anything, too optimistic about TV revenue: the direction favours finding a policy effect, which strengthens the specialty and pay result and weakens the BDU one.
 Not part of the rule, recorded for the write-up: the forecast's 2016 and 2017 errors had the opposite sign (observed below forecast), and the report's Trefis series may count all memberships rather than paid ones.
 
+## The forecast at other uptake levels [post hoc]
+
+The report's chain with its unbundling and preponderance components scaled to other uptake levels (the exemption-order and closure components don't depend on uptake), expressed as *k* and set against the observed *k* and its 95% interval at the pre-stated error level. The only CRTC count is for 30 June 2016; later uptake is assumed to stay at each level.
+
+| Quantity | Uptake | Share of subscribers | Forecast *k* at that uptake | Observed *k* [95% interval] | Inside interval |
+|---|---|---|---|---|---|
+| Specialty and pay revenue | CRTC count, 30 June 2016 | 1.6% | 0.36 | 0.1 [-0.2, 0.5] | yes |
+| Specialty and pay revenue | Morrison's estimate (April 2016) | 4.0% | 0.47 | 0.1 [-0.2, 0.5] | no |
+| Specialty and pay revenue | low end of cited range | 10.0% | 0.75 | 0.1 [-0.2, 0.5] | no |
+| Specialty and pay revenue | report's assumption | 15.0% | 1.00 | 0.1 [-0.2, 0.5] | no |
+| BDU total revenue | CRTC count, 30 June 2016 | 1.6% | 0.47 | 1.3 [0.5, 2.1] | no |
+| BDU total revenue | Morrison's estimate (April 2016) | 4.0% | 0.56 | 1.3 [0.5, 2.1] | yes |
+| BDU total revenue | low end of cited range | 10.0% | 0.80 | 1.3 [0.5, 2.1] | yes |
+| BDU total revenue | report's assumption | 15.0% | 1.00 | 1.3 [0.5, 2.1] | yes |
+
 ## Multiverse [post hoc]
 
 The pre-stated rule calibrates on 2018 alone, measuring error from 2014. The same formula on 2016 or 2017, or a pooled random-walk estimate, gives other error levels. Table 7's 2015 base (45.5M) was already above Netflix's actual 2015 count (43.4M, 10-K for 2017), so the growth-based rows measure error from 2015 instead. Every combination with each series version, read at the larger of the historical SD and the calibration SD (the pre-stated cell in bold):
