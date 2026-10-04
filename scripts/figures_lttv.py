@@ -75,7 +75,7 @@ for ax, (q, title) in zip(axes, SERIES):
                     color=blend(COLORS["light"], COLORS["dark"], 0.13), lw=0, label="50% range")  # opaque, so the legend matches
     ax.axhline(0, color=COLORS["dark"], lw=0.8, label="Report's baseline")
     ax.plot(YEARS_FC, [-100 * float(fc[(q, t)]["impact_total"]) / B[t] for t in YEARS_FC],
-            color=TEXT["secondary"], lw=1.4, label="Report's reform path (the forecast)")
+            color=TEXT["secondary"], lw=1.4, label="Report's reform path")
     sc = {int(r["year"]): -100 * float(r["impact"]) / float(r["baseline"]) for r in paths if r["quantity"] == q}
     ax.plot([2015] + sorted(sc), [0.0] + [sc[t] for t in sorted(sc)], color=TEXT["tertiary"], lw=1.4, ls="--",
             label="Partial recalculation, uptake held at 1.6%")
