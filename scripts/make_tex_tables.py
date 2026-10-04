@@ -275,7 +275,7 @@ L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       "wholly above the band; otherwise \\emph{consistent}, it overlaps the band. The last four rows (post hoc) integrate \\(\\sigma\\) out "
       "instead of fixing it, under a uniform prior on the plan's range of 1\\% to 8\\% a year or with the report's 2010--2014 volatility "
       "treated as data, first with the 2016--2019 outcomes also informing \\(\\sigma\\) (the version specified in advance), then with the "
-      "prior alone; there \\(\\sigma\\) is the posterior median and the interval the central 95\\% of the posterior for \\(k\\) "
+      "prior alone; there \\(\\sigma\\) is the posterior median (the prior median in the prior-alone rows) and the interval the central 95\\% of the resulting distribution for \\(k\\) "
       "(appendix~\\ref{app:methods}). "
       "Produced by \\texttt{scripts/netflix\\_calibration.py}, \\texttt{scripts/crtc\\_outcomes\\_lttv.py} and "
       "\\texttt{scripts/sigma\\_integrated\\_lttv.py}; data in "
