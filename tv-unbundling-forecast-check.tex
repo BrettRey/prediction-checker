@@ -7,6 +7,11 @@
 % (the default, half, gave figure 1 a page with the lower half empty)
 \renewcommand{\floatpagefraction}{0.75}
 
+% Table captions sit above the tables; put the caption skip between caption and
+% table (plain LaTeX puts it above the caption and none below)
+\usepackage{caption}
+\captionsetup[table]{position=top, skip=8pt}
+
 % Numbers for the case sections, generated from data/derived/ (do not edit)
 \input{sections/numbers-lttv}
 
