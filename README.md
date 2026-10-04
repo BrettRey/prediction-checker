@@ -1,38 +1,67 @@
 # prediction-checker
 
-When experts tell Canadian legislators, regulators, or courts what a decision will cause, and the decision goes ahead, does anyone later check? This project picks forecasts that were used in consequential debates, reconstructs exactly what was predicted and under what conditions, and tests them against what happened.
+When experts tell Canadian legislators, regulators or courts what a decision will cause, and the decision goes ahead, does anyone later check? This project takes forecasts used in consequential debates, reconstructs exactly what was predicted and under what conditions, and tests them against what happened.
 
-Status: early development. Nothing here is a finding yet.
+## The paper
 
-## Approach
+*Checking a forecast put to Parliament: unbundling Canadian television, 2016–2019* (draft, `main.tex`). In April 2016 a House of Commons committee heard that the CRTC's *Let's Talk TV* rules would cost 15,130 media jobs by 2020. The figure came from Nordicity and Peter Miller's report *Canadian Television 2020* (December 2015). The paper compares the report's revenue predictions with CRTC data for 2016–2019, adds descriptive checks of uptake, payments to Canadian channels, closures and staff counts, and compares the report with what the committee was told. It doesn't test the job total or the decisions' causal effect.
 
-Each case keeps two things apart: the **technical claim** (what a model implies under its stated conditions) and the **public predictive argument** (what decision-makers were told would probably happen). Prediction records are written from the primary sources and committed before any outcome data are pulled, so the test can't be bent toward the result.
+The forecast record and the analysis plan were committed before any CRTC outcome file was downloaded:
 
-## Candidate cases
+- prediction record: `cases/lets-talk-tv/README.md`
+- analysis plan: `notes/analysis-plan.md`
+- every choice made after the outcome data was opened: `DECISIONS.md`, and table B8 of the paper, which gives the commit for each step
 
-| Folder | Case |
-|---|---|
-| `cases/gnda-life-insurance/` | Actuarial forecasts of life-insurance premium increases under the *Genetic Non-Discrimination Act* |
-| `cases/lets-talk-tv/` | A 2015 economic model of job and production losses from the CRTC's *Let's Talk TV* reforms |
-| `cases/c75-preliminary-inquiries/` | Competing forecasts about delay from restricting preliminary inquiries under Bill C-75 |
+Each technical claim is kept apart from the public predictive argument: what a model implies under its stated conditions, and what decision-makers were told would probably happen.
 
-The case descriptions come from an unverified lead list. Every factual claim about them is tracked in `notes/source-verification.md` and none has been checked against its source yet.
+## Reproducing the numbers
+
+Requirements: Python 3 with `numpy`, `matplotlib` and `openpyxl`; `curl`, `pandoc` and `pdftotext` (poppler).
+
+```bash
+# 1. Download the public sources into data/raw/ (gitignored).
+#    SEC EDGAR asks for a contact in the User-Agent.
+SEC_UA="Your Name you@example.com" bash scripts/fetch_raw.sh
+
+# 2. Run the analysis, in this order.
+for s in extract_nordicity_figures cpi_canada netflix_calibration design_analysis_lttv \
+         crtc_outcomes_lttv closures_lttv cpe_lttv employment_lttv input_checks_lttv \
+         decompose_bdu_lttv model_check_lttv figures_lttv make_tex_numbers make_tex_tables; do
+  python3 scripts/$s.py
+done
+```
+
+Outputs go to `data/derived/` (CSV), `figures/`, and the generated LaTeX in `sections/numbers-lttv.tex` (every number the analysis produces is a macro defined there), `sections/tables-lttv.tex` and `sections/table-scenarios-main.tex`. The table script recomputes each estimate from the displayed inputs and stops if any differs from the analysis output.
+
+Checked on 2026-10-04: from a fresh clone and a fresh download, these steps reproduce every committed file in `data/derived/` and the generated LaTeX exactly, and the figures' PNG files byte for byte. The PDF figures differ only in embedded timestamps.
+
+Some inputs are encoded from documents rather than downloaded. One example is the 2015 owner of each channel, taken from the CRTC's ownership charts. The scripts record these inputs with their sources, and the sources are in the paper's reference list.
+
+## Building the manuscript
+
+`main.tex` builds with XeLaTeX and biber (`make`) inside Brett Reynolds's portfolio. `.house-style/` (preamble and shared bibliography) and `references.bib` are symlinks to files outside this repository, so a standalone clone can reproduce every number, table and figure but can't build the PDF without them. `scripts/plot_style.py` is a copy of the house plotting style, so the figures do build standalone.
 
 ## Layout
 
 ```
-cases/                     one folder per case: prediction record, design notes
-notes/project-brief.md     plan, assumptions, method commitments
-notes/source-verification.md   every claim from the intake brief, with status
-notes/novelty-search.md    the searches behind any "nobody has checked this" claim
-data/                      raw/ (gitignored) and derived/; licence register
-scripts/                   analysis code
-main.tex                   manuscript (placeholder)
-DECISIONS.md, STATUS.md    decision log and current state
+main.tex, sections/          the paper; sections/numbers-lttv.tex and the tables are generated
+scripts/                     data download (fetch_raw.sh) and analysis
+data/raw/                    downloaded sources (gitignored); data/derived/: analysis outputs
+data/README.md               licence register for every source
+figures/                     generated figures
+cases/                       one folder per case: prediction record, design notes, outcomes
+notes/analysis-plan.md       pre-stated plan and reading rules
+notes/source-verification.md every claim from the original lead list, with its verification status
+notes/novelty-search.md      the searches behind the paper's "no published comparison" statement
+notes/passes/                second-model audits of the draft (numbers, inference, quotations, fairness, clarity)
+notes/rereads/               source rereads
+DECISIONS.md, STATUS.md      decision log and current state
 ```
 
-`main.tex` builds with XeLaTeX inside Brett Reynolds's portfolio: `.house-style` and `references.bib` are symlinks to shared files outside this repository.
+## Other cases
+
+`cases/gnda-life-insurance/` (actuarial forecasts of premium increases under the *Genetic Non-Discrimination Act*) and `cases/c75-preliminary-inquiries/` (forecasts about delay from restricting preliminary inquiries under Bill C-75) are candidate cases for separate papers. Their descriptions began as an unverified lead list; `notes/source-verification.md` records what has and hasn't been checked against the sources.
 
 ## Licence
 
-Text, notes, and data products: [CC BY 4.0](LICENSE), unless a source's own terms say otherwise (see `data/README.md`).
+Text, notes and data products: [CC BY 4.0](LICENSE), unless a source's own terms say otherwise (see `data/README.md`).
