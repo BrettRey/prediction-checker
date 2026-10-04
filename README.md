@@ -39,7 +39,7 @@ Some inputs are encoded from documents rather than downloaded. One example is th
 
 ## Building the manuscript
 
-`tv-unbundling-forecast-check.tex` builds with XeLaTeX and biber (`make`) inside Brett Reynolds's portfolio. `.house-style/` (preamble and shared bibliography) and `references.bib` are symlinks to files outside this repository, so a standalone clone can reproduce every number, table and figure but can't build the PDF without them. `scripts/plot_style.py` is a copy of the house plotting style, so the figures do build standalone.
+`tv-unbundling-forecast-check.tex` uses the *Econ Journal Watch* LaTeX class and builds with pdfLaTeX and biber (`make`). The class isn't redistributed here: download the template from <https://econjwatch.org/file_download/1417/EJW_latex_files_8.29.26.zip> and copy `ejw.cls`, `ejw-pdflatex.cls`, `ejw-logo.pdf` and `ejw-journaltalk-logo.png` into `ejw/`, which the Makefile puts on the TeX search path. `references.bib` is a symlink to a bibliography outside this repository, so a standalone clone can reproduce every number, table and figure but can't build the PDF without it. `scripts/plot_style.py` is a copy of the house plotting style, so the figures do build standalone.
 
 ## Layout
 

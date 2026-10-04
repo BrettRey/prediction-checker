@@ -1,7 +1,11 @@
 # Makefile for LaTeX paper compilation
 
 # Configuration
-LATEX = xelatex
+# pdfLaTeX, not the house XeLaTeX: the EJW class's XeLaTeX path needs Microsoft
+# Garamond, which isn't installed here; its pdfLaTeX path uses EB Garamond (DECISIONS.md, 2026-10-04).
+LATEX = pdflatex
+# The EJW class files live in ejw/ (gitignored; download link in README.md).
+export TEXINPUTS := ./ejw//:$(TEXINPUTS)
 BIBER = biber
 MAIN = tv-unbundling-forecast-check
 PDF_BASENAME ?= $(MAIN)
@@ -15,7 +19,7 @@ OUTDIR = .
 all: $(MAIN).pdf
 
 # Full build sequence with bibliography
-$(MAIN).pdf: $(MAIN).tex references.bib references-local.bib $(wildcard sections/*.tex) $(wildcard figures/*.pdf)
+$(MAIN).pdf: $(MAIN).tex references.bib references-local.bib $(wildcard sections/*.tex) $(wildcard figures/*.pdf) $(wildcard ejw/*.cls)
 	@echo "==> First LaTeX pass..."
 	$(LATEX) -output-directory=$(OUTDIR) $(MAIN).tex
 	@echo "==> Running Biber..."

@@ -1,9 +1,6 @@
 % Appendix: estimation details and generated tables. Draft, 2026-10-03.
 
 \appendix
-\setcounter{table}{0}
-\renewcommand{\thetable}{B\arabic{table}}
-\renewcommand{\theHtable}{B\arabic{table}}
 \section{Estimation details}
 \label{app:methods}
 
@@ -46,6 +43,6 @@ and given \(\sigma\), \(k\) is normal with mean \(\hat k\) and variance \(\sigma
 \section{Tables}
 \label{app:tables}
 
-Table~\ref{tab:cpe-denominators} supports section~\ref{sec:lttv-forecast}; tables~\ref{tab:inputs}--\ref{tab:decomposition} support sections~\ref{sec:lttv-method} and~\ref{sec:lttv-results}; tables~\ref{tab:staff} and~\ref{tab:jobs-reconciliation} support sections~\ref{sec:lttv-forecast} and~\ref{sec:lttv-links}; table~\ref{tab:chronology} lists the order of the analyses. The script that writes tables~\ref{tab:inputs}--\ref{tab:calibrations} recomputes each \(k\), fixed-scale interval, scenario value and calibration from the inputs as displayed, and stops if any differs from the analysis output; the integrated rows of table~\ref{tab:calibrations} come from \texttt{scripts/sigma\_integrated\_lttv.py}, which checks its grid results against Monte Carlo draws.
+Table~\ref{tab:cpe-denominators} supports the section on the forecast and its presentation to Parliament; tables~\ref{tab:inputs}--\ref{tab:decomposition} support the sections on comparing outcomes and on revenue outcomes; tables~\ref{tab:staff} and~\ref{tab:jobs-reconciliation} support the sections on the forecast and on payments, closures and staff counts; table~\ref{tab:chronology} lists the order of the analyses. The script that writes tables~\ref{tab:inputs}--\ref{tab:calibrations} recomputes each \(k\), fixed-scale interval, scenario value and calibration from the inputs as displayed, and stops if any differs from the analysis output; the integrated rows of table~\ref{tab:calibrations} come from \texttt{scripts/sigma\_integrated\_lttv.py}, which checks its grid results against Monte Carlo draws.
 
 \input{sections/tables-lttv}

@@ -43,3 +43,6 @@ correspondence/
 
 # Venue strategy (journal-reader contract, desk and reviewer risks): internal deliberation, not published (Brett, 2026-10-04)
 submission/venue-decision-*.md
+
+# EJW LaTeX template files (no licence stated; download link in README.md)
+/ejw/

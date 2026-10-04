@@ -1,35 +1,29 @@
-\documentclass[12pt]{article}
+% Econ Journal Watch submission. The ejw class (EJW LaTeX template of
+% 2026-08-29, https://econjwatch.org/file_download/1417/EJW_latex_files_8.29.26.zip)
+% lives in ejw/, which is gitignored (the template carries no licence); the
+% Makefile puts it on TEXINPUTS. Built with pdfLaTeX, the class's portable path:
+% its XeLaTeX path needs Microsoft Garamond, which isn't installed here
+% (DECISIONS.md, 2026-10-04). Draft mode gives EJW's double-spaced manuscript.
+\documentclass[draft]{ejw}
 
-% House style preamble
-\input{.house-style/preamble.tex}
+\usepackage{csquotes}
+\usepackage{booktabs}
+\usepackage{array}
+
+\addbibresource{references.bib}
+\addbibresource{references-local.bib}
 
 % A float takes a page of its own only if it fills three quarters of it
-% (the default, half, gave figure 1 a page with the lower half empty)
 \renewcommand{\floatpagefraction}{0.75}
-
-% Captions: small-caps label (the house font has no bold) and smaller type, so
-% they don't read as body text.
-% Table captions sit above the tables; put the caption skip between caption and
-% table (plain LaTeX puts it above the caption and none below)
-\usepackage{caption}
-\captionsetup{font=small, labelfont=sc}
-\captionsetup[table]{position=top, skip=12pt}
 
 % Numbers for the case sections, generated from data/derived/ (do not edit)
 \input{sections/numbers-lttv}
 
-% Update PDF metadata
-\hypersetup{
-  pdftitle={Checking a forecast put to Parliament: unbundling Canadian television, 2016-2019},
-  pdfkeywords={forecast evaluation, ex post analysis, economic impact studies, broadcasting regulation, Canada}
-}
-
-% Working title for Econ Journal Watch (2026-10-03); see DECISIONS.md and submission/venue-decision-2026-10-03.md.
+% Working title for Econ Journal Watch (2026-10-03); see DECISIONS.md.
 \title{Checking a forecast put to Parliament: unbundling Canadian television, 2016--2019}
-\author{Brett Reynolds \orcidlink{0000-0003-0073-7195}%
-\thanks{Contact: \href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}}\\
-Humber Polytechnic \& University of Toronto}
-\date{\today}
+\shorttitle{Checking a Forecast Put to Parliament}
+\shortauthor{Reynolds}
+\author{Brett Reynolds\footnote{Humber Polytechnic and University of Toronto. Email: \href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}. ORCID: \href{https://orcid.org/0000-0003-0073-7195}{0000-0003-0073-7195}. Claude Opus 5.5 served as a drafting and editing aid and wrote the analysis code. GPT-6 Astra ran independent checks of the numbers, the inference, the quotations and the fairness of the account. I am responsible for all theoretical claims, arguments, errors, and interpretive choices.}}
 
 \begin{document}
 \maketitle
@@ -38,30 +32,17 @@ Humber Polytechnic \& University of Toronto}
 I check a forecast put to a Canadian parliamentary committee: a commissioned study's estimate that new television rules would cost \lttvJobsTotal{} jobs by 2020. Under a plan fixed before collecting outcomes, I compare its intermediate predictions with regulator data for 2016--2019; neither the job total nor the rules' causal effect is tested. At the error scale the plan set for the study's baseline, the channel revenue on which most of the job figure depends lost less ground against that baseline than the study's model implies at any package uptake it cited, and distributors' revenue was consistent with the forecast, though too imprecisely to tell a shortfall half the forecast's size from one twice as large. Under the largest error scales some calibrations give, both verdicts become inconclusive. How far lower uptake reconciles the channel result with the study's model depends on uptake after mid-2016, when the regulator counted \lttvUptakeJuneShare{} of subscribers on the new entry-level package, against the study's \lttvByopSixteen{} taking it with chosen channels; a 2017 survey outside the plan's sources put adoption near the study's figure for that year. The testimony called an economy-wide estimate media jobs and omitted the uptake assumption.
 \end{abstract}
 
-\noindent\textbf{Keywords:} forecast evaluation; ex post analysis; economic impact studies; broadcasting regulation; Canada
-
-% AI-use disclosure, on page 1 (house style). Models actually used: Claude Opus 5.5
-% (drafting, analysis code); ChatGPT (latest model on 2026-10-03, Pro effort)
-% produced the initial candidate list (noted in the Data and code section).
-% Same formatting as the house \aidisclosure, worded for two models with different roles
-% (the house sentence calls every listed model a drafting and editing aid).
-\par\medskip
-\noindent{\small\textsc{AI use.}\enspace Claude Opus 5.5 served as a drafting and editing aid and wrote the analysis code. GPT-6 Astra ran independent checks of the numbers, the inference, the quotations and the fairness of the account. I am responsible for all theoretical claims, arguments, errors, and interpretive choices.\par}
-\medskip
+\keywords{forecast evaluation, ex post analysis, economic impact studies, broadcasting regulation, Canada}
 
 \input{sections/intro}
 \input{sections/case-lttv}
 \input{sections/discussion}
 
-% The AI-use disclosure is now on page 1 (see \aidisclosure above).
-% Uncomment this section only for human/funder acknowledgements:
-% \section*{Acknowledgements}
-% Thanks to NAME for COMMENTS. This work was supported by FUNDER (GRANT).
+% Appendices come before the references in EJW style.
+\input{sections/appendix}
 
+% Flush the appendix tables before the reference list
 \clearpage
 \printbibliography
-
-\clearpage
-\input{sections/appendix}
 
 \end{document}
