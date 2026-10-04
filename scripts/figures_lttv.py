@@ -6,7 +6,7 @@ the covariance is sigma^2 times a fixed matrix).
 Figure 1 (figures/lttv_paths): each revenue series relative to the report's
   no-reform baseline, 2012-2019, with the report's forecast path, a partial
   recalculation of its chain at the uptake the CRTC counted (post hoc), and the 95%
-  range of the no-reform outcome at the designated sigma. Both panels share
+  and 50% ranges of the no-reform outcome at the designated sigma. Both panels share
   one percentage scale.
 Figure 2 (figures/lttv_k_sigma): k and its 95% and 50% intervals as a function of the
   assumed annual baseline error sigma, with the calibrations marked and the
@@ -64,6 +64,9 @@ for ax, (q, title) in zip(axes, SERIES):
     h = np.array([t - 2014 for t in YEARS_FC], dtype=float)
     ax.fill_between(YEARS_FC, 100 * (np.exp(-1.96 * s * np.sqrt(h)) - 1), 100 * (np.exp(1.96 * s * np.sqrt(h)) - 1),
                     color=COLORS["light"], lw=0, label="Pointwise 95% range around the baseline")
+    z50 = 0.6744897501960817  # [post hoc] 50% range, display only
+    ax.fill_between(YEARS_FC, 100 * (np.exp(-z50 * s * np.sqrt(h)) - 1), 100 * (np.exp(z50 * s * np.sqrt(h)) - 1),
+                    color="#D0D0D0", lw=0, label="50% range")  # light gray darkened, opaque so the legend matches
     ax.axhline(0, color=COLORS["dark"], lw=0.8, label="Report's baseline")
     ax.plot(YEARS_FC, [-100 * float(fc[(q, t)]["impact_total"]) / B[t] for t in YEARS_FC],
             color=TEXT["secondary"], lw=1.4, label="Report's reform path (the forecast)")
