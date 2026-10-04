@@ -1,5 +1,5 @@
 # Proofread of the EJW-class build, 2026-10-04
-<!-- SUMMARY: read-only proofread (Claude, /proofread skill) of tv-unbundling-forecast-check.tex after the EJW conversion; no critical or major issues; nine minor findings, six proposed for fixing · status: findings for Brett · updated: 2026-10-04 -->
+<!-- SUMMARY: read-only proofread (Claude, /proofread skill) of tv-unbundling-forecast-check.tex after the EJW conversion; no critical or major issues; nine minor findings, six proposed for fixing · status: items 1–7 applied (Brett), 8–9 left · updated: 2026-10-04 -->
 
 Linter (`check-style.py`) and terminology check (`check-terms.py --follow-inputs`) run; their hits are mostly known false positives (maths subscripts, "pointwise", ranges with real endpoints). No doubled-name citations, no unsourced claims, no em dashes, no unresolved references (build log clean).
 
@@ -16,3 +16,5 @@ Linter (`check-style.py`) and terminology check (`check-terms.py --follow-inputs
 | 9 | figure 1 caption; text | style (EJW/Chicago) | minor | British spellings (modelled, labelled, licence, enrolment, behaviour in a quotation) and "in per cent of the baseline" | leave for EJW copyediting, or switch to American spelling and "percent" now (Brett) |
 
 Also noted, no change proposed: case-lttv.tex:133's "[p.~72, n.~80; p.~73, n.~82]" mixes page and note locators, which the class prints as typed; "package uptake" in the abstract is unglossed but explained by the abstract's next sentence; GDP unexpanded (free for EJW readers).
+
+Outcome (Brett: "apply the figures and proofread fixes"): items 1–7 applied; 8 (paragraph length) and 9 (spelling, "per cent") left for an optional pass and copyediting. The figures pass's one finding (figure 1's 50% band in a hard-coded grey) fixed by deriving the shade from the palette (light blended with dark at 0.13), same appearance.

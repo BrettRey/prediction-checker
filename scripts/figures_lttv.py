@@ -34,6 +34,12 @@ YEARS_OBS = list(range(2012, 2020))
 YEARS_FC = list(range(2014, 2020))
 
 
+def blend(c1, c2, w):
+    """Mix two palette colours (w = weight of c2), so derived shades stay in the palette."""
+    from matplotlib.colors import to_rgb
+    return tuple((1 - w) * a + w * b for a, b in zip(to_rgb(c1), to_rgb(c2)))
+
+
 def rows(name):
     return list(csv.DictReader(open(DER / name)))
 
@@ -66,7 +72,7 @@ for ax, (q, title) in zip(axes, SERIES):
                     color=COLORS["light"], lw=0, label="Pointwise 95% range around the baseline")
     z50 = 0.6744897501960817  # [post hoc] 50% range, display only
     ax.fill_between(YEARS_FC, 100 * (np.exp(-z50 * s * np.sqrt(h)) - 1), 100 * (np.exp(z50 * s * np.sqrt(h)) - 1),
-                    color="#D0D0D0", lw=0, label="50% range")  # light gray darkened, opaque so the legend matches
+                    color=blend(COLORS["light"], COLORS["dark"], 0.13), lw=0, label="50% range")  # opaque, so the legend matches
     ax.axhline(0, color=COLORS["dark"], lw=0.8, label="Report's baseline")
     ax.plot(YEARS_FC, [-100 * float(fc[(q, t)]["impact_total"]) / B[t] for t in YEARS_FC],
             color=TEXT["secondary"], lw=1.4, label="Report's reform path (the forecast)")
