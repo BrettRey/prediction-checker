@@ -1,5 +1,5 @@
 # Pairwise read: each section against the introduction, then against the conclusion, 2026-10-04
-<!-- SUMMARY: sections 2–5 read pairwise with the introduction and with section 6 (Brett's request), on the build after the level-category and estimand fixes (1f2fbd0); one medium finding (the testimony's third departure is never stated in §2.1), six low · status: findings for Brett · updated: 2026-10-04 -->
+<!-- SUMMARY: sections 2–5 read pairwise with the introduction and with section 6 (Brett's request), on the build after the level-category and estimand fixes (1f2fbd0); one medium finding (the testimony's third departure is never stated in §2.1), six low · status: applied (all but P2, Brett) · updated: 2026-10-04 -->
 
 Read by Claude Opus 5.5 (the drafting model), from the rendered PDF of commit 1f2fbd0. Not a second-model check. Appendices not included.
 
@@ -25,3 +25,12 @@ Read by Claude Opus 5.5 (the drafting model), from the rendered PDF of commit 1f
 
 ## Checked and consistent
 The two objects of assessment are kept apart in every pairing. Numbers that recur across the introduction, sections and §6 (15,130; 66%; 5% and 10%; 1.6%; 12.6% against 18%; 10.5% against 1.6%; 3 to 4 of 57) agree. The introduction's "k = 1 to its forecast" fits §2's definition of the forecast as the gap between the paths; no change needed.
+
+## Outcome (Brett: "apply all but P2")
+- P1: §2.1 now says neither Morrison's answer nor his summary of the findings connected the job figure to the report's uptake assumption (5% in 2016 rising to 15% from 2018); "He didn't say how it bore on the job estimate" folded into it.
+- P3: roadmap: "the revenue outcomes, the split of distributors' revenue and the sensitivity of both verdicts".
+- P4: intro bullet 1 "the report's chain from uptake to revenue"; bullet 3 "that chain"; abstract "the study's model" twice.
+- P5: discussion: "Payments, closures, programming spending and staff counts can be read without assuming later uptake"; CPE "set aside in advance because the design analysis gave it little power to separate the two worlds, stayed above the report's baseline path in every year from 2016 to 2019".
+- P6: limits: "a random walk, a simple model for stating the uncertainty, with its scale calibrated in several ways from proxies".
+- P7: discussion: "Allowing a one-time gap between the report's baseline and the CRTC series, also post hoc, leaves both as they were."
+- P2 left as is.
