@@ -36,6 +36,7 @@ reviews/elicit-review-*/
 
 # Raw agent session logs (copy the text of every file the agent opens, including copyrighted papers)
 notes/passes/**/codex-std*.txt
+notes/passes/**/ocx-std*.txt
 
 # Drafted correspondence naming people; kept private until sent (Brett decides)
 correspondence/
