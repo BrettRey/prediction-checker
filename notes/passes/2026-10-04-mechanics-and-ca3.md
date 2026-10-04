@@ -1,0 +1,14 @@
+# Contribution alignment (third run) and mechanics passes, 2026-10-04
+<!-- SUMMARY: CA3 (Codex xhigh) found the paper aligned, four presentation fixes applied; build-integrity clean; validate-bib, house-style, figures and proofread findings verified and applied · status: applied · updated: 2026-10-04 -->
+
+**Contribution alignment, third run** (Codex gpt-6-astra, xhigh; `notes/passes/round-ca3-2026-10-04/`). Verdict: the paper describes the contribution its body delivers; the closures reversal is consistent wherever closures are summarized; title, abstract selection, headings and discussion claims need no change. Applied: (1) the introduction now states that the largest calibrated error scales make both verdicts inconclusive, as the abstract does; (2) "keeps both revenue series within their intervals" became "is compatible with both revenue estimates at the designated scales"; (3) the scope sentence now separates the revenue predictions from the descriptive checks of uptake, payments, closures and staff counts; (4) the discussion's opening now names the inconclusive verdicts.
+
+**Build integrity.** Includes resolve; no hard-coded TeX Live path; `references.bib` and `.house-style` are the expected symlinks; full XeLaTeX and biber build; no undefined citations or references, font or package errors; biber clean; `git diff --check` clean. After the fixes below, one hairline overfull box (1.3pt) remains.
+
+**Validate-bib** (forked Haiku run, verified). All cited keys resolve. Its list of "unused" entries was wrong for eight entries that are cited (it missed `\textcite` and `\input` files); kopits2014retrospective, nordicity2022harnessing and zboralska2017netflix are genuinely uncited, and biblatex doesn't print them. It also passed titles the rendered list showed lower-cased; fixed by bracing in `references-local.bib`: "A Roadmap", "September", "Form 10-K", "December".
+
+**House style** (check-style, forked, verified). Only a soft cadence warning on "The X is Y" paragraph openers in §§3–5; left as is.
+
+**Figures** (check-chart-style, forked, verified). Figure 1 clean. In figure 2 the agent said the "designated" label appeared on one panel only; the rendered figure had it on both, but on the distributors' panel the 2017 calibration's dotted line ran through it. The label now runs vertically to the left of its line in both panels.
+
+**Proofread** (`notes/passes/2026-10-04-proofread.md`). Applied: four doubled-name citations fixed with `\citeyearpar` or a bare page locator; "uptake" glossed in the abstract ("package uptake"); PPV and VOD expanded in §5.1; "around the 8 that the report's rate implies"; the four worst long paragraphs split at natural seams without rewording (§3 model, §4.6, discussion limits, data and code). The remaining long paragraphs are a job for `density-leavening`.
