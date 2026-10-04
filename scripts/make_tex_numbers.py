@@ -200,6 +200,8 @@ vi = next(r for r in cl if r["corus_counted_vi"] == "False" and r["group"] == "V
 vic = next(r for r in cl if r["corus_counted_vi"] == "True" and r["group"] == "VI A/B")
 ind = next(r for r in cl if r["corus_counted_vi"] == "False" and r["group"] == "independent A/B")
 indc = next(r for r in cl if r["corus_counted_vi"] == "True" and r["group"] == "independent A/B")
+vip = next(r for r in cl if r["corus_counted_vi"] == "plan_2015_owner" and r["group"] == "VI A/B")  # the plan's rule: 2015 owner
+indp = next(r for r in cl if r["corus_counted_vi"] == "plan_2015_owner" and r["group"] == "independent A/B")
 
 
 def clos_bounds(r):  # from the counts, not the rounded shares: closed / n and (closed + not listed) / n
@@ -211,6 +213,9 @@ M["lttvClosVILo"], M["lttvClosVIHi"] = clos_bounds(vi)
 M["lttvClosVICorusLo"], M["lttvClosVICorusHi"] = clos_bounds(vic)
 M["lttvClosIndLo"], M["lttvClosIndHi"] = clos_bounds(ind)
 M["lttvClosIndCorusLo"], M["lttvClosIndCorusHi"] = clos_bounds(indc)
+M["lttvClosVIPlanLo"], M["lttvClosVIPlanHi"] = clos_bounds(vip)
+M["lttvClosIndPlanLo"], M["lttvClosIndPlanHi"] = clos_bounds(indp)
+M["lttvShawMediaN"] = str(sum(1 for r in rows("closures_owner2015.csv") if r["owner_2015"] == "Shaw Media Inc."))
 cpe = {int(r["year"]): r for r in rows("cpe_lttv.csv")}
 obs_cpe = [float(cpe[y]["total"]) for y in range(2016, 2020)]
 # the testimony's "of what now exists": the CRTC's count of 2015 spending (the report's 2015 figure is a forecast)
