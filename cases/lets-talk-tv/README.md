@@ -1,5 +1,5 @@
 # Case 2: CRTC Let's Talk TV and the Nordicity/Miller model
-<!-- SUMMARY: Prediction record filled from the December 2015 Nordicity/Miller report and CHPC meeting-8 evidence, before any outcome data; near-mechanism assumptions recorded · status: lead case; record frozen 2026-10-03 · updated: 2026-10-03 -->
+<!-- SUMMARY: Prediction record filled from the December 2015 Nordicity/Miller report and CHPC meeting-8 evidence, before any outcome data; near-mechanism assumptions recorded · status: lead case; record frozen 2026-10-03; outcomes section now follows the paper · updated: 2026-10-03 -->
 
 Every quotation below is in `../../notes/source-verification.md` with its locator (row IDs in brackets). Nothing here was written after looking at CRTC financial data, subscriber counts, employment series, or any retrospective study.
 
@@ -36,15 +36,20 @@ Filled 2026-10-03 from forecast-side sources only. Paragraph numbers and printed
 | B4 | Morrison, reporting *Near Term Prospects for Local TV in Canada* (Nordicity–Miller, 5 November 2015; not retrieved) | "up to half of local stations in small and medium markets ... will fade to black by 2020 in the absence of CRTC action. This would lead to an estimated 910 layoffs ... When large market local stations are included, the study projects job losses of 3,490." | A separate forecast, conditional on no CRTC action | (0900)–(0905) [T17] |
 | B5 | Miller | "We predict that within four or five years, there won't be enough money." (local-TV revenue gap against the CRTC's proposed reallocation) | Not a quantity in A | (0925)–(0930) [T18] |
 
-## Outcomes (preliminary)
+*Note added 2026-10-03, after the outcome analysis and review; the table above is left as frozen.* The paper reads B1 differently in one respect: "direct result" attributes the losses to the decisions, as the report itself does, so it isn't a departure, though "will be lost" is firmer than the report's "likely" (§2.1). It also reads the 18% as the report's own figure, which the report's totals put at 12.6%; Morrison's departure is the denominator ("what now exists"), not the number.
 
-Rules in `../../notes/analysis-plan.md`; generated results in `../../notes/results-lttv.md` and `../../notes/results-lttv-inputs.md`; choices made after seeing the data are marked [post hoc] in `DECISIONS.md`.
+## Outcomes (as reported in the paper)
 
-- **Specialty/pay revenue** stayed at or above the report's technology-only baseline through 2019: *k* = 0.1 in every specification, and no interval excludes zero. At the pre-stated reading (2018 Netflix calibration) the effect is smaller than the forecasters' own inputs imply. The interval reaches the low end of the forecasters' input range once the baseline's error is taken as about 4.1% a year or more, which happens in three of nine calibration choices (2016 from 2014, pooled 2016–2018, growth 2015–2018) and borderline in a fourth. Netflix grew faster than the report forecast (+35% against +25%, 2015–2018), so the report's baseline was if anything too optimistic about TV revenue.
-- **BDU revenue** fell below even the LTTV path: *k* = 1.3, consistent with the forecast range at the pre-stated reading and in five of nine calibration choices, inconclusive in four.
-- **Mechanisms.** Payments to Canadian services rose (2015–2019) and their share held at 87–88%: neither the modelled pass-through nor the preponderance erosion is visible in the aggregate, for reasons not established.
-- **Inputs.** Entry-level uptake was 0.6% (April 2016) and 1.6% (June 2016) of subscribers against the report's 5% for 2016; no CRTC count for later years. Closures of vertically integrated A/B services 8–10%, around the report's 10%; independents indeterminate (6–33%).
-- Still to do: company disclosures for 2017–2019 uptake; CPE (descriptive); HELD rows T14–T15.
+The preliminary bullets written here when the outcome data were first opened are superseded by the paper (`sections/case-lttv.tex` §§4–5 and `sections/discussion.tex`, commit 58776ac); the old bullets are in git history. This summary follows the paper, and every value is a macro in `sections/numbers-lttv.tex`. Rules in `../../notes/analysis-plan.md`; choices made after seeing the data are marked [post hoc] in `DECISIONS.md` and listed in table A8. Not tested: the total employment forecast and the decisions' causal effect.
+
+- **Specialty and pay revenue** stayed above the report's baseline in every year 2016–2019 (by 0.8% to 4.6%), but its excess shrank: k̂ = 0.12 (SE 0.18), interval −0.23 to 0.46 at the designated error scale of 2.2% a year, wholly below the cited-input band (0.75 to 2.54), so the pre-stated verdict is *smaller*. At the plan's upper scale of 8% the interval (−1.13 to 1.37) includes k = 1, and three of nine calibrations give *inconclusive*.
+- **Distributors' revenue** ran 1.9% to 4.9% below the report's reform path in levels; k̂ = 1.30 (SE 0.41), interval 0.49 to 2.11 at 1.9% a year, which includes k = 1, so the verdict is *consistent*. The interval runs from about half the forecast shortfall to about twice it, so "further than forecast" isn't established.
+- **Uptake.** The CRTC's entry-level share was 0.6% (April 2016) and 1.6% (June 2016) against the report's 5% BYOP uptake for 2016; these count the entry-level package with or without added channels, a different measure from BYOP uptake. No later CRTC count was found. A 2017 Media Technology Monitor survey, outside the plan's sources, put starter-package adoption at "just over 1 in 10", near the report's 10% for 2017.
+- **Partial recalculations** [post hoc]: among the uptake paths tested, at the designated scale, only a linear rise to 4% by 2019 keeps both series compatible (scenario coefficients 0.43 and 0.52).
+- **Distributors' revenue split** [post hoc; rule fixed before computing]: by 2019, measured from 2014, subscribers were 3.9% below the baseline path (reform scenario 1.5%) and revenue per subscriber 8.1% below (reform scenario 7.0%).
+- **Payments.** Affiliation payments to Canadian channels per subscriber rose 10.5% from 2015 to 2019, against 1.6% for the report's baseline carriage fee, and the Canadian share stayed near 87.8%. The aggregates can't show what fees would have been without the decisions, so they don't test the pass-through.
+- **Closures.** Integrated companies' Category A and B channels: 8% to 11% against the report's 10%. Independents: 6% to 33% against 25%, too wide to test.
+- **Testimony.** Two departures from the report ("media jobs" for an economy-wide total; the 18% presented as a share of current spending) and the uptake assumption left out. "Direct result" is the report's own causal attribution, so the paper doesn't count it as a departure (see the note under table B).
 
 ## Intervention as enacted
 
