@@ -463,7 +463,7 @@ def main():
              ("D", "Specialty services, baseline 2020 (Fig. 9)", f9["specialty"]),
              ("E", "Private conventional, baseline 2020 (Fig. 9)", f9["private_conventional"]),
              ("F", "Pay, PPV and VOD, baseline 2020 (Fig. 9)", f9["pay_ppv_vod"]),
-             ("G", "Total CPE, LTTV scenario 2020 (Fig. 43)", row("cpe", yr)["lttv_level"]),
+             ("G", "Total CPE, reform scenario 2020 (Fig. 43)", row("cpe", yr)["lttv_level"]),
              ("H", "Total CPE 2015 (Fig. 43)", row("cpe", 2015)["lttv_level"]),
              ("J", "Total CPE 2014, last actual year (Fig. 43)", row("cpe", 2014)["lttv_level"]),
              ("N1", "CPE impact 2020 (Fig. 43)", imp),

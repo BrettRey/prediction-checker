@@ -6,7 +6,7 @@ the covariance is sigma^2 times a fixed matrix).
 Figure 1 (figures/lttv_paths): each revenue series relative to the report's
   no-reform baseline, 2012-2019, with the report's forecast path, a partial
   recalculation of its chain at the uptake the CRTC counted (post hoc), and the 95%
-  range of the no-reform outcome at the pre-stated sigma. Both panels share
+  range of the no-reform outcome at the designated sigma. Both panels share
   one percentage scale.
 Figure 2 (figures/lttv_k_sigma): k and its 95% interval as a function of the
   assumed annual baseline error sigma, with the calibrations marked and the
@@ -107,7 +107,7 @@ for ax, (q, title) in zip(axes, SERIES):
     for u in used:
         ax.axvline(u, color=COLORS["dark"], lw=0.4, ls=":")
     ax.axvline(100 * s_pre, color=COLORS["dark"], lw=1.0)
-    ax.text(100 * s_pre + 0.08, 4.6, "pre-stated", fontsize=7.5, color=COLORS["dark"])
+    ax.text(100 * s_pre + 0.08, 4.6, "designated", fontsize=7.5, color=COLORS["dark"])
     ax.set_title(title, fontsize=10)
     ax.set_xlim(1, 8)
     ax.set_xlabel("Annual error scale of the baseline, σ (%)")

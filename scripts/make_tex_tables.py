@@ -141,7 +141,7 @@ den_label = {  # display names; the numerator column carries the $399M/$352M dis
     "$352M programming-services impact / programming services": "Programming services",
     "$352M / programming services excl. CBC/SRC": "Programming services excl. CBC/SRC",
     "$352M / specialty + pay": "Specialty and pay",
-    "$399M / 2020 LTTV-scenario CPE (Fig. 43 level)": "All CPE, LTTV scenario 2020",
+    "$399M / 2020 LTTV-scenario CPE (Fig. 43 level)": "All CPE, reform scenario 2020",
     "$399M / 2015 CPE (Fig. 43, current at the time of testimony)": "All CPE 2015 (report's forecast)",
     "$399M / 2014 CPE (Fig. 43, last actual year)": "All CPE 2014 (last actual year)"}
 cands = rows("cpe_share_candidates.csv")
