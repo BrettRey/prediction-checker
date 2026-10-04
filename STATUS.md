@@ -15,7 +15,7 @@ claim:
 ---
 
 # Prediction checker
-<!-- SUMMARY: audit of a forecast put to Parliament (CRTC Let's Talk TV); full EJW draft (27 pp., 2 figures, table 1 and tables B1–B8; tv-unbundling-forecast-check.tex); Kane-style bulleted findings, slimmer §3 with detail in Appendix A, impact-study and bundling literature added; Codex recheck 5 of all changes since recheck 4 done and its seven findings applied (Crawford–Yurukoglu reading corrected); numbers, quote, inference, negative-claims and fairness audits current; pushed 2026-10-04 through 912d089 after a history-wide payload check · status: development (drafting for EJW) · updated: 2026-10-04 -->
+<!-- SUMMARY: audit of a forecast put to Parliament (CRTC Let's Talk TV); full EJW draft (28 pp., 2 figures, table 1 and tables B1–B8; tv-unbundling-forecast-check.tex); Kane-style bulleted findings, slimmer §3 with detail in Appendix A, impact-study and bundling literature added; Codex recheck 5 applied (Crawford–Yurukoglu reading corrected); post hoc σ-integrated check in two versions (verdicts hold when outcomes inform σ, depend on the prior when the prior alone sets it) and 50% intervals added, checked by Codex recheck 6; pushed 2026-10-04 through 912d089, later commits unpushed · status: development (drafting for EJW) · updated: 2026-10-04 -->
 
 ## State
 
