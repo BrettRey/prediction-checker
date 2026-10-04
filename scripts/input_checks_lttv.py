@@ -101,7 +101,7 @@ for when, n, src in uptake:
     L.append(f"| {when} | {n:,} | {n / den:.1%} | {src} |")
 L += ["",
       "CRTC-published counts (the plan's first tier) exist only for 2016, months after launch, so they can't settle the "
-      "report's 2017-2018 values. Company disclosures (second tier) not yet searched. The April release adds that "
+      "report's 2017-2018 values. Company disclosures (second tier) were searched and none found (DECISIONS.md, entry on uptake for 2017-2019). The April release adds that "
       "'more than 1 out of 3' of the 66,000 also took individual channels or small packages.",
       "",
       "## Closures, 2015 to 2019-2020",
@@ -112,16 +112,19 @@ L += ["",
       "which closed or became exempt (exempt services file but aren't published individually). Crosswalk: "
       "`data/derived/closures_crosswalk.csv`.",
       "",
-      "| Corus counted as VI | Group | Services in 2015 | Operating | Closed | Not listed | Share closed (bounds) |",
+      "| Classification | Group | Services in 2015 | Operating | Closed | Not listed | Share closed (bounds) |",
       "|---|---|---|---|---|---|---|"]
+LABEL = {"plan_2015_owner": "plan: 2015 owner", "True": "Corus counted as VI", "False": "2016 owner field (earlier implementation)"}
 for c in closures:
-    L.append(f"| {c['corus_counted_vi']} | {c['group']} | {c['n_2015']} | {c['operating']} | {c['closed']} | "
-             f"{c['absent']} | {float(c['share_closed_lower']):.0%}-{float(c['share_closed_upper']):.0%} |")
+    n, lo, ab = int(c["n_2015"]), int(c["closed"]), int(c["absent"])
+    L.append(f"| {LABEL[c['corus_counted_vi']]} | {c['group']} | {n} | {c['operating']} | {lo} | "
+             f"{ab} | {lo / n:.1%} to {(lo + ab) / n:.1%} |")
 L += ["",
-      "Vertically integrated: the bounds sit around the report's 10% and below the 25-26% it cites from Bell and Oliver "
-      "Wyman. Independent: too wide to compare with 25%. The plan's ownership rule (2015 owner, with Shaw Media as "
-      "vertically integrated) couldn't be applied directly: the 2016-vintage owner field already lists the former Shaw "
-      "Media services under Corus. The two versions shown (Corus in, Corus out) bracket the planned classification.",
+      "Vertically integrated, on the plan's rule (2015 owner; Shaw Media's 19 services identified from CRTC ownership "
+      "charts 32h and 32i as of 2016-03-31, `data/derived/closures_owner2015.csv`): 3 to 4 of 57 closed, against about 6 at "
+      "the report's 10%, a difference of two or three channels. With Corus counted as VI, as the report's n. 31 lists "
+      "Shaw/Corus: 5 to 9 of 80, against 8. Independent: too wide to compare with 25%. The 2016-owner-field rows are the "
+      "earlier implementation, which departed from the plan.",
       "",
       "## Payments to Canadian services [post hoc observables]",
       "",

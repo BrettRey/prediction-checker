@@ -238,6 +238,11 @@ M["lttvPrepFrom"] = pct(PC.REPORT_PREPONDERANCE_FROM)
 M["lttvPrepTo"] = pct(PC.REPORT_PREPONDERANCE_TO)
 M["lttvReportClosuresVI"] = pct(PC.REPORT_CLOSURES_VI)
 M["lttvReportClosuresIndep"] = pct(PC.REPORT_CLOSURES_INDEP)
+# Closure counts behind the bounds, and the number each report rate implies for the same denominator
+for key, row, rate in (("VIPlan", vip, PC.REPORT_CLOSURES_VI), ("VICorus", vic, PC.REPORT_CLOSURES_VI), ("IndPlan", indp, PC.REPORT_CLOSURES_INDEP)):
+    n_, lo_ = int(row["n_2015"]), int(row["closed"])
+    M[f"lttvClos{key}N"], M[f"lttvClos{key}Closed"], M[f"lttvClos{key}Upper"] = str(n_), str(lo_), str(lo_ + int(row["absent"]))
+    M[f"lttvClos{key}Implied"] = str(round(rate * n_))
 # The report's pass-through rule applied to the observed 2015-2019 fall in BDU revenue
 bdu_drop = obs[("bdu_revenue", 2015)] - obs[("bdu_revenue", 2019)]
 M["lttvPassImplied"] = money(bdu_drop * PC.REPORT_CANADIAN_SHARE * PC.REPORT_PASS_THROUGH)

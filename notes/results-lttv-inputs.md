@@ -12,22 +12,22 @@ Report: BYOP (entry-level plus picks) 5% of BDU subscribers in 2016, 10% in 2017
 | early April 2016 (five weeks after launch) | 66,000 | 0.6% | CRTC news release, 15 April 2016 |
 | 30 June 2016 | 177,000 | 1.6% | CRTC Chairman, hearing of 7 September 2016, para. 12 |
 
-CRTC-published counts (the plan's first tier) exist only for 2016, months after launch, so they can't settle the report's 2017-2018 values. Company disclosures (second tier) not yet searched. The April release adds that 'more than 1 out of 3' of the 66,000 also took individual channels or small packages.
+CRTC-published counts (the plan's first tier) exist only for 2016, months after launch, so they can't settle the report's 2017-2018 values. Company disclosures (second tier) were searched and none found (DECISIONS.md, entry on uptake for 2017-2019). The April release adds that 'more than 1 out of 3' of the 66,000 also took individual channels or small packages.
 
 ## Closures, 2015 to 2019-2020
 
 Report: by 2020, 10% of vertically integrated Category A/B services and 25% of independent A/B services shut (paras. 232-233); Bell suggested about 25% of its services, Oliver Wyman 26% (para. 230). Bounds [post hoc]: the lower counts services still listed with no revenue in 2019 and 2020; the upper adds services no longer listed, which closed or became exempt (exempt services file but aren't published individually). Crosswalk: `data/derived/closures_crosswalk.csv`.
 
-| Corus counted as VI | Group | Services in 2015 | Operating | Closed | Not listed | Share closed (bounds) |
+| Classification | Group | Services in 2015 | Operating | Closed | Not listed | Share closed (bounds) |
 |---|---|---|---|---|---|---|
-| False | independent A/B | 127 | 85 | 8 | 34 | 6%-33% |
-| False | VI A/B | 38 | 34 | 3 | 1 | 8%-10% |
-| True | independent A/B | 85 | 48 | 6 | 31 | 7%-44% |
-| True | VI A/B | 80 | 71 | 5 | 4 | 6%-11% |
-| plan_2015_owner | independent A/B | 108 | 66 | 8 | 34 | 7%-39% |
-| plan_2015_owner | VI A/B | 57 | 53 | 3 | 1 | 5%-7% |
+| 2016 owner field (earlier implementation) | independent A/B | 127 | 85 | 8 | 34 | 6.3% to 33.1% |
+| 2016 owner field (earlier implementation) | VI A/B | 38 | 34 | 3 | 1 | 7.9% to 10.5% |
+| Corus counted as VI | independent A/B | 85 | 48 | 6 | 31 | 7.1% to 43.5% |
+| Corus counted as VI | VI A/B | 80 | 71 | 5 | 4 | 6.2% to 11.2% |
+| plan: 2015 owner | independent A/B | 108 | 66 | 8 | 34 | 7.4% to 38.9% |
+| plan: 2015 owner | VI A/B | 57 | 53 | 3 | 1 | 5.3% to 7.0% |
 
-Vertically integrated: the bounds sit around the report's 10% and below the 25-26% it cites from Bell and Oliver Wyman. Independent: too wide to compare with 25%. The plan's ownership rule (2015 owner, with Shaw Media as vertically integrated) couldn't be applied directly: the 2016-vintage owner field already lists the former Shaw Media services under Corus. The two versions shown (Corus in, Corus out) bracket the planned classification.
+Vertically integrated, on the plan's rule (2015 owner; Shaw Media's 19 services identified from CRTC ownership charts 32h and 32i as of 2016-03-31, `data/derived/closures_owner2015.csv`): 3 to 4 of 57 closed, against about 6 at the report's 10%, a difference of two or three channels. With Corus counted as VI, as the report's n. 31 lists Shaw/Corus: 5 to 9 of 80, against 8. Independent: too wide to compare with 25%. The 2016-owner-field rows are the earlier implementation, which departed from the plan.
 
 ## Payments to Canadian services [post hoc observables]
 
