@@ -42,7 +42,7 @@ All CPE 2014 (last actual year) & J & 399 & 3,324 & 12.0\% \\
 \begin{table}[htbp]
 \centering
 \small
-\caption{Inputs to \(k\) (dollar amounts in \$ millions): the report's forecast impact with its four components and its baseline (the reform-path level plus the impact), from Figs.~41 and 42 (2016 components from Figs.~34--36, 39 and 40), and the CRTC outcome (2020 edition; channels exclude services exempt from individual licensing). The historical volatility is the standard deviation of annual log changes in the report's 2010--2014 values. With \(\sigma\) the larger of that volatility and the calibration's value (table~\ref{tab:calibrations}), \(\hat k\) and its interval follow from the formulas in appendix~\ref{app:methods}. The cited-input band scales the unbundling and preponderance components by 0.10/0.15 (low) and 0.35/0.15 (high), and closures by 2.5 in the high case. Produced by \texttt{scripts/crtc\_outcomes\_lttv.py}; data in \texttt{data/derived/nordicity\_2015\_scenarios.csv} and \texttt{data/derived/crtc\_lttv\_outcomes.csv}.}
+\caption{Inputs to \(k\) (dollar amounts in \$ millions): the report's forecast impact with its four components and its baseline (the reform-path level plus the impact), from Figs.~41 and 42 (2016 components from Figs.~34--36, 39 and 40), and the CRTC outcome (2020 edition; channels exclude services exempt from individual licensing). The historical volatility is the standard deviation of annual log changes in the report's 2010--2014 values. With \(\sigma\) the larger of that volatility and the calibration's value (table~\ref{tab:calibrations}), \(\hat k\) and its interval follow from the formulas in appendix~\ref{app:methods}. To construct the cited-input band, I scale the unbundling and preponderance components by 0.10/0.15 (low) and 0.35/0.15 (high), and closures by 2.5 in the high case. Produced by \texttt{scripts/crtc\_outcomes\_lttv.py}; data in \texttt{data/derived/nordicity\_2015\_scenarios.csv} and \texttt{data/derived/crtc\_lttv\_outcomes.csv}.}
 \label{tab:inputs}
 \begin{tabular}{lrrrr}
 \toprule
@@ -82,7 +82,7 @@ Cited-input band for \(k\) & \multicolumn{4}{l}{0.80 to 2.24} \\
 \begin{table}[htbp]
 \centering
 \small
-\caption{Partial recalculations under assumed uptake paths, an exploratory comparison added after the outcome data was opened; uptake after June 2016 is assumed. Each year's unbundling and preponderance components (table~\ref{tab:inputs}) are multiplied by the path's uptake over the report's share for that year (Table~18), the exemption-order and closure dollar components are held fixed (an approximation: the report values them partly from the others), and the resulting shortfall path \(\delta^{u}_t\) is projected like the band: \(k^{u}=\delta'\Sigma^{-1}\delta^{u}/\delta'\Sigma^{-1}\delta\). Rising paths are linear from the 2016 count. The flat 10\% path differs from the band's low case, which scales the report's ramp. Estimates \(\hat k\) and intervals at the designated error scale. Produced by \texttt{scripts/crtc\_outcomes\_lttv.py}; data in \texttt{data/derived/uptake\_conditional\_lttv.csv}.}
+\caption{Partial recalculations under assumed uptake paths, an exploratory comparison added after the outcome data was opened; uptake after June 2016 is assumed. Each year's unbundling and preponderance components (table~\ref{tab:inputs}) are multiplied by the path's uptake over the report's share for that year (Table~18), the dollar components for the exemption order and closures are held fixed (an approximation: the report values them partly from the others), and the resulting shortfall path \(\delta^{u}_t\) is projected like the band: \(k^{u}=\delta'\Sigma^{-1}\delta^{u}/\delta'\Sigma^{-1}\delta\). Rising paths are linear from the 2016 count. The flat 10\% path differs from the band's low case, which scales the report's year-by-year uptake shares. Estimates \(\hat k\) and intervals at the designated error scale. Produced by \texttt{scripts/crtc\_outcomes\_lttv.py}; data in \texttt{data/derived/uptake\_conditional\_lttv.csv}.}
 \label{tab:scenarios}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
@@ -256,7 +256,7 @@ Model check and offset model & post hoc & \texttt{3867d78} \\
 Rule for splitting distributors' revenue into subscribers and revenue per subscriber & post hoc, fixed before computing & \texttt{4a722a0} \\
 The revenue split; corrected residual check; coverage check; sensitivity display extended to the planned 8\% & post hoc & \texttt{2bbb326} \\
 Survey uptake path (Media Technology Monitor 2017, outside the plan's sources) & post hoc, fixed before computing & \texttt{026f602} \\
-Survey path computed and reported beside the planned reading & post hoc & \texttt{ed8961d} \\
+Survey path computed and reported beside the evidence the plan allows & post hoc & \texttt{ed8961d} \\
 Closures classified by 2015 owner, as the plan specified (Shaw Media's services from CRTC ownership charts) & post hoc, correction & \texttt{44e281f} \\
 Error scale integrated out under two priors; 50\% intervals shown beside the 95\% ones & post hoc, fixed before computing & \texttt{6e71cad} \\
 Error scale from the prior alone (computed after the version above) & post hoc & \texttt{f6ea949} \\

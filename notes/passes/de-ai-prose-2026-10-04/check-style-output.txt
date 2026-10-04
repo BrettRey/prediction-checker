@@ -1,0 +1,73 @@
+=== sections/intro.tex
+No style violations found.
+
+AI VOICE CHECK
+
+  --- sections/intro.tex ---
+    Line 16: AI pattern: trailing evaluative -ing supplement
+      \item In the comparisons the plan fixed in advance, allowing for error in the report's own baseli...
+    Line 16: AI pattern: possible false range; verify the endpoints form a real scale
+      \item In the comparisons the plan fixed in advance, allowing for error in the report's own baseli...
+    Line 26: AI pattern: possible false range; verify the endpoints form a real scale
+      A close precedent is \textcite{kane2026sffa}, who checked the admissions and enrolment forecasts ...
+
+
+
+  --- sections/intro.tex ---
+    [note] 31 sentences is too small a sample to judge rhythm; numbers only
+
+=== sections/case-lttv.tex
+
+Found 3 potential style violation(s):
+
+
+=== sections/case-lttv.tex ===
+  Line 89: [warning] Noticeable 'The X is Y' paragraph-opener cadence (5; lines 33, 47, 89, 95, 129) - vary if not defining, contrasting, or pivoting
+    The prediction record (forecasters, quantities, paths by year, stated ; The o...
+  Line 18: Uncontracted pronoun + auxiliary 'that is' - prefer 'that's'
+    The report divides the revenue shortfall into four components: unbundling; th...
+  Line 59: Oxford spelling: 'pointwise' -> 'pointwize'
+    \caption{Revenue relative to the report's baseline, 2012--2019, in per cent o...
+
+AI VOICE CHECK
+
+  --- sections/case-lttv.tex ---
+    Line 87: AI pattern: possible false range; verify the endpoints form a real scale
+      Splitting distributors' revenue into subscribers and revenue per subscriber shows where their sho...
+
+
+
+  --- sections/case-lttv.tex ---
+
+=== sections/discussion.tex
+
+Found 1 potential style violation(s):
+
+
+=== sections/discussion.tex ===
+  Line 40: [warning] Noticeable 'The X is Y' paragraph-opener cadence (3; lines 11, 23, 40) - vary if not defining, contrasting, or pivoting
+    The partial recalculations, added after the outcome data was opened, c; The u...
+
+
+  --- sections/discussion.tex ---
+
+=== sections/appendix.tex
+
+Found 5 potential style violation(s):
+
+
+=== sections/appendix.tex ===
+  Line 15: Underscore subscript - use \textsubscript{}
+    so the outcome without the decisions would have been \(B_te^{-e_t}\), and the...
+  Line 17: Underscore subscript - use \textsubscript{}
+    \operatorname{Cov}(e_t,e_u)=\sigma^2\min(t-2014,\,u-2014).
+  Line 32: Underscore subscript - use \textsubscript{}
+    for US Netflix subscribers in 2018 (\(h=4\) years from 2014). For 2018 the re...
+  Line 36: Underscore subscript - use \textsubscript{}
+    the maximum-likelihood s.d.\ of a random walk from 2014 observed at \(h=2,3,4...
+  Line 40: Underscore subscript - use \textsubscript{}
+    The priors and what to report were fixed in \texttt{DECISIONS.md} before the ...
+
+
+  --- sections/appendix.tex ---
+
