@@ -47,3 +47,10 @@
 - Table B1's unused component labels E, N1, N2: harmless, kept.
 
 **Checks.** Rebuilt with nonstopmode, 25 pages, only the two pre-existing hairline overfulls; macro file changed only by the two new preponderance macros; check-style reports nothing new.
+
+## Follow-ups after review (same day)
+
+- The moved quotation ("materially increase cord cutting and cord shaving") has its own locator again (para. xxiii); the preponderance clause carries para. 212.
+- The §2 components paragraph and the §3 band paragraph were split (house cap ~100 words); the uptake-scaling sentence now names the components instead of "the first two".
+- Mechanical pre-pass rerun on the edited text: one new pointer ("The first two components"), fixed; the rest are false positives.
+- **Closures classification, open for Brett.** The plan classifies ownership "by the 2015 owner" (Shaw Media integrated) and asks for results also with Corus counted as integrated. `scripts/closures_lttv.py` classifies by the owner field of the 2016 summaries, where the former Shaw Media channels are listed under Corus. So the primary range counts Shaw Media's former channels as independent, and neither reported version is the plan's literal rule (Shaw Media's former channels integrated, Corus's own independent). Both versions put the integrated companies at 6–11% around the report's 10%, and both independents' ranges contain 25%. §5.2 now states what was done and the mismatch; computing the plan-literal version would need the 2015 owner of each service.
