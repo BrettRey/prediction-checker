@@ -40,3 +40,9 @@ Run by Claude Opus 5.5 following `passes/registry/source-reread.yaml`. `lit cite
 - `sections/discussion.tex`: the "good news" remark placed in its actual context.
 
 Rebuilt with nonstopmode, 27 pages, hairline overfulls only.
+
+## Addendum, 2026-10-04: Harrington et al. read in full (side-agent note on the printed bibliography note)
+
+The printed reference list carried "Only the abstract and opening pages were read". The local PDF (`literature/harrington_morgenstern_nelson_1999_rff_dp9918_partial.pdf`) is in fact the complete 44-page discussion paper; its filename and header comment said "partial" in error (header corrected). Reading the results (section IV, Table 3, p. 14) and conclusions (section VI, pp. 22–23) found that the paper's own summary is inconsistent: the abstract (p. ii) and conclusions (p. 23) say ex ante total costs were too low for "only 6" of the 25 rules, but Table 3 and its text give total costs "underestimated in just two cases" (12 overestimated, 5 accurate, 6 unable to determine); 6 is the table's count of per-unit cost underestimates. Simpson (2014, 319) reports the published 2000 version as 14 overestimates and 3 underestimates of 28 rules.
+
+**Correction:** the introduction now cites Table 3 (p. 14): exceeded for 12 of 25 and fell short for 2, noting that the abstract gives 6; the quotation "driven by both baseline and compliance issues" keeps p. ii. The bibliography note about partial reading is removed. Alternative left to Brett: cite the published version's counts (14 and 3 of 28) through Simpson's summary instead.
