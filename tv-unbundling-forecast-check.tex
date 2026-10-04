@@ -3,6 +3,10 @@
 % House style preamble
 \input{.house-style/preamble.tex}
 
+% A float takes a page of its own only if it fills three quarters of it
+% (the default, half, gave figure 1 a page with the lower half empty)
+\renewcommand{\floatpagefraction}{0.75}
+
 % Numbers for the case sections, generated from data/derived/ (do not edit)
 \input{sections/numbers-lttv}
 
