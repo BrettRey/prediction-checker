@@ -1,5 +1,5 @@
 # Coherence and cohesion pass, 2026-10-03
-<!-- SUMMARY: spine map plus 14 proposed flow edits for Brett's approval (CriticMarkup, Roughdraft); text at commit bafa1ec · status: awaiting review · updated: 2026-10-03 -->
+<!-- SUMMARY: spine map plus 14 proposed flow edits for Brett's approval (CriticMarkup, Roughdraft); text at commit bafa1ec · status: all 14 accepted and applied · updated: 2026-10-03 -->
 
 Run by Claude Opus 5.5 on the main text (sections 1–6) at commit bafa1ec, following `passes/registry/coherence-cohesion.yaml`: spine map first, then a sliding three-paragraph window. Edits are proposed, not applied. Accept or reject each one; I'll apply the accepted ones to the LaTeX. Excerpts show rendered numbers, not macros.
 
@@ -80,6 +80,11 @@ Every section's line can be written, so there's no structural finding. The defec
 - **Duplicated verdict, §6 para 2 and §4.3.** The standard-error sentence ("the distributors' estimate lies 2.1 standard errors above ... 3.7 standard errors above the estimate") repeats §4.3. I'd keep it: it's the only place the discussion states the two readings concretely. Cut it if you prefer a shorter discussion.
 - **§4.2 opening.** The move from the revenue verdicts to the uptake evidence is carried by the heading alone. I think that's enough.
 - **No announcing openers** ("In this section I ...") found. The introduction's roadmap is a roadmap, not an announcement.
+
+
+## 4. Outcome
+
+Brett accepted all 14 edits ("accept all", in chat, after a Roughdraft session that closed with no decisions recorded). Applied to the LaTeX as proposed; the rendered numbers in the excerpts are macros in the source. Rebuilt with nonstopmode: 27 pages, only hairline overfulls. The proposals as sent are kept verbatim in `coherence-cohesion-2026-10-03-proposed.md`.
 
 ---
 comments:
