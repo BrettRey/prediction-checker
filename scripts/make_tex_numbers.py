@@ -229,6 +229,8 @@ M["lttvCitedClosuresMult"] = f"{PC.CITED_CLOSURES_HIGH_MULT:g}"
 M["lttvSpliceTol"] = pct(PC.SPLICE_TOLERANCE)
 M["lttvReportPassThrough"] = pct(PC.REPORT_PASS_THROUGH)
 M["lttvReportCanShare"] = pct(PC.REPORT_CANADIAN_SHARE)
+M["lttvPrepFrom"] = pct(PC.REPORT_PREPONDERANCE_FROM)
+M["lttvPrepTo"] = pct(PC.REPORT_PREPONDERANCE_TO)
 M["lttvReportClosuresVI"] = pct(PC.REPORT_CLOSURES_VI)
 M["lttvReportClosuresIndep"] = pct(PC.REPORT_CLOSURES_INDEP)
 # The report's pass-through rule applied to the observed 2015-2019 fall in BDU revenue

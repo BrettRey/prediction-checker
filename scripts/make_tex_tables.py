@@ -126,7 +126,7 @@ L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       "\\caption{The report's \\$399 million reduction in Canadian programming expenditure (CPE) in 2020, and its \\$352 million "
       "programming-services part, as shares of the denominators tested, built from the report's own figures (Figs.~8, 9, 43). "
       "The report states 18\\% of baseline CPE (para.~239); the testimony said 18\\% \\enquote{of what now exists} (Commons evidence, time marks 0900--0905). "
-      "Letters refer to the components in the lower panel.}",
+      "Letters refer to the components in the lower panel. CBC/SRC: CBC/Radio-Canada; CMF: Canada Media Fund; PPV: pay-per-view; VOD: video on demand.}",
       "\\label{tab:cpe-denominators}",
       "\\footnotesize",
       "\\begin{tabular}{>{\\raggedright\\arraybackslash}p{0.34\\textwidth}lrrr}", "\\toprule",
@@ -157,8 +157,8 @@ L += ["\\bottomrule", "\\end{tabular}", "\\end{table}", ""]
 
 # A2: inputs to k
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",
-      "\\caption{Inputs to \\(k\\), in \\$ millions: the report's forecast impact with its four components and its baseline "
-      "(the reform-path level plus the impact), from Figs.~41 and 42 (2016 components from Figs.~34--36, 39 and 40), and the CRTC outcome (2020 edition; channels exclude exempt services). The historical "
+      "\\caption{Inputs to \\(k\\) (dollar amounts in \\$ millions): the report's forecast impact with its four components and its baseline "
+      "(the reform-path level plus the impact), from Figs.~41 and 42 (2016 components from Figs.~34--36, 39 and 40), and the CRTC outcome (2020 edition; channels exclude services exempt from individual licensing). The historical "
       "volatility is the standard deviation of annual log changes in the report's 2010--2014 values. With \\(\\sigma\\) "
       "the larger of that volatility and the calibration's value (table~\\ref{tab:calibrations}), \\(\\hat k\\) and its "
       "interval follow from the formulas in appendix~\\ref{app:methods}. The cited-input band scales the unbundling and "
@@ -212,7 +212,7 @@ L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       "are multiplied by the path's uptake over the report's share for that year (Table~18), the exemption-order and "
       "closure dollar components are held fixed (an approximation: the report values them partly from the others), and the resulting shortfall path \\(\\delta^{u}_t\\) is projected like "
       "the band: \\(k^{u}=\\delta'\\Sigma^{-1}\\delta^{u}/\\delta'\\Sigma^{-1}\\delta\\). Rising paths are linear from the "
-      "2016 count. Estimates \\(\\hat k\\) and intervals at the designated error scale. Produced by "
+      "2016 count. The flat 10\\% path differs from the band's low case, which scales the report's ramp. Estimates \\(\\hat k\\) and intervals at the designated error scale. Produced by "
       "\\texttt{scripts/crtc\\_outcomes\\_lttv.py}; data in \\texttt{data/derived/uptake\\_conditional\\_lttv.csv}.}",
       "\\label{tab:scenarios}",
       "\\footnotesize", "\\setlength{\\tabcolsep}{4pt}",
@@ -314,7 +314,7 @@ L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       "\\caption{Distributors' revenue split into subscribers and revenue per subscriber (post hoc; rule fixed before computing). "
       "Panel (a): CRTC subscriber counts (2016 edition to 2015, 2020 edition after) and revenue per subscriber per month, against "
       "the report's baseline subscribers (Fig.~17) and its revenue per subscriber, baseline revenue over 12 times subscribers "
-      "(Fig.~19's average revenue per unit, ARPU, shown for comparison). Panel (b): the change in each gap from 2014, when the report's figures were "
+      "(the report's Fig.~19 average revenue per unit, shown for comparison). Panel (b): the change in each gap from 2014, when the report's figures were "
       "actuals, against the report's scenario, whose subscriber part is its added cord cutting (Tables~5, 20, 21) and whose "
       "per-subscriber part is everything else; the last two columns are the report's chain recalculated with uptake held at "
       "the CRTC's June 2016 count, and on the survey path (outside the plan's rule), other dollar components fixed. "
@@ -399,22 +399,22 @@ L += ["\\bottomrule", "\\end{tabular}", "\\end{table}", ""]
 # A7: chronology (commit hashes from the repository's history)
 chron = [
     ("Prediction record frozen", "pre-stated", "5277480"),
-    ("Analysis plan; lead case", "pre-stated", "ea0564b"),
+    ("Analysis plan; choice of this case", "pre-stated", "ea0564b"),
     ("Design analysis and reading rules", "pre-stated", "08a6180"),
-    ("Quantity definitions, splice rule, verdict bands, Netflix calibration rule", "pre-stated", "66f9c25"),
-    ("Outcome data first opened; exempt services removed; series rescaled to the report's 2014 (sensitivity); affiliation payments as a pass-through observable", "post hoc", "c2e6fa4"),
+    ("Quantity definitions, rule for joining the 2016 and 2020 CRTC editions, verdict bands, Netflix calibration rule", "pre-stated", "66f9c25"),
+    ("Outcome data first opened; exempt services removed; CRTC series rescaled to the report's 2014 level (sensitivity); affiliation payments as a pass-through observable", "post hoc", "c2e6fa4"),
     ("Closure and uptake definitions", "after revenue outcomes; before these sources", "1e61069"),
-    ("Closures reported as bounds; multiverse over calibrations", "post hoc", "40c7076"),
+    ("Closures reported as bounds; all calibrations reported together", "post hoc", "40c7076"),
     ("Growth-based calibrations", "post hoc", "187b4c5"),
-    ("Direct employment (reading rule 6; the 2012--2015 trend comparator chosen then)", "comparison rule pre-stated; trend comparator post hoc", "f952668"),
+    ("Direct employment comparison (the plan's rule; the 2012--2015 trend comparator chosen then)", "comparison rule pre-stated; trend comparator post hoc", "f952668"),
     ("Partial recalculations under assumed uptake; fees per subscriber against Table~14", "post hoc", "ecde24b"),
     ("Uptake scenarios held flat per year", "post hoc, correction", "cc360dd"),
     ("Rising uptake paths", "post hoc", "ff1154c"),
     ("Changes stated after inflation (descriptive)", "post hoc", "764a690"),
     ("Model check and offset model", "post hoc", "3867d78"),
     ("Rule for splitting distributors' revenue into subscribers and revenue per subscriber", "post hoc, fixed before computing", "4a722a0"),
-    ("That split; corrected residual check; coverage check; sensitivity display extended to the planned 8\\%", "post hoc", "2bbb326"),
-    ("Survey uptake path (MTM 2017, outside the plan's sources)", "post hoc, fixed before computing", "026f602"),
+    ("The revenue split; corrected residual check; coverage check; sensitivity display extended to the planned 8\\%", "post hoc", "2bbb326"),
+    ("Survey uptake path (Media Technology Monitor 2017, outside the plan's sources)", "post hoc, fixed before computing", "026f602"),
     ("Survey path computed and reported beside the planned reading", "post hoc", "ed8961d"),
 ]
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",

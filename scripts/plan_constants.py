@@ -5,6 +5,8 @@ report, shared by every script so the analysis and the manuscript can't drift.
 REPORT_UPTAKE_2018 = 0.15        # BYOP share of subscribers from 2018 (Table 18, p. 76)
 REPORT_PASS_THROUGH = 0.75       # share of BDU retail loss passed to Canadian services (para. 207, p. 77)
 REPORT_CANADIAN_SHARE = 0.86     # Canadian services' share of BDU retail loss (para. 206, p. 77)
+REPORT_PREPONDERANCE_FROM = 0.86 # Canadian share of BYOP subscribers' wholesale fees, 2015 (para. 212)
+REPORT_PREPONDERANCE_TO = 0.50   # ... by 2020 under the reform scenario (para. 212)
 REPORT_CLOSURES_VI = 0.10        # vertically integrated A/B services shut by 2020 (para. 232, p. 85)
 REPORT_CLOSURES_INDEP = 0.25     # independent A/B services shut by 2020 (para. 233, p. 85)
 # Ranges the report cites from others (paras. 201, 230)
