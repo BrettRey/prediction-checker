@@ -14,7 +14,6 @@
 
 # Build products (placeholder manuscript; commit PDFs deliberately when there is text)
 /tv-unbundling-forecast-check.pdf
-/prediction-checker.pdf
 
 # Raw agent output and intake material (not for publication)
 notes/intake/
