@@ -208,7 +208,7 @@ display = {"CRTC count, 30 June 2016": "Held at the CRTC's June 2016 entry-level
            "survey path: 2016 count, then 10% from 2017": "Survey path: 1.6\\%, then 10\\% from 2017 (outside the plan's sources)"}
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       "\\caption{Partial recalculations under assumed uptake paths, an exploratory comparison added after the outcome data was "
-      "opened; uptake after June 2016 is assumed, and a scenario coefficient inside the interval isn't thereby confirmed. Each year's unbundling and preponderance components (table~\\ref{tab:inputs}) "
+      "opened; uptake after June 2016 is assumed. Each year's unbundling and preponderance components (table~\\ref{tab:inputs}) "
       "are multiplied by the path's uptake over the report's share for that year (Table~18), the exemption-order and "
       "closure dollar components are held fixed (an approximation: the report values them partly from the others), and the resulting shortfall path \\(\\delta^{u}_t\\) is projected like "
       "the band: \\(k^{u}=\\delta'\\Sigma^{-1}\\delta^{u}/\\delta'\\Sigma^{-1}\\delta\\). Rising paths are linear from the "
