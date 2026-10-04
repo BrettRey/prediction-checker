@@ -1,0 +1,983 @@
+         Checking a forecast put to Parliament: unbundling
+                 Canadian television, 2016–2019
+                                         Brett Reynolds *
+                             Humber Polytechnic & University of Toronto
+                                                  3rd October 2026
+
+
+                                                          Abstract
+               I check a forecast put to a Canadian parliamentary committee: a commissioned study’s es-
+           timate that new television rules would cost 15,130 jobs by 2020. Under a plan fixed before
+           collecting outcomes, I compare its intermediate predictions with regulator data for 2016–2019;
+           neither the job total nor the rules’ causal effect is tested. At the plan’s error scale, the channel rev-
+           enue on which most of the job figure depends lost less ground against the study’s baseline than
+           any uptake estimate the study cited implies, and distributors’ revenue was consistent with the
+           forecast. How far the uptake assumption explains this depends on uptake after mid-2016, when
+           the regulator counted 1.6% of subscribers on the new entry-level package, against the study’s 5%
+           taking it with chosen channels; a 2017 survey outside the plan’s sources put adoption near the
+           study’s figure for that year. The testimony called an economy-wide estimate media jobs and
+           omitted the uptake assumption.
+
+    Keywords: forecast evaluation; ex post analysis; economic impact studies; broadcasting regulation;
+    Canada
+    AI use. Claude Opus 5.5 served as a drafting and editing aid and wrote the analysis code. GPT-6 Astra ran
+    independent checks of the numbers, the inference, the quotations and the fairness of the account. I am re-
+    sponsible for all theoretical claims, arguments, errors, and interpretive choices.
+
+1   Introduction
+    On 12 April 2016 Ian Morrison of Friends of Canadian Broadcasting told a committee of the House
+    of Commons that the Canadian Radio-television and Telecommunications Commission’s (CRTC’s)
+    new rules for television would, “by 2020”, cost “some 15,130 media jobs”, “all of this as the direct
+    result of Let’s Talk TV regulatory changes” (House of Commons Standing Committee on Canadian
+    Heritage, 2016, time marks 0900–0905). The rules, the outcome of the CRTC’s Let’s Talk TV pro-
+    ceeding, required cable, satellite and IPTV distributors to offer a $25 entry-level package and to sell
+    discretionary channels singly or in small bundles (Canadian Radio-television and Telecommunica-
+    tions Commission [CRTC], 2015).
+       * Contact: brett.reynolds@humber.ca
+
+
+                                                              1
+1 Introduction                                                                                         2
+
+
+     The number came from an economic-impact study by the consultancy Nordicity and Peter Miller,
+commissioned by Friends of Canadian Broadcasting and four other organizations in the sector; the re-
+port attributes its analysis and conclusions to the authors, not necessarily the commissioning groups
+(Nordicity & Miller, 2015). It modelled what the rules would do to distributors’ and channels’ rev-
+enue, to spending on Canadian programming, and, through input-output multipliers, to jobs and
+GDP through 2020, stating its assumptions link by link. CRTC series on revenue, programming
+spending and staff are now available for those years. My recorded searches of scholarly databases and
+the web found no published comparison of the forecast’s numerical paths with outcomes (the quer-
+ies are in the replication files). Miller’s later work for the CRTC discusses what the decisions led to,
+and acknowledges an error in a separate prediction of station closures (Miller, 2022, n. 88, n. 196).
+     This paper compares the report’s intermediate predictions (the revenue of specialty and pay ser-
+vices and of distributors, uptake, payments, closures and staff) with what happened through 2019,
+and compares the report with what the committee was told. It tests neither the total employment
+forecast nor the decisions’ causal effect. In the comparisons fixed in advance, at the error scales the
+plan designated, specialty and pay revenue, on which most of the job figure depends, stayed above the
+report’s baseline and lost less ground against it than any uptake estimate the report cited implies; dis-
+tributors’ revenue was consistent with the forecast. The report’s main input, the share of subscribers
+taking an entry-level package with chosen channels, was far above the CRTC’s mid-2016 count of
+entry-level subscribers, though a 2017 survey, outside the sources the plan accepted, suggests starter-
+package adoption later came close to the report’s figure. Among the uptake paths tested, at those
+scales, only a low one keeps both revenue series compatible with a partial recalculation of the report’s
+chain. The testimony described the report’s figures in two ways the report doesn’t support and omit-
+ted the uptake assumption.
+     Economists have long compared what was predicted before a regulation with what happened
+after it. Harrington et al. (1999, p. ii) found that ex ante estimates of direct costs exceeded actual
+costs for 12 of 25 environmental and occupational-safety rules and fell short for 6, with the errors in
+quantities “driven by both baseline and compliance issues”, and a later set of case studies suggested
+“a slight tendency to overestimate both costs and benefits” (Morgenstern, 2018, p. 285). Simpson
+(2014) warns that a preponderance of overestimates need not show bias, since skewed cost distribu-
+tions could produce one anyway; his review notes that the few studies of industry’s own estimates
+found them above outcomes in most cases (Simpson, 2014, pp. 319–320).
+     That work concerns mainly regulators’ estimates of compliance costs and benefits. This case is
+a different kind of forecast: an economy-wide estimate of jobs and output, made for stakeholder or-
+ganizations and presented to legislators in testimony. In policy analysis generally, “Point predictions
+are common and expressions of uncertainty are rare” (Manski, 2011, p. 1).
+     A close precedent is Kane (2026), who checked the admissions and enrolment forecasts made
+by universities and by Harvard’s expert during the litigation that ended in the US Supreme Court’s
+decision in Students for Fair Admissions v. Harvard. He separates the expert’s technical estimate
+from the forecasts the institutions put to the Court, and I make the same separation. The report’s
+technical claim is a conditional forecast, which its authors offered as “the most plausible outlooks
+possible given available information” (Nordicity & Miller, 2015, para. iii): if the rules took effect and
+its assumptions held, revenue, programming spending and jobs would follow given paths. The public
+argument is what the committee was told.
+    2   The forecast and its presentation to Parliament                                                     3
+
+
+         I fixed the forecast record before downloading any CRTC outcome file, and ran a simulation,
+    before opening those files, of whether they could tell a world with the forecast effect from one without
+    it (Gelman & Carlin, 2014; Gelman et al., 2020). The main outcome measure is a forecast scale k for
+    each revenue series, estimated over 2016–2019, the years before the pandemic: k = 0 corresponds
+    to the report’s baseline and k = 1 to its forecast, under a model that allows the baseline itself to be
+    wrong. Analyses added after the outcome data was opened are labelled as such and listed in order in
+    table A8.
+         Section 2 sets out the decision, the forecast and its presentation to Parliament. Section 3 describes
+    how outcomes are compared with the report’s paths, section 4 the revenue outcomes and their sens-
+    itivity, and section 5 payments, closures and staff. Section 6 says what the evidence establishes and
+    what it doesn’t. All amounts are in nominal Canadian dollars, as the report’s are; changes stated after
+    inflation use the consumer price index (Statistics Canada, 2026).
+
+2   The forecast and its presentation to Parliament
+    In March 2015 the CRTC told television distributors to offer, by March 2016, an entry-level service
+    “priced at no more than $25 (not including equipment) per month” (CRTC, 2015, para. 26). Every
+    discretionary channel was to be available on its own or in small packages by March 2016, and in
+    both forms by December 2016 (CRTC, 2015, para. 47). The policy came out of the Let’s Talk TV
+    proceeding, at which, by one later account, “virtually all parties expressed concerns about potential
+    impacts of unbundling” (Nordicity & Miller, 2015, para. xxii, p. 5).
+        Nordicity and Peter Miller’s Canadian Television 2020, dated December 2015, was prepared for
+    ACTRA, the Canadian Media Guild, the Directors Guild of Canada, Friends of Canadian Broadcast-
+    ing and Unifor (Nordicity & Miller, 2015). It modelled two worlds from 2015 to 2020: a baseline
+    with “technological and consumer behaviour changes, assuming that the pre-existing broadcasting
+    regulatory regime remains”, and the same world with the CRTC’s decisions overlaid (Nordicity &
+    Miller, 2015, para. ii, p. 1). I call these the report’s baseline and its reform scenario; the forecast is
+    the gap between them, and a quantity’s path under the reform scenario is its reform path. A third
+    scenario, with the decisions modified, isn’t checked here.
+        By 2020, the report concluded, the decisions were “likely to result in a loss of 15,130 FTEs of em-
+    ployment in the Canadian economy”, counted in full-time equivalents (FTEs), along with $1,411.1
+    million of GDP. Of those jobs, 6,830 were directly in broadcasting and production and 8,300 were
+    spin-off employment, the indirect and induced employment in other sectors (Nordicity & Miller,
+    2015, para. xliv and Table 1 with its note, p. 12). The report also divides the total by the sector whose
+    losses give rise to it: 7,180 to independent production (2,830 direct, 4,350 spin-off) and 7,950 to
+    broadcasting (4,000 direct, 3,950 spin-off) (table A7; Nordicity and Miller, 2015, paras. 246, 248,
+    250, Tables 22–23, pp. 90–92). The 10,060 (66%) attributed to specialty and pay services and to pro-
+    duction depend in the model on those services’ revenue and on spending on Canadian programming,
+    which is why specialty and pay revenue is the main test below.
+        Those figures sit at the end of a chain. Subscribers move to cheaper unbundled packages; dis-
+    tributors lose retail revenue and pass most of the loss to Canadian channels as lower wholesale fees;
+    weaker channels close; spending on Canadian programming falls; and input-output multipliers turn
+    the spending into jobs and GDP. The report states the assumptions that drive each link. Subscribers
+    taking the entry-level package with chosen channels, which the report calls Build Your Own Pack-
+    3   Comparing outcomes with the report’s reform paths                                                      4
+
+
+    age (BYOP), make up 5% of all subscribers in 2016, 10% in 2017 and 15% from 2018 (Nordicity &
+    Miller, 2015, para. 202, Table 18, p. 76); I call this the report’s BYOP uptake. Distributors pass “75%
+    of their retail revenue loss to Canadian programming services”, having attributed 86% of that loss
+    to Canadian services (Nordicity & Miller, 2015, paras. 206–207, p. 77). By 2020, 10% of the large
+    integrated companies’ Category A and B channels close, and 25% of the independents’ (Nordicity &
+    Miller, 2015, paras. 232–233, p. 85).
+         By 2020 the reform path runs $970 million (23%) a year below the baseline for the revenue of spe-
+    cialty and pay services (“channels”, for short, below) and $858 million (9%) below it for distributors’
+    revenue (Nordicity & Miller, 2015, paras. xxvi–xxvii). Canadian programming expenditure (CPE),
+    which in the report includes distributors’ contributions as well as programming services’ spending,
+    runs $399 million below.
+    2.1 What the committee heard
+    On 12 April 2016 Ian Morrison of Friends of Canadian Broadcasting, accompanied by Miller, put the
+    report to the Commons Standing Committee on Canadian Heritage. Its key findings, he said, were
+    that “by 2020, some 15,130 media jobs will be lost”, along with “a $400-million drop in Canadian
+    program expenditures” that was “18% of what now exists”, “all of this as the direct result of Let’s Talk
+    TV regulatory changes”. He added that the authors had “advanced proposals to reduce the negative
+    impact of the CRTC’s decisions by as much as 75%” (House of Commons Standing Committee on
+    Canadian Heritage, 2016, time marks 0900–0905).
+         Two of these phrases depart from the report. The 15,130 FTEs are economy-wide, and 8,300 of
+    them are spin-off employment in other sectors, so “media jobs” misdescribes them; and the report
+    describes its 18% as a share of projected 2020 baseline spending, not of current spending. The $400
+    million rounds the report’s $399 million, and “direct result” attributes the losses to the decisions, as
+    the report does, though “will be lost” is firmer than the report’s “likely”. The 18% itself is the report’s,
+    and its own figures don’t reproduce it. The report’s own baseline figures put 2020 CPE at $3,155
+    million, so its $399 million reduction is 12.6% of baseline, not the 18% its text states (Nordicity &
+    Miller, 2015, para. 239, Figs. 8, 9, 43). Against the report’s own forecast for 2015, the reduction is
+    12.2%, and against what existed when Morrison spoke, the CRTC’s count of 2015 spending ($3,286
+    million), it’s 12.1% (CRTC, 2017). None of the 12 shares tested, built from the report’s figures over
+    9 denominators and its two impact figures, gives 18% (table A1).
+         Responding to a question about the $25 bundle, one month after the entry-level service launched,
+    Morrison cited a much lower uptake figure than the report’s: “the best estimates I’ve seen, Mr. Waugh,
+    are that about 4% of Canadians will go for it” (House of Commons Standing Committee on Cana-
+    dian Heritage, 2016, time marks 0920–0925). He didn’t say how it bore on the job estimate, and
+    “4% of Canadians” doesn’t specify a denominator.
+
+3   Comparing outcomes with the report’s reform paths
+    The prediction record (forecasters, quantities, paths by year, stated assumptions) was committed be-
+    fore any CRTC outcome series was downloaded. I then re-read the report’s two paths from the data
+    labels on its charts, checking every value against the totals in its text, and ran a design analysis by fake-
+    data simulation before opening any CRTC outcome file (Gelman & Carlin, 2014; Gelman et al.,
+    2020). It asked, for each forecast quantity, whether the outcome could separate a world in which the
+    report’s impact occurred from one in which it didn’t, given that the baseline itself could be wrong.
+3   Comparing outcomes with the report’s reform paths                                                  5
+
+
+     That last clause is the hard part. In retrospective analysis of regulation, “developing a credible
+counterfactual is the most demanding aspect”, and the baselines assumed beforehand “must be re-
+visited” to see whether outside factors changed the result (Morgenstern, 2018, p. 286). Here the
+counterfactual is the report’s own baseline, itself a forecast of how television would have fared un-
+der streaming without the reforms. So the check treats the baseline’s error as unknown and reports
+results across a range of assumed scales for it. Kane (2026) varies the baseline period against which
+forecasts are judged; here the baseline is the report’s own, and what varies is how wrong it’s assumed
+to be.
+     With the annual error scale set to the historical volatility of the report’s own 2010–2014 data,
+the design analysis classified specialty and pay revenue correctly in about 99% of simulated worlds
+and distributors’ revenue in about 86%. CPE, whose historical volatility was 9.1% a year, came out at
+63%, so it was set aside in advance as descriptive.
+     For each revenue series I estimate a forecast scale k. In logs, log Bt − log Yt = k δt + et , where
+Bt is the report’s baseline, Yt the outcome, δt the report’s forecast shortfall (how far the reform path
+lies below the baseline) and et the baseline’s error (positive when the baseline overstates what would
+have happened without the decisions), modelled as a random walk from 2014. So k = 0 corres-
+ponds to the baseline and k = 1 to the reform path, with baseline error in either case. I write k̂ for
+the estimate over 2016–2019, the four years before the pandemic, and k u for the value a recalculated
+scenario implies. Because the baseline’s error accumulates from year to year, k̂ rests on changes in the
+gap between outcome and baseline rather than on its level: for specialty and pay revenue it’s posit-
+ive although that revenue stayed above the baseline in every year, because its excess over the baseline
+shrank, the direction the reform path predicted. The report’s paths and the CRTC series are both
+in nominal dollars, and since k compares them year by year, deflating both by the same price index
+leaves it unchanged.
+     The 95% interval for k comes from generalized least squares under that model, and it reflects
+only the assumed error in the baseline, so its width depends on the annual error scale σ. That scale
+is calibrated from an outside comparison, described below, rather than estimated from four years of
+outcomes, and the CRTC’s administrative totals are treated as measured without error (appendix A;
+inputs in table A2). The interval treats σ as known. Treating it as uncertain would widen the intervals;
+in the illustration in appendix A, the distributors’ interval then includes zero.
+     k compares the outcome with the report’s two paths; it isn’t an estimate of the decisions’ causal
+effect, which would need a better counterfactual than the report’s own baseline. I also construct a
+cited-input band for k by scaling the report’s uptake-related components, in every year, by the ratio
+of each cited estimate (10% and 35%) to the report’s 15%, which keeps the report’s ramp, and by
+multiplying closures by 2.5 in the high case. The band spans the values of k the report’s cited estimates
+imply; it isn’t a probability interval. The plan’s verdicts compare the interval with that band; the
+verdict “forecast exceeded”, for example, applies only if the interval lies wholly above it.
+     The outcome series alone can’t identify how wrong the baseline was, so the plan fixed an external
+check: the forecast of US Netflix subscribers that the report used for its US comparison (from Tre-
+fis), assumed unaffected by Canadian regulation, against Netflix’s reported US paid memberships
+(Netflix, Inc., 2019). The report forecast 57.0 million for 2018 and Netflix reported 58.5 million,
+which gives a Netflix-derived annual scale of 1.3%, below the historical volatility of both revenue
+series. Under the pre-stated rule the larger of the two sets σ, so the designated error scale is the his-
+    4            Revenue outcomes and their sensitivity to baseline error                                                                                6
+
+
+                                              Specialty and pay services' revenue                                       Distributors' revenue
+                                                                   rules in force
+                                10
+                                 5
+
+        Difference from the
+                                0
+                                 5
+
+        report's baseline (%)   10
+                                15
+                                20
+                                     2012           2014            2016            2018             2012             2014         2016           2018
+                                     Pointwise 95% range around the baseline          Report's reform path (the forecast)                 CRTC outcome
+                                     Report's baseline                                Partial recalculation, uptake held at 1.6%
+
+
+    Figure 1: Revenue relative to the report’s baseline, 2012–2019, in per cent of the baseline. The reform
+    path and the baseline are the report’s (Figs. 41, 42); the partial recalculation holds BYOP uptake at
+    the CRTC’s June 2016 entry-level share and the exemption-order and closure dollar components
+    fixed (post hoc); the outcome is the CRTC series (2016 edition to 2015, 2020 edition after; specialty
+    and pay services exclude exempt services). The shaded range is the pointwise 95% range around the
+    baseline under the error model at the designated error scale (2.2% and 1.9% a year). Before 2015 the
+    baseline is the report’s own actual values. Both panels share one scale.
+
+    torical volatility, 2.2% for specialty and pay revenue and 1.9% for distributors’ revenue. The CRTC
+    series reproduce the report’s 2012–2014 values within 2% (CRTC, 2017, 2021).
+
+4   Revenue outcomes and their sensitivity to baseline error
+    4.1 Against the report’s paths
+    Figure 1 shows each revenue series against the report’s two paths. Specialty and pay revenue stayed
+    above the report’s baseline, by between 0.8% and 4.6% from 2016 to 2019, and ran between 9.9% and
+    28.1% above the reform path. Taken alone, the revenue fell 2.2% in nominal dollars from 2015 to
+    2019 and 8.9% after inflation, while the report’s baseline was flat in nominal dollars over 2016–2019
+    (table A2).
+        At the designated error scale k̂ = 0.12, with a standard error of 0.18. That’s 0.7 standard errors
+    from k = 0 and 5.0 from k = 1, and the cited-input band’s lower end, 0.75, is 3.6 standard errors
+    away. Under the pre-stated rule the verdict is smaller: the 95% interval, −0.23 to 0.46, lies wholly
+    below the band of 0.75 to 2.54, so the outcome is incompatible with the reform path at the report’s
+    assumed uptake.
+        Distributors’ revenue ran between 1.9% and 4.9% below the report’s reform path, falling from
+    $8,919 million in 2015 to $8,364 million in 2019, a nominal decline of 6.2%, or 12.7% after inflation.
+    Here k̂ = 1.30 (standard error 0.41), 3.2 standard errors from k = 0 and 0.7 from k = 1. Its
+4   Revenue outcomes and their sensitivity to baseline error                                              7
+
+
+interval, 0.49 to 2.11, includes k = 1 and overlaps the band of 0.80 to 2.24, so under the pre-stated
+rule the verdict is consistent.
+4.2 Uptake: the report’s assumption and the evidence
+The report took its 15% from outside estimates, the highest being Oliver Wyman’s finding that “as
+many as 35% of subscribers would be willing to switch to a skinny-basic/BYOP option” (Nordicity
+& Miller, 2015, para. 201, p. 75). The CRTC counted more than 66,000 subscribers to the entry-
+level package five weeks after launch (CRTC, 2016a) and 177,000 by 30 June 2016 (CRTC, 2016b,
+para. 12), about 0.6% and 1.6% of the 2016 subscriber total. These count subscribers to the entry-
+level package with or without added channels, a different measure from the report’s BYOP uptake,
+taken before every channel had to be offered singly as well as in small packages; I found no later CRTC
+count. A survey by the Media Technology Monitor, released in August 2017, put adoption of starter
+packages at “just over 1 in 10 TV subscribers” and, separately, reported that 29% of subscribers were
+adding individual channels or bundles to their packages (Media Technology Monitor, 2017). Surveys
+aren’t among the sources the analysis plan accepted for uptake. This one is self-reported, gives no
+fieldwork dates, sample size or margin of error, and may not measure the report’s BYOP share, so it’s
+reported beside the planned reading. The survey path below reads its “just over 1 in 10” as 10%, a
+floor, and assumes that level held from 2017 through 2019.
+     Low uptake in 2016 may partly reflect how the package was sold, a possibility the report itself
+raised, that distributors might offer unbundling in a way “relatively unattractive from a price-value
+equation, so that very few Canadians opt for it” (Nordicity & Miller, 2015, para. 78, n. 40, p. 34).
+The CRTC’s hearing of September 2016 examined “the practices certain providers have adopted in
+offering” it (CRTC, 2016b, para. 5). Uptake in mid-2016 was far below the report’s 2016 assumption;
+whether it stayed low is what the survey puts in doubt.
+4.3 Partial recalculations under assumed uptake paths
+To ask what the report’s chain implies at other uptake levels, I rescale each year’s unbundling and
+preponderance components by the assumed BYOP share over the report’s (Table 18) and hold the
+exemption-order and closure dollar components fixed. The report values those two components
+partly from the others (Nordicity & Miller, 2015, paras. 220, 234), so the recalculation is partial;
+its scenario coefficient k u is the recalculated shortfall path projected in the same way as the band.
+Table 1 shows four uptake paths, and table A3 all seven. The paths were added after the outcome
+data was opened, and the survey path uses a source outside the plan’s (table A8).
+     With uptake held at the CRTC’s June 2016 share, k u = 0.33 for specialty and pay revenue,
+compatible with k̂ at the designated error scale (1.2 standard errors away), and 0.43 for distributors,
+2.1 standard errors below k̂, a gap that falls below two with the 2017 or pooled calibration, the rescaled
+series or the offset model (1.9, 0.9, 1.9 and 1.8). On the survey path, 1.6% in 2016 and 10% from 2017,
+k u = 0.76 for specialty and pay revenue, 3.7 standard errors above k̂, though below the interval’s
+upper end at the largest calibrated error scale (0.85), and 0.86 for distributors, 1.1 standard errors
+below. A linear rise from 1.6% to 4% by 2019 gives 0.43 and 0.52, both inside their intervals. Among
+the paths tested, at the designated error scale, that rise is the only one that keeps both series compatible
+with the partial recalculation; larger error scales widen the set.
+     The recalculations don’t fall to zero because the two fixed components don’t scale with uptake:
+closures, and the exemption order for broadcasters’ streaming services, which the report expected to
+4   Revenue outcomes and their sensitivity to baseline error                                            8
+
+
+
+Table 1: Partial recalculations of the report’s revenue chain under four assumed uptake paths (post
+hoc; the survey path uses a source outside the plan’s). Each scenario coefficient k u is compared with
+the estimate k̂ and its 95% interval at the designated error scale; the exemption-order and closure
+dollar components are held fixed. All paths are in table A3.
+                                        Assumed BYOP share                       ku
+       Uptake path                   2016   2017   2018   2019 Specialty and pay      Distributors
+       Held at the June 2016 count   1.6% 1.6% 1.6% 1.6% 0.33 (inside)                0.43 (below)
+       Rising to 4% by 2019          1.6% 2.4% 3.2% 4.0% 0.43 (inside)                0.52 (inside)
+       Survey path                   1.6% 10.0% 10.0% 10.0% 0.76 (above)              0.86 (inside)
+       Report’s assumption           5.0% 10.0% 15.0% 15.0% 1.00 (above)              1.00 (inside)
+       (reference)
+       Estimate k̂ [95% interval]                                0.12 [−0.23, 0.46] 1.30 [0.49, 2.11]
+
+
+“materially increase cord cutting and cord shaving” (Nordicity & Miller, 2015, para. xxiii).
+4.4 Distributors’ revenue by subscribers and revenue per subscriber
+Splitting distributors’ revenue into subscribers and revenue per subscriber locates their shortfall. The
+report’s components act on different factors: unbundling lowers revenue per subscriber and leaves
+subscriber numbers alone, while the exemption order adds cord cutting, 1.9% of subscribers a year
+against 1.5% in the baseline (Nordicity & Miller, 2015, paras. 204–205, 216, 220, Tables 5, 21).
+Rebuilding the report’s exemption-order component from its stated cord cutting and cord shav-
+ing reproduces it to within about 1.1% in every year, so the reform scenario’s split can be recovered
+(table A5).
+     The comparison is of changes from 2014, since in the report’s actual years the CRTC’s sub-
+scriber counts sit 1.7% to 2.1% below the report’s and its revenue per subscriber 0.5% to 0.7% above.
+It assumes the two series stay comparable after 2014: the report’s subscriber series includes “non-
+reporting BDUs” (Fig. 17; BDUs, broadcasting distribution undertakings, is the CRTC’s term for
+distributors), the CRTC’s cover broadcast years ending 31 August, and revenue per subscriber here
+is total distributor revenue, which is broader than a package price.
+     By 2019, measured this way, subscribers had fallen a further 3.9% below the report’s baseline path,
+against 1.5% in its reform scenario. Revenue per subscriber was 8.1% below the baseline path, against
+7.0% in the reform scenario: it rose only 1.2% in nominal dollars, from $65.25 a month in 2014 to
+$66.05 in 2019 (6.8% lower after inflation), while the baseline path rose 10.1%; its underlying price
+assumption was inflation plus one point, before an allowance for cord shaving (Nordicity & Miller,
+2015, Table 11, paras. 151–152). With uptake held at the June 2016 share, the partial recalculation
+gives a per-subscriber shortfall of 2.5%, and on the survey path 5.3%. Of the total revenue shortfall, in
+logs and measured from 2014, 67% exceeds the partial recalculation with uptake held at 1.6% and 44%
+on the survey path. In nominal terms distributors’ revenue fell 6.3% from 2014 to 2019, as subscribers
+fell 7.5% and revenue per subscriber rose 1.2%; against the report’s rising baseline, about 68% of the
+shortfall, in logs, is missing growth in revenue per subscriber.
+     The split was added after the outcome data was opened, under a rule fixed before it was computed
+(table A8); the comparisons with uptake held at 1.6% and on the survey path go beyond that rule. It’s
+4                              Revenue outcomes and their sensitivity to baseline error                                                                          9
+
+
+                                                    Specialty and pay services' revenue                                      Distributors' revenue
+                                                    designated                                                  designated
+
+
+
+
+    k (0 = baseline, 1 = reform path)
+                                        4
+
+                                        2
+
+                                        0
+
+                                        2
+                                            1   2         3      4       5      6         7         8   1      2         3         4       5        6    7   8
+                                                Annual error scale of the baseline, (%)                       Annual error scale of the baseline, (%)
+
+                                                      Cited-input band         95% interval for k           Estimate k             Reform path (k = 1)
+
+
+Figure 2: The estimate k̂ and its 95% interval as a function of the annual error scale of the report’s
+baseline, σ, the standard deviation of the yearly changes in its error. The solid vertical line marks the
+designated error scale; dotted lines mark the values of σ used by the other calibrations (table A4). The
+grey band is the cited-input band. The horizontal axis spans the plan’s sensitivity range, 1% to 8% a
+year; intervals are conditional on σ. The standard error is proportional to σ, so the interval widens
+linearly while the estimate stays put.
+
+an accounting identity, and revenue per subscriber is computed from the same totals, so the split
+locates the shortfall without observing prices or identifying causes. Subscriber losses exceed those in
+both of the report’s paths compared here, and stagnant revenue per subscriber could reflect pricing,
+cord shaving to smaller packages, or the reforms themselves.
+4.5 Sensitivity to the error scale
+Both intervals depend on the error scale (figure 2). The estimates don’t move as the assumed scale
+increases; the intervals widen in proportion. The specialty and pay interval reaches the cited-input
+band when the scale reaches about 4.0% a year, and at the largest calibrated scale, 4.7%, its upper end
+is 0.85. The distributors’ interval includes zero from about 3.0%. At the plan’s upper value of 8% a
+year, the specialty and pay interval, −1.13 to 1.37, includes k = 1. None of the reported specialty and
+pay intervals excludes zero. The verdict labels in table A4 change as the assumed scale crosses these
+values while the estimate stays the same (Gelman & Stern, 2006). Several calibrations were added
+after the outcome data was opened, so all of them are shown (Gelman & Loken, 2014).
+     The pre-stated Netflix comparison gives a scale of 1.3% a year, below both series’ historical volat-
+ility, so the historical volatility sets the designated scale. Other defensible readings of the comparison
+give more: the 2016 miss gives a Netflix-derived scale of 4.4% a year and a pooled estimate 4.7%. Part of
+the 2016 miss is an inherited offset, since the report’s 2015 starting figure (45.5 million) was already
+above Netflix’s count (43.4 million) (Netflix, Inc., 2018). Measured as growth, Netflix’s member-
+ships outran the Trefis forecast the report used, by 35% against 25% from 2015 to 2018, which gives
+    5   Payments, closures and staff counts                                                                  10
+
+
+    a scale of 4.2% a year.
+    4.6 Checking the error model
+    A check of the statistical error model, added after the outcome data was opened, finds the specialty
+    and pay residual concentrated in its first step. After fitting k, the standardized changes in the baseline’s
+    error between observations are correlated and have variances below one. Divided by their standard
+    deviations under the fit, the specialty and pay step from 2014 to 2016 is −1.7, and the largest of the
+    three later steps is 0.6 in absolute value; the distributors’ steps show no such pattern. A one-time gap
+    between the report’s baseline and the CRTC series would produce this, though with four points so
+    would a random walk whose later steps happened to be small.
+        Part of the specialty and pay gap is already visible in 2015, a year with no forecast impact, in the
+    report’s own figure for that year (itself a forecast). The CRTC later counted $4,290 million, 2.5%
+    above the report’s $4,186 million, against 0.8% in 2014 and negligible differences in 2012 and 2013,
+    when the report’s figures were actuals. Distributors’ revenue shows no such change: the CRTC’s
+    counts run between 1.3% and 1.5% below the report’s figures in every year from 2012 to 2015, a
+    standing difference between the two series, with no new divergence in 2015. The 2016 and 2020
+    editions of the CRTC’s summaries differ on 2016 by 0.1% for specialty and pay services and 0.5%
+    for distributors, so revisions between editions can’t account for the gap. Allowing a level offset in
+    the error model, which absorbs both, gives k̂ = 0.20 (standard error 0.18) for specialty and pay
+    revenue and 1.23 (0.44) for distributors’ revenue, leaving both pre-stated verdicts as they were; the
+    distributors’ comparison with uptake held at 1.6% falls to 1.8 standard errors.
+
+5   Payments, closures and staff counts
+    5.1 Payments to Canadian channels
+    The report also assumed a path for what distributors pay Canadian channels. In its baseline the
+    monthly carriage fee per subscriber for Canadian specialty and pay services rises 1.6% from 2015 to
+    2019 (Nordicity & Miller, 2015, Table 14, p. 67), and under the decisions it falls below that path
+    as distributors pass on 75% of the retail loss attributed to Canadian services. What distributors paid
+    Canadian channels in affiliation payments rose from $3,014 million in 2015 to $3,125 million in
+    2019 while subscribers fell, so per subscriber it rose 10.5%, and the Canadian share of all affiliation
+    payments stayed near 87.8% (CRTC, 2019, Table U-T11). After inflation the total fell 3.5% and the
+    payment per subscriber rose 2.9%; the comparison with the report’s fee path needs no such adjust-
+    ment, since that path is nominal too.
+         The report’s carriage fee per subscriber and the CRTC’s affiliation payments divided by sub-
+    scribers differ by definition, so their growth is compared, not their levels. With uptake near the
+    CRTC’s 2016 share there would have been little loss to pass on, and the comparison would mainly
+    show that payments grew faster than the report’s baseline assumed; on the survey path, the partial
+    recalculation has fees falling relative to the baseline path, and observed payments instead grew faster
+    than it. The aggregates can’t say what fees would have been without the decisions, or why affiliation
+    payments per subscriber rose. Some of the payments stay inside the integrated groups, and the report
+    itself expected the exemption order’s impact on those groups to be partly offset by their streaming
+    and broadband revenue (Nordicity & Miller, 2015, para. 227, p. 83). The CRTC’s wholesale code,
+    scheduled to take effect in January 2016 (Nordicity & Miller, 2015, p. 73, n. 82), is in both of the
+    6   What the revenue evidence establishes and what the testimony omitted                                11
+
+
+    report’s scenarios (Nordicity & Miller, 2015, p. 72, n. 80), so its fee path already allows for it.
+    5.2 Closures
+    For the integrated companies, closures came out close to the report: between 8% and 11% of their
+    Category A and B channels stopped operating by 2019–2020, against the report’s 10%. For the inde-
+    pendents the bounds, 6% to 33%, contain the report’s 25% but are too wide to test it, because in the
+    summaries used here channels that continued under an exemption from individual licensing can’t be
+    told apart from channels that closed. Both ranges classify Corus, which owns the former Shaw Media
+    channels in the 2016 data, as independent; counted as integrated, as the analysis plan also required,
+    it gives 6% to 11% for the integrated companies and 7% to 44% for the independents. CPE, read only
+    descriptively, stayed at or above the baseline path through 2019.
+    5.3 Staff counts
+    For two sectors, the CRTC’s staff counts allow a descriptive comparison with the last link, from
+    revenue to jobs (CRTC, 2017, 2021). The report gives its forecast changes in direct employment by
+    sector against a baseline whose employment path it doesn’t publish, so the comparison is with the
+    change from 2015 and with the 2012–2015 trend carried forward, a crude stand-in for that baseline.
+    Specialty and pay services’ staff fell from 5,899 in 2015 to 4,403 in 2019, 1,282 below the trend,
+    against a forecast shortfall in direct employment of 800 FTEs by 2019. Distributors’ staff stayed near
+    its 2012–2015 trend, 396 below it in 2018 and 1,834 above it in 2019, against a forecast shortfall of
+    2,910 FTEs by 2019 (Nordicity & Miller, 2015, Table 22, p. 91). The 2019 figure is a one-year jump
+    that reverses the next year, which may be a reporting discontinuity.
+         Staff counts and revenue don’t move together as the report’s chain implies in either sector: spe-
+    cialty and pay services cut staff while their revenue stayed above the baseline, and distributors’ staffing
+    stayed near trend while their revenue fell (annual series in table A6). The mismatch can’t test the re-
+    port’s employment prediction: staff counts aren’t the report’s modelled FTEs; the distributor series
+    is labelled “Total Staff Count (FTE)” in the 2016 edition and “Total Staff Count” in the 2020 edition,
+    and the two differ by 302 in 2016; and a straight-line trend is a weak counterfactual. The direction
+    of the mismatch holds with the distributors’ 2018 figure in place of 2019.
+
+6   What the revenue evidence establishes and what the testimony omitted
+    In the pre-stated comparisons, specialty and pay revenue, on which most of the job figure depends,
+    lost less ground against the report’s baseline than any uptake estimate the report cited implies: at the
+    designated error scale its interval for k lies below the cited-input band and excludes k = 1, though
+    at the plan’s upper error scale it includes it. Distributors’ revenue was consistent with the forecast.
+    These comparisons set outcomes against the report’s paths. They don’t estimate the decisions’ effect,
+    and they don’t test the total employment forecast.
+         Whether the report’s main input or its chain was at fault depends on how uptake developed after
+    June 2016, and on how well the available measures match the report’s BYOP uptake. The CRTC’s
+    entry-level share in mid-2016 ran far below the report’s 2016 assumption; a 2017 survey, outside the
+    plan’s accepted sources, put starter-package adoption near the report’s figure for 2017. The partial re-
+    calculations can say only which assumed uptake paths the outcomes are compatible with. Among the
+    paths tested, at the designated error scale, only a rise to about 4% by 2019 keeps both series compatible.
+6   What the revenue evidence establishes and what the testimony omitted                              12
+
+
+With uptake held at the 2016 count, the distributors’ estimate lies 2.1 standard errors above its recal-
+culated coefficient (their revenue fell further than the recalculation implies), a gap that every altern-
+ative calibration brings below two; on the survey path, the recalculated coefficient for specialty and
+pay revenue lies 3.7 standard errors above the estimate, since the recalculation projects a fall against
+the baseline that didn’t appear. Larger error scales widen the set of compatible paths. The split of
+distributors’ revenue shows their shortfall coming through both fewer subscribers and revenue per
+subscriber that grew far less than the baseline assumed. If the uptake assumption was the miss, it’s
+a quantity error of the kind Harrington et al. (1999, p. ii) found behind errors in regulatory cost
+estimates.
+     Three other links can be read without assuming later uptake. Affiliation payments per subscriber
+grew 10.5% from 2015 to 2019, against 1.6% in the report’s baseline carriage fee, a growth comparison
+of two measures that differ by definition. Closures of the integrated companies’ channels came out
+close to the report’s 10%; the independents’ range is too wide to test. Staff counts and revenue didn’t
+move together as the report’s chain implies, a descriptive mismatch of unlike measures that can’t test
+the employment mechanism; production and spin-off employment aren’t checked.
+     Judged against the report rather than against outcomes, Morrison’s summary to the committee
+departed from the report in three identifiable respects. It described an economy-wide employment
+estimate, more than half of it spin-off employment, as “media jobs”; it described the report’s 18%,
+which the report’s own figures don’t reproduce, as a share of current spending; and it didn’t connect
+the job figure to the report’s uptake assumption, or reconcile it with the 4% estimate he cited in
+questioning (a figure that, like the CRTC’s count and the survey, refers to the entry-level package
+itself rather than the report’s measure, and whose denominator he didn’t specify). His appearance
+also presented the losses as open to policy, citing the authors’ proposals to reduce them, and when a
+member raised officials’ more reassuring view he answered, “If it is right, that’s good news” (House
+of Commons Standing Committee on Canadian Heritage, 2016, time marks 0915–0920). What
+was lost between report and committee was the numerical condition on which the headline rested, a
+particular case of the point Manski (2011, p. 1) makes about policy analysis generally, where point
+predictions are common and statements of uncertainty rare.
+     The report deserves credit for what made this check possible. It stated its assumptions link by
+link, published annual paths for both scenarios, cited the range of outside estimates it chose among,
+gave the figures behind its headline, and said that “there is no easy way to assign probabilities to the
+projections underlying future scenarios” (Nordicity & Miller, 2015, para. 111). It raised the possibil-
+ity of low uptake itself. Publishing only the headline would have left these intermediate predictions
+unavailable for checking, and the useful lesson for those who commission or hear such forecasts is in
+that contrast. Intermediate predictions that public data can test, an uptake share or a payment flow
+in the second year, let a forecast be monitored before its end date, provided someone counts them: I
+found no official count of uptake after 2016, which is why this paper has to give more than one read-
+ing. And a statement of how wrong the baseline could be shows in advance how much a comparison
+like this one depends on it.
+6.1 Limits of the check
+The paper checks one forecast, and nothing here shows that stakeholder forecasts in general are biased;
+Simpson (2014) explains why even a run of overestimates needn’t show that. The verdict on specialty
+and pay revenue rests on how wrong the report’s baseline is taken to be. I model that error as a
+6   What the revenue evidence establishes and what the testimony omitted                                  13
+
+
+random walk calibrated in several ways, a simple model for stating the uncertainty, and a structural
+break in viewing could exceed it. The intervals also treat the error scale as known, and they assume
+the forecast impact applies proportionally to the drifted baseline; if it applied in dollars, as in the
+design simulation, they’d cover k = 1 less often than 95% (appendix A). The uptake evidence is thin:
+two CRTC counts from the spring and summer of 2016 and one self-reported survey from 2017,
+which may not measure the report’s BYOP uptake, so the uptake paths here illustrate the possibilities
+rather than bound them. The financial summaries used here can’t separate closures of independent
+channels from continued operation under exemption, the aggregates can’t identify the pass-through
+rate, and staff counts are a different measure from the report’s modelled employment. At its historical
+volatility, the design analysis gave CPE too little ability to distinguish the two simulated worlds for
+the planned comparison.
+     Five findings don’t depend on the model of the baseline’s error: the CRTC’s entry-level share
+in mid-2016 fell far short of the report’s 2016 BYOP assumption; distributors’ subscriber numbers
+fell faster than in either of the report’s paths, if the two subscriber series stay comparable; affiliation
+payments to Canadian channels per subscriber grew faster than the report’s baseline carriage fee; the
+CRTC’s count of specialty and pay revenue for 2015, a year with no forecast impact, was already 2.5%
+above the report’s figure, against 0.8% in 2014; and the testimony described the report’s figures in two
+ways the report doesn’t support and omitted the uptake assumption.
+
+Data and code
+Every number in this paper can be reproduced from the repository at https://github.com/BrettRey/
+prediction-checker, which holds a script that downloads every public source used, the frozen predic-
+tion record, the scripts that read the report’s figures and check them against its text, the design analysis,
+and the outcome analysis, with the CRTC series used (Open Government Licence – Canada). The
+analysis plan and each choice made after the outcome data was opened are recorded with dates in
+the repository. The case was first suggested in a list of candidate cases produced by ChatGPT (the
+latest model available on 3 October 2026, at the Pro effort level), which also proposed separating the
+report’s technical claim from the public argument. It supplied leads and reported forecast figures,
+every one of which was checked against primary sources before use, and none of the calculations
+reported here. The analysis scripts were written with Claude Opus 5.5; independent checks of the
+numbers, the inference, the quotations and the fairness of the account were run with GPT-6 Astra
+(through Codex), and their findings were verified against the sources before any change was made.
+REFERENCES                                                                                         14
+
+
+References
+Canadian Radio-television and Telecommunications Commission. (2015, March 19). Let’s talk TV:
+       A world of choice. a roadmap to maximize choice for TV viewers and to foster a healthy, dynamic
+       TV market (Broadcasting Regulatory Policy No. CRTC 2015-96) (Read from the Internet
+       Archive copy of 2017-01-26). CRTC. Ottawa. Retrieved October 3, 2026, from https://crtc.
+       gc.ca/eng/archive/2015/2015-96.htm
+Canadian Radio-television and Telecommunications Commission. (2016a, April 15). More than
+       66,000 Canadians have already signed up to the new basic TV package [Read from the Inter-
+       net Archive copy of 2017-07-20]. Retrieved October 3, 2026, from https://www.canada.ca/
+       en/radio- television- telecommunications/news/2016/04/more- than- 66- 000- canadians-
+       have-already-signed-up-to-the-new-basic-tv-package.html
+Canadian Radio-television and Telecommunications Commission. (2016b, September 7). Transcript,
+       hearing september 7, 2016, volume 1 [Read from the Internet Archive copy of 2018-01-03].
+       Retrieved October 3, 2026, from https://crtc.gc.ca/eng/transcripts/2016/tb0907.htm
+Canadian Radio-television and Telecommunications Commission. (2017, July 18). Statistical and
+       financial summaries for broadcasting sector – 2016 [Open Government Licence – Canada].
+       Open Government Portal. Retrieved October 3, 2026, from https://open.canada.ca/data/
+       en/dataset/03a2af45-cddd-4139-824c-913b634af612
+Canadian Radio-television and Telecommunications Commission. (2019, October 28). Broadcast-
+       ing distribution sector – CMR (2013–2024) [Updated 2025-08-28. Open Government Li-
+       cence – Canada]. Open Government Portal. Retrieved October 3, 2026, from https://open.
+       canada.ca/data/en/dataset/58e91edf-409e-464b-ab6c-092125abeea1
+Canadian Radio-television and Telecommunications Commission. (2021, June 17). Statistical and
+       financial summaries for broadcasting sector 2020 [Open Government Licence – Canada].
+       Open Government Portal. Retrieved October 3, 2026, from https://open.canada.ca/data/
+       en/dataset/180dfc4c-8c1a-4c31-8e29-84953476bb92
+Gelman, A., & Carlin, J. (2014). Beyond power calculations: Assessing type S (sign) and type M
+       (magnitude) errors. Perspectives on Psychological Science, 9(6), 641–651. https://doi.org/10.
+       1177/1745691614551642
+Gelman, A., & Loken, E. (2014). The statistical crisis in science. American Scientist, 102(6), 460–465.
+       https://doi.org/10.1511/2014.111.460
+Gelman, A., & Stern, H. (2006). The difference between “Significant” and “Not Significant” is not
+       itself statistically significant. The American Statistician, 60(4), 328–331. https://doi.org/10.
+       1198/000313006X152649
+Gelman, A., Vehtari, A., Simpson, D., Margossian, C. C., Carpenter, B., Yao, Y., Kennedy, L., Gabry,
+       J., Bürkner, P.-C., & Modrák, M. (2020, November 2). Bayesian workflow.
+Harrington, W., Morgenstern, R. D., & Nelson, P. (1999, January). On the accuracy of regulatory cost
+       estimates (Discussion Paper No. 99-18) (Published as Journal of Policy Analysis and Manage-
+       ment 19(2): 297–322 (2000). Only the abstract and opening pages were read). Resources for
+       the Future. Washington, DC. Retrieved October 3, 2026, from https : / / media . rff . org /
+       documents/RFF-DP-99-18.pdf
+REFERENCES                                                                                           15
+
+
+House of Commons Standing Committee on Canadian Heritage. (2016, April 12). Evidence, num-
+         ber 008, 1st session, 42nd parliament. Retrieved October 3, 2026, from https : / / www .
+         ourcommons.ca/DocumentViewer/en/42-1/CHPC/meeting-8/evidence
+Kane, D. (2026). After SFFA v. Harvard: Predictions that didn’t come true. Econ Journal Watch,
+         23(2), 485–508. Retrieved October 3, 2026, from https://econjwatch.org/articles/after-
+         sffa-v-harvard-predictions-that-didnt-come-true
+Manski, C. F. (2011). Policy analysis with incredible certitude (Public Economics Programme Dis-
+         cussion Paper No. 10) (Published in The Economic Journal 121(554): F261–F289 (2011)).
+         STICERD, London School of Economics and Political Science. Retrieved October 3, 2026,
+         from http://eprints.lse.ac.uk/58177/
+Media Technology Monitor. (2017, August 17). They wanted it, and they got it, but are Canadians
+         subscribing to starter TV subscriptions or pick and pay TV? Retrieved October 3, 2026, from
+         https://mtm-otm.ca/_files/PressRelease/week33-report-en.pdf
+Miller, P. (2022, March 25). The state of the Canadian program rights market 2022: The demise of
+         the foundational business model of private television (Read from the Internet Archive copy of
+         2025-06-09). Canadian Radio-television and Telecommunications Commission. Retrieved
+         October 3, 2026, from https://crtc.gc.ca/eng/publications/reports/rp220714.htm
+Morgenstern, R. (2018). Retrospective analysis of U.S. federal environmental regulation. Journal of
+         Benefit-Cost Analysis, 9(2), 285–304. https://doi.org/10.1017/bca.2017.17
+Netflix, Inc. (2018, January 29). Form 10-k for the fiscal year ended december 31, 2017. U.S. Secur-
+         ities and Exchange Commission. Retrieved October 3, 2026, from https://www.sec.gov/
+         Archives/edgar/data/1065280/000106528018000069/q4nflx201710k.htm
+Netflix, Inc. (2019, January 29). Form 10-k for the fiscal year ended december 31, 2018. U.S. Secur-
+         ities and Exchange Commission. Retrieved October 3, 2026, from https://www.sec.gov/
+         Archives/edgar/data/1065280/000106528019000043/form10k_q418.htm
+Nordicity & Miller, P. H. (2015, December). Canadian television 2020: Technological and regulatory
+         impacts. Prepared for ACTRA, Canadian Media Guild, Directors Guild of Canada, Friends
+         of Canadian Broadcasting and Unifor. Retrieved October 3, 2026, from https : / / friends .
+         ca / wp - content / uploads / Canadian - Television - 2020 - Technological - and - Regulatory -
+         Impacts.pdf
+Simpson, R. D. (2014). Do regulators overestimate the costs of regulation? Journal of Benefit-Cost
+         Analysis, 5(2), 315–332. https://doi.org/10.1515/jbca-2014-0027
+Statistics Canada. (2026). Consumer price index, annual average, not seasonally adjusted (Table 18-10-
+         0005-01) [Statistics Canada Open Licence]. https://doi.org/10.25318/1810000501-eng
+   A   Estimation details                                                                                    16
+
+
+A Estimation details
+   The outcome measure
+   Take a revenue series with report baseline Bt , forecast shortfall in dollars It (so the reform path is
+   Bt − It ) and observed value Yt for t = 2016, . . . , 2019. Let yt = log Bt − log Yt (the observed log
+   shortfall below the baseline, negative when the outcome is above it) and δt = log Bt − log(Bt − It )
+   (the forecast log shortfall). The model, in which k scales the report’s forecast shortfall path, is
+                                                  ∑
+                                                  t
+                   yt = k δ t + e t ,     et =            εs ,   εs ∼ N (0, σ 2 ) independent,
+                                                 s=2015
+
+   so the outcome without the decisions would have been Bt e−et , and the baseline’s error et is positive
+   when the baseline overstates it. The error is a random walk from 2014, the last actual year in the
+   report, and
+                             Cov(et , eu ) = σ 2 min(t − 2014, u − 2014).
+  With Σ that covariance matrix, k̂ = δ ′ Σ−1 y/δ ′ Σ−1 δ and Var(k̂) = 1/δ ′ Σ−1 δ. The annual er-
+  ror scale σ is set by calibration rather than estimated from four observations, so the 95% interval is
+  k̂ ± 1.96 standard errors with no degrees-of-freedom correction; it covers uncertainty about how far
+  the baseline would have drifted, not uncertainty in measuring the outcomes, which are administrat-
+  ive totals, and not uncertainty in σ itself. As an illustration of the last, if the historical volatility were
+  an estimate from four independent, normal annual changes, an interval using the t distribution with
+  three degrees of freedom would be about 62% wider (specialty and pay −0.44 to 0.68, distributors
+  −0.01 to 2.62); even that doesn’t carry the uncertainty of the actual calibration rule. The cited-input
+  band projects the low- and high-input scenario paths onto δ in the same way. A partial recalculation’s
+  scenario coefficient k u = δ ′ Σ−1 δ u /δ ′ Σ−1 δ is the same projection of the report’s revenue compon-
+  ents recomputed at a given uptake path, with the exemption-order and closure dollar components
+  held fixed. Table A2 gives Bt , It and its components, Yt , δt and yt for both series, and tables A3
+  and A4 the uptake paths and the values of σ.
+   Design analysis
+   Before any CRTC outcome file was opened, I simulated each quantity 20,000 times (seed 20261003)
+   in two worlds: without the forecast effect, Yt = Bt e−et , so that yt = et and k = 0; and with it,
+   Yt = Bt e−et − It , the forecast impact applied in levels to the drifted baseline. The second gives yt =
+   δt + et (k = 1) up to a term of order et It /(Bt − It ). The simulation code writes the drift with the
+   opposite sign, Bt eet ; since the errors are symmetric about zero, the two describe the same distribution.
+   The extra term matters for coverage, because it scales the error in yt by about Bt /(Bt − It ): applied
+   to paths simulated this way, the 95% interval covers k = 1 in 87% of them for specialty and pay
+   revenue and 93% for distributors’ revenue, against 95% when the impact applies proportionally, Yt =
+   (Bt − It )e−et (scripts/model_check_lttv.py, seed 20261003); on that basis the specialty and pay
+   estimate lies about 3.8 simulated standard deviations from k = 1, against 5.0 standard errors. The
+   estimation model is the proportional one, and the intervals in the text are valid under it, given σ.
+   Each simulated path was assigned to whichever of the report’s two paths gives it the higher Gaussian
+   likelihood under Σ. “Classified correctly” is the share of paths assigned to the world that generated
+   them; the figures in the text are the smaller of the two worlds’ shares, at the volatility of the report’s
+   own 2010–2014 data.
+    B   Tables                                                                                              17
+
+
+    Calibrating the annual error scale
+    The report checked its forecast of Canadian streaming penetration against a US forecast built from
+    Trefis’s projection of US Netflix subscribers and Digital TV Research’s of all subscription streaming
+    (Nordicity & Miller, 2015, paras. 135–137, pp. 50–51). So the error in the Netflix part of that US
+    forecast is evidence about the technology side of the report’s baseline, assumed unaffected by Cana-
+    dian regulation; the calibration uses the Netflix row of Table 7, whose outcomes Netflix itself reports.
+    The pre-stated rule sets σ to the larger of the series’ 2010–2014 volatility and
+                                                                    √
+                                         | log(observed/forecast)|/ h
+
+    for US Netflix subscribers in 2018 (h = 4 years from 2014). The other calibrations apply the
+    same formula to 2016 and 2017, pool 2016–2018 as a random walk, or measure the error in growth
+    from 2015, where the report’s starting figure already differed from Netflix’s count. With nt =
+    log(observedt /forecastt ) for the Netflix series (a different quantity from the baseline’s error et ), the
+    pooled value is      √(                                                       )
+                               n22016 /2 + (n2017 − n2016 )2 + (n2018 − n2017 )2 /3,
+    the maximum-likelihood s.d. of a random walk from 2014 observed at h = 2, 3, 4; the growth-based
+    values replace nt with nt − n2015 and count h from 2015. The Netflix-derived value applies only
+    when it exceeds the series’ historical volatility.
+
+B   Tables
+    The script that writes tables A2–A4 recomputes each k, interval, scenario value and calibration from
+    the inputs as displayed, and stops if any differs from the analysis output.
+B   Tables                                                                                              18
+
+
+
+
+Table A1: The report’s $399 million reduction in Canadian programming expenditure (CPE) in
+2020, and its $352 million programming-services part, as shares of the denominators tested, built
+from the report’s own figures (Figs. 8, 9, 43). The report states 18% of baseline CPE (para. 239); the
+testimony said 18% “of what now exists” (Commons evidence, time marks 0900–0905). Letters refer
+to the components in the lower panel.
+     Denominator                            Built from   Numerator ($M)    Denominator ($M)     Share
+     All CPE, baseline 2020                 A+B                      399                3,155   12.6%
+     Programming services                   B                        399                2,710   14.7%
+     Programming services                   B                        352                2,710   13.0%
+     Programming services excl. CBC/SRC     B−C                      399                2,042   19.5%
+     Programming services excl. CBC/SRC     B−C                      352                2,042   17.2%
+     Programming services excl. CBC/SRC,    B−C+A                    399                2,487   16.0%
+     plus BDU contributions
+     Specialty and pay                      D+F                      399                1,573   25.4%
+     Specialty and pay                      D+F                      352                1,573   22.4%
+     Specialty                              D                        399                1,507   26.5%
+     All CPE, reform scenario 2020          G                        399                2,756   14.5%
+     All CPE 2015 (report’s forecast)       H                        399                3,258   12.2%
+     All CPE 2014 (last actual year)        J                        399                3,324   12.0%
+     Components ($M)
+     A BDU contributions (CMF, independent funds, community channels), baseline 2020 (Fig. 8)     445
+     B Programming services, baseline 2020 (Fig. 9 stack total)                                 2,710
+     C CBC/SRC conventional, baseline 2020 (Fig. 9)                                               668
+     D Specialty services, baseline 2020 (Fig. 9)                                               1,507
+     E Private conventional, baseline 2020 (Fig. 9)                                               469
+     F Pay, PPV and VOD, baseline 2020 (Fig. 9)                                                    66
+     G Total CPE, reform scenario 2020 (Fig. 43)                                                2,756
+     H Total CPE 2015 (Fig. 43)                                                                 3,258
+     J Total CPE 2014, last actual year (Fig. 43)                                               3,324
+     N1 CPE impact 2020 (Fig. 43)                                                                 399
+     N2 Programming-services part of the CPE impact 2020 (Fig. 43)                                352
+B   Tables                                                                                           19
+
+
+
+
+Table A2: Inputs to k, in $ millions: the report’s forecast impact with its four components and
+its baseline (the reform-path level plus the impact), from Figs. 41 and 42 (2016 components from
+Figs. 34–36, 39 and 40), and the CRTC outcome (2020 edition; channels exclude exempt services).
+The historical volatility is the standard deviation of annual log changes in the report’s 2010–2014
+values. With σ the larger of that volatility and the calibration’s value (table A4), k̂ and its interval
+follow from the formulas in appendix A. The cited-input band scales the unbundling and preponder-
+ance components by 0.10/0.15 (low) and 0.35/0.15 (high), and closures by 2.5 in the high case. Pro-
+duced by scripts/crtc_outcomes_lttv.py; data in data/derived/nordicity_2015_scenarios.csv
+and data/derived/crtc_lttv_outcomes.csv.
+                                                          2016      2017       2018       2019
+        Specialty and pay revenue
+        Report’s baseline Bt                              4,172       4,166      4,173    4,164
+        Forecast impact It                                  200         490        809      888
+           unbundling                                       138         282        436      451
+           changes to preponderance and access rules          9          49        122      147
+           exemption order                                   53         102        145      186
+           service closures                                   0          57        106      104
+        Observed Yt                                     4,363.7 4,299.7 4,219.3 4,195.9
+        δt = log Bt − log(Bt − It )                      0.0491     0.1251      0.2155   0.2399
+        yt = log Bt − log Yt                           −0.0449 −0.0316 −0.0110 −0.0076
+        Report’s values 2010–2014                      3,475, 3,748, 3,968, 4,091, 4,216
+        Historical volatility                          2.2%
+        Cited-input band for k                         0.75 to 2.54
+        Distributors’ revenue
+        Report’s baseline Bt                              9,149       9,280      9,428    9,597
+        Forecast impact It                                  201         479        748      803
+           unbundling                                       146         298        458      473
+           changes to preponderance and access rules          –           –           –       –
+           exemption order                                   55         104        149      191
+           service closures                                   0          77        141      139
+        Observed Yt                                     8,779.1 8,581.1 8,424.4 8,364.2
+        δt = log Bt − log(Bt − It )                      0.0222     0.0530      0.0827   0.0874
+        yt = log Bt − log Yt                             0.0413     0.0783      0.1126   0.1375
+        Report’s values 2010–2014                      8,129, 8,571, 8,673, 8,927, 9,054
+        Historical volatility                          1.9%
+        Cited-input band for k                         0.80 to 2.24
+B   Tables                                                                                                  20
+
+
+
+
+Table A3: Partial recalculations under assumed uptake paths, an exploratory comparison added after
+the outcome data was opened; uptake after June 2016 is assumed. Each year’s unbundling and pre-
+ponderance components (table A2) are multiplied by the path’s uptake over the report’s share for
+that year (Table 18), the exemption-order and closure dollar components are held fixed (an approx-
+imation: the report values them partly from the others), and the resulting shortfall path δtu is projec-
+ted like the band: k u = δ ′ Σ−1 δ u /δ ′ Σ−1 δ. Rising paths are linear from the 2016 count. Estimates
+k̂ and intervals at the designated error scale. Produced by scripts/crtc_outcomes_lttv.py; data in
+data/derived/uptake_conditional_lttv.csv.
+                                            Assumed BYOP share             Scenario coefficient k u
+     Assumed uptake path                 2016    2017   2018   2019 Specialty and pay    Distributors
+     Held at the CRTC’s June 2016         1.6%   1.6%   1.6%   1.6% 0.33 (inside)        0.43 (below)
+     entry-level share
+     Held at 4%, the figure Morrison      4.0%   4.0%   4.0%   4.0% 0.40 (inside)        0.48 (below)
+     cited, as a share of subscribers
+     Held at 10%, the low end of the     10.0% 10.0% 10.0% 10.0% 0.56 (above)            0.60 (inside)
+     cited estimates
+     The report’s BYOP assumption         5.0% 10.0% 15.0% 15.0% 1.00 (above)            1.00 (inside)
+     (Table 18)
+     Linear rise from 1.6% to 4% by       1.6%   2.4%   3.2%   4.0% 0.43 (inside)        0.52 (inside)
+     2019
+     Linear rise from 1.6% to 10% by      1.6%   4.4%   7.2% 10.0% 0.69 (above)          0.73 (inside)
+     2019
+     Survey path: 1.6%, then 10% from     1.6% 10.0% 10.0% 10.0% 0.76 (above)            0.86 (inside)
+     2017 (outside the plan’s sources)
+     Estimate k̂ [95% interval]                                      0.12 [−0.23, 0.46] 1.30 [0.49, 2.11]
+B   Tables                                                                                                               21
+
+
+
+
+Table A4: Calibrating the annual error scale σ. Intervals are conditional on σ and don’t carry the
+uncertainty in σ itself. Panel (a): the report’s forecast of US Netflix subscribers (Table 7) against Net-
+flix’s US paid memberships at year end (Form 10-K), in millions, with nt = log(observedt /forecastt ).
+Panel (b): the value each calibration takes from panel (a) (formulas in appendix A), the σ used
+(the larger of that value and the series’ historical volatility in table A2), and the resulting inter-
+val for k; the estimate k̂ is 0.12 for specialty and pay revenue and 1.30 for distributors’ rev-
+enue under every calibration. Verdicts are the plan’s pre-stated labels, applied in this order: in-
+conclusive, the interval contains both zero and the cited-input band’s lower end; smaller, it lies
+wholly below the band; exceeded, it lies wholly above the band; otherwise consistent, it overlaps the
+band. Produced by scripts/netflix_calibration.py and scripts/crtc_outcomes_lttv.py; data
+in data/derived/netflix_calibration.csv and data/derived/crtc_lttv_multiverse.csv.
+                                     (a) The report’s forecast and Netflix’s count
+                                                             2015        2016         2017      2018
+                    Report’s forecast                        45.5         51.0         54.8      57.0
+                    Netflix, US paid memberships          43.401       47.905       52.810    58.486
+                    nt                                   −0.0472      −0.0626      −0.0370    0.0257
+
+                                                 (b) Results by calibration
+                                             Specialty and pay revenue                    Distributors’ revenue
+    Calibration                   Value     σ Interval              Verdict           σ Interval          Verdict
+    None (historical s.d. only)      –    2.2%    [−0.23, 0.46]     smaller        1.9%   [0.49, 2.11]    consistent
+    2016                          4.4%    4.4%    [−0.57, 0.81]     inconclusive   4.4%   [−0.59, 3.20]   inconclusive
+    2017                          2.1%    2.2%    [−0.23, 0.46]     smaller        2.1%   [0.39, 2.22]    consistent
+    2018 (pre-stated)             1.3%    2.2%    [−0.23, 0.46]     smaller        1.9%   [0.49, 2.11]    consistent
+    pooled 2016–2018              4.7%    4.7%    [−0.61, 0.85]     inconclusive   4.7%   [−0.70, 3.30]   inconclusive
+    growth 2015–2016              1.5%    2.2%    [−0.23, 0.46]     smaller        1.9%   [0.49, 2.11]    consistent
+    growth 2015–2017              0.7%    2.2%    [−0.23, 0.46]     smaller        1.9%   [0.49, 2.11]    consistent
+    growth 2015–2018              4.2%    4.2%    [−0.54, 0.78]     inconclusive   4.2%   [−0.50, 3.11]   inconclusive
+    growth pooled 2015–2018       4.0%    4.0%    [−0.51, 0.74]     smaller        4.0%   [−0.41, 3.02]   inconclusive
+B   Tables                                                                                                          22
+
+
+
+
+Table A5: Distributors’ revenue split into subscribers and revenue per subscriber (post hoc; rule
+fixed before computing). Panel (a): CRTC subscriber counts (2016 edition to 2015, 2020 edi-
+tion after) and revenue per subscriber per month, against the report’s baseline subscribers (Fig. 17)
+and its revenue per subscriber, baseline revenue over 12 times subscribers (Fig. 19’s average rev-
+enue per unit, ARPU, shown for comparison). Panel (b): the change in each gap from 2014,
+when the report’s figures were actuals, against the report’s scenario, whose subscriber part is its
+added cord cutting (Tables 5, 20, 21) and whose per-subscriber part is everything else; the last
+two columns are the report’s chain recalculated with uptake held at the CRTC’s June 2016 count,
+and on the survey path (outside the plan’s rule), other dollar components fixed. Produced by
+scripts/decompose_bdu_lttv.py; data in data/derived/bdu_decomposition_lttv.csv.
+                                                     (a) Levels
+                              Subscribers (thousands) Revenue per subscriber ($ a month)
+                      Year    CRTC             Report CRTC Report                       Fig. 19
+                      2012    11,529           11,734     61.88     61.59                  61.56
+                      2013    11,517           11,761     63.63     63.25                  63.33
+                      2014    11,405           11,646     65.25     64.79                  64.41
+                      2015    11,247           11,569     66.08     65.21                  64.94
+                      2016    11,090           11,487     65.97     66.37                  66.13
+                      2017    10,899           11,400     65.61     67.84                  67.58
+                      2018    10,820           11,308     64.88     69.48                  69.19
+                      2019    10,552           11,211     66.05     71.34                  71.02
+
+                             (b) Change in the gap from 2014, against the report’s paths
+                      Observed               Report’s reform scenario       Partial recalculation, per subscriber
+       Year   Subscribers Per subscriber Subscribers Per subscriber Held at 1.6%                    Survey path
+       2015       −0.7%             0.6%             –                –               –                       –
+       2016       −1.4%            −1.3%         −0.4%            −1.8%           −0.7%                   −0.7%
+       2017       −2.4%            −4.0%         −0.8%            −4.4%           −1.7%                   −4.4%
+       2018       −2.3%            −7.3%         −1.1%            −6.9%           −2.5%                   −5.2%
+       2019       −3.9%            −8.1%         −1.5%            −7.0%           −2.5%                   −5.3%
+B   Tables                                                                                               23
+
+
+
+
+Table A6: Staff counts from the CRTC’s financial summaries (channels: discretionary and on-
+demand services, exempt services excluded from 2016; distributors: cable, satellite and IPTV, labelled
+“Total Staff Count (FTE)” in the 2016 edition and “Total Staff Count” in the 2020 edition), the 2012–
+2015 linear trend, and the report’s forecast change in direct employment for each sector, in full-time
+equivalents below its baseline (Table 22). Staff counts aren’t the report’s modelled FTEs. Produced
+by scripts/employment_lttv.py.
+                                   2012    2013   2014     2015   2016       2017   2018   2019   2020
+     Channels: staff                  6,176 6,116 6,198 5,899 5,255 4,769 4,705 4,403 3,940
+       2012–2015 trend                6,210 6,135 6,060 5,985 5,910 5,835 5,760 5,685 5,610
+       Forecast direct change (FTEs)                           0 −180 −440 −730 −800 −870
+     Distributors: staff             28,793 28,894 29,086 27,244 26,815 27,056 26,103 27,887 25,768
+       2012–2015 trend               29,173 28,727 28,281 27,836 27,390 26,944 26,499 26,053 25,607
+       Forecast direct change (FTEs)                           0 −730 −1,730 −2,710 −2,910 −3,110
+
+
+
+
+Table A7: The report’s forecast employment shortfalls in 2020, in FTEs, by the sector whose lost
+revenue or spending gives rise to them and by kind of effect (Tables 1, 22, 23; paras. 246, 248, 250).
+Direct employment is within that sector; spin-off employment is the indirect and induced employ-
+ment in other sectors (Table 1, note, p. 12). The headline split (direct and spin-off) and the sector
+split (broadcasting and production) cross-classify the same total. Broadcasting’s printed components
+sum to 10 more spin-off FTEs than its printed total, a difference consistent with rounding.
+                      Sector                             Direct   Spin-off      Total
+                      Broadcasting (printed total)       4,000      3,950       7,950
+                        Distributors                     3,110      1,900       5,010
+                        Specialty and pay services         870      2,010       2,880
+                        Private conventional stations       20         50          70
+                      Independent production             2,830      4,350       7,180
+                      Total                              6,830      8,300      15,130
+B   Tables                                                                                         24
+
+
+
+
+Table A8: Order of the analyses. Commit identifiers refer to the replication repository, listed in the
+order the commits were made.
+       Step                                                     Status                  Commit
+       Prediction record frozen                                 pre-stated              5277480
+       Analysis plan; lead case                                 pre-stated              ea0564b
+       Design analysis and reading rules                        pre-stated              08a6180
+       Quantity definitions, splice rule, verdict bands, Net-   pre-stated              66f9c25
+       flix calibration rule
+       Outcome data first opened; exempt services re-           post hoc                c2e6fa4
+       moved; series rescaled to the report’s 2014 (sensitiv-
+       ity); affiliation payments as a pass-through observ-
+       able
+       Closure and uptake definitions                        after revenue outcomes; be- 1e61069
+                                                             fore these sources
+       Closures reported as bounds; multiverse over calib- post hoc                      40c7076
+       rations
+       Growth-based calibrations                             post hoc                    187b4c5
+       Direct employment (reading rule 6; the 2012–2015 comparison rule pre-stated; f952668
+       trend comparator chosen then)                         trend comparator post hoc
+       Partial recalculations under assumed uptake; fees post hoc                        ecde24b
+       per subscriber against Table 14
+       Uptake scenarios held flat per year                   post hoc, correction        cc360dd
+       Rising uptake paths                                   post hoc                    ff1154c
+       Changes stated after inflation (descriptive)          post hoc                    764a690
+       Model check and offset model                          post hoc                    3867d78
+       Rule for splitting distributors’ revenue into sub- post hoc, fixed before com- 4a722a0
+       scribers and revenue per subscriber                   puting
+       That split; corrected residual check; coverage check; post hoc                    2bbb326
+       sensitivity display extended to the planned 8%
+       Survey uptake path (MTM 2017, outside the plan’s post hoc, fixed before com- 026f602
+       sources)                                              puting
+       Survey path computed and reported beside the post hoc                             ed8961d
+       planned reading
+
