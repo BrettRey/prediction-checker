@@ -113,7 +113,7 @@ for ax, (q, title) in zip(axes, SERIES):
     ax.text(100 * s_pre - 0.08, 4.9, "designated", fontsize=7.5, color=COLORS["dark"], rotation=90, ha="right", va="top")
     ax.set_title(title, fontsize=10)
     ax.set_xlim(1, 8)
-    ax.set_xlabel("Annual error scale of the baseline, σ (%)")
+    ax.set_xlabel("Assumed error scale of the baseline, σ (% a year)")
 axes[0].set_ylim(-2.5, 5)
 axes[0].set_ylabel("$k$ (0 = baseline, 1 = reform path)")
 handles, labels = axes[0].get_legend_handles_labels()
