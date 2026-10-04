@@ -141,6 +141,32 @@ for q, tag in (("specialty_pay_revenue", "Spec"), ("bdu_revenue", "BDU")):
     M[f"lttvK{tag}SEsFromZero"] = f"{abs(k_) / se_:.1f}"
     M[f"lttvK{tag}SEsFromOne"] = f"{abs(1 - k_) / se_:.1f}"
     M[f"lttvK{tag}SEsFromBandLo"] = f"{abs(float(b['band_lo']) - k_) / se_:.1f}"
+
+
+def num0(x, d=2):        # like num, but a value that rounds to zero prints without a sign
+    return num(0.0 if round(x, d) == 0 else x, d)
+
+
+# [post hoc] 50% intervals at the designated scale (display only; the verdict rule uses 95%)
+Z50 = 0.6744897501960817
+for q, tag in (("specialty_pay_revenue", "Spec"), ("bdu_revenue", "BDU")):
+    k_, se_, _ = kse[q]
+    M[f"lttvK{tag}LoFifty"] = num0(k_ - Z50 * se_)
+    M[f"lttvK{tag}HiFifty"] = num0(k_ + Z50 * se_)
+# [post hoc] sigma integrated out (scripts/sigma_integrated_lttv.py)
+for r in rows("sigma_integrated_lttv.csv"):
+    tag = {"specialty_pay_revenue": "Spec", "bdu_revenue": "BDU"}[r["quantity"]]
+    pr = ("Unif" if r["prior"].startswith("uniform") else "Hist") + ("" if r["sigma_from"] == "prior and outcomes" else "Only")
+    assert abs(float(r["k_hat"]) - kse[r["quantity"]][0]) < 1e-4, r  # same estimate as the pre-stated reading
+    for col, name in (("lo95", "Lo"), ("hi95", "Hi"), ("lo50", "LoFifty"), ("hi50", "HiFifty")):
+        M[f"lttvKInt{tag}{pr}{name}"] = num0(float(r[col]))
+    for col, name in (("sigma_median", "SigmaMed"), ("sigma_lo95", "SigmaLo"), ("sigma_hi95", "SigmaHi")):
+        M[f"lttvKInt{tag}{pr}{name}"] = pct(float(r[col]), 1)
+_si = rows("sigma_integrated_lttv.csv")
+_r = next(r for r in _si if r["quantity"] == "bdu_revenue" and r["prior"].startswith("historical") and r["sigma_from"] == "prior only")
+M["lttvKIntBDUHistOnlyLoThree"] = num(float(_r["lo95"]), 3)
+M["lttvKIntBDUHistOnlyLoWide"] = num(float(_r["lo95_grid100"]), 2)
+M["lttvKIntGridShiftMax"] = f"{max(max(abs(float(r['lo95_grid100']) - float(r['lo95'])), abs(float(r['hi95_grid100']) - float(r['hi95']))) for r in _si):.2f}"
 cut = {r["quantity"]: float(r["sigma_inconclusive_from"]) for r in rows("crtc_lttv_cutoffs.csv")
        if r["version"].startswith("as published")}
 # Exact sigma at which each pre-stated verdict turns inconclusive (interval contains both 0 and the

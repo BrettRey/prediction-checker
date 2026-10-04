@@ -263,7 +263,7 @@ check("calibration labels", sorted(cals), sorted(netflix_value))
 short = {"smaller than the forecasters' inputs imply": "smaller", "consistent with the forecast range": "consistent",
          "inconclusive": "inconclusive", "forecast exceeded": "exceeded"}
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",
-      "\\caption{Calibrating the annual error scale \\(\\sigma\\). Intervals are conditional on \\(\\sigma\\) and don't "
+      "\\caption{Calibrating the annual error scale \\(\\sigma\\). Except in the last four rows, intervals are conditional on \\(\\sigma\\) and don't "
       "carry the uncertainty in \\(\\sigma\\) itself. Panel (a): the report's forecast of US Netflix "
       "subscribers (Table~7) against Netflix's US paid memberships at year end (Form 10-K), in millions, with "
       "\\(n_t=\\log(\\text{observed}_t/\\text{forecast}_t)\\). Panel (b): the value each calibration takes from panel (a) "
@@ -272,9 +272,15 @@ L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       f"{num(inp['specialty_pay_revenue']['k'])} for specialty and pay revenue and {num(inp['bdu_revenue']['k'])} for "
       "distributors' revenue under every calibration. Verdicts are the plan's pre-stated labels, applied in this order: \\emph{inconclusive}, the interval "
       "contains both zero and the cited-input band's lower end; \\emph{smaller}, it lies wholly below the band; \\emph{exceeded}, it lies "
-      "wholly above the band; otherwise \\emph{consistent}, it overlaps the band. "
-      "Produced by \\texttt{scripts/netflix\\_calibration.py} and \\texttt{scripts/crtc\\_outcomes\\_lttv.py}; data in "
-      "\\texttt{data/derived/netflix\\_calibration.csv} and \\texttt{data/derived/crtc\\_lttv\\_multiverse.csv}.}",
+      "wholly above the band; otherwise \\emph{consistent}, it overlaps the band. The last four rows (post hoc) integrate \\(\\sigma\\) out "
+      "instead of fixing it, under a uniform prior on the plan's range of 1\\% to 8\\% a year or with the report's 2010--2014 volatility "
+      "treated as data, first with the 2016--2019 outcomes also informing \\(\\sigma\\) (the version specified in advance), then with the "
+      "prior alone; there \\(\\sigma\\) is the posterior median and the interval the central 95\\% of the posterior for \\(k\\) "
+      "(appendix~\\ref{app:methods}). "
+      "Produced by \\texttt{scripts/netflix\\_calibration.py}, \\texttt{scripts/crtc\\_outcomes\\_lttv.py} and "
+      "\\texttt{scripts/sigma\\_integrated\\_lttv.py}; data in "
+      "\\texttt{data/derived/netflix\\_calibration.csv}, \\texttt{data/derived/crtc\\_lttv\\_multiverse.csv} and "
+      "\\texttt{data/derived/sigma\\_integrated\\_lttv.csv}.}",
       "\\label{tab:calibrations}",
       "\\footnotesize",
       "(a) \\textit{The report's forecast and Netflix's count}\\par\\smallskip",
@@ -304,6 +310,22 @@ for c in cals:
         cells.append(f"{pct(s)} & [{num(float(r['ci_lo']))}, {num(float(r['ci_hi']))}] & {short.get(verdict, verdict)}")
     name = "None (historical s.d. only)" if v is None else lab(c)
     L.append(f"{name} & {'--' if v is None else pct(v)} & " + " & ".join(cells) + " \\\\")
+# [post hoc] sigma integrated out (scripts/sigma_integrated_lttv.py): posterior median of sigma, central 95% of k
+si = rows("sigma_integrated_lttv.csv")
+L.append("\\midrule")
+for prior, src, name in (("uniform", "prior and outcomes", "\\(\\sigma\\) integrated, uniform 1--8\\%"),
+                         ("historical", "prior and outcomes", "\\(\\sigma\\) integrated, history as data"),
+                         ("uniform", "prior only", "\\(\\sigma\\) from prior alone, uniform 1--8\\%"),
+                         ("historical", "prior only", "\\(\\sigma\\) from prior alone, history as data")):
+    cells = []
+    for q, _ in SERIES:
+        r = next(r for r in si if r["quantity"] == q and r["prior"].startswith(prior) and r["sigma_from"] == src)
+        check(f"integrated estimate, {q}, {prior}, {src}", round(float(r["k_hat"]), 2), round(inp[q]["k"], 2))
+        check(f"integrated interval by Monte Carlo, {q}, {prior}, {src}",
+              abs(float(r["mc_lo95"]) - float(r["lo95"])) < 0.03 and abs(float(r["mc_hi95"]) - float(r["hi95"])) < 0.03, True)
+        verdict = r["verdict95"].split(" (")[0]
+        cells.append(f"{pct(float(r['sigma_median']), 1)} & [{num(float(r['lo95']))}, {num(float(r['hi95']))}] & {short.get(verdict, verdict)}")
+    L.append(f"{name} & -- & " + " & ".join(cells) + " \\\\")
 L += ["\\bottomrule", "\\end{tabular}", "\\end{table}", ""]
 
 # Decomposition of distributors' revenue (post hoc)
@@ -417,6 +439,8 @@ chron = [
     ("Survey uptake path (Media Technology Monitor 2017, outside the plan's sources)", "post hoc, fixed before computing", "026f602"),
     ("Survey path computed and reported beside the planned reading", "post hoc", "ed8961d"),
     ("Closures classified by 2015 owner, as the plan specified (Shaw Media's services from CRTC ownership charts)", "post hoc, correction", "44e281f"),
+    ("Error scale integrated out under two priors; 50\\% intervals shown beside the 95\\% ones", "post hoc, fixed before computing", "6e71cad"),
+    ("Error scale from the prior alone (computed after the version above)", "post hoc", "f6ea949"),
 ]
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       "\\caption{Order of the analyses. Commit identifiers refer to the replication repository, listed in the order the commits were made.}",

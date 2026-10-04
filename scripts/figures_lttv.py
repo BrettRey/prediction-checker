@@ -8,7 +8,7 @@ Figure 1 (figures/lttv_paths): each revenue series relative to the report's
   recalculation of its chain at the uptake the CRTC counted (post hoc), and the 95%
   range of the no-reform outcome at the designated sigma. Both panels share
   one percentage scale.
-Figure 2 (figures/lttv_k_sigma): k and its 95% interval as a function of the
+Figure 2 (figures/lttv_k_sigma): k and its 95% and 50% intervals as a function of the
   assumed annual baseline error sigma, with the calibrations marked and the
   band implied by the forecasters' cited inputs shaded.
 """
@@ -100,6 +100,9 @@ for ax, (q, title) in zip(axes, SERIES):
     ax.axhspan(lo, hi, color=COLORS["light"], lw=0, label="Cited-input band")
     ax.fill_between(100 * grid, k - 1.96 * se_pre * grid / s_pre, k + 1.96 * se_pre * grid / s_pre,
                     color=COLORS["accent"], alpha=0.35, lw=0, label="95% interval for $k$")
+    z50 = 0.6744897501960817  # [post hoc] 50% interval, display only
+    ax.fill_between(100 * grid, k - z50 * se_pre * grid / s_pre, k + z50 * se_pre * grid / s_pre,
+                    color=COLORS["accent"], alpha=0.45, lw=0, label="50% interval")
     ax.axhline(k, color=COLORS["primary"], lw=1.4, label="Estimate $\\hat{k}$")
     ax.axhline(0, color=COLORS["dark"], lw=0.8)
     ax.axhline(1, color=TEXT["secondary"], lw=0.8, ls="--", label="Reform path ($k=1$)")
@@ -114,7 +117,7 @@ for ax, (q, title) in zip(axes, SERIES):
 axes[0].set_ylim(-2.5, 5)
 axes[0].set_ylabel("$k$ (0 = baseline, 1 = reform path)")
 handles, labels = axes[0].get_legend_handles_labels()
-fig.legend(handles, labels, loc="lower center", ncol=4, fontsize=8, frameon=False, bbox_to_anchor=(0.5, -0.02))
+fig.legend(handles, labels, loc="lower center", ncol=5, fontsize=8, frameon=False, bbox_to_anchor=(0.5, -0.02))
 fig.tight_layout(rect=(0, 0.1, 1, 1))
 save_figure(fig, FIG / "lttv_k_sigma")
 plt.close(fig)

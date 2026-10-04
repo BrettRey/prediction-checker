@@ -25,7 +25,7 @@ SEC_UA="Your Name you@example.com" bash scripts/fetch_raw.sh
 
 # 2. Run the analysis, in this order.
 for s in extract_nordicity_figures cpi_canada netflix_calibration design_analysis_lttv \
-         crtc_outcomes_lttv closures_lttv cpe_lttv employment_lttv input_checks_lttv \
+         crtc_outcomes_lttv sigma_integrated_lttv closures_lttv cpe_lttv employment_lttv input_checks_lttv \
          decompose_bdu_lttv model_check_lttv figures_lttv make_tex_numbers make_tex_tables; do
   python3 scripts/$s.py
 done
