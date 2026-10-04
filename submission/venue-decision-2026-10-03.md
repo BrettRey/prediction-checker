@@ -7,7 +7,7 @@
 - [x] Manuscript title: working, "Checking a forecast put to Parliament: unbundling Canadian television, 2016–2019" (to settle with Brett)
 - [x] Proposed venue: *Econ Journal Watch*
 - [x] Article type / section: full article; "Economics in Practice" ("whether economists ... seriously test their ideas") is the closest section; Kane (2026), the exemplar, ran in "Investigating the Apparatus". Editors place papers, so name no section in the cover note beyond the fit.
-- [x] Venue URL / author instructions checked: econjwatch.org/call-for-papers (fetched); "Instructions for Authors & Style Guide" (content via search summary only; read the page itself before submission); section descriptions page (fetched).
+- [x] Venue URL / author instructions checked: econjwatch.org/call-for-papers (fetched); "Instructions for Authors & Style Guide" (page read 2026-10-03: "All submissions should include an abstract of up to 200 words, plus a list of keywords"; Word, ODT or LaTeX; "Numbers, letters, or Roman numerals should not be used to divide sections"; no JEL instruction on the page, but every article page lists JEL codes, so supply them); section descriptions page (fetched).
 - [x] Date checked: 2026-10-03
 - [x] Decision owner: Brett ("draft for Econ Journal Watch", 2026-10-03)
 - [x] Assisting agent/model: Claude Opus 5.5
