@@ -416,6 +416,7 @@ chron = [
     ("The revenue split; corrected residual check; coverage check; sensitivity display extended to the planned 8\\%", "post hoc", "2bbb326"),
     ("Survey uptake path (Media Technology Monitor 2017, outside the plan's sources)", "post hoc, fixed before computing", "026f602"),
     ("Survey path computed and reported beside the planned reading", "post hoc", "ed8961d"),
+    ("Closures classified by 2015 owner, as the plan specified (Shaw Media's services from CRTC ownership charts)", "post hoc, correction", "44e281f"),
 ]
 L += ["\\begin{table}[htbp]", "\\centering", "\\small",
       "\\caption{Order of the analyses. Commit identifiers refer to the replication repository, listed in the order the commits were made.}",
