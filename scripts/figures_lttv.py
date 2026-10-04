@@ -82,7 +82,7 @@ for ax, (q, title) in zip(axes, SERIES):
     ax.set_xlim(2011.7, 2019.3)
     add_grid(ax, axis="y")
 axes[0].set_ylabel("Difference from the\nreport's baseline (%)")
-axes[0].text(2015.6, axes[0].get_ylim()[1] * 0.92, "rules in force", fontsize=8, color=COLORS["dark"])
+axes[0].text(2015.6, axes[0].get_ylim()[1] * 0.92, "rules phased in", fontsize=8, color=COLORS["dark"])
 handles, labels = axes[0].get_legend_handles_labels()
 fig.legend(handles, labels, loc="lower center", ncol=3, fontsize=8, frameon=False, bbox_to_anchor=(0.5, -0.02))
 fig.tight_layout(rect=(0, 0.12, 1, 1))
