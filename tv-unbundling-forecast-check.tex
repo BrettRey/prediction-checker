@@ -7,9 +7,12 @@
 % (the default, half, gave figure 1 a page with the lower half empty)
 \renewcommand{\floatpagefraction}{0.75}
 
+% Captions: small-caps label (the house font has no bold) and smaller type, so
+% they don't read as body text.
 % Table captions sit above the tables; put the caption skip between caption and
 % table (plain LaTeX puts it above the caption and none below)
 \usepackage{caption}
+\captionsetup{font=small, labelfont=sc}
 \captionsetup[table]{position=top, skip=12pt}
 
 % Numbers for the case sections, generated from data/derived/ (do not edit)
