@@ -48,7 +48,7 @@ The preliminary bullets written here when the outcome data were first opened are
 - **Partial recalculations** [post hoc]: among the uptake paths tested, at the designated scale, only a linear rise to 4% by 2019 keeps both series compatible (scenario coefficients 0.43 and 0.52).
 - **Distributors' revenue split** [post hoc; rule fixed before computing]: by 2019, measured from 2014, subscribers were 3.9% below the baseline path (reform scenario 1.5%) and revenue per subscriber 8.1% below (reform scenario 7.0%).
 - **Payments.** Affiliation payments to Canadian channels per subscriber rose 10.5% from 2015 to 2019, against 1.6% for the report's baseline carriage fee, and the Canadian share stayed near 87.8%. The aggregates can't show what fees would have been without the decisions, so they don't test the pass-through.
-- **Closures.** Integrated companies' Category A and B channels: 8% to 11% against the report's 10%. Independents: 6% to 33% against 25%, too wide to test.
+- **Closures.** Integrated companies' Category A and B channels, classified by 2015 owner as the plan specifies (Shaw Media's 19 services from the CRTC ownership charts of 2016-03-31): 5% to 7%, below the report's 10%; with Corus counted as integrated, as the report grouped it: 6% to 11%. Independents: 7% to 39% (or 7% to 44%) against 25%, too wide to test.
 - **Testimony.** Two departures from the report ("media jobs" for an economy-wide total; the 18% presented as a share of current spending) and the uptake assumption left out. "Direct result" is the report's own causal attribution, so the paper doesn't count it as a departure (see the note under table B).
 
 ## Intervention as enacted

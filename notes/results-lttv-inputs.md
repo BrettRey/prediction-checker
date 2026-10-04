@@ -24,6 +24,8 @@ Report: by 2020, 10% of vertically integrated Category A/B services and 25% of i
 | False | VI A/B | 38 | 34 | 3 | 1 | 8%-10% |
 | True | independent A/B | 85 | 48 | 6 | 31 | 7%-44% |
 | True | VI A/B | 80 | 71 | 5 | 4 | 6%-11% |
+| plan_2015_owner | independent A/B | 108 | 66 | 8 | 34 | 7%-39% |
+| plan_2015_owner | VI A/B | 57 | 53 | 3 | 1 | 5%-7% |
 
 Vertically integrated: the bounds sit around the report's 10% and below the 25-26% it cites from Bell and Oliver Wyman. Independent: too wide to compare with 25%. The plan's ownership rule (2015 owner, with Shaw Media as vertically integrated) couldn't be applied directly: the 2016-vintage owner field already lists the former Shaw Media services under Corus. The two versions shown (Corus in, Corus out) bracket the planned classification.
 
