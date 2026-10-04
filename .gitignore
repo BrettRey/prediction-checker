@@ -13,7 +13,7 @@
 *.xdv
 
 # Build products (placeholder manuscript; commit PDFs deliberately when there is text)
-/main.pdf
+/tv-unbundling-forecast-check.pdf
 /prediction-checker.pdf
 
 # Raw agent output and intake material (not for publication)
@@ -40,3 +40,6 @@ notes/passes/**/codex-std*.txt
 
 # Drafted correspondence naming people; kept private until sent (Brett decides)
 correspondence/
+
+# Venue strategy (journal-reader contract, desk and reviewer risks): internal deliberation, not published (Brett, 2026-10-04)
+submission/venue-decision-*.md

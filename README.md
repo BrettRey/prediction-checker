@@ -4,7 +4,7 @@ When experts tell Canadian legislators, regulators or courts what a decision wil
 
 ## The paper
 
-*Checking a forecast put to Parliament: unbundling Canadian television, 2016–2019* (draft, `main.tex`). In April 2016 a House of Commons committee heard that the CRTC's *Let's Talk TV* rules would cost 15,130 media jobs by 2020. The figure came from Nordicity and Peter Miller's report *Canadian Television 2020* (December 2015). The paper compares the report's revenue predictions with CRTC data for 2016–2019, adds descriptive checks of uptake, payments to Canadian channels, closures and staff counts, and compares the report with what the committee was told. It doesn't test the job total or the decisions' causal effect.
+*Checking a forecast put to Parliament: unbundling Canadian television, 2016–2019* (draft, `tv-unbundling-forecast-check.tex`). In April 2016 a House of Commons committee heard that the CRTC's *Let's Talk TV* rules would cost 15,130 media jobs by 2020. The figure came from Nordicity and Peter Miller's report *Canadian Television 2020* (December 2015). The paper compares the report's revenue predictions with CRTC data for 2016–2019, adds descriptive checks of uptake, payments to Canadian channels, closures and staff counts, and compares the report with what the committee was told. It doesn't test the job total or the decisions' causal effect.
 
 The forecast record and the analysis plan were committed before any CRTC outcome file was downloaded:
 
@@ -39,12 +39,12 @@ Some inputs are encoded from documents rather than downloaded. One example is th
 
 ## Building the manuscript
 
-`main.tex` builds with XeLaTeX and biber (`make`) inside Brett Reynolds's portfolio. `.house-style/` (preamble and shared bibliography) and `references.bib` are symlinks to files outside this repository, so a standalone clone can reproduce every number, table and figure but can't build the PDF without them. `scripts/plot_style.py` is a copy of the house plotting style, so the figures do build standalone.
+`tv-unbundling-forecast-check.tex` builds with XeLaTeX and biber (`make`) inside Brett Reynolds's portfolio. `.house-style/` (preamble and shared bibliography) and `references.bib` are symlinks to files outside this repository, so a standalone clone can reproduce every number, table and figure but can't build the PDF without them. `scripts/plot_style.py` is a copy of the house plotting style, so the figures do build standalone.
 
 ## Layout
 
 ```
-main.tex, sections/          the paper; sections/numbers-lttv.tex and the tables are generated
+tv-unbundling-forecast-check.tex, sections/  the paper; sections/numbers-lttv.tex and the tables are generated
 scripts/                     data download (fetch_raw.sh) and analysis
 data/raw/                    downloaded sources (gitignored); data/derived/: analysis outputs
 data/README.md               licence register for every source

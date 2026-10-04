@@ -3,16 +3,16 @@
 # Configuration
 LATEX = xelatex
 BIBER = biber
-MAIN = main
-PDF_BASENAME ?= $(notdir $(CURDIR))
+MAIN = tv-unbundling-forecast-check
+PDF_BASENAME ?= $(MAIN)
 SUBMISSION_PDF = $(PDF_BASENAME).pdf
 OUTDIR = .
 
 # Targets
 .PHONY: all quick refresh-submission-pdf clean distclean view help test
 
-# Default target: build the internal PDF and a named submission/preprint copy
-all: $(SUBMISSION_PDF)
+# Default target: build the PDF
+all: $(MAIN).pdf
 
 # Full build sequence with bibliography
 $(MAIN).pdf: $(MAIN).tex references.bib
@@ -25,9 +25,6 @@ $(MAIN).pdf: $(MAIN).tex references.bib
 	@echo "==> Third LaTeX pass (finalizing)..."
 	$(LATEX) -output-directory=$(OUTDIR) $(MAIN).tex
 	@echo "==> Build complete: $(MAIN).pdf"
-
-$(SUBMISSION_PDF): $(MAIN).pdf
-	@$(MAKE) --no-print-directory refresh-submission-pdf
 
 refresh-submission-pdf:
 	@if [ "$(SUBMISSION_PDF)" != "$(MAIN).pdf" ]; then \
@@ -75,7 +72,7 @@ test:
 # Show available targets
 help:
 	@echo "Available targets:"
-	@echo "  make          - Build main.pdf plus named submission/preprint PDF"
+	@echo "  make          - Build the PDF"
 	@echo "  make quick    - Quick build (single pass) and refresh named PDF"
 	@echo "  make lualatex - Build using LuaLaTeX (not recommended)"
 	@echo "  make clean    - Remove build artifacts (keep PDF)"
