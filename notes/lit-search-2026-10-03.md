@@ -67,3 +67,5 @@ Queries: `title.search:predictions that didn't come true` (2, off-topic); `title
 ## To read before drafting the introduction
 
 Open copies: Hughes 2003; Davis and Zboralska 2017; MacLeod, Moran and Harrington 2001; the two 2017 *JBCA* retrospectives and the 2023 *JBCA* comparison if open; the EJW 2012 forecast piece. Need library access (Brett): Crawford and Yurukoglu 2012; Crompton 2006; Siegfried and Zimbalist 2000; Hodges 1997; Hammitt 2000; the full Harrington et al. paper.
+
+- Addendum 2026-10-04: "Hammitt 2000" is Hammitt, J. K. (2000), "Are the costs of proposed environmental regulations overestimated? Evidence from the CFC phaseout", *Environmental and Resource Economics* 16(3): 281-302, doi:10.1023/A:1008352022368 (OpenAlex; no open copy). A single-case ex ante/ex post study of the CFC phaseout; Harrington et al. (1999) draw on Hammitt (1997) for the same case. Not read; low priority for this paper.
