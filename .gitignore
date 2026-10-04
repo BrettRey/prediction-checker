@@ -46,3 +46,8 @@ submission/venue-decision-*.md
 
 # EJW LaTeX template files (no licence stated; download link in README.md)
 /ejw/
+
+# Submission bundle and attachment copies (the bundle includes EJW's class files, which state no licence)
+submission/ejw-source-*/
+submission/*.zip
+submission/*.pdf
