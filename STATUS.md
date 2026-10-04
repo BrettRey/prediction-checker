@@ -15,7 +15,7 @@ claim:
 ---
 
 # Prediction checker
-<!-- SUMMARY: audit of a forecast put to Parliament (CRTC Let's Talk TV); full EJW draft (24 pp., 2 figures, tables A1–A8); truth/fairness round done: MTM 2017 survey reported beside the planned uptake reading (outcomes fit the report's chain only on low uptake paths), testimony criticism narrowed to three specific departures; numbers, inference, quote, negative-claims and fairness passes current after two Codex rechecks; nothing pushed · status: development (drafting for EJW) · updated: 2026-10-03 -->
+<!-- SUMMARY: audit of a forecast put to Parliament (CRTC Let's Talk TV); full EJW draft (24 pp., 2 figures, tables A1–A8); truth/fairness round done: MTM 2017 survey reported beside the planned uptake reading (outcomes fit the report's chain only on low uptake paths), testimony criticism narrowed to three specific departures; restructured after clarity passes, rechecked (Codex recheck 3) and scar-tissue pass done; numbers and quote audits current; reader-pass next; nothing pushed · status: development (drafting for EJW) · updated: 2026-10-03 -->
 
 ## State
 
@@ -25,7 +25,7 @@ Forecast-side sources for cases 1 and 2 read and filed in `literature/` (JUST 36
 
 ## Next action
 
-1. Clarity passes on the settled text: `contribution-alignment`, `terminological-hygiene`, then `reader-pass` and `coherence-cohesion` (expensive), `figures`. Then `source-reread` (expensive) as the last truthfulness pass.
+1. Done 2026-10-03: `contribution-alignment` and `terminological-hygiene` applied (eight-stage restructure), Codex recheck 3 of the restructure (all eight findings fixed, 24906c5), `editorial-scar-tissue` (2ece90d). Next: `reader-pass` and `coherence-cohesion` (expensive), `figures`; then `source-reread` (expensive) as the last truthfulness pass. Stale on the board and worth a cheap rerun after the reader pass: `statistical-inference-audit`, `charitable-engagement`, `negative-claims-audit` (prose moved, no new analyses).
 2. Still open from Elicit round 1: whether the report's baseline includes the Super Bowl simultaneous-substitution change (T10 unverified) and any 2016 CRTC local-TV measures.
 3. Library-access readings before submission: Crawford and Yurukoglu 2012, Crompton 2006, Siegfried and Zimbalist 2000, Hodges 1997, full Harrington et al. 2000.
 4. After the clarity passes: draft the factual-check email to Peter Miller/Nordicity and Friends of Canadian Broadcasting (passages on the report, its mechanics as read here, and the testimony; corrections of fact invited, not approval), saved as a file for Brett to edit and send.
